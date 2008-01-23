@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>search (Wowr::API)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File wowr.rb, line 122</span>
+                <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>})
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@search_types</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:type</span>]
+                                <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidSearchType</span>.<span class="ruby-identifier">new</span>
+                        <span class="ruby-keyword kw">end</span>
+                        
+                        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_yaml</span>
+                        
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:search</span>].<span class="ruby-identifier">nil?</span>
+                                <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NoSearchString</span>.<span class="ruby-identifier">new</span>
+                        <span class="ruby-keyword kw">end</span>
+                        
+                        <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@search_url</span>, <span class="ruby-identifier">options</span>)
+                        
+                        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">xml</span>
+                                                                        
+                        <span class="ruby-identifier">results</span> = []
+                        
+                        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span>)
+                                <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:type</span>]
+                                
+                                        <span class="ruby-comment cmt"># TODO: Filter stuff</span>
+                                        <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:item</span>]
+                                                (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'items'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:item</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+                                                        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">SearchItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">item</span>)
+                                                <span class="ruby-keyword kw">end</span>
+                                        
+                                        <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:character</span>]
+                                                (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'characters'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:character</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
+                                                        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">Character</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">char</span>)
+                                                <span class="ruby-keyword kw">end</span>
+                                        
+                                        <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:guild</span>]
+                                                (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'guilds'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:guild</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">guild</span><span class="ruby-operator">|</span>
+                                                        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">Guild</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">guild</span>)
+                                                <span class="ruby-keyword kw">end</span>
+                                        
+                                        <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:arena_team</span>]
+                                                (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'arenaTeams'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:arenaTeam</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">team</span><span class="ruby-operator">|</span>
+                                                        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ArenaTeam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">team</span>)
+                                                <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-keyword kw">end</span>
+                        
+                        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">results</span>
+                <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

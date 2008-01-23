@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Wowr::Classes::ItemTooltip)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/classes.rb, line 753</span>
+                        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
+                                <span class="ruby-ivar">@id</span>                                                                 = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'id'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@name</span>                                                               = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'name'</span>).<span class="ruby-identifier">html</span>
+                                <span class="ruby-ivar">@icon</span>                                                               = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'icon'</span>).<span class="ruby-identifier">html</span>
+                                <span class="ruby-ivar">@desc</span>                                                               = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'desc'</span>).<span class="ruby-identifier">html</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'desc'</span>)
+                                <span class="ruby-ivar">@overall_quality_id</span> = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'overallQualityId'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@bonding</span>                                            = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonding'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@stackable</span>                                  = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'stackable'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'stackable'</span>)
+                                <span class="ruby-ivar">@max_count</span>                                  = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'maxCount'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'maxCount'</span>)
+                                <span class="ruby-ivar">@class_id</span>                                           = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'classId'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@required_level</span>                     = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'requiredLevel'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'requiredLevel'</span>)
+                                
+                                <span class="ruby-ivar">@equipData</span>                                  = <span class="ruby-constant">ItemEquipData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'equipData'</span>)
+                                
+                                <span class="ruby-comment cmt"># TODO: This appears to be a plain string at the moment</span>
+                                <span class="ruby-comment cmt">#&lt;gemProperties&gt;+26 Healing +9 Spell Damage and 2% Reduced Threat&lt;/gemProperties&gt;</span>
+                                <span class="ruby-ivar">@gem_properties</span>                     = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'gemProperties'</span>).<span class="ruby-identifier">html</span> <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'gemProperties'</span>)
+                                
+                                <span class="ruby-comment cmt"># not all items have damage data</span>
+                                <span class="ruby-ivar">@damage</span>                                                     = <span class="ruby-constant">ItemDamageData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'damageData'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'damageData'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">empty?</span>
+
+                                
+                                <span class="ruby-comment cmt"># TODO: Test socket data with a variety of items</span>
+                                <span class="ruby-comment cmt"># TODO: replace with socket Class?</span>
+                                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'socketData'</span>)
+                                        <span class="ruby-ivar">@sockets</span> = []
+                                        (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'socketData'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:socket</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-ivar">@sockets</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">socket</span>[<span class="ruby-identifier">:color</span>]
+                                        <span class="ruby-keyword kw">end</span>
+                                        
+                                        <span class="ruby-ivar">@socket_match_enchant</span> = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'socketData'</span><span class="ruby-operator">%</span><span class="ruby-value str">'socketMatchEnchant'</span>)
+                                <span class="ruby-keyword kw">end</span>
+                                
+                                
+                                <span class="ruby-comment cmt"># When there is no data, stats are not present in @bonuses</span>
+                                <span class="ruby-comment cmt"># TODO: When there is no stats at all, @bonuses shouldn't be set</span>
+                                <span class="ruby-ivar">@bonuses</span> = {}
+                                
+                                <span class="ruby-identifier">bonus_stats</span> = {
+                                        <span class="ruby-identifier">:strength</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:bonusStrength</span>,
+                                        <span class="ruby-identifier">:agility</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:bonusAgility</span>,
+                                        <span class="ruby-identifier">:stamina</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:bonusStamina</span>,
+                                        <span class="ruby-identifier">:intellect</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:bonusIntellect</span>,
+                                        <span class="ruby-identifier">:spirit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:bonusSpirit</span>
+                                }
+                                <span class="ruby-identifier">bonus_stats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stat</span>, <span class="ruby-identifier">xml_elem</span><span class="ruby-operator">|</span>
+                                        <span class="ruby-ivar">@bonuses</span>[<span class="ruby-identifier">stat</span>] = <span class="ruby-identifier">test_stat</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">xml_elem</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">test_stat</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">xml_elem</span>)
+                                <span class="ruby-keyword kw">end</span>
+                                
+                                <span class="ruby-comment cmt"># Resistances</span>
+                                <span class="ruby-ivar">@resistances</span> = {}
+                                
+                                <span class="ruby-identifier">resist_stats</span> = {
+                                        <span class="ruby-identifier">:arcane</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:arcaneResist</span>,
+                                        <span class="ruby-identifier">:fire</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:fireResist</span>,
+                                        <span class="ruby-identifier">:frost</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:frostResist</span>,
+                                        <span class="ruby-identifier">:holy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:holyResist</span>,
+                                        <span class="ruby-identifier">:nature</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:natureResist</span>,
+                                        <span class="ruby-identifier">:shadow</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:shadowResist</span>
+                                }
+                                <span class="ruby-identifier">resist_stats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stat</span>, <span class="ruby-identifier">xml_elem</span><span class="ruby-operator">|</span>
+                                        <span class="ruby-ivar">@resistances</span>[<span class="ruby-identifier">stat</span>] = <span class="ruby-identifier">test_stat</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">xml_elem</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">test_stat</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">xml_elem</span>)
+                                <span class="ruby-keyword kw">end</span>
+                                
+                                
+                                <span class="ruby-comment cmt">#@bonuses[:strength]                = (elem/:bonusStrength).html.to_i   if (elem/:bonusStrength)</span>
+                                
+                                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'allowableClasses'</span>)
+                                        <span class="ruby-ivar">@allowable_classes</span> = []
+                                        (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'allowableClasses'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:class</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-ivar">@allowable_classes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">html</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+                                
+                                <span class="ruby-comment cmt"># NOTE not representing armor bonus</span>
+                                <span class="ruby-ivar">@armor</span>                      = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'armor'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">to_i</span>                                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'armor'</span>)
+                                
+                                <span class="ruby-comment cmt"># NOTE not representing max</span>
+                                <span class="ruby-ivar">@durability</span> = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'durability'</span>)[<span class="ruby-identifier">:current</span>].<span class="ruby-identifier">to_i</span>    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'durability'</span>)
+                                
+                                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'spellData'</span>)
+                                        <span class="ruby-ivar">@spells</span> = []
+                                        (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'spellData'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:spell</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spell</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-ivar">@spells</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ItemSpell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">spell</span>)
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+                                
+                                <span class="ruby-ivar">@setData</span> = <span class="ruby-constant">ItemSetData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'setData'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'setData'</span>)
+                                
+                                <span class="ruby-comment cmt"># @item_sources = []</span>
+                                <span class="ruby-comment cmt"># (elem/:itemSource).each do |source|</span>
+                                <span class="ruby-comment cmt">#   @item_sources &lt;&lt; ItemSource.new(source)</span>
+                                <span class="ruby-comment cmt"># end</span>
+                                <span class="ruby-ivar">@item_source</span> = <span class="ruby-constant">ItemSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemSource'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemSource'</span>)      <span class="ruby-comment cmt"># TODO: More than once source?</span>
+                        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

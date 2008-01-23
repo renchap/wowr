@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>character_info (Wowr::Classes::CharacterSheet)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/classes.rb, line 118</span>
+                        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">character_info</span>(<span class="ruby-identifier">elem</span>)
+                                <span class="ruby-comment cmt"># basic info</span>
+                                <span class="ruby-ivar">@name</span>                             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:name</span>]
+                                <span class="ruby-ivar">@level</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:level</span>].<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@char_url</span>   = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:url</span>]
+                                <span class="ruby-ivar">@rank</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:rank</span>].<span class="ruby-identifier">to_i</span>
+                                <span class="ruby-ivar">@title</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:title</span>]
+                                
+                                <span class="ruby-ivar">@klass</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:class</span>]
+                                <span class="ruby-ivar">@klass_id</span>           = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:classId</span>].<span class="ruby-identifier">to_i</span>
+
+                                <span class="ruby-ivar">@gender</span>             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:gender</span>]
+                                <span class="ruby-ivar">@gender_id</span>  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:genderId</span>].<span class="ruby-identifier">to_i</span>
+
+                                <span class="ruby-ivar">@race</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:race</span>]
+                                <span class="ruby-ivar">@race_id</span>            = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:raceId</span>].<span class="ruby-identifier">to_i</span>
+                                
+                                <span class="ruby-ivar">@faction</span>            = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:faction</span>]
+                                <span class="ruby-ivar">@faction_id</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:factionId</span>].<span class="ruby-identifier">to_i</span>
+                                
+                                <span class="ruby-ivar">@guild</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guild</span>]
+                                <span class="ruby-ivar">@guild_url</span>  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guildUrl</span>]
+                                
+                                <span class="ruby-ivar">@realm</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:realm</span>]
+                                
+                                <span class="ruby-ivar">@battle_group</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:battleGroup</span>]
+                                
+                                <span class="ruby-ivar">@last_modified</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:lastModified</span>]<span class="ruby-comment cmt">#.to_time</span>
+                        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

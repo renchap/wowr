@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Wowr::Classes::Melee)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/classes.rb, line 300</span>
+                        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
+                                <span class="ruby-comment cmt"># TODO: Do these not exist anymore?</span>
+                                <span class="ruby-ivar">@main_hand_skill</span>    = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>)
+                                <span class="ruby-ivar">@off_hand_skill</span>     = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>)
+                                
+                                <span class="ruby-ivar">@main_hand_damage</span> = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandDamage'</span>)
+                                <span class="ruby-ivar">@off_hand_damage</span>    = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandDamage'</span>)
+                                
+                                <span class="ruby-ivar">@main_hand_speed</span>    = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandSpeed'</span>)
+                                <span class="ruby-ivar">@off_hand_speed</span>     = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandSpeed'</span>)
+                                
+                                <span class="ruby-ivar">@power</span>                                              = <span class="ruby-constant">WeaponPower</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'power'</span>)
+                                <span class="ruby-ivar">@hit_rating</span>                         = <span class="ruby-constant">WeaponHitRating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'hitRating'</span>)
+                                <span class="ruby-ivar">@crit_chance</span>                        = <span class="ruby-constant">WeaponCritChance</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span>)
+                        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
