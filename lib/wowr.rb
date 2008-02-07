@@ -5,10 +5,10 @@
 # http://benhumphreys.co.uk/
 
 begin
-	require 'lib/hpricot-0.6/hpricot'
+	require 'hpricot' # version 0.6
 rescue LoadError
 	require 'rubygems'
-	require 'hpricot'
+	require 'hpricot' # version 0.6
 end
 require 'net/http'
 require 'cgi'
@@ -26,6 +26,8 @@ module Wowr
 		@@armory_url = 'http://www.wowarmory.com/'
 		@@eu_armory_url = 'http://eu.wowarmory.com/'
 		
+		@@search_url = 'search.xml'
+		
 		@@character_sheet_url = 'character-sheet.xml'
 		@@character_talents_url = 'character-talents.xml'
 		@@character_skills_url = 'character-skills.xml'
@@ -33,18 +35,15 @@ module Wowr
 		
 		@@guild_info_url = 'guild-info.xml'
 		
-		@@search_url = 'search.xml'
-		
 		@@item_info_url = 'item-info.xml'
 		@@item_tooltip_url = 'item-tooltip.xml'
-		
-		@@icon_url = 'http://wowbench.com/images/icons/32x32/'
-		
+
 		@@arena_team_url = 'team-info.xml'
 		
 		@@max_connection_tries = 10
 
 		# Tiny forum-used race/class icons
+		# @@icon_url = 'http://wowbench.com/images/icons/32x32/'		
 		# http://forums.worldofwarcraft.com/images/icon/class/4.gif
 		# http://forums.worldofwarcraft.com/images/icon/race/3-0.gif
 		# http://forums.worldofwarcraft.com/images/icon/pvpranks/rank_default_0.gif
@@ -111,8 +110,6 @@ module Wowr
 		
 		@@arena_team_sizes = [2, 3, 5]
 
-		# TODO: Refactor, rethink and remove locale from all requests by passing unused options on to get_xml
-		
 		attr_accessor :character_name, :guild_name, :realm, :locale
 		
 		# You can set up the API with an optional default guild and realm
@@ -128,6 +125,7 @@ module Wowr
 		
 		
 		# General-purpose search
+		# All specific searches are wrappers around this method.
 		def search(options = {:search => nil, :type => nil})
 			if @@search_types.include? options[:type]
 				raise Wowr::Exceptions::InvalidSearchType.new
@@ -141,7 +139,7 @@ module Wowr
 			
 			results = []
 			
-			if (xml%'armorySearch'%'searchResults')
+			if (xml) && (xml%'armorySearch') && (xml%'armorySearch'%'searchResults')
 				case options[:type]
 				
 					# TODO: Filter stuff
@@ -184,18 +182,10 @@ module Wowr
 			return Wowr::Classes::CharacterSheet.new(xml)
 		end
 		
-		def get_character_list(min_level, klass)
-			
-		end
-		
-		# ??
-		def get_character_skills(options = {:character_name => @character_name, :realm => @realm})
-			compute_hash(options.merge(:url => @@character_skills_url)) || 
-				process_query(Wowr::Classes::Skill, @character_skills_url, false)			
-		end
 		
 		
 		# Guilds
+		# Note searches go across all realms by default
 		def search_guilds(options = {:search => @guild_name, :locale => @locale})
 			options.merge!(:type => @@search_types[:guild])
 			return search(options)
@@ -209,16 +199,17 @@ module Wowr
 		
 		
 		# Items
+		# Items are not realm-specific
 		def search_items(options = {:search => nil})
 			options.merge!(:type => @@search_types[:item])
 			return search(options)
 		end
 		
 		# TODO: Is not finding the item an exception or just return nil?
-		def get_item(options = {:item_id => nil, :locale => @locale})
+		#def get_item(options = {:item_id => nil, :locale => @locale})
 			
 			#return Wowr::Classes::ItemTooltip.new(xml%'itemTooltip')
-		end
+		#end
 		
 		def get_item_info(options = {:item_id => nil, :locale => @locale})
 			xml = get_xml(@@item_info_url, options)
@@ -331,6 +322,10 @@ module Wowr
 					errors.each do |error|
 						raise Wowr::Exceptions::raise_me(error[:errCode])
 					end
+				# elsif (doc%'page').nil?
+				# 	puts full_query
+				# 	puts response
+				# 	raise Wowr::Exceptions::EmptyPage
 				else
 					return (doc%'page')
 				end
@@ -342,14 +337,13 @@ module Wowr
 			
 		end
 		
-		# TODO: URL encoding of query strings
+		# :nodoc:
 		def u(str)
 			if str.instance_of?(String)
 				return CGI.escape(str)
 			else
 				return str
 			end
-			#stripslashes(str)
 		end
 	end
 end

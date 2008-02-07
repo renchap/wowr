@@ -3,8 +3,7 @@
 # sourceType.questReward
 # sourceType.createdBySpell
 
-# TODO: Split up classes depending on subject?
-# Character, Item, Guild, ArenaTeam
+# TODO: Split up classes depending on subject?　　Character, Item, Guild, ArenaTeam
 
 
 # Wowr was written by Ben Humphreys!
@@ -12,6 +11,7 @@
 module Wowr
 	module Classes
 		
+		# Most basic 
 		# Composed of an ItemInfo and
 		# Needs to be consolidated with ItemInfo and other stuff
 		# to be a parent class that they extend?
@@ -28,6 +28,10 @@ module Wowr
 		
 		
 		# Short character info, used in guild lists etc.
+		# Note that the way that searches and character listings within guilds works,
+		# there can be a variable amount of information filled in within the class.
+		# Guild listings and search results contain a smaller amount of information than
+		# single queries
 		class Character
 			attr_reader :name, :level, :url, :rank,
 									:klass, :klass_id,
@@ -63,6 +67,8 @@ module Wowr
 				@relevance 		= elem[:relevance].to_i
 				@search_rank 	= elem[:searchRank].to_i
 				
+				# Incoming string is 2007-02-24 20:33:04.0, parse to datetime
+				#@last_login 	= elem[:lastLoginDate] == "" ? nil : DateTime.parse(elem[:lastLoginDate])
 				@last_login 	= elem[:lastLoginDate] == "" ? nil : elem[:lastLoginDate]
 				
 				# From ArenaTeam info, can be blank on normal requests
@@ -207,7 +213,7 @@ module Wowr
 		
 		
 		
-		# Note differences in values depending on class
+		# Second stat bar, depends on character class
 		class SecondBar
 			attr_reader :effective, :casting, :not_casting, :type
 			
@@ -500,7 +506,7 @@ module Wowr
 			end
 		end
 		
-		class Resilience			
+		class Resilience
 			attr_reader :damage_percent, :hit_percent, :value
 			
 			def initialize(elem)
@@ -522,7 +528,7 @@ module Wowr
 		end
 		
 		
-		# TODO: Array starting at 1?  Not sure if this is such a hot idea
+		# Note the list of talent trees starts at 1. This is quirky, but that's what's used in the XML
 		class TalentSpec
 			attr_reader :trees
 
@@ -594,25 +600,9 @@ module Wowr
 			end
 		end
 
-
-
-		# class Damage
-		#		:type, :min, :max, :speed, :dps
-		# end
-		# 
-		# class ItemSource
-		#		:area_id
-		#		:area_name
-		#		:creature_id
-		#		:creature_name
-		#		:difficulty
-		#		:drop_rate
-		#		:value
-		# end
 		
 		# A player guild containing members
-		# note not all of these will be filled out, depending on how the data is found
-		
+		# note not all of these will be filled out, depending on how the data is found		
 		class Guild
 			attr_reader :name, :url, :realm, :realm_url, :battle_group,
 									:roster_url, :stats_url, :stats_url_escape,
@@ -626,14 +616,14 @@ module Wowr
 					guild = elem
 				end
 				
-				@name = guild[:name]
-				@name_url = guild[:nameUrl]
-				@url = guild[:url]
-				@realm = guild[:realm]
-				@realm_url = guild[:realmUrl]
+				@name					= guild[:name]
+				@name_url			= guild[:nameUrl]
+				@url					= guild[:url]
+				@realm				= guild[:realm]
+				@realm_url		= guild[:realmUrl]
 				@battle_group = guild[:battleGroup]
-				@faction = guild[:faction]
-				@faction_id = guild[:factionId]
+				@faction			= guild[:faction]
+				@faction_id		= guild[:factionId].to_i
 				
 				# some shortened versions
 				if (elem%'guildInfo')
@@ -646,31 +636,6 @@ module Wowr
 				end
 			end
 		end
-		
-		
-		# class Guild
-		# 	attr_reader :name, :realm, :battle_group,
-		# 							:roster_url, :stats_url, :stats_url_escape,
-		# 							:members, :member_count
-		# 	
-		# 	def initialize(elem)
-		# 		@name = elem[:name]
-		# 		@realm = elem[:realm]
-		# 		@battle_group = elem[:battleGroup]
-		# 		@roster_url = elem[:rosterUrl]
-		# 		@stats_url = elem[:statsUrl]
-		# 		@stats_url_escape = elem[:statsUrlEscape]
-		# 		@member_count = (elem%'members')[:memberCount].to_i
-		# 		
-		# 		@members = []
-		# 		(elem%'members'/:character).each do |char|
-		# 			members << Character.new(char)
-		# 		end
-		# 	end
-		# end
-		
-		
-		
 		
 		
 		# General skill category
@@ -738,7 +703,8 @@ module Wowr
 		
 		
 		# Provides detailed item information
-		# Reflects information found within item-tooltip.xml
+		# Note that the itemtooltip just returns an empty document when the item
+		# can't be found.
 		class ItemTooltip < Item
 			attr_reader :desc, :overall_quality_id, :bonding, :max_count, #:id, :name, :icon, 
 									:class_id, :bonuses, :item_source,
@@ -904,7 +870,6 @@ module Wowr
 				@description = (elem%'desc').html
 			end
 		end
-
 
 		class ItemDamageData
 			attr_reader :type, :min, :max, :speed, :dps
@@ -1079,7 +1044,8 @@ module Wowr
 			end	
 		end
 		 
-		
+		# Cost can be gold or a set of required tokens
+		# See ItemCostToken
 		# <cost sellPrice="280" buyPrice="5600"></cost>
 		# <cost>
 		# 	<token icon="spell_holy_championsbond" id="29434" count="60"></token>
@@ -1293,7 +1259,6 @@ module Wowr
 				@icon_style		= elem[:iconStyle].to_i
 			end
 		end
-		
 				
 	end
 end

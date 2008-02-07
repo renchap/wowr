@@ -11,6 +11,9 @@ module Wowr
 		class InvalidXML < StandardError
 		end
 		
+		class EmptyPage < StandardError
+		end
+		
 		# errCode="noCharacter"
 		class CharacterNotFound < StandardError
 		end
@@ -19,6 +22,9 @@ module Wowr
 		end
 		
 		class GuildNotFound < StandardError
+		end
+		
+		class SearchError < StandardError
 		end
 		
 		class InvalidSearchType < StandardError

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_arena_team (Wowr::API)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/wowr.rb, line 242</span>
+                <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_arena_team</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:team_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:nil</span>, <span class="ruby-identifier">:team_size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:realm</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@realm</span>})
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@@arena_team_sizes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:team_size</span>])
+                                <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidArenaTeamSize</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Arena teams size must be: #{@@arena_team_sizes.inspect}&quot;</span>)
+                        <span class="ruby-keyword kw">end</span>
+                        
+                        <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@arena_team_url</span>, <span class="ruby-identifier">options</span>)
+                        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ArenaTeam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'arenaTeam'</span>)
+                <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

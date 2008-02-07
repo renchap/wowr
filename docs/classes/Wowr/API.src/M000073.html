@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_item_tooltip (Wowr::API)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/wowr.rb, line 223</span>
+                <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_item_tooltip</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:item_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>})
+                        <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@item_tooltip_url</span>, <span class="ruby-identifier">options</span>)
+                        
+                        <span class="ruby-comment cmt"># tooltip returns empty document when not found</span>
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">nil?</span>
+                                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+                                <span class="ruby-comment cmt">#raise Wowr::Exceptions::ItemNotFound.new(&quot;Item not found with id: #{options[:item_id]}&quot;)</span>
+                        <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemTooltip</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemTooltip'</span>)
+                <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
