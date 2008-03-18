@@ -12,14 +12,11 @@ rescue LoadError
 end
 require 'net/http'
 require 'cgi'
-require 'fileutils' # for making directories :S
+require 'fileutils' # for making cache directories
 
-# TODO: what does this do?
-#$:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
-require 'wowr/exceptions'
-require 'wowr/extensions'
-require 'wowr/classes'
+require 'wowr/exceptions.rb'
+require 'wowr/extensions.rb'
+require 'wowr/classes.rb'
 
 module Wowr
 	class API

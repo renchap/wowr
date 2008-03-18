@@ -62,7 +62,7 @@ module Wowr
 				@guild_id		= elem[:guildId].to_i == 0 ? nil : elem[:guildId].to_i
 				@guild_url	= elem[:guildUrl] == "" ? nil : elem[:guildUrl]
 				
-				@battle_group 		= elem[:battleGroup] = "" ? nil : elem[:battleGroup]
+				@battle_group 		= elem[:battleGroup] == "" ? nil : elem[:battleGroup]
 				@battle_group_id 	= elem[:battleGroupId].to_i
 				
 				@relevance 		= elem[:relevance].to_i
@@ -77,10 +77,10 @@ module Wowr
 				# contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0"
 				# guild="Passion" guildId="36659" guildUrl="r=Draenor&amp;n=Passion&amp;p=1" name="Lothaar"
 				# race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
-				@season_games_played 	= elem[:seasonGamesPlayed] = "" ? nil : elem[:seasonGamesPlayed].to_i
-				@season_games_won 		= elem[:seasonGamesWon] = "" ? nil : elem[:seasonGamesWon].to_i
-				@team_rank 						= elem[:teamRank] = "" ? nil : elem[:teamRank].to_i
-				@contribution					= elem[:contribution] = "" ? nil : elem[:contribution].to_i
+				@season_games_played 	= elem[:seasonGamesPlayed] == "" ? nil : elem[:seasonGamesPlayed].to_i
+				@season_games_won 		= elem[:seasonGamesWon] == "" ? nil : elem[:seasonGamesWon].to_i
+				@team_rank 						= elem[:teamRank] == "" ? nil : elem[:teamRank].to_i
+				@contribution					= elem[:contribution] == "" ? nil : elem[:contribution].to_i
 				#@char_url 						= elem[:charUrl]	# TODO: Merge with URL?
 			end
 		end
@@ -113,7 +113,7 @@ module Wowr
 			alias_method :int, :intellect
 			alias_method :spi, :spirit
 			
-			attr_reader :title
+			attr_reader :title,
 									:melee, :ranged, :spell,
 									:defenses, :resistances,
 									:talent_spec, :pvp,
@@ -359,7 +359,7 @@ module Wowr
 				@hit_rating 			= WeaponHitRating.new(elem%'hitRating')
 				@crit_chance 			= WeaponCritChance.new(elem%'critChance')
 				
-				@expertise 				= WeaponExpertise.new(elem'expertise')
+				@expertise 				= WeaponExpertise.new(elem%'expertise')
 			end
 		end
 
@@ -452,7 +452,7 @@ module Wowr
 			attr_reader :additional, :percent, :rating, :value
 			
 			def initialize(elem)
-				@additional	= elem[:percent].to_i
+				@additional	= elem[:additional].to_i
 				@percent 		= elem[:percent].to_f
 				@rating 		= elem[:rating].to_i
 				@value			= elem[:value].to_i
