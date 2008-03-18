@@ -37,11 +37,11 @@ module Wowr
 									:klass, :klass_id,
 									:gender, :gender_id,
 									:race, :race_id,
-									:guild, :guild_id,
+									:guild, :guild_id, :guild_url,
 									:battle_group, :last_login,
 									:relevance, :search_rank,
 									
-									:season_games_played, :season_games_won, :team_rank # From ArenaTeam info
+									:season_games_played, :season_games_won, :team_rank, :contribution # From ArenaTeam info
 			
 			def initialize(elem)
 				@name	 			= elem[:name]
@@ -60,8 +60,9 @@ module Wowr
 				
 				@guild			= elem[:guild] == "" ? nil : elem[:guild]
 				@guild_id		= elem[:guildId].to_i == 0 ? nil : elem[:guildId].to_i
+				@guild_url	= elem[:guildUrl] == "" ? nil : elem[:guildUrl]
 				
-				@battle_group 		= elem[:battleGroup]
+				@battle_group 		= elem[:battleGroup] = "" ? nil : elem[:battleGroup]
 				@battle_group_id 	= elem[:battleGroupId].to_i
 				
 				@relevance 		= elem[:relevance].to_i
@@ -72,9 +73,14 @@ module Wowr
 				@last_login 	= elem[:lastLoginDate] == "" ? nil : elem[:lastLoginDate]
 				
 				# From ArenaTeam info, can be blank on normal requests
-				@season_games_played 	= elem[:seasonGamesPlayed].to_i
-				@season_games_won 		= elem[:seasonGamesWon].to_i
-				@team_rank 						= elem[:teamRank].to_i
+				#<character battleGroup="" charUrl="r=Draenor&amp;n=Lothaar" class="Paladin" classId="2"
+				# contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0"
+				# guild="Passion" guildId="36659" guildUrl="r=Draenor&amp;n=Passion&amp;p=1" name="Lothaar"
+				# race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
+				@season_games_played 	= elem[:seasonGamesPlayed] = "" ? nil : elem[:seasonGamesPlayed].to_i
+				@season_games_won 		= elem[:seasonGamesWon] = "" ? nil : elem[:seasonGamesWon].to_i
+				@team_rank 						= elem[:teamRank] = "" ? nil : elem[:teamRank].to_i
+				@contribution					= elem[:contribution] = "" ? nil : elem[:contribution].to_i
 				#@char_url 						= elem[:charUrl]	# TODO: Merge with URL?
 			end
 		end
@@ -83,6 +89,7 @@ module Wowr
 		
 		# Full character details
 		# uses characterInfo element
+		# NEEDS TO EXTEND BASE CHARACTER THING
 		class CharacterSheet
 			
 			# character_info
@@ -91,9 +98,10 @@ module Wowr
 									:race, :race_id,
 			 						:klass, :klass_id,
 			 						:faction, :faction_id,
-			 						:guild_name, :guild_url,
+			 						:guild, :guild_url,
 			 						:realm,
 			 						:battle_group,
+									:arena_teams,
 									:last_modified
 			
 			# character_tab
@@ -105,7 +113,8 @@ module Wowr
 			alias_method :int, :intellect
 			alias_method :spi, :spirit
 			
-			attr_reader :melee, :ranged, :spell,
+			attr_reader :title
+									:melee, :ranged, :spell,
 									:defenses, :resistances,
 									:talent_spec, :pvp,
 									:professions,
@@ -120,14 +129,29 @@ module Wowr
 				character_tab(elem%'characterTab')
 			end
 			
-			
+			# <character
+			#  battleGroup="Conviction"
+			#  charUrl="r=Genjuros&amp;n=Jonlok"
+			#  class="Warlock"
+			#  classId="9"
+			#  faction="Horde"
+			#  factionId="1"
+			#  gender="Male"
+			#  genderId="0"
+			#  guildName=""
+			#  lastModified="12 February 2008"
+			#  level="41"
+			#  name="Jonlok"
+			#  prefix="" 
+			#  race="Orc"
+			#  raceId="2"
+			#  realm="Genjuros"
+			#  suffix=""/>
 			def character_info(elem)
 				# basic info
 				@name	 			= elem[:name]
 				@level 			= elem[:level].to_i
-				@char_url 	= elem[:url]
-				@rank 			= elem[:rank].to_i
-				@title			= elem[:title]
+				@char_url 	= elem[:charUrl]
 				
 				@klass 			= elem[:class]
 				@klass_id		= elem[:classId].to_i
@@ -141,22 +165,37 @@ module Wowr
 				@faction 		= elem[:faction]
 				@faction_id = elem[:factionId].to_i
 				
-				@guild			= elem[:guild]
-				@guild_url	= elem[:guildUrl]
+				@guild			= elem[:guildName] == "" ? nil : elem[:guildName]
+				@guild_url	= elem[:guildUrl] == "" ? nil : elem[:guildUrl]
+				
+				@prefix			= elem[:prefix]
+				@suffix			= elem[:suffix]
 				
 				@realm			= elem[:realm]
 				
 				@battle_group = elem[:battleGroup]
 				
-				@last_modified = elem[:lastModified]#.to_time
+				# format is February 11, 2008
+				@last_modified 	= elem[:lastModified] == "" ? nil : DateTime.parse(elem[:lastModified])
+				#@last_modified = elem[:lastModified]#.to_time
+				
+				@arena_teams = []
+				(elem/:arenaTeam).each do |arena_team|
+					@arena_team << ArenaTeam.new(arena_team)
+				end
+				
 			end
 			
 			def character_tab(elem)
+				
+				# <title value=""/>
+				@title				= (elem%'title')[:value] == "" ? nil : (elem%'title')[:value]
+				#@known_titles = <knownTitles/>
+				
 				@health 		= (elem%'characterBars'%'health')[:effective].to_i
 				@second_bar = SecondBar.new(elem%'characterBars'%'secondBar')
 				
 				# base stats
-				# % is alias for Hpricot's 'at' method, assume only 1 baseStats/strength element
 				@strength 	= Strength.new(elem%'baseStats'%'strength')
 				@agility 		= Agility.new(elem%'baseStats'%'agility')
 				@stamina 		= Stamina.new(elem%'baseStats'%'stamina')
@@ -169,41 +208,32 @@ module Wowr
 				@spell 		= Spell.new(elem.at(' > spell'))	# TODO: hacky?
 				@defenses = Defenses.new(elem%'defenses')
 				
-				
-				#resistances
-				#TODO: This keying is wrong
-				@resistances = []
-				(elem/:resistances).each do |resistance|
-					#@resistances[:arcane] = ArcaneResistance.new(elem[:resistances][:arcane])
-					#@resistances[resistance] = Resistance.new(resistance)
+				# TODO: Massive problem, doesn't fill in resistances for some reason
+				resist_types = ['arcane', 'fire', 'frost', 'holy', 'nature', 'shadow']
+				@resistances = {}
+				resist_types.each do |res|
+					@resistances[res] = Resistance.new(elem%'resistances'%res)
 				end
-				
 				
 				@talent_spec = TalentSpec.new(elem%'talentSpec')
 				
 				@pvp = Pvp.new(elem%'pvp')
-				
-				
-				
-				# professions
+								
 				@professions = []
 				(elem%'professions'/:skill).each do |skill|
 					@professions << Profession.new(skill)
 				end
 				
-				# items
 				@items = []
 				(elem%'items'/:item).each do |item|
 					@items << EquippedItem.new(item)
 				end
 				
-				# buffs
 				@buffs = []
 				(elem%'buffs'/:spell).each do |buff|
 					@buffs << Buff.new(buff)
 				end
 				
-				# debuffs
 				@debuffs = []
 				(elem%'debuffs'/:spell).each do |debuff|
 					@debuffs << Buff.new(debuff)
@@ -297,11 +327,22 @@ module Wowr
 		
 		
 		
+		# <melee>
+		# 	<mainHandDamage dps="65.6" max="149" min="60" percent="0" speed="1.60"/>
+		# 	<offHandDamage dps="0.0" max="0" min="0" percent="0" speed="2.00"/>
+		# 	<mainHandSpeed hastePercent="0.00" hasteRating="0" value="1.60"/>
+		# 	<offHandSpeed hastePercent="0.00" hasteRating="0" value="2.00"/>
+		# 	<power base="338" effective="338" increasedDps="24.0"/>
+		# 	<hitRating increasedHitPercent="0.00" value="0"/>
+		# 	<critChance percent="4.16" plusPercent="0.00" rating="0"/>
+		# 	<expertise additional="0" percent="0.00" rating="0" value="0"/>
+		# </melee>
 		class Melee
 			attr_reader :main_hand_skill, :off_hand_skill,
 									:main_hand_damage, :off_hand_damage,
 									:main_hand_speed, :off_hand_speed,
 									:speed, :hit_rating, :crit_chance
+									:expertise
 
 			def initialize(elem)
 				# TODO: Do these not exist anymore?
@@ -317,9 +358,19 @@ module Wowr
 				@power 						= WeaponPower.new(elem%'power')
 				@hit_rating 			= WeaponHitRating.new(elem%'hitRating')
 				@crit_chance 			= WeaponCritChance.new(elem%'critChance')
+				
+				@expertise 				= WeaponExpertise.new(elem'expertise')
 			end
 		end
 
+		# <ranged>
+		# 	<weaponSkill rating="0" value="-1"/>
+		# 	<damage dps="0.0" max="0" min="0" percent="0" speed="0.00"/>
+		# 	<speed hastePercent="0.00" hasteRating="0" value="0.00"/>
+		# 	<power base="57" effective="57" increasedDps="4.0" petAttack="-1.00" petSpell="-1.00"/>
+		# 	<hitRating increasedHitPercent="0.00" value="0"/>
+		# 	<critChance percent="0.92" plusPercent="0.00" rating="0"/>
+		# </ranged>
 		class Ranged
 			attr_reader :weapon_skill, :damage, :speed, :power,
 									:hit_rating, :crit_chance
@@ -396,6 +447,17 @@ module Wowr
 			end
 		end
 		
+		# <expertise additional="0" percent="0.00" rating="0" value="0"/>
+		class WeaponExpertise
+			attr_reader :additional, :percent, :rating, :value
+			
+			def initialize(elem)
+				@additional	= elem[:percent].to_i
+				@percent 		= elem[:percent].to_f
+				@rating 		= elem[:rating].to_i
+				@value			= elem[:value].to_i
+			end
+		end
 		
 		
 		# Decided to do funky stuff to the XML to make it more useful.
@@ -703,7 +765,7 @@ module Wowr
 		
 		
 		# Provides detailed item information
-		# Note that the itemtooltip just returns an empty document when the item
+		# Note that the itemtooltip XML just returns an empty document when the item 
 		# can't be found.
 		class ItemTooltip < Item
 			attr_reader :desc, :overall_quality_id, :bonding, :max_count, #:id, :name, :icon, 
@@ -780,8 +842,6 @@ module Wowr
 					@resistances[stat] = test_stat(elem/xml_elem) if test_stat(elem/xml_elem)
 				end
 				
-				
-				#@bonuses[:strength]		= (elem/:bonusStrength).html.to_i   if (elem/:bonusStrength)
 				
 				if (elem%'allowableClasses')
 					@allowable_classes = []
@@ -1210,6 +1270,19 @@ module Wowr
 
 		# A group of individuals
 		# Note that search results don't contain the members
+		# <arenaTeams>
+		# 	<arenaTeam battleGroup="Blackout" faction="Alliance" factionId="0" gamesPlayed="10" gamesWon="7" lastSeasonRanking="0" name="SØPPERBIL" ranking="8721" rating="1610" realm="Draenor" realmUrl="b=Blackout&amp;r=Draenor&amp;ts=2&amp;t=S%C3%98PPERBIL&amp;ff=realm&amp;fv=Draenor&amp;select=S%C3%98PPERBIL" seasonGamesPlayed="49" seasonGamesWon="28" size="2" url="r=Draenor&amp;ts=2&amp;t=S%C3%98PPERBIL&amp;select=S%C3%98PPERBIL">
+		# 		<emblem background="ff2034cc" borderColor="ff14a30c" borderStyle="1" iconColor="ff1d800a" iconStyle="95"/>
+		# 		<members>
+		# 			<character battleGroup="" charUrl="r=Draenor&amp;n=Arussil" class="Rogue" classId="4" contribution="1613" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Arussil" race="Night Elf" raceId="4" seasonGamesPlayed="48" seasonGamesWon="28" teamRank="0"/>
+		# 			<character battleGroup="" charUrl="r=Draenor&amp;n=Cake" class="Shaman" classId="7" contribution="1516" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Cake" race="Draenei" raceId="11" seasonGamesPlayed="1" seasonGamesWon="1" teamRank="1"/>
+		# 
+		# 			<character battleGroup="" charUrl="r=Draenor&amp;n=Efes" class="Druid" classId="11" contribution="1508" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Efes" race="Night Elf" raceId="4" seasonGamesPlayed="13" seasonGamesWon="7" teamRank="1"/>
+		# 			<character battleGroup="" charUrl="r=Draenor&amp;n=Lothaar" class="Paladin" classId="2" contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Ultimo Impero Oscuro" guildId="37203" guildUrl="r=Draenor&amp;n=Ultimo+Impero+Oscuro&amp;p=1" name="Lothaar" race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
+		# 			<character battleGroup="" charUrl="r=Draenor&amp;n=Lothaar" class="Paladin" classId="2" contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Passion" guildId="36659" guildUrl="r=Draenor&amp;n=Passion&amp;p=1" name="Lothaar" race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
+		# 		</members>
+		# 	</arenaTeam>
+		# </arenaTeams>
 		class ArenaTeam
 			attr_reader :name, :size, :battle_group, :faction, :faction_id, :realm, :realm_url, 
 									:games_played, :games_won, :ranking, :rating,
