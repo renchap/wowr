@@ -45,44 +45,45 @@ module Wowr
 		class SearchError < StandardError
 		end
 		
-		class InvalidSearchType < StandardError
+		class InvalidSearchType < SearchError
 			def initialize(string)
 				super "'' is not a valid search type."
 			end
 		end
 		
-		class NoSearchString < StandardError
+		class NoSearchString < SearchError
 			def initialize
 				super "No search string specified or string was empty."
 			end
 		end
 		
-		class CharacterNotFound < StandardError
+		class ElementNotFoundError < StandardError
+		end
+		
+		class CharacterNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Character not found with name '#{string}'."
 			end
 		end
 		
-		class ItemNotFound < StandardError
+		class ItemNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Item not found with name '#{string}'."
 			end
 		end
 		
-		class GuildNotFound < StandardError
+		class GuildNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Guild not found with name '#{string}'."
 			end
 		end
 				
-		class ArenaTeamNotFound < StandardError
+		class ArenaTeamNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Arena team not found with name '#{string}'."
 			end
 		end
 		# (end)
-
-		
 
 	end
 end
