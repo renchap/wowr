@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/item-info.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_gauntlets_17" id="29055" level="120" name="Handwraps of the Incarnate" quality="4" type="Cloth">
+      <cost>
+        <token count="1" icon="inv_gauntlets_27" id="29758"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="300">
+        <item dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
+
+      </disenchantLoot>
+      <vendors>
+        <creature area="Terokkar Forest" classification="0" id="20613" maxLevel="64" minLevel="64" name="Arodis Sunblade" title="Keeper of Sha'tari Artifacts" type="Humanoid"/>
+        <creature area="Terokkar Forest" classification="0" id="20616" maxLevel="64" minLevel="64" name="Asuur" title="Keeper of Sha'tari Artifacts" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

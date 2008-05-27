@@ -19,14 +19,15 @@ When initialising the library, it is possible to set a number of parameters to b
 
 # all parameters optional
 api = Wowr::API.new(:character_name => 'Foo',
-                  :guild_name => 'Bar',
-                  :realm => 'Baz',
-                  :locale => :eu, # defaults to US
-                  :caching => true) # defaults to false, default directory is 'cache/
+                    :guild_name => 'Bar',
+                    :realm => 'Baz',
+                    :locale => 'eu', # defaults to US www
+                    :lang => 'fr_fr', # remove for locale default language
+                    :caching => true # defaults to false)
 
 # Character requests
-my_char = api.get_character
-char_boo = api.get_character(:character_name => 'Boo')
+my_char = api.get_character_sheet # gets character with API default values
+char_boo = api.get_character_sheet(:character_name => 'Boo')
 chars = api.search_characters(:search => 'Cake')
 
 # Guild requests

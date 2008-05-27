@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/search.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/search.xml">
+  <armorySearch>
+    <tabs count="14" selected="arenateams">
+      <tab count="14" label="armory.tabs.arenateams" type="arenateams"/>
+    </tabs>
+    <searchResults pageCount="1" pageCurrent="1" searchError="" searchFilter="" searchMsg="" searchText="cake" searchType="arenateams" sortDir="a" sortField="relevance" url="searchType=arenateams&amp;searchQuery=cake&amp;p=1&amp;selectedTab=arenateams&amp;sf=relevance&amp;sd=a" version="1.0">
+      <filters/>
+      <arenaTeams>
+        <arenaTeam battleGroup="Reckoning" faction="Horde" factionId="1" gamesPlayed="20" gamesWon="12" lastSeasonRanking="0" name="Cake" ranking="0" rating="1578" realm="Terenas" realmUrl="b=Reckoning&amp;r=Terenas&amp;ts=5&amp;t=Cake&amp;ff=realm&amp;fv=Terenas&amp;select=Cake" relevance="100" seasonGamesPlayed="89" seasonGamesWon="47" size="5" url="r=Terenas&amp;ts=5&amp;t=Cake&amp;select=Cake">
+
+          <emblem background="ffcf2eb5" borderColor="ff5287c9" borderStyle="2" iconColor="ff1411b8" iconStyle="86"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Rampage" faction="Horde" factionId="1" gamesPlayed="15" gamesWon="5" lastSeasonRanking="122" name="Cake" ranking="0" rating="1645" realm="Stormreaver" realmUrl="b=Rampage&amp;r=Stormreaver&amp;ts=3&amp;t=Cake&amp;ff=realm&amp;fv=Stormreaver&amp;select=Cake" relevance="73" seasonGamesPlayed="138" seasonGamesWon="75" size="3" url="r=Stormreaver&amp;ts=3&amp;t=Cake&amp;select=Cake">
+          <emblem background="ffffb10a" borderColor="ffe50015" borderStyle="2" iconColor="ff3300d4" iconStyle="59"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Reckoning" faction="Alliance" factionId="0" gamesPlayed="10" gamesWon="3" lastSeasonRanking="0" name="CAKE" ranking="0" rating="1846" realm="Frostmane" realmUrl="b=Reckoning&amp;r=Frostmane&amp;ts=2&amp;t=CAKE&amp;ff=realm&amp;fv=Frostmane&amp;select=CAKE" relevance="61" seasonGamesPlayed="132" seasonGamesWon="78" size="2" url="r=Frostmane&amp;ts=2&amp;t=CAKE&amp;select=CAKE">
+          <emblem background="ff020205" borderColor="ff0e0637" borderStyle="4" iconColor="ff76fcfe" iconStyle="50"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Vindication" faction="Alliance" factionId="0" gamesPlayed="20" gamesWon="10" lastSeasonRanking="10846" name="Cake" ranking="0" rating="1511" realm="Eredar" realmUrl="b=Vindication&amp;r=Eredar&amp;ts=2&amp;t=Cake&amp;ff=realm&amp;fv=Eredar&amp;select=Cake" relevance="57" seasonGamesPlayed="84" seasonGamesWon="42" size="2" url="r=Eredar&amp;ts=2&amp;t=Cake&amp;select=Cake">
+
+          <emblem background="ffd3d9d5" borderColor="ff000000" borderStyle="4" iconColor="ffe6e3d8" iconStyle="95"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Stormstrike" faction="Horde" factionId="1" gamesPlayed="10" gamesWon="6" lastSeasonRanking="0" name="Cake" ranking="0" rating="1535" realm="Dalvengyr" realmUrl="b=Stormstrike&amp;r=Dalvengyr&amp;ts=2&amp;t=Cake&amp;ff=realm&amp;fv=Dalvengyr&amp;select=Cake" relevance="53" seasonGamesPlayed="10" seasonGamesWon="6" size="2" url="r=Dalvengyr&amp;ts=2&amp;t=Cake&amp;select=Cake">
+          <emblem background="ff20cc00" borderColor="ffeeffed" borderStyle="5" iconColor="ffd1eb00" iconStyle="37"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Bloodlust" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="5623" name="Cake" ranking="0" rating="1500" realm="Thaurissan" realmUrl="b=Bloodlust&amp;r=Thaurissan&amp;ts=3&amp;t=Cake&amp;ff=realm&amp;fv=Thaurissan&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="3" url="r=Thaurissan&amp;ts=3&amp;t=Cake&amp;select=Cake">
+          <emblem background="ff0021de" borderColor="ffa3a366" borderStyle="6" iconColor="ffc1c2b0" iconStyle="19"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Ruin" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="Cake" ranking="0" rating="1500" realm="Skullcrusher" realmUrl="b=Ruin&amp;r=Skullcrusher&amp;ts=2&amp;t=Cake&amp;ff=realm&amp;fv=Skullcrusher&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="2" url="r=Skullcrusher&amp;ts=2&amp;t=Cake&amp;select=Cake">
+
+          <emblem background="ff060601" borderColor="ff0502ed" borderStyle="4" iconColor="ffe5eef5" iconStyle="64"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Nightfall" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="Cake" ranking="0" rating="1500" realm="Onyxia" realmUrl="b=Nightfall&amp;r=Onyxia&amp;ts=2&amp;t=Cake&amp;ff=realm&amp;fv=Onyxia&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="2" url="r=Onyxia&amp;ts=2&amp;t=Cake&amp;select=Cake">
+          <emblem background="ff2e39c1" borderColor="ffbf6e36" borderStyle="3" iconColor="ffaf1d35" iconStyle="49"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Cyclone" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="cake" ranking="0" rating="1500" realm="Dragonblight" realmUrl="b=Cyclone&amp;r=Dragonblight&amp;ts=2&amp;t=cake&amp;ff=realm&amp;fv=Dragonblight&amp;select=cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="2" url="r=Dragonblight&amp;ts=2&amp;t=cake&amp;select=cake">
+          <emblem background="ff6bfcc4" borderColor="ffdb2d3c" borderStyle="2" iconColor="ff7a670e" iconStyle="50"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Vengeance" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="Cake" ranking="0" rating="1500" realm="Jubei'Thos" realmUrl="b=Vengeance&amp;r=Jubei%27Thos&amp;ts=3&amp;t=Cake&amp;ff=realm&amp;fv=Jubei%27Thos&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="3" url="r=Jubei%27Thos&amp;ts=3&amp;t=Cake&amp;select=Cake">
+
+          <emblem background="ff00ff60" borderColor="ffff0400" borderStyle="5" iconColor="ff2500ff" iconStyle="90"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Stormstrike" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="8635" name="cake" ranking="0" rating="1500" realm="Mal'Ganis" realmUrl="b=Stormstrike&amp;r=Mal%27Ganis&amp;ts=3&amp;t=cake&amp;ff=realm&amp;fv=Mal%27Ganis&amp;select=cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="3" url="r=Mal%27Ganis&amp;ts=3&amp;t=cake&amp;select=cake">
+          <emblem background="fff7e4de" borderColor="ffab511e" borderStyle="4" iconColor="ff121604" iconStyle="44"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Retaliation" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="943" name="Cake" ranking="0" rating="1500" realm="Blade's Edge" realmUrl="b=Retaliation&amp;r=Blade%27s+Edge&amp;ts=3&amp;t=Cake&amp;ff=realm&amp;fv=Blade%27s+Edge&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="3" url="r=Blade%27s+Edge&amp;ts=3&amp;t=Cake&amp;select=Cake">
+          <emblem background="ff1b18e3" borderColor="fff5f106" borderStyle="4" iconColor="ff73d426" iconStyle="73"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Ruin" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="4910" name="CAKE" ranking="0" rating="1500" realm="Magtheridon" realmUrl="b=Ruin&amp;r=Magtheridon&amp;ts=3&amp;t=CAKE&amp;ff=realm&amp;fv=Magtheridon&amp;select=CAKE" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="3" url="r=Magtheridon&amp;ts=3&amp;t=CAKE&amp;select=CAKE">
+
+          <emblem background="ff740400" borderColor="fff8e9f9" borderStyle="2" iconColor="ffd6d6da" iconStyle="17"/>
+        </arenaTeam>
+        <arenaTeam battleGroup="Shadowburn" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="Cake" ranking="0" rating="1500" realm="Twisting Nether" realmUrl="b=Shadowburn&amp;r=Twisting+Nether&amp;ts=2&amp;t=Cake&amp;ff=realm&amp;fv=Twisting+Nether&amp;select=Cake" relevance="50" seasonGamesPlayed="0" seasonGamesWon="0" size="2" url="r=Twisting+Nether&amp;ts=2&amp;t=Cake&amp;select=Cake">
+          <emblem background="ffecda38" borderColor="ff8ad478" borderStyle="6" iconColor="ffc73761" iconStyle="50"/>
+        </arenaTeam>
+      </arenaTeams>
+    </searchResults>
+  </armorySearch>
+</page>
+

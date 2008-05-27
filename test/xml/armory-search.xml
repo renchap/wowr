@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/search.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/search.xml">
+  <armorySearch>
+    <tabs count="34" selected="items">
+      <tab count="34" label="armory.tabs.items" type="items"/>
+    </tabs>
+    <searchResults pageCount="1" pageCurrent="1" searchError="" searchFilter="" searchMsg="" searchText="ruby" searchType="items" sortDir="a" sortField="relevance" url="searchType=items&amp;searchQuery=ruby&amp;p=1&amp;selectedTab=items&amp;sf=relevance&amp;sd=a" version="1.0">
+      <filters/>
+      <filterColumns>
+        <filter name="itemLevel" sortName="itemLevel"/>
+
+        <filter name="source" sortName="source"/>
+        <filter name="relevance" sortName="relevance"/>
+      </filterColumns>
+      <items>
+        <item icon="inv_misc_cape_18" id="28766" name="Ruby Drape of the Mysticant" rarity="4" url="i=28766">
+          <filter name="itemLevel" value="125"/>
+          <filter areaId="3457" areaName="Karazhan" creatureId="15690" creatureName="Prince Malchezaar" difficulty="n" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="100"/>
+        </item>
+
+        <item icon="inv_boots_cloth_09" id="28585" name="Ruby Slippers" rarity="4" url="i=28585">
+          <filter name="itemLevel" value="115"/>
+          <filter areaId="3457" areaName="Karazhan" creatureId="18168" creatureName="The Crone" difficulty="n" dropRate="4" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="99"/>
+        </item>
+        <item icon="inv_helmet_12" id="27505" name="Ruby Helm of the Just" rarity="3" url="i=27505">
+          <filter name="itemLevel" value="115"/>
+          <filter areaId="3713" areaName="Blood Furnace" creatureId="17377" creatureName="Keli'dan the Breaker" difficulty="h" dropRate="3" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="96"/>
+
+        </item>
+        <item icon="inv_jewelcrafting_rubyserpent" id="24126" name="Figurine - Living Ruby Serpent" rarity="3" url="i=24126">
+          <filter name="itemLevel" value="115"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="96"/>
+        </item>
+        <item icon="inv_jewelry_necklace_15" id="24110" name="Living Ruby Pendant" rarity="3" url="i=24110">
+          <filter name="itemLevel" value="113"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+
+          <filter name="relevance" value="96"/>
+        </item>
+        <item icon="inv_misc_gem_ruby_02" id="28362" name="Bold Ornate Ruby" rarity="4" url="i=28362">
+          <filter name="itemLevel" value="60"/>
+          <filter name="source" value="sourceType.pvpReward"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_misc_gem_bloodstone_01" id="28118" name="Runed Ornate Ruby" rarity="4" url="i=28118">
+          <filter name="itemLevel" value="60"/>
+
+          <filter name="source" value="sourceType.pvpReward"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24181" name="Design: Living Ruby Serpent" rarity="3" url="i=24181">
+          <filter name="itemLevel" value="74"/>
+          <filter name="source" value="sourceType.factionReward"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24167" name="Design: Living Ruby Pendant" rarity="3" url="i=24167">
+
+          <filter name="itemLevel" value="71"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_misc_gem_bloodstone_02" id="20036" name="Fire Ruby" rarity="3" url="i=20036">
+          <filter name="itemLevel" value="52"/>
+          <filter name="source" reqLvl="50" value="sourceType.questReward"/>
+          <filter name="relevance" value="88"/>
+        </item>
+
+        <item icon="inv_jewelcrafting_livingruby_03" id="24032" name="Subtle Living Ruby" rarity="3" url="i=24032">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24198" name="Design: Flashing Living Ruby" rarity="3" url="i=24198">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24031" name="Bright Living Ruby" rarity="3" url="i=24031">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_02" id="23436" name="Living Ruby" rarity="3" url="i=23436">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24036" name="Flashing Living Ruby" rarity="3" url="i=24036">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24027" name="Bold Living Ruby" rarity="3" url="i=24027">
+          <filter name="itemLevel" value="70"/>
+
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24028" name="Delicate Living Ruby" rarity="3" url="i=24028">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24197" name="Design: Subtle Living Ruby" rarity="3" url="i=24197">
+
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24192" name="Design: Bright Living Ruby" rarity="3" url="i=24192">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+        </item>
+
+        <item icon="inv_scroll_05" id="24193" name="Design: Bold Living Ruby" rarity="3" url="i=24193">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24195" name="Design: Teardrop Living Ruby" rarity="3" url="i=24195">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24030" name="Runed Living Ruby" rarity="3" url="i=24030">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24194" name="Design: Delicate Living Ruby" rarity="3" url="i=24194">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_jewelcrafting_livingruby_03" id="24029" name="Teardrop Living Ruby" rarity="3" url="i=24029">
+          <filter name="itemLevel" value="70"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_scroll_05" id="24196" name="Design: Runed Living Ruby" rarity="3" url="i=24196">
+          <filter name="itemLevel" value="70"/>
+
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="88"/>
+        </item>
+        <item icon="inv_crown_13" id="20969" name="Ruby Crown of Restoration" rarity="3" url="i=20969">
+          <filter name="itemLevel" value="45"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="86"/>
+        </item>
+        <item icon="inv_jewelcrafting_rubyserpent" id="21769" name="Figurine - Ruby Serpent" rarity="2" url="i=21769">
+
+          <filter name="itemLevel" value="52"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="85"/>
+        </item>
+        <item icon="inv_jewelry_necklace_15" id="21764" name="Ruby Pendant of Fire" rarity="2" url="i=21764">
+          <filter name="itemLevel" value="47"/>
+          <filter name="source" value="sourceType.createdBySpell"/>
+          <filter name="relevance" value="85"/>
+        </item>
+
+        <item icon="inv_scroll_06" id="21949" name="Design: Ruby Serpent" rarity="2" url="i=21949">
+          <filter name="itemLevel" value="52"/>
+          <filter areaId="16" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="84"/>
+        </item>
+        <item icon="inv_misc_gem_ruby_02" id="7910" name="Star Ruby" rarity="2" url="i=7910">
+          <filter name="itemLevel" value="50"/>
+          <filter name="source" value="sourceType.worldDrop"/>
+          <filter name="relevance" value="84"/>
+
+        </item>
+        <item icon="inv_misc_gem_ruby_01" id="8008" name="Mana Ruby" rarity="1" url="i=8008">
+          <filter name="itemLevel" value="58"/>
+          <filter name="source" value="sourceType.createdBySpell"/>
+          <filter name="relevance" value="18"/>
+        </item>
+        <item icon="inv_scroll_03" id="21942" name="Design: Ruby Crown of Restoration" rarity="1" url="i=21942">
+          <filter name="itemLevel" value="45"/>
+          <filter name="source" value="sourceType.vendor"/>
+
+          <filter name="relevance" value="12"/>
+        </item>
+        <item icon="inv_misc_gem_ruby_02" id="12647" name="Felhas Ruby" rarity="1" url="i=12647">
+          <filter name="itemLevel" value="1"/>
+          <filter name="source" value="sourceType.providedQuest"/>
+          <filter name="relevance" value="0"/>
+        </item>
+        <item icon="inv_misc_gem_ruby_01" id="7669" name="Shattered Necklace Ruby" rarity="1" url="i=7669">
+          <filter name="itemLevel" value="1"/>
+
+          <filter name="source" value="sourceType.gameObjectDrop"/>
+          <filter name="relevance" value="0"/>
+        </item>
+      </items>
+    </searchResults>
+  </armorySearch>
+</page>

@@ -1,0 +1,167 @@
+request string
+i=itemid
+n=charname
+r=realm
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="/layout/item-tooltip.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/item-tooltip.xml">
+
+  <itemTooltips>
+    <itemTooltip>
+      <id>29290</id>
+      <name>Violet Signet of the Grand Restorer</name>
+      <icon>inv_jewelry_ring_62</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>11</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>24</bonusStamina>
+      <bonusIntellect>23</bonusIntellect>
+      <bonusSpirit>17</bonusSpirit>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases healing done by up to 55 and damage done by up to 19 for all magical spells and effects.</desc>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.factionReward"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/item-tooltip.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>28771</id>
+      <name>Light's Justice</name>
+      <icon>inv_mace_46</icon>
+
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>21</inventoryType>
+        <subclassName>Mace</subclassName>
+
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>24</min>
+          <max>125</max>
+        </damage>
+
+        <speed>1.8</speed>
+        <dps>41.422226</dps>
+      </damageData>
+      <bonusStamina>16</bonusStamina>
+      <bonusIntellect>21</bonusIntellect>
+      <bonusSpirit>20</bonusSpirit>
+
+      <durability current="105" max="105"/>
+      <requiredLevel>70</requiredLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases healing done by up to 382 and damage done by up to 128 for all magical spells and effects.</desc>
+        </spell>
+
+      </spellData>
+      <itemSource areaId="3457" areaName="Karazhan" creatureId="15690" creatureName="Prince Malchezaar" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/item-tooltip.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>28728</id>
+      <name>Aran's Soothing Sapphire</name>
+      <icon>inv_misc_gem_sapphire_02</icon>
+
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>23</inventoryType>
+      </equipData>
+      <damageData/>
+
+      <bonusIntellect>22</bonusIntellect>
+      <requiredLevel>70</requiredLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases healing done by up to 51 and damage done by up to 17 for all magical spells and effects.</desc>
+        </spell>
+
+        <spell>
+          <trigger>1</trigger>
+          <desc>Restores 8 mana per 5 sec.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="3457" areaName="Karazhan" creatureId="16524" creatureName="Shade of Aran" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+
+</page>
+
+
+
+
+<itemTooltip>
+      <id>28700</id>
+      <name>Grand Marshal's Plate Gauntlets</name>
+      <icon>inv_gauntlets_29</icon>
+      <overallQualityId>3</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>10</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData></damageData>
+      <bonusStamina>30</bonusStamina>
+      <bonusStrength>22</bonusStrength>
+      <armor armorBonus="0">728</armor>
+      <durability current="45" max="45"></durability>
+      <allowableClasses>
+        <class>Warrior</class>
+      </allowableClasses>
+      <requiredLevel>70</requiredLevel>
+      <bonusCritRating>21</bonusCritRating>
+      <bonusResilienceRating>17</bonusResilienceRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Hamstring Rage cost reduced by 3.</desc>
+        </spell>
+      </spellData>
+      <setData>
+        <name>Grand Marshal's Battlegear</name>
+        <item name="Grand Marshal's Plate Chestpiece"></item>
+        <item name="Grand Marshal's Plate Gauntlets"></item>
+        <item name="Grand Marshal's Plate Helm"></item>
+        <item name="Grand Marshal's Plate Legguards"></item>
+        <item name="Grand Marshal's Plate Shoulders"></item>
+        <setBonus threshold="2" desc="+35 Resilience Rating."></setBonus>
+        <setBonus threshold="4" desc="Reduces the cooldown of your Intercept ability by 5 sec."></setBonus>
+      </setData>
+      <itemSource value="sourceType.pvpReward"></itemSource>
+    </itemTooltip>
+

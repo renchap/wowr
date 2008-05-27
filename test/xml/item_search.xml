@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/search.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/search.xml">
+  <armorySearch>
+    <tabs count="8" selected="items">
+      <tab count="8" label="armory.tabs.items" type="items"/>
+    </tabs>
+    <searchResults pageCount="1" pageCurrent="1" searchError="" searchFilter="" searchMsg="" searchText="cake" searchType="items" sortDir="a" sortField="relevance" url="searchType=items&amp;searchQuery=cake&amp;p=1&amp;selectedTab=items&amp;sf=relevance&amp;sd=a" version="1.0">
+      <filters/>
+      <filterColumns>
+        <filter name="itemLevel" sortName="itemLevel"/>
+
+        <filter name="source" sortName="source"/>
+        <filter name="relevance" sortName="relevance"/>
+      </filterColumns>
+      <items>
+        <item icon="inv_misc_food_73cinnamonroll" id="33246" name="Funnel Cake" rarity="1" url="i=33246">
+          <filter name="itemLevel" value="65"/>
+          <filter name="source" value="sourceType.vendor"/>
+          <filter name="relevance" value="100"/>
+        </item>
+
+        <item icon="inv_misc_food_10" id="3666" name="Gooey Spider Cake" rarity="1" url="i=3666">
+          <filter name="itemLevel" value="25"/>
+          <filter name="source" value="sourceType.createdByPlans"/>
+          <filter name="relevance" value="47"/>
+        </item>
+        <item icon="inv_scroll_03" id="3683" name="Recipe: Gooey Spider Cake" rarity="1" url="i=3683">
+          <filter name="itemLevel" value="25"/>
+          <filter name="source" reqLvl="17" value="sourceType.questReward"/>
+          <filter name="relevance" value="36"/>
+
+        </item>
+        <item icon="inv_misc_food_08" id="2683" name="Crab Cake" rarity="1" url="i=2683">
+          <filter name="itemLevel" value="15"/>
+          <filter name="source" value="sourceType.createdBySpell"/>
+          <filter name="relevance" value="34"/>
+        </item>
+        <item icon="inv_misc_celebrationcake_01" id="33924" name="Delicious Chocolate Cake" rarity="1" url="i=33924">
+          <filter name="itemLevel" value="1"/>
+          <filter name="source" value="sourceType.none"/>
+
+          <filter name="relevance" value="16"/>
+        </item>
+        <item icon="inv_scroll_05" id="33925" name="Recipe: Delicious Chocolate Cake" rarity="3" url="i=33925">
+          <filter name="itemLevel" value="5"/>
+          <filter name="source" value="sourceType.none"/>
+          <filter name="relevance" value="12"/>
+        </item>
+        <item icon="inv_misc_food_08" id="2250" name="Dusky Crab Cakes" rarity="1" url="i=2250">
+          <filter name="itemLevel" value="1"/>
+
+          <filter name="source" value="sourceType.providedQuest"/>
+          <filter name="relevance" value="1"/>
+        </item>
+        <item icon="inv_jewelry_necklace_03" id="6625" name="Dirt-caked Pendant" rarity="1" url="i=6625">
+          <filter name="itemLevel" value="1"/>
+          <filter name="source" value="sourceType.providedQuest"/>
+          <filter name="relevance" value="1"/>
+        </item>
+      </items>
+
+    </searchResults>
+  </armorySearch>
+</page>

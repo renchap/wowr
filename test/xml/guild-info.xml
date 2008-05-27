@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/guild-info.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/guild-info.xml">
+  <guildKey factionId="1" name="Cake" nameUrl="Cake" realm="Area 52" realmUrl="Area+52" url="r=Area+52&amp;n=Cake"/>
+  <guildInfo>
+    <guild>
+      <members filterField="" filterValue="" maxPage="1" memberCount="4" page="1" sortDir="a" sortField="">
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="46" name="Croker" race="Blood Elf" raceId="10" rank="3" url="r=Area+52&amp;n=Croker"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="34" name="Immelman" race="Blood Elf" raceId="10" rank="3" url="r=Area+52&amp;n=Immelman"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="30" name="Zyriax" race="Blood Elf" raceId="10" rank="0" url="r=Area+52&amp;n=Zyriax"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="17" name="Deathdealn" race="Tauren" raceId="6" rank="3" url="r=Area+52&amp;n=Deathdealn"/>
+
+      </members>
+    </guild>
+  </guildInfo>
+</page>
+
+
+
+guild-info.xml?r=Trollbane&n=The+Lost+Exiles&p=1
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/guild-info.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/guild-info.xml">
+  <guildInfo>
+    <guild battleGroup="Reckoning" name="The Lost Exiles" realm="Trollbane" rosterUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" statsUrl="r=Trollbane&amp;n=The+Lost+Exiles" statsUrlEscape="r=Trollbane&amp;n=The+Lost+Exiles">
+      <members filterField="" filterValue="" maxPage="1" memberCount="254" page="1" sortDir="a" sortField="">
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Yonisan" race="Night Elf" raceId="4" rank="0" url="r=Trollbane&amp;n=Yonisan"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="70" name="Syren" race="Gnome" raceId="7" rank="2" url="r=Trollbane&amp;n=Syren"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Barfred" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Barfred"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Benedictt" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Benedictt"/>
+
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Bonewisher" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Bonewisher"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Dex" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Dex"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Kessel" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Kessel"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="70" name="Koshie" race="Night Elf" raceId="4" rank="3" url="r=Trollbane&amp;n=Koshie"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="70" name="Madeyedread" race="Draenei" raceId="11" rank="3" url="r=Trollbane&amp;n=Madeyedread"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Nabboo" race="Gnome" raceId="7" rank="3" url="r=Trollbane&amp;n=Nabboo"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Papalazarou" race="Gnome" raceId="7" rank="3" url="r=Trollbane&amp;n=Papalazarou"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Sewah" race="Dwarf" raceId="3" rank="3" url="r=Trollbane&amp;n=Sewah"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Shindra" race="Night Elf" raceId="4" rank="3" url="r=Trollbane&amp;n=Shindra"/>
+
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Stoffokles" race="Night Elf" raceId="4" rank="3" url="r=Trollbane&amp;n=Stoffokles"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Vierlona" race="Human" raceId="1" rank="3" url="r=Trollbane&amp;n=Vierlona"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Woolley" race="Night Elf" raceId="4" rank="3" url="r=Trollbane&amp;n=Woolley"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Cigui" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Cigui"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Deebzar" race="Dwarf" raceId="3" rank="4" url="r=Trollbane&amp;n=Deebzar"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Feldon" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Feldon"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Freti" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Freti"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Kiffy" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Kiffy"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="70" name="Perseis" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Perseis"/>
+
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Sydrik" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Sydrik"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Wallman" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Wallman"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Warriorsyd" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Warriorsyd"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Zamith" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Zamith"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="70" name="Absynthe" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Absynthe"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Amata" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Amata"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Barrenstone" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Barrenstone"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Beard" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Beard"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="70" name="Bonzaii" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Bonzaii"/>
+
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="70" name="Calliope" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Calliope"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="70" name="Christell" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Christell"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Clinia" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Clinia"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Crendle" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Crendle"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="70" name="Daluur" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Daluur"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Darkthech" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Darkthech"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Dk" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Dk"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Duste" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Duste"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Ebby" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Ebby"/>
+
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Elenea" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Elenea"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Faithless" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Faithless"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Fellhand" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Fellhand"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Flicki" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Flicki"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Googey" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Googey"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Gunza" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Gunza"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Hakk" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Hakk"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Haldiras" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Haldiras"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Imhoteph" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Imhoteph"/>
+
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Jackdan" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Jackdan"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Jerro" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Jerro"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Jolt" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Jolt"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Ketty" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Ketty"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="70" name="Lamerebeard" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Lamerebeard"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="70" name="Lennox" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Lennox"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Llania" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Llania"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Locusta" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Locusta"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Lucifher" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Lucifher"/>
+
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Mauhir" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Mauhir"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Meadows" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Meadows"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="70" name="Melrose" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Melrose"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Milrinone" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Milrinone"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="70" name="Naestrah" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Naestrah"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Nettlewood" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Nettlewood"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Nigwyn" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Nigwyn"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Nimtix" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Nimtix"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Omgimonfire" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Omgimonfire"/>
+
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Painkillr" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Painkillr"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Posemanden" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Posemanden"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Prettokissen" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Prettokissen"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Razvaz" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Razvaz"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="70" name="Redrah" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Redrah"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Robdadruid" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Robdadruid"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="70" name="Rockadin" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Rockadin"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Salteh" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Salteh"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Seleya" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Seleya"/>
+
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Shifterbert" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Shifterbert"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Spongy" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Spongy"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Stan" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Stan"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Suzanna" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Suzanna"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Tezeriel" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Tezeriel"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="70" name="Tinuva" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Tinuva"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="70" name="Topmodelz" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Topmodelz"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="70" name="Trixia" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Trixia"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="70" name="Vaelern" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Vaelern"/>
+
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Wazhur" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Wazhur"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Wozani" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Wozani"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Zupe" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Zupe"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Adthekiller" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Adthekiller"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Darkraz" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Darkraz"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Harder" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Harder"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="70" name="Pallypowah" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Pallypowah"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="70" name="Razile" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Razile"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="70" name="Rezbot" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Rezbot"/>
+
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Rockurpants" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Rockurpants"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="70" name="Shortstuff" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Shortstuff"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="70" name="Ugotganked" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Ugotganked"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="70" name="Warne" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Warne"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="70" name="Ymanti" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Ymanti"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="69" name="Tathial" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Tathial"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="69" name="Ralgha" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Ralgha"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="68" name="Gulmox" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Gulmox"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="68" name="Zanflame" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Zanflame"/>
+
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="67" name="Tedley" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Tedley"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="67" name="Tornac" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Tornac"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="67" name="Trystan" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Trystan"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="65" name="Ashnari" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Ashnari"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="65" name="Shinna" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Shinna"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="65" name="Nirtixi" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Nirtixi"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="64" name="Feldor" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Feldor"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="64" name="Mark" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Mark"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="63" name="Sbelle" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Sbelle"/>
+
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="63" name="Tamryn" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Tamryn"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="63" name="Labelia" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Labelia"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="63" name="Raver" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Raver"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="63" name="Raymondo" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Raymondo"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="62" name="Meridia" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Meridia"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="62" name="Phoen" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Phoen"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="62" name="Sylfien" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Sylfien"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="62" name="Twilighter" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Twilighter"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="61" name="Deebsy" race="Dwarf" raceId="3" rank="4" url="r=Trollbane&amp;n=Deebsy"/>
+
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="61" name="Kranlaz" race="Dwarf" raceId="3" rank="4" url="r=Trollbane&amp;n=Kranlaz"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="61" name="Gallowz" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Gallowz"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="61" name="Otoris" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Otoris"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="61" name="Gorox" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Gorox"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="61" name="Gotrek" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Gotrek"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="61" name="Vael" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Vael"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="60" name="Badvok" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Badvok"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="60" name="Elara" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Elara"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="60" name="Grimaldi" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Grimaldi"/>
+
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="60" name="Chavette" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Chavette"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="60" name="Dudlaw" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Dudlaw"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="60" name="Jadar" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Jadar"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="60" name="Palajolt" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Palajolt"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="60" name="Vaen" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Vaen"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="57" name="Ljoska" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Ljoska"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="55" name="Vaell" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Vaell"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="53" name="Tinaver" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Tinaver"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="52" name="Pingu" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Pingu"/>
+
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="51" name="Draeman" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Draeman"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="51" name="Eezargood" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Eezargood"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="51" name="Meile" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Meile"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="50" name="Ally" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Ally"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="50" name="Sildenafil" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Sildenafil"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="48" name="Kntajus" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Kntajus"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="48" name="Midknight" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Midknight"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="47" name="Warmanad" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Warmanad"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="46" name="Leofric" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Leofric"/>
+
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="46" name="Shredman" race="Night Elf" raceId="4" rank="5" url="r=Trollbane&amp;n=Shredman"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="45" name="Koshette" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Koshette"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="45" name="Sewage" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Sewage"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="45" name="Adtheninja" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Adtheninja"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="45" name="Flyn" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Flyn"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="45" name="Parazdruid" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Parazdruid"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="44" name="Pollas" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Pollas"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="43" name="Aeonflux" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Aeonflux"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="43" name="Gasbaggy" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Gasbaggy"/>
+
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="43" name="Bloodforgods" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Bloodforgods"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="43" name="Kontika" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Kontika"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="43" name="Swedenlthech" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Swedenlthech"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="42" name="Nomad" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Nomad"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="42" name="Gisela" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Gisela"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="41" name="Loulina" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Loulina"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="41" name="Grimm" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Grimm"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="40" name="Zhadum" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Zhadum"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="40" name="Kilani" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Kilani"/>
+
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="40" name="Malicia" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Malicia"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="40" name="Ozma" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Ozma"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="40" name="Thegatherer" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Thegatherer"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="37" name="Agromagnet" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Agromagnet"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="37" name="Drblue" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Drblue"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="37" name="Malidor" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Malidor"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="36" name="Rosalinda" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Rosalinda"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="36" name="Trelli" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Trelli"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="36" name="Bighunkaluv" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Bighunkaluv"/>
+
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="36" name="Morwenna" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Morwenna"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="35" name="Duske" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Duske"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="35" name="Pometa" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Pometa"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="35" name="Googz" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Googz"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="34" name="Nabbs" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Nabbs"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="34" name="Rens" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Rens"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="34" name="Wolfbaine" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Wolfbaine"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="34" name="Chugga" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Chugga"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="33" name="Doubleuteef" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Doubleuteef"/>
+
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="33" name="Sweetdreams" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Sweetdreams"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="32" name="Doubletap" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Doubletap"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="32" name="Crystalgem" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Crystalgem"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="32" name="Kazee" race="Dwarf" raceId="3" rank="5" url="r=Trollbane&amp;n=Kazee"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="31" name="Shorta" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Shorta"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="30" name="Madeyeted" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Madeyeted"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="30" name="Googs" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Googs"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="29" name="Stabbystabby" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Stabbystabby"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="28" name="Katunga" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Katunga"/>
+
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="28" name="Atisha" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Atisha"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="28" name="Gorkon" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Gorkon"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="28" name="Hopsa" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Hopsa"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="28" name="Magebert" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Magebert"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="26" name="Venia" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Venia"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="26" name="Jannar" race="Gnome" raceId="7" rank="5" url="r=Trollbane&amp;n=Jannar"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="26" name="Lirana" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Lirana"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="26" name="Maekio" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Maekio"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="25" name="Derailed" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Derailed"/>
+
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="25" name="Eisenhorn" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Eisenhorn"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="25" name="Tyndel" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Tyndel"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="25" name="Zolita" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Zolita"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="24" name="Nablette" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Nablette"/>
+        <character class="Priest" classId="5" gender="Female" genderId="1" level="24" name="Sri" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Sri"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="23" name="Numpty" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Numpty"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="22" name="Drstrangelov" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Drstrangelov"/>
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="22" name="Jonasty" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Jonasty"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="22" name="Weemeh" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Weemeh"/>
+
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="21" name="Blockbuster" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Blockbuster"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="21" name="Caoe" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Caoe"/>
+        <character class="Druid" classId="11" gender="Male" genderId="0" level="21" name="Gind" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Gind"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="21" name="Veralidaine" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Veralidaine"/>
+        <character class="Warrior" classId="1" gender="Female" genderId="1" level="20" name="Nabbz" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Nabbz"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="20" name="Shinlo" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Shinlo"/>
+        <character class="Priest" classId="5" gender="Male" genderId="0" level="20" name="Lurch" race="Dwarf" raceId="3" rank="6" url="r=Trollbane&amp;n=Lurch"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="20" name="Zivart" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Zivart"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="19" name="Kessal" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Kessal"/>
+
+        <character class="Warrior" classId="1" gender="Male" genderId="0" level="19" name="Ganka" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Ganka"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="19" name="Googgey" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Googgey"/>
+        <character class="Shaman" classId="7" gender="Male" genderId="0" level="19" name="Shameh" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Shameh"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="18" name="Nabbie" race="Gnome" raceId="7" rank="4" url="r=Trollbane&amp;n=Nabbie"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="18" name="Perethras" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Perethras"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="18" name="Ebbz" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Ebbz"/>
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="17" name="Poysian" race="Human" raceId="1" rank="4" url="r=Trollbane&amp;n=Poysian"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="17" name="Baggyboop" race="Draenei" raceId="11" rank="5" url="r=Trollbane&amp;n=Baggyboop"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="17" name="Bobbie" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Bobbie"/>
+
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="17" name="Cren" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Cren"/>
+        <character class="Warlock" classId="9" gender="Male" genderId="0" level="17" name="Spinky" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Spinky"/>
+        <character class="Hunter" classId="3" gender="Female" genderId="1" level="16" name="Harpalyce" race="Draenei" raceId="11" rank="4" url="r=Trollbane&amp;n=Harpalyce"/>
+        <character class="Warlock" classId="9" gender="Female" genderId="1" level="15" name="Alimenazine" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Alimenazine"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="15" name="Swivel" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Swivel"/>
+        <character class="Paladin" classId="2" gender="Male" genderId="0" level="15" name="Vaelen" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Vaelen"/>
+        <character class="Hunter" classId="3" gender="Male" genderId="0" level="13" name="Jehannum" race="Night Elf" raceId="4" rank="4" url="r=Trollbane&amp;n=Jehannum"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="13" name="Elera" race="Human" raceId="1" rank="6" url="r=Trollbane&amp;n=Elera"/>
+        <character class="Rogue" classId="4" gender="Female" genderId="1" level="13" name="Sakura" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Sakura"/>
+
+        <character class="Mage" classId="8" gender="Male" genderId="0" level="12" name="Deady" race="Human" raceId="1" rank="5" url="r=Trollbane&amp;n=Deady"/>
+        <character class="Paladin" classId="2" gender="Female" genderId="1" level="12" name="Amikacin" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Amikacin"/>
+        <character class="Shaman" classId="7" gender="Female" genderId="1" level="12" name="Juniormascot" race="Draenei" raceId="11" rank="6" url="r=Trollbane&amp;n=Juniormascot"/>
+        <character class="Rogue" classId="4" gender="Male" genderId="0" level="12" name="Rockue" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Rockue"/>
+        <character class="Druid" classId="11" gender="Female" genderId="1" level="12" name="Tuurlijk" race="Night Elf" raceId="4" rank="6" url="r=Trollbane&amp;n=Tuurlijk"/>
+        <character class="Mage" classId="8" gender="Female" genderId="1" level="10" name="Ephesia" race="Gnome" raceId="7" rank="6" url="r=Trollbane&amp;n=Ephesia"/>
+      </members>
+    </guild>
+  </guildInfo>
+
+</page>

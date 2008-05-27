@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/character-reputation.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/character-reputation.xml">
+  <characterInfo>
+    <character battleGroup="Reckoning" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="The Lost Exiles" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" lastModified="13 November 2007" level="70" name="Benedictt" race="Human" raceId="1" realm="Trollbane" title="">
+      <arenaTeams>
+        <arenaTeam battleGroup="Reckoning" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="The Angry Penguins" ranking="4627" rating="1377" realm="Trollbane" realmUrl="b=Reckoning&amp;r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;ff=realm&amp;fv=Trollbane&amp;select=The+Angry+Penguins" seasonGamesPlayed="37" seasonGamesWon="14" size="5" url="r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;select=The+Angry+Penguins">
+          <emblem background="ff090908" borderColor="fffceffd" borderStyle="4" iconColor="fff4f4f9" iconStyle="97"/>
+          <members>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Madeyedread" class="Shaman" classId="7" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Madeyedread" race="Draenei" raceId="11" seasonGamesPlayed="13" seasonGamesWon="4" teamRank="0"/>
+
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Susan" class="Warlock" classId="9" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Aetherius" guildId="1210409" guildUrl="r=Trollbane&amp;n=Aetherius&amp;p=1" name="Susan" race="Gnome" raceId="7" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Benedictt" race="Human" raceId="1" seasonGamesPlayed="10" seasonGamesWon="2" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Topmodelz" class="Druid" classId="11" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Topmodelz" race="Night Elf" raceId="4" seasonGamesPlayed="36" seasonGamesWon="14" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Papalazarou" class="Warlock" classId="9" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Papalazarou" race="Gnome" raceId="7" seasonGamesPlayed="23" seasonGamesWon="10" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Flicki" class="Rogue" classId="4" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Flicki" race="Night Elf" raceId="4" seasonGamesPlayed="22" seasonGamesWon="11" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Nabboo" class="Mage" classId="8" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Nabboo" race="Gnome" raceId="7" seasonGamesPlayed="22" seasonGamesWon="5" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Tinuva" class="Warrior" classId="1" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Tinuva" race="Draenei" raceId="11" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+          </members>
+        </arenaTeam>
+
+      </arenaTeams>
+    </character>
+    <reputationTab>
+      <factionCategory key="alliance" name="Alliance">
+        <faction key="darnassus" name="Darnassus" reputation="17022"/>
+        <faction key="exodar" name="Exodar" reputation="9606"/>
+        <faction key="gnomereganexiles" name="Gnomeregan Exiles" reputation="15200"/>
+        <faction key="ironforge" name="Ironforge" reputation="18744"/>
+        <faction key="stormwind" name="Stormwind" reputation="29324"/>
+
+      </factionCategory>
+      <factionCategory key="allianceforces" name="Alliance Forces">
+        <faction key="silverwingsentinels" name="Silverwing Sentinels" reputation="6323"/>
+        <faction key="stormpikeguard" name="Stormpike Guard" reputation="13664"/>
+        <faction key="theleagueofarathor" name="The League of Arathor" reputation="3751"/>
+      </factionCategory>
+      <factionCategory key="outland" name="Outland">
+        <faction key="cenarionexpedition" name="Cenarion Expedition" reputation="17421"/>
+        <faction key="honorhold" name="Honor Hold" reputation="16243"/>
+
+        <faction key="kurenai" name="Kurenai" reputation="16925"/>
+        <faction key="sporeggar" name="Sporeggar" reputation="9238"/>
+        <faction key="theconsortium" name="The Consortium" reputation="10706"/>
+      </factionCategory>
+      <factionCategory key="shattrathcity" name="Shattrath City">
+        <faction key="lowercity" name="Lower City" reputation="25097"/>
+        <faction key="sha'tariskyguard" name="Sha'tari Skyguard" reputation="2191"/>
+        <faction key="thealdor" name="The Aldor" reputation="-30014"/>
+        <faction key="thescryers" name="The Scryers" reputation="27285"/>
+
+        <faction key="thesha'tar" name="The Sha'tar" reputation="13993"/>
+      </factionCategory>
+      <factionCategory key="steamwheedlecartel" name="Steamwheedle Cartel">
+        <faction key="bootybay" name="Booty Bay" reputation="5709"/>
+        <faction key="everlook" name="Everlook" reputation="4252"/>
+        <faction key="gadgetzan" name="Gadgetzan" reputation="5160"/>
+        <faction key="ratchet" name="Ratchet" reputation="4266"/>
+      </factionCategory>
+      <factionCategory key="zother" name="Other">
+
+        <faction key="argentdawn" name="Argent Dawn" reputation="12267"/>
+        <faction key="bloodsailbuccaneers" name="Bloodsail Buccaneers" reputation="-20150"/>
+        <faction key="cenarioncircle" name="Cenarion Circle" reputation="2081"/>
+        <faction key="darkmoonfaire" name="Darkmoon Faire" reputation="55"/>
+        <faction key="gelkisclancentaur" name="Gelkis Clan Centaur" reputation="3831"/>
+        <faction key="hydraxianwaterlords" name="Hydraxian Waterlords" reputation="19215"/>
+        <faction key="keepersoftime" name="Keepers of Time" reputation="24322"/>
+        <faction key="magramclancentaur" name="Magram Clan Centaur" reputation="-6325"/>
+        <faction key="shen'dralar" name="Shen'dralar" reputation="220"/>
+
+        <faction key="thescaleofthesands" name="The Scale of the Sands" reputation="0"/>
+        <faction key="thevioleteye" name="The Violet Eye" reputation="42999"/>
+        <faction key="thoriumbrotherhood" name="Thorium Brotherhood" reputation="330"/>
+        <faction key="timbermawhold" name="Timbermaw Hold" reputation="-2186"/>
+        <faction key="zandalartribe" name="Zandalar Tribe" reputation="404"/>
+      </factionCategory>
+    </reputationTab>
+  </characterInfo>
+</page>
+

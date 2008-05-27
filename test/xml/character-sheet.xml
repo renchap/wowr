@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/character-sheet.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/character-sheet.xml">
+  <characterInfo>
+    <character battleGroup="Emberstorm" charUrl="r=Antonidas&amp;n=Fizzy" class="Warrior" classId="1" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="Dark Prophecy" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" lastModified="25 April 2008" level="70" name="Fizzy" prefix="" race="Human" raceId="1" realm="Antonidas" suffix="">
+      <arenaTeams>
+        <arenaTeam battleGroup="Emberstorm" faction="Alliance" factionId="0" gamesPlayed="10" gamesWon="0" lastSeasonRanking="0" name="Blades of the Prophecy" ranking="1713" rating="1121" realm="Antonidas" realmUrl="b=Emberstorm&amp;r=Antonidas&amp;ts=5&amp;t=Blades+of+the+Prophecy&amp;ff=realm&amp;fv=Antonidas&amp;select=Blades+of+the+Prophecy" seasonGamesPlayed="31" seasonGamesWon="2" size="5" url="r=Antonidas&amp;ts=5&amp;t=Blades+of+the+Prophecy&amp;select=Blades+of+the+Prophecy">
+          <emblem background="ff000000" borderColor="ff2ff240" borderStyle="4" iconColor="ff1a9117" iconStyle="11"/>
+          <members>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Grimjack" class="Rogue" classId="4" contribution="1296" gamesPlayed="10" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Grimjack" race="Human" raceId="1" seasonGamesPlayed="10" seasonGamesWon="0" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Alanya" class="Hunter" classId="3" contribution="1230" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Alanya" race="Night Elf" raceId="4" seasonGamesPlayed="21" seasonGamesWon="2" teamRank="1"/>
+
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Jorne" class="Hunter" classId="3" contribution="1121" gamesPlayed="10" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Jorne" race="Night Elf" raceId="4" seasonGamesPlayed="31" seasonGamesWon="2" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Holymoses" class="Priest" classId="5" contribution="1343" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Holymoses" race="Draenei" raceId="11" seasonGamesPlayed="11" seasonGamesWon="1" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Tilasir" class="Paladin" classId="2" contribution="1175" gamesPlayed="10" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Tilasir" race="Draenei" raceId="11" seasonGamesPlayed="20" seasonGamesWon="1" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Fatjohn" class="Warrior" classId="1" contribution="1186" gamesPlayed="9" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Fatjohn" race="Human" raceId="1" seasonGamesPlayed="19" seasonGamesWon="1" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Amyrlin" class="Paladin" classId="2" contribution="1316" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Amyrlin" race="Human" raceId="1" seasonGamesPlayed="10" seasonGamesWon="1" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Mooncatt" class="Hunter" classId="3" contribution="1296" gamesPlayed="10" gamesWon="0" gender="Female" genderId="1" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Mooncatt" race="Night Elf" raceId="4" seasonGamesPlayed="10" seasonGamesWon="0" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Antonidas&amp;n=Fizzy" class="Warrior" classId="1" contribution="1343" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Dark Prophecy" guildId="60424" guildUrl="r=Antonidas&amp;n=Dark+Prophecy&amp;p=1" name="Fizzy" race="Human" raceId="1" seasonGamesPlayed="11" seasonGamesWon="1" teamRank="1"/>
+          </members>
+        </arenaTeam>
+
+      </arenaTeams>
+    </character>
+    <characterTab>
+      <talentSpec treeOne="12" treeThree="46" treeTwo="3"/>
+      <buffs>
+        <spell effect="Increases maximum health by 250 and restores 10 health every 5 seconds  Guardian Elixir." icon="inv_potion_158" name="Elixir of Major Fortitude"/>
+        <spell effect="Increases Stamina by 79." icon="spell_holy_prayeroffortitude" name="Prayer of Fortitude"/>
+        <spell effect="Increases armor by 340, all attributes by 14 and all resistances by 25." icon="spell_nature_giftofthewild" name="Gift of the Wild"/>
+        <spell effect="Receives up to 580 extra healing from Holy Light spells, and up to 185 extra healing from Flash of Light spells." icon="spell_holy_greaterblessingoflight" name="Greater Blessing of Light"/>
+
+      </buffs>
+      <debuffs/>
+      <pvp>
+        <lifetimehonorablekills value="3908"/>
+        <arenacurrency value="309"/>
+      </pvp>
+      <professions>
+        <skill key="blacksmithing" max="375" name="Blacksmithing" value="373"/>
+        <skill key="mining" max="375" name="Mining" value="375"/>
+
+      </professions>
+      <title value=""/>
+      <knownTitles/>
+      <characterBars>
+        <health effective="14344"/>
+        <secondBar casting="-1" effective="100" notCasting="-1" perFive="-1" type="r"/>
+      </characterBars>
+      <baseStats>
+        <strength attack="478" base="159" block="12" effective="249"/>
+
+        <agility armor="320" attack="-1" base="96" critHitPercent="5.99" effective="160"/>
+        <stamina base="139" effective="983" health="9650" petBonus="-1"/>
+        <intellect base="33" critHitPercent="-1.00" effective="51" mana="-1" petBonus="-1"/>
+        <spirit base="56" effective="75" healthRegen="43" manaRegen="-1"/>
+        <armor base="14100" effective="14679" percent="58.17" petBonus="-1"/>
+      </baseStats>
+      <resistances>
+        <arcane petBonus="-1" value="33"/>
+        <fire petBonus="-1" value="33"/>
+
+        <frost petBonus="-1" value="33"/>
+        <holy petBonus="-1" value="0"/>
+        <nature petBonus="-1" value="33"/>
+        <shadow petBonus="-1" value="33"/>
+      </resistances>
+      <melee>
+        <mainHandDamage dps="139.6" max="264" min="182" percent="0" speed="1.60"/>
+        <offHandDamage dps="0.0" max="0" min="0" percent="0" speed="2.00"/>
+        <mainHandSpeed hastePercent="0.00" hasteRating="0" value="1.60"/>
+
+        <offHandSpeed hastePercent="0.00" hasteRating="0" value="2.00"/>
+        <power base="688" effective="688" increasedDps="49.0"/>
+        <hitRating increasedHitPercent="3.42" value="54"/>
+        <critChance percent="11.39" plusPercent="2.40" rating="53"/>
+        <expertise additional="0" percent="2.75" rating="0" value="11"/>
+      </melee>
+      <ranged>
+        <weaponSkill rating="0" value="350"/>
+        <damage dps="78.8" max="146" min="107" percent="0" speed="1.60"/>
+
+        <speed hastePercent="0.00" hasteRating="0" value="1.60"/>
+        <power base="220" effective="220" increasedDps="15.0" petAttack="-1.00" petSpell="-1.00"/>
+        <hitRating increasedHitPercent="3.42" value="54"/>
+        <critChance percent="7.75" plusPercent="1.77" rating="39"/>
+      </ranged>
+      <spell>
+        <bonusDamage>
+          <arcane value="0"/>
+          <fire value="0"/>
+
+          <frost value="0"/>
+          <holy value="0"/>
+          <nature value="0"/>
+          <shadow value="0"/>
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="0"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance rating="0">
+
+          <arcane percent="0.00"/>
+          <fire percent="0.00"/>
+          <frost percent="0.00"/>
+          <holy percent="0.00"/>
+          <nature percent="0.00"/>
+          <shadow percent="0.00"/>
+        </critChance>
+        <penetration value="0"/>
+        <manaRegen casting="0.00" notCasting="0.00"/>
+
+      </spell>
+      <defenses>
+        <armor base="14100" effective="14679" percent="58.17" petBonus="-1"/>
+        <defense decreasePercent="6.28" increasePercent="6.28" plusDefense="137" rating="325" value="370.00"/>
+        <dodge increasePercent="3.80" percent="16.17" rating="72"/>
+        <parry increasePercent="1.23" percent="17.51" rating="29"/>
+        <block increasePercent="4.95" percent="21.23" rating="39"/>
+        <resilience damagePercent="0.96" hitPercent="0.48" value="19.00"/>
+      </defenses>
+
+      <items>
+        <item durability="68" gem0Id="24033" gem1Id="24033" gem2Id="24033" icon="inv_helmet_22" id="23519" maxDurability="80" permanentenchant="2999" randomPropertiesId="0" seed="1278064575" slot="0"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_necklace_36" id="31696" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="490975778" slot="1"/>
+        <item durability="83" gem0Id="24033" gem1Id="24051" gem2Id="0" icon="inv_shoulder_22" id="24546" maxDurability="100" permanentenchant="2978" randomPropertiesId="0" seed="0" slot="2"/>
+        <item durability="112" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_chest_chain_07" id="25819" maxDurability="135" permanentenchant="2841" randomPropertiesId="0" seed="1923707419" slot="4"/>
+        <item durability="41" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_belt_23" id="31460" maxDurability="45" permanentenchant="0" randomPropertiesId="0" seed="230696187" slot="5"/>
+        <item durability="82" gem0Id="24054" gem1Id="24033" gem2Id="24033" icon="inv_pants_plate_10" id="29184" maxDurability="100" permanentenchant="3011" randomPropertiesId="0" seed="0" slot="6"/>
+        <item durability="65" gem0Id="30566" gem1Id="24033" gem2Id="0" icon="inv_boots_plate_06" id="28747" maxDurability="75" permanentenchant="2841" randomPropertiesId="0" seed="781680672" slot="7"/>
+        <item durability="40" gem0Id="24062" gem1Id="0" gem2Id="0" icon="inv_bracer_17" id="28167" maxDurability="45" permanentenchant="929" randomPropertiesId="0" seed="1223243690" slot="8"/>
+
+        <item durability="38" gem0Id="24033" gem1Id="24033" gem2Id="0" icon="inv_gauntlets_29" id="23517" maxDurability="45" permanentenchant="2841" randomPropertiesId="0" seed="282036254" slot="9"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_42" id="29323" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1935097281" slot="10"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_62" id="29278" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1851082478" slot="11"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_datacrystal06" id="28042" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1923884934" slot="12"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="ability_warrior_shieldmastery" id="30300" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1474217722" slot="13"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_10" id="24253" maxDurability="0" permanentenchant="2662" randomPropertiesId="0" seed="515783650" slot="14"/>
+        <item durability="77" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_sword_1h_blacksmithing_01" id="28425" maxDurability="105" permanentenchant="3222" randomPropertiesId="0" seed="1672279783" slot="15"/>
+        <item durability="98" gem0Id="24033" gem1Id="24033" gem2Id="0" icon="inv_shield_30" id="29176" maxDurability="120" permanentenchant="1071" randomPropertiesId="0" seed="0" slot="16"/>
+        <item durability="227" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_coin_10" id="28258" maxDurability="240" permanentenchant="0" randomPropertiesId="0" seed="2060992703" slot="17"/>
+
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_guildtabard_01" id="5976" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="18"/>
+      </items>
+    </characterTab>
+  </characterInfo>
+</page>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/character-sheet.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/character-sheet.xml">
+  <characterInfo>
+    <character battleGroup="Blackout" charUrl="r=Draenor&amp;n=Cake" class="Shaman" classId="7" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="Adept" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" lastModified="13 February 2008" level="70" name="Cake" prefix="" race="Draenei" raceId="11" realm="Draenor" suffix="">
+      <arenaTeams>
+        <arenaTeam battleGroup="Blackout" faction="Alliance" factionId="0" gamesPlayed="10" gamesWon="7" lastSeasonRanking="0" name="SØPPERBIL" ranking="8721" rating="1610" realm="Draenor" realmUrl="b=Blackout&amp;r=Draenor&amp;ts=2&amp;t=S%C3%98PPERBIL&amp;ff=realm&amp;fv=Draenor&amp;select=S%C3%98PPERBIL" seasonGamesPlayed="49" seasonGamesWon="28" size="2" url="r=Draenor&amp;ts=2&amp;t=S%C3%98PPERBIL&amp;select=S%C3%98PPERBIL">
+          <emblem background="ff2034cc" borderColor="ff14a30c" borderStyle="1" iconColor="ff1d800a" iconStyle="95"/>
+          <members>
+            <character battleGroup="" charUrl="r=Draenor&amp;n=Arussil" class="Rogue" classId="4" contribution="1613" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Arussil" race="Night Elf" raceId="4" seasonGamesPlayed="48" seasonGamesWon="28" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Draenor&amp;n=Cake" class="Shaman" classId="7" contribution="1516" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Cake" race="Draenei" raceId="11" seasonGamesPlayed="1" seasonGamesWon="1" teamRank="1"/>
+
+            <character battleGroup="" charUrl="r=Draenor&amp;n=Efes" class="Druid" classId="11" contribution="1508" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Adept" guildId="38253" guildUrl="r=Draenor&amp;n=Adept&amp;p=1" name="Efes" race="Night Elf" raceId="4" seasonGamesPlayed="13" seasonGamesWon="7" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Draenor&amp;n=Lothaar" class="Paladin" classId="2" contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Ultimo Impero Oscuro" guildId="37203" guildUrl="r=Draenor&amp;n=Ultimo+Impero+Oscuro&amp;p=1" name="Lothaar" race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Draenor&amp;n=Lothaar" class="Paladin" classId="2" contribution="1602" gamesPlayed="10" gamesWon="7" gender="Male" genderId="0" guild="Passion" guildId="36659" guildUrl="r=Draenor&amp;n=Passion&amp;p=1" name="Lothaar" race="Human" raceId="1" seasonGamesPlayed="20" seasonGamesWon="13" teamRank="1"/>
+          </members>
+        </arenaTeam>
+      </arenaTeams>
+    </character>
+    <characterTab>
+      <talentSpec treeOne="0" treeThree="56" treeTwo="5"/>
+
+      <buffs>
+        <spell effect="Mana Regeneration increased by 25 per 5 seconds." icon="inv_potion_118" name="Flask of Mighty Restoration"/>
+      </buffs>
+      <debuffs/>
+
+      <pvp>
+        <lifetimehonorablekills value="6172"/>
+        <arenacurrency value="990"/>
+      </pvp>
+
+      <professions>
+        <skill key="alchemy" max="375" name="Alchemy" value="370"/>
+        <skill key="enchanting" max="375" name="Enchanting" value="374"/>
+      </professions>
+
+      <title value=""/>
+      <knownTitles/>
+
+      <characterBars>
+        <health effective="7789"/>
+        <secondBar casting="169" effective="10592" notCasting="279" type="m"/>
+      </characterBars>
+
+      <baseStats>
+        <strength attack="198" base="103" block="5" effective="109"/>
+        <agility armor="134" attack="-1" base="61" critHitPercent="4.36" effective="67"/>
+        <stamina base="113" effective="481" health="4630" petBonus="-1"/>
+        <intellect base="109" critHitPercent="8.38" effective="494" mana="7130" petBonus="-1"/>
+        <spirit base="122" effective="145" healthRegen="15" manaRegen="110"/>
+        <armor base="10656" effective="10656" percent="50.23" petBonus="-1"/>
+      </baseStats>
+
+      <resistances>
+        <arcane petBonus="-1" value="7"/>
+        <fire petBonus="-1" value="7"/>
+        <frost petBonus="-1" value="7"/>
+        <holy petBonus="-1" value="0"/>
+        <nature petBonus="-1" value="7"/>
+        <shadow petBonus="-1" value="17"/>
+      </resistances>
+
+      <melee>
+        <mainHandDamage dps="65.6" max="149" min="60" percent="0" speed="1.60"/>
+        <offHandDamage dps="0.0" max="0" min="0" percent="0" speed="2.00"/>
+        <mainHandSpeed hastePercent="0.00" hasteRating="0" value="1.60"/>
+        <offHandSpeed hastePercent="0.00" hasteRating="0" value="2.00"/>
+        <power base="338" effective="338" increasedDps="24.0"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance percent="4.16" plusPercent="0.00" rating="0"/>
+        <expertise additional="0" percent="0.00" rating="0" value="0"/>
+      </melee>
+
+      <ranged>
+        <weaponSkill rating="0" value="-1"/>
+        <damage dps="0.0" max="0" min="0" percent="0" speed="0.00"/>
+        <speed hastePercent="0.00" hasteRating="0" value="0.00"/>
+        <power base="57" effective="57" increasedDps="4.0" petAttack="-1.00" petSpell="-1.00"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance percent="0.92" plusPercent="0.00" rating="0"/>
+      </ranged>
+
+      <spell>
+        <bonusDamage>
+          <arcane value="752"/>
+          <fire value="752"/>
+          <frost value="752"/>
+          <holy value="752"/>
+          <nature value="752"/>
+          <shadow value="752"/>
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="1766"/>
+
+        <hitRating increasedHitPercent="1.59" value="20"/>
+        <critChance rating="15">
+          <arcane percent="9.06"/>
+          <fire percent="9.06"/>
+          <frost percent="9.06"/>
+          <holy percent="9.06"/>
+          <nature percent="9.06"/>
+          <shadow percent="9.06"/>
+        </critChance>
+
+        <penetration value="0"/>
+        <manaRegen casting="169.00" notCasting="279.00"/>
+      </spell>
+
+      <defenses>
+        <armor base="10656" effective="10656" percent="50.23" petBonus="-1"/>
+        <defense decreasePercent="0.00" increasePercent="0.00" plusDefense="0" rating="0" value="350.00"/>
+        <dodge increasePercent="0.00" percent="4.36" rating="0"/>
+        <parry increasePercent="0.00" percent="0.00" rating="0"/>
+        <block increasePercent="0.00" percent="5.00" rating="0"/>
+        <resilience damagePercent="0.91" hitPercent="0.46" value="18.00"/>
+      </defenses>
+
+      <items>
+        <item durability="31" gem0Id="24060" gem1Id="24057" gem2Id="24057" icon="inv_helmet_69" id="30728" maxDurability="85" permanentenchant="3001" randomPropertiesId="0" seed="0" slot="0"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_necklace_31" id="29374" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="1"/>
+        <item durability="29" gem0Id="24057" gem1Id="24057" gem2Id="0" icon="inv_shoulder_19" id="30097" maxDurability="85" permanentenchant="2980" randomPropertiesId="0" seed="0" slot="2"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_14" id="23345" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="3"/>
+        <item durability="45" gem0Id="24057" gem1Id="24060" gem2Id="24057" icon="inv_chest_chain_15" id="29029" maxDurability="140" permanentenchant="2661" randomPropertiesId="0" seed="0" slot="4"/>
+        <item durability="16" gem0Id="24065" gem1Id="24060" gem2Id="0" icon="inv_belt_22" id="30030" maxDurability="50" permanentenchant="0" randomPropertiesId="0" seed="0" slot="5"/>
+
+        <item durability="35" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_pants_mail_15" id="29036" maxDurability="105" permanentenchant="2748" randomPropertiesId="0" seed="0" slot="6"/>
+        <item durability="18" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_boots_chain_05" id="30066" maxDurability="70" permanentenchant="2940" randomPropertiesId="0" seed="2127946090" slot="7"/>
+        <item durability="16" gem0Id="24057" gem1Id="0" gem2Id="0" icon="inv_bracer_02" id="30047" maxDurability="50" permanentenchant="2617" randomPropertiesId="0" seed="1961913150" slot="8"/>
+        <item durability="41" gem0Id="24057" gem1Id="24060" gem2Id="0" icon="inv_gauntlets_26" id="29976" maxDurability="50" permanentenchant="2322" randomPropertiesId="0" seed="0" slot="9"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_54" id="29307" maxDurability="0" permanentenchant="2930" randomPropertiesId="0" seed="1435572127" slot="10"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_62" id="29290" maxDurability="0" permanentenchant="2930" randomPropertiesId="0" seed="1009747122" slot="11"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_qirajicrystal_04" id="30663" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1238755323" slot="12"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_offhand_stratholme_a_01" id="33828" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1139742246" slot="13"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_02" id="29375" maxDurability="0" permanentenchant="2664" randomPropertiesId="0" seed="0" slot="14"/>
+
+        <item durability="45" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_mace_47" id="32451" maxDurability="105" permanentenchant="2343" randomPropertiesId="0" seed="0" slot="15"/>
+        <item durability="48" gem0Id="24060" gem1Id="0" gem2Id="0" icon="inv_shield_43" id="33332" maxDurability="120" permanentenchant="2654" randomPropertiesId="0" seed="1590749441" slot="16"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="spell_frost_summonwaterelemental" id="33505" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="17"/>
+      </items>
+    </characterTab>
+  </characterInfo>
+</page>

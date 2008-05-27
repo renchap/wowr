@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/character-sheet.xsl"?>
+
+<page globalSearch="1" lang="en_us" requestUrl="/character-sheet.xml">
+  <characterInfo>
+    <character battleGroup="Ruin" charUrl="r=Lothar&amp;n=Cake" class="Rogue" classId="4" faction="Horde" factionId="1" gender="Male" genderId="0" guildName="Abandon All Hope" guildUrl="r=Lothar&amp;n=Abandon+All+Hope&amp;p=1" lastModified="November 10, 2007" level="70" name="Cake" race="Troll" raceId="8" realm="Lothar" title=""/>
+    <characterTab>
+      <talentSpec treeOne="17" treeThree="0" treeTwo="44"/>
+      <buffs/>
+      <debuffs/>
+      <pvp>
+
+        <lifetimehonorablekills value="12592"/>
+        <arenacurrency value="0"/>
+      </pvp>
+      <professions>
+        <skill key="herbalism" max="375" name="Herbalism" value="340"/>
+        <skill key="mining" max="150" name="Mining" value="106"/>
+      </professions>
+      <title value=""/>
+      <knownTitles>
+
+        <title value="Stone Guard %s"/>
+      </knownTitles>
+      <characterBars>
+        <health effective="7684"/>
+        <secondBar casting="-1" effective="100" notCasting="-1" type="e"/>
+      </characterBars>
+      <baseStats>
+        <strength attack="140" base="96" block="-1" effective="150"/>
+        <agility armor="774" attack="377" base="163" critHitPercent="9.38" effective="387"/>
+
+        <stamina base="93" effective="416" health="3980" petBonus="-1"/>
+        <intellect base="35" critHitPercent="-1.00" effective="38" mana="-1" petBonus="-1"/>
+        <spirit base="59" effective="62" healthRegen="21" manaRegen="-1"/>
+        <armor base="2616" effective="2616" percent="19.86" petBonus="-1"/>
+      </baseStats>
+      <resistances>
+        <arcane petBonus="-1" value="10"/>
+        <fire petBonus="-1" value="20"/>
+        <frost petBonus="-1" value="0"/>
+
+        <holy petBonus="-1" value="0"/>
+        <nature petBonus="-1" value="10"/>
+        <shadow petBonus="-1" value="0"/>
+      </resistances>
+      <melee>
+        <mainHandWeaponSkill rating="0" value="350"/>
+        <offHandWeaponSkill rating="0" value="349"/>
+        <mainHandDamage dps="174.5" max="440" min="328" percent="0" speed="2.20"/>
+        <offHandDamage dps="133.9" max="236" min="193" percent="0" speed="1.60"/>
+
+        <mainHandSpeed hastePercent="0.00" hasteRating="0" value="2.20"/>
+        <offHandSpeed hastePercent="0.00" hasteRating="0" value="1.60"/>
+        <power base="657" effective="1275" increasedDps="91.0"/>
+        <hitRating increasedHitPercent="9.77" value="154"/>
+        <critChance percent="21.98" plusPercent="7.20" rating="159"/>
+      </melee>
+      <ranged>
+        <weaponSkill rating="0" value="305"/>
+        <damage dps="153.1" max="478" min="348" percent="0" speed="2.70"/>
+
+        <speed hastePercent="0.00" hasteRating="0" value="2.70"/>
+        <power base="447" effective="1037" increasedDps="74.0" petAttack="-1.00" petSpell="-1.00"/>
+        <hitRating increasedHitPercent="9.77" value="154"/>
+        <critChance percent="19.78" plusPercent="7.20" rating="159"/>
+      </ranged>
+      <spell>
+        <bonusDamage>
+          <arcane value="0"/>
+          <fire value="0"/>
+          <frost value="0"/>
+          <holy value="0"/>
+          <nature value="0"/>
+          <shadow value="0"/>
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="0"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance rating="0">
+          <arcane percent="0.00"/>
+          <fire percent="0.00"/>
+          <frost percent="0.00"/>
+          <holy percent="0.00"/>
+          <nature percent="0.00"/>
+          <shadow percent="0.00"/>
+        </critChance>
+        <penetration value="0"/>
+        <manaRegen casting="0.00" notCasting="0.00"/>
+
+      </spell>
+      <defenses>
+        <armor base="2616" effective="2616" percent="19.86" petBonus="-1"/>
+        <defense decreasePercent="0.00" increasePercent="0.00" plusDefense="0" rating="0" value="348.00"/>
+        <dodge increasePercent="0.63" percent="22.31" rating="12"/>
+        <parry increasePercent="0.00" percent="9.92" rating="0"/>
+        <block increasePercent="0.00" percent="0.00" rating="0"/>
+        <resilience damagePercent="0.00" hitPercent="0.00" value="0.00"/>
+      </defenses>
+
+      <items>
+        <item durability="50" gem0Id="23100" gem1Id="23104" gem2Id="24048" icon="inv_helmet_73" id="31109" maxDurability="60" permanentenchant="0" randomPropertiesId="0" seed="1293183668" slot="0"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_necklace_06" id="28745" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1647620920" slot="1"/>
+        <item durability="52" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shoulder_08" id="27995" maxDurability="60" permanentenchant="2983" randomPropertiesId="0" seed="1916597472" slot="2"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_orange_01" id="10052" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="273571904" slot="3"/>
+        <item durability="108" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_chest_cloth_07" id="16905" maxDurability="120" permanentenchant="928" randomPropertiesId="0" seed="0" slot="4"/>
+        <item durability="36" gem0Id="23116" gem1Id="23116" gem2Id="0" icon="inv_belt_26" id="28750" maxDurability="40" permanentenchant="0" randomPropertiesId="0" seed="1296878912" slot="5"/>
+        <item durability="79" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_pants_06" id="16909" maxDurability="90" permanentenchant="2585" randomPropertiesId="0" seed="0" slot="6"/>
+        <item durability="52" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_boots_plate_06" id="28669" maxDurability="60" permanentenchant="0" randomPropertiesId="0" seed="1332224288" slot="7"/>
+
+        <item durability="36" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_bracer_15" id="28514" maxDurability="40" permanentenchant="1593" randomPropertiesId="0" seed="997316953" slot="8"/>
+        <item durability="35" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_gauntlets_28" id="29048" maxDurability="40" permanentenchant="0" randomPropertiesId="0" seed="0" slot="9"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_62" id="29282" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1269818790" slot="10"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_44" id="19898" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="11"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_datacrystal06" id="28041" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="886592228" slot="12"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_poison_mindnumbing" id="28579" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1350770908" slot="13"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_18" id="27423" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="-1913880626" slot="14"/>
+        <item durability="93" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_sword_59" id="23540" maxDurability="105" permanentenchant="2673" randomPropertiesId="0" seed="1055024153" slot="15"/>
+        <item durability="64" gem0Id="23100" gem1Id="23116" gem2Id="23116" icon="inv_weapon_shortblade_39" id="28572" maxDurability="75" permanentenchant="0" randomPropertiesId="0" seed="854453598" slot="16"/>
+
+        <item durability="81" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_weapon_rifle_23" id="28581" maxDurability="90" permanentenchant="0" randomPropertiesId="0" seed="2081181762" slot="17"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_guildtabard_01" id="5976" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="18"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_ammo_arrow_01" id="28056" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="-1"/>
+      </items>
+    </characterTab>
+  </characterInfo>
+</page>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/character-sheet.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/character-sheet.xml">
+  <characterInfo>
+    <character battleGroup="Reckoning" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="The Lost Exiles" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" lastModified="22 November 2007" level="70" name="Benedictt" prefix="Master Sergeant " race="Human" raceId="1" realm="Trollbane" suffix="">
+      <arenaTeams>
+        <arenaTeam battleGroup="Reckoning" faction="Horde" factionId="-1" gamesPlayed="11" gamesWon="6" lastSeasonRanking="0" name="Ben has a Semi" ranking="8026" rating="1494" realm="Trollbane" realmUrl="b=Reckoning&amp;r=Trollbane&amp;ts=3&amp;t=Ben+has+a+Semi&amp;ff=realm&amp;fv=Trollbane&amp;select=Ben+has+a+Semi" seasonGamesPlayed="21" seasonGamesWon="10" size="3" url="r=Trollbane&amp;ts=3&amp;t=Ben+has+a+Semi&amp;select=Ben+has+a+Semi">
+          <emblem background="ff870b00" borderColor="ff3f0100" borderStyle="5" iconColor="ffa8defc" iconStyle="83"/>
+          <members>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Madeyedread" class="Shaman" classId="7" contribution="1515" gamesPlayed="11" gamesWon="6" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Madeyedread" race="Draenei" raceId="11" seasonGamesPlayed="21" seasonGamesWon="10" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Tinuva" class="Warrior" classId="1" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Tinuva" race="Draenei" raceId="11" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" contribution="1515" gamesPlayed="9" gamesWon="5" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Benedictt" race="Human" raceId="1" seasonGamesPlayed="9" seasonGamesWon="5" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Tathial" class="Warlock" classId="9" contribution="1515" gamesPlayed="11" gamesWon="6" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Tathial" race="Human" raceId="1" seasonGamesPlayed="21" seasonGamesWon="10" teamRank="1"/>
+          </members>
+        </arenaTeam>
+        <arenaTeam battleGroup="Reckoning" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="The Angry Penguins" ranking="4687" rating="1377" realm="Trollbane" realmUrl="b=Reckoning&amp;r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;ff=realm&amp;fv=Trollbane&amp;select=The+Angry+Penguins" seasonGamesPlayed="37" seasonGamesWon="14" size="5" url="r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;select=The+Angry+Penguins">
+          <emblem background="ff090908" borderColor="fffceffd" borderStyle="4" iconColor="fff4f4f9" iconStyle="97"/>
+          <members>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Madeyedread" class="Shaman" classId="7" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Madeyedread" race="Draenei" raceId="11" seasonGamesPlayed="13" seasonGamesWon="4" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Susan" class="Warlock" classId="9" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Aetherius" guildId="1210409" guildUrl="r=Trollbane&amp;n=Aetherius&amp;p=1" name="Susan" race="Gnome" raceId="7" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Benedictt" race="Human" raceId="1" seasonGamesPlayed="10" seasonGamesWon="2" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Topmodelz" class="Druid" classId="11" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Topmodelz" race="Night Elf" raceId="4" seasonGamesPlayed="36" seasonGamesWon="14" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Papalazarou" class="Warlock" classId="9" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Papalazarou" race="Gnome" raceId="7" seasonGamesPlayed="23" seasonGamesWon="10" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Flicki" class="Rogue" classId="4" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Flicki" race="Night Elf" raceId="4" seasonGamesPlayed="22" seasonGamesWon="11" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Nabboo" class="Mage" classId="8" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Nabboo" race="Gnome" raceId="7" seasonGamesPlayed="22" seasonGamesWon="5" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Tinuva" class="Warrior" classId="1" contribution="1500" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Tinuva" race="Draenei" raceId="11" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+          </members>
+        </arenaTeam>
+      </arenaTeams>
+
+    </character>
+    <characterTab>
+      <talentSpec treeOne="23" treeThree="0" treeTwo="38"/>
+      <buffs/>
+      <debuffs/>
+      <pvp>
+        <lifetimehonorablekills value="5496"/>
+        <arenacurrency value="651"/>
+      </pvp>
+
+      <professions>
+        <skill key="alchemy" max="375" name="Alchemy" value="375"/>
+        <skill key="herbalism" max="375" name="Herbalism" value="375"/>
+      </professions>
+      <title value="Master Sergeant %s"/>
+      <knownTitles>
+        <title value="Master Sergeant %s"/>
+      </knownTitles>
+      <characterBars>
+
+        <health effective="6601"/>
+        <secondBar casting="156" effective="9855" notCasting="381" type="m"/>
+      </characterBars>
+      <baseStats>
+        <strength attack="29" base="39" block="-1" effective="39"/>
+        <agility armor="90" attack="-1" base="45" critHitPercent="4.98" effective="45"/>
+        <stamina base="58" effective="339" health="3210" petBonus="-1"/>
+        <intellect base="145" critHitPercent="7.50" effective="501" mana="7235" petBonus="-1"/>
+        <spirit base="174" effective="465" healthRegen="26" manaRegen="322"/>
+
+        <armor base="1184" effective="1184" percent="10.08" petBonus="-1"/>
+      </baseStats>
+      <resistances>
+        <arcane petBonus="-1" value="0"/>
+        <fire petBonus="-1" value="0"/>
+        <frost petBonus="-1" value="0"/>
+        <holy petBonus="-1" value="0"/>
+        <nature petBonus="-1" value="0"/>
+        <shadow petBonus="-1" value="0"/>
+
+      </resistances>
+      <melee>
+        <mainHandDamage dps="43.5" max="129" min="28" percent="0" speed="1.80"/>
+        <offHandDamage dps="0.0" max="0" min="0" percent="0" speed="2.00"/>
+        <mainHandSpeed hastePercent="0.00" hasteRating="0" value="1.80"/>
+        <offHandSpeed hastePercent="0.00" hasteRating="0" value="2.00"/>
+        <power base="29" effective="29" increasedDps="2.0"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance percent="3.42" plusPercent="0.00" rating="0"/>
+
+        <expertise additional="0" percent="1.25" rating="0" value="5"/>
+      </melee>
+      <ranged>
+        <weaponSkill rating="0" value="350"/>
+        <damage dps="161.0" max="314" min="169" percent="0" speed="1.50"/>
+        <speed hastePercent="0.00" hasteRating="0" value="1.50"/>
+        <power base="35" effective="35" increasedDps="2.0" petAttack="-1.00" petSpell="-1.00"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance percent="4.98" plusPercent="0.00" rating="0"/>
+
+      </ranged>
+      <spell>
+        <bonusDamage>
+          <arcane value="616"/>
+          <fire value="616"/>
+          <frost value="616"/>
+          <holy value="616"/>
+          <nature value="616"/>
+          <shadow value="616"/>
+
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="1530"/>
+        <hitRating increasedHitPercent="0.00" value="0"/>
+        <critChance rating="0">
+          <arcane percent="7.50"/>
+          <fire percent="7.50"/>
+          <frost percent="7.50"/>
+          <holy percent="11.50"/>
+
+          <nature percent="7.50"/>
+          <shadow percent="7.50"/>
+        </critChance>
+        <penetration value="0"/>
+        <manaRegen casting="156.00" notCasting="381.00"/>
+      </spell>
+      <defenses>
+        <armor base="1184" effective="1184" percent="10.08" petBonus="-1"/>
+        <defense decreasePercent="0.00" increasePercent="0.00" plusDefense="0" rating="0" value="350.00"/>
+
+        <dodge increasePercent="0.00" percent="4.98" rating="0"/>
+        <parry increasePercent="0.00" percent="0.00" rating="0"/>
+        <block increasePercent="0.00" percent="0.00" rating="0"/>
+        <resilience damagePercent="0.91" hitPercent="0.46" value="18.00"/>
+      </defenses>
+      <items>
+        <item durability="59" gem0Id="25901" gem1Id="24057" gem2Id="0" icon="inv_crown_01" id="29049" maxDurability="60" permanentenchant="0" randomPropertiesId="0" seed="0" slot="0"/>
+        <item durability="0" gem0Id="24060" gem1Id="0" gem2Id="0" icon="inv_jewelry_necklace_36" id="33068" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="1"/>
+        <item durability="55" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shoulder_25" id="28612" maxDurability="60" permanentenchant="2992" randomPropertiesId="0" seed="1798567636" slot="2"/>
+
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_16" id="4335" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1003516712" slot="3"/>
+        <item durability="78" gem0Id="23094" gem1Id="24047" gem2Id="28464" icon="inv_chest_cloth_39" id="28230" maxDurability="80" permanentenchant="0" randomPropertiesId="0" seed="994301045" slot="4"/>
+        <item durability="25" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_bandana_01" id="30516" maxDurability="25" permanentenchant="0" randomPropertiesId="0" seed="1752502170" slot="5"/>
+        <item durability="62" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_pants_cloth_19" id="30256" maxDurability="65" permanentenchant="2745" randomPropertiesId="0" seed="598782527" slot="6"/>
+        <item durability="47" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_boots_fabric_01" id="28663" maxDurability="50" permanentenchant="2649" randomPropertiesId="0" seed="533355502" slot="7"/>
+        <item durability="35" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_bracer_13" id="28511" maxDurability="35" permanentenchant="369" randomPropertiesId="0" seed="-1873317976" slot="8"/>
+        <item durability="35" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_gauntlets_17" id="29055" maxDurability="35" permanentenchant="0" randomPropertiesId="0" seed="0" slot="9"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_36" id="28661" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="-1968555100" slot="10"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_62" id="29290" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="169858593" slot="11"/>
+
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_ahnqirajtrinket_06" id="28190" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1581354207" slot="12"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_bandage_16" id="28590" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="653496328" slot="13"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_16" id="27946" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1927269558" slot="14"/>
+        <item durability="105" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_mace_46" id="28771" maxDurability="105" permanentenchant="2343" randomPropertiesId="0" seed="-2132184011" slot="15"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_gem_sapphire_02" id="28728" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="1230678029" slot="16"/>
+        <item durability="75" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_wand_16" id="28588" maxDurability="75" permanentenchant="0" randomPropertiesId="0" seed="964227615" slot="17"/>
+        <item durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_guildtabard_01" id="5976" maxDurability="0" permanentenchant="0" randomPropertiesId="0" seed="0" slot="18"/>
+      </items>
+    </characterTab>
+
+  </characterInfo>
+</page>

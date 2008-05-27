@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/layout/character-skills.xsl"?>
+
+<page globalSearch="1" lang="en_gb" requestUrl="/character-skills.xml">
+  <characterInfo>
+    <character battleGroup="Reckoning" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" faction="Alliance" factionId="0" gender="Male" genderId="0" guildName="The Lost Exiles" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" lastModified="13 November 2007" level="70" name="Benedictt" race="Human" raceId="1" realm="Trollbane" title="">
+      <arenaTeams>
+        <arenaTeam battleGroup="Reckoning" faction="Alliance" factionId="0" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="The Angry Penguins" ranking="4627" rating="1377" realm="Trollbane" realmUrl="b=Reckoning&amp;r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;ff=realm&amp;fv=Trollbane&amp;select=The+Angry+Penguins" seasonGamesPlayed="37" seasonGamesWon="14" size="5" url="r=Trollbane&amp;ts=5&amp;t=The+Angry+Penguins&amp;select=The+Angry+Penguins">
+          <emblem background="ff090908" borderColor="fffceffd" borderStyle="4" iconColor="fff4f4f9" iconStyle="97"/>
+          <members>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Madeyedread" class="Shaman" classId="7" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Madeyedread" race="Draenei" raceId="11" seasonGamesPlayed="13" seasonGamesWon="4" teamRank="0"/>
+
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Susan" class="Warlock" classId="9" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Aetherius" guildId="1210409" guildUrl="r=Trollbane&amp;n=Aetherius&amp;p=1" name="Susan" race="Gnome" raceId="7" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Benedictt" class="Priest" classId="5" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Benedictt" race="Human" raceId="1" seasonGamesPlayed="10" seasonGamesWon="2" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Topmodelz" class="Druid" classId="11" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Topmodelz" race="Night Elf" raceId="4" seasonGamesPlayed="36" seasonGamesWon="14" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Papalazarou" class="Warlock" classId="9" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Papalazarou" race="Gnome" raceId="7" seasonGamesPlayed="23" seasonGamesWon="10" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Flicki" class="Rogue" classId="4" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Flicki" race="Night Elf" raceId="4" seasonGamesPlayed="22" seasonGamesWon="11" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Nabboo" class="Mage" classId="8" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Nabboo" race="Gnome" raceId="7" seasonGamesPlayed="22" seasonGamesWon="5" teamRank="1"/>
+            <character battleGroup="" charUrl="r=Trollbane&amp;n=Tinuva" class="Warrior" classId="1" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="The Lost Exiles" guildId="11770" guildUrl="r=Trollbane&amp;n=The+Lost+Exiles&amp;p=1" name="Tinuva" race="Draenei" raceId="11" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+          </members>
+        </arenaTeam>
+
+      </arenaTeams>
+    </character>
+    <skillTab>
+      <skillCategory key="professions" name="Professions">
+        <skill key="alchemy" max="375" name="Alchemy" value="375"/>
+        <skill key="herbalism" max="375" name="Herbalism" value="375"/>
+      </skillCategory>
+      <skillCategory key="secondaryskills" name="Secondary Skills">
+        <skill key="cooking" max="75" name="Cooking" value="57"/>
+
+        <skill key="firstaid" max="375" name="First Aid" value="375"/>
+        <skill key="fishing" max="75" name="Fishing" value="20"/>
+        <skill key="riding" max="225" name="Riding" value="225"/>
+      </skillCategory>
+      <skillCategory key="weaponskills" name="Weapon Skills">
+        <skill key="daggers" max="350" name="Daggers" value="1"/>
+        <skill key="defense" max="350" name="Defense" value="350"/>
+        <skill key="maces" max="350" name="Maces" value="313"/>
+        <skill key="staves" max="350" name="Staves" value="299"/>
+
+        <skill key="unarmed" max="350" name="Unarmed" value="11"/>
+        <skill key="wands" max="350" name="Wands" value="350"/>
+      </skillCategory>
+      <skillCategory key="classskills" name="Class Skills">
+        <skill key="discipline" max="0" name="Discipline" value="350"/>
+        <skill key="holy" max="0" name="Holy" value="350"/>
+        <skill key="shadowmagic" max="0" name="Shadow Magic" value="350"/>
+      </skillCategory>
+      <skillCategory key="armorproficiencies" name="Armor Proficiencies">
+
+        <skill key="cloth" max="0" name="Cloth" value="1"/>
+      </skillCategory>
+      <skillCategory key="languages" name="Languages">
+        <skill key="language:common" max="300" name="Language: Common" value="300"/>
+      </skillCategory>
+    </skillTab>
+  </characterInfo>
+</page>

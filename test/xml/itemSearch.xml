@@ -1,0 +1,46 @@
+http://eu.wowarmory.com/search.xml?searchType=all&searchQuery=benedict&selectedTab=items&p=1&sf=relevance&sd=a
+
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/layout/search.xsl"?><page globalSearch="1" lang="en_gb" requestUrl="/search.xml">
+  <armorySearch>
+    <tabs count="104" selected="items">
+      <tab count="100" label="armory.tabs.characters" type="characters"/>
+      <tab count="0" label="armory.tabs.arenateams" type="arenateams"/>
+      <tab count="4" label="armory.tabs.items" type="items"/>
+      <tab count="0" label="armory.tabs.guilds" type="guilds"/>
+    </tabs>
+    <searchResults pageCount="1" pageCurrent="1" searchError="" searchFilter="" searchMsg="" searchText="benedict" searchType="all" sortDir="a" sortField="relevance" url="searchType=all&amp;searchQuery=benedict&amp;p=1&amp;selectedTab=items&amp;sf=relevance&amp;sd=a" version="1.0">
+
+      <filters/>
+      <filterColumns>
+        <filter name="itemLevel" sortName="itemLevel"/>
+        <filter name="source" sortName="source"/>
+        <filter name="relevance" sortName="relevance"/
+      </filterColumns>
+      <items>
+        <item icon="inv_pants_cloth_15" id="30727" name="Gilded Trousers of Benediction" rarity="4" url="i=30727">
+          <filter name="itemLevel" value="120"/>
+
+          <filter areaId="3520" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="100"/>
+        </item>
+        <item icon="inv_staff_30" id="18608" name="Benediction" rarity="4" url="i=18608">
+          <filter name="itemLevel" value="75"/>
+          <filter name="source" value="sourceType.createdBySpell"/>
+          <filter name="relevance" value="10"/>
+        </item>
+        <item icon="inv_misc_key_06" id="4882" name="Benedict's Key" rarity="1" url="i=4882">
+
+          <filter name="itemLevel" value="1"/>
+          <filter areaId="14" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="6" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="2"/>
+        </item>
+        <item icon="inv_misc_cape_04" id="18208" name="Drape of Benediction" rarity="4" url="i=18208">
+          <filter name="itemLevel" value="67"/>
+          <filter areaId="16" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="2" name="source" value="sourceType.creatureDrop"/>
+          <filter name="relevance" value="2"/>
+        </item>
+
+      </items>
+    </searchResults>
+  </armorySearch>
+</page>
