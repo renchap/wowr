@@ -10,11 +10,7 @@ SAVE_PATH = File.join(File.dirname(__FILE__),'downloads')
 module Wowr
 	class API
 
-		# Override this method to bypass Net::HTTP. Just use File.open to read in
-		# the data.
-		
 		@@cache_directory_path = 'test_cache/'
-		@cache = true
 		
 		# def get_xml(url, opts = {})
 		# 	response = File.open(url,'r')
@@ -322,7 +318,10 @@ class WowrTest < Test::Unit::TestCase
 		
 		# assert_not_nil character.last_modified
 		
-		asert_equals character.agi, character.agility
+		assert_instance_of Wowr::Classes::Agility, character.agi
+		assert_instance_of Wowr::Classes::Agility, character.agility
+		
+		asert_equals character.agi.armor, character.agility.armor
 		
 		character.arena_teams do |arena_team|
 			

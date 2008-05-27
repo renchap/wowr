@@ -1,62 +1,29 @@
 Wowr
 ----
-
 Ruby Library for the World of Warcraft Armory
 
 
 
 Introduction
 ------------
-
 Wowr is an API for accessing data in the World of Warcraft Armory. Using the XML data provided by the armory, it allows developers to query World of Warcraft items, characters, guilds and arena teams. It is designed to support developers that wish to add WoW information to their Ruby-powered site, as well as larger guild or portal sites for many users.
 
 
 
 Usage
 -----
-
-When initialising the library, it is possible to set a number of parameters to be used as defaults in other API functions.
-
-# all parameters optional
-api = Wowr::API.new(:character_name => 'Foo',
-                    :guild_name => 'Bar',
-                    :realm => 'Baz',
-                    :locale => 'eu', # defaults to US www
-                    :lang => 'fr_fr', # remove for locale default language
-                    :caching => true # defaults to false)
-
-# Character requests
-my_char = api.get_character_sheet # gets character with API default values
-char_boo = api.get_character_sheet(:character_name => 'Boo')
-chars = api.search_characters(:search => 'Cake')
-
-# Guild requests
-guilds = api.search_guilds(:search => 'Cake')
-cake_guild = api.get_guild(:guild_name => 'Cake', :realm => 'Silver Hand')
-
-# Items
-items = api.search_items(:search => 'Cake')
-item_info = api.get_item_info(:item_id => 33924)
-item_tooltip = api.get_item_tooltip(:item_id => 33924)
-
-# Arena Teams
-arena_teams = api.search_arena_teams(:search => 'Lemon')
-arena_team = api.get_arena_team(:team_name => 'Lemon', :realm => 'Hakkar', :team_size => 5)
-
-This API is under development, and is one of my first API projects, so I would greatly appreciate any feedback about it's usefulness or any requests for features/changes. Feel free to drop me a line at benhumphreys[at]gmail
+See example.rb
 
 
 
 Documentation
 -------------
-
 Please view the RubyDoc for more information on usage. http://wowr.rubyforge.org/doc/
 
 
 
 Installation
 ------------
-
 Wowr can be installed through RubyGems using the command below:
   gem install wowr
 
@@ -64,3 +31,8 @@ Alternatively, the latest version can be downloaded from SVN with:
   svn checkout http://wowr.rubyforge.org/svn/trunk/lib/
 
 
+
+Author
+------
+Ben Humphreys
+benhumphreys[at]gmail.com

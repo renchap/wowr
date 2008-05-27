@@ -1,0 +1,21 @@
+0.2.3
+ * There are now shorter method calls
+api.get_item_tooltip(29242)
+api.get_item_tooltip(29242, :caching => false, :lang => 'fr_fr')
+
+The old style still works too
+api.get_item_tooltip(:item_id => 29242)
+
+api.get_character_sheet("Smith")
+
+The same applies for searches, instead of
+api.search_characters(:search => "cake")
+it is now possible to write
+api.search_characters("cake")
+
+ * The API is now more strict and will throw exceptions if the correct parameters are not provided.
+
+ * For consistency, the API now throws errors whenever an item or character is not found from a get request.  Search requests still return empty arrays if nothing is found, but will return an exception if the correct search parameters are not provided.
+
+ * More informative exception messages.
+ * Caching is now on by default.
