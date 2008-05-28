@@ -724,6 +724,7 @@ module Wowr
 		# eg Alliance, Shattrath City, Steamwheedle Cartel
 		class RepFactionCategory
 			attr_reader :key, :name, :factions
+			alias to_s name
 			
 			def initialize(elem)
 				@key 	= elem[:key]
@@ -733,10 +734,6 @@ module Wowr
 				(elem/:faction).each do |faction|
 					@factions[faction[:key]] = RepFaction.new(faction)
 				end
-			end
-			
-			def to_s
-				@name
 			end
 			
 			def total
@@ -753,18 +750,15 @@ module Wowr
 		# eg Darnassus, Argent Dawn
 		class RepFaction
 			attr_reader :key, :name, :reputation
-			stringy :name # TODO: reinventing the wheel?
-			
+			alias to_s name
+			alias to_i reputation
+						
 			alias_method :rep, :reputation
 						
 			def initialize(elem)
 				@key 				= elem[:key]
 				@name 			= elem[:name]
 				@reputation = elem[:reputation].to_i
-			end
-			
-			def to_i
-				return @reputation
 			end
 		end
 		
