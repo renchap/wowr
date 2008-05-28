@@ -157,17 +157,16 @@ module Wowr
 			return search(options)
 		end
 		
-		
-		def get_character_sheet(name = @character_name, options = {})
+		# Get the full details of a character
+		def get_character(name = @character_name, options = {})
 			if (name.is_a?(Hash))
 				options = name
 			else
 				options.merge!(:character_name => name)
+				
+				# TODO check
 				options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
 			end
-			
-			# options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
-			
 			options = merge_defaults(options)
 			
 			if options[:character_name].nil?
@@ -175,22 +174,53 @@ module Wowr
 			
 			elsif (options[:realm].nil?)
 				raise Wowr::Exceptions::RealmNotSet.new
-				
 			end
 			
-			xml = get_xml(@@character_sheet_url, options)
+			character_sheet = get_xml(@@character_sheet_url, options)
+			character_skills = get_xml(@@character_skills_url, options)
+			character_reputation = get_xml(@@character_reputation_url, options)
 			
-			# resist_types = ['arcane', 'fire', 'frost', 'holy', 'nature', 'shadow']
-			# @resistances = {}
-			# resist_types.each do |res|
-			# 	@resistances[res] = Wowr::Classes::Resistance.new(xml%'resistances'%res)
-			# end
-			# puts @resistances.to_yaml
-			return Wowr::Classes::CharacterSheet.new(xml)
+			if true
+				return Wowr::Classes::FullCharacter.new(character_sheet,
+																								character_skills,
+																								character_reputation)
+			else
+				raise Wowr::Excceptions::CharacterNotFound.new(options[:character_name])
+			end
 		end
 		
-		def get_character(options = {})
-			
+		
+		# DEPRECATED
+		def get_character_sheet(name = @character_name, options = {})
+			return get_character(name, options)
+			# if (name.is_a?(Hash))
+			# 	options = name
+			# else
+			# 	options.merge!(:character_name => name)
+			# 	options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
+			# end
+			# 
+			# # options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
+			# 
+			# options = merge_defaults(options)
+			# 
+			# if options[:character_name].nil?
+			# 	raise Wowr::Exceptions::CharacterNameNotSet.new
+			# 
+			# elsif (options[:realm].nil?)
+			# 	raise Wowr::Exceptions::RealmNotSet.new
+			# 	
+			# end
+			# 
+			# xml = get_xml(@@character_sheet_url, options)
+			# 
+			# # resist_types = ['arcane', 'fire', 'frost', 'holy', 'nature', 'shadow']
+			# # @resistances = {}
+			# # resist_types.each do |res|
+			# # 	@resistances[res] = Wowr::Classes::Resistance.new(xml%'resistances'%res)
+			# # end
+			# # puts @resistances.to_yaml
+			# return Wowr::Classes::CharacterSheet.new(xml)
 		end
 		
 		
@@ -294,8 +324,10 @@ module Wowr
 		end
 		
 		
-		# Arena Teams
+		# 
+		# Search for arena teams with the given name of any size across all realms on the specified locale
 		# Caching is disabled for searching
+		#  * name (String)
 		def search_arena_teams(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -307,7 +339,10 @@ module Wowr
 			return search(options)
 		end
 		
-		
+		# Get the arena team of the given name and size, on the specified realm
+		# Note realm is required
+		#  * name (String)
+		#  * size (Fixnum) Must be 2, 3 or 5
 		def get_arena_team(name, size = nil, options = {})
 			if name.is_a?(Hash)
 				options = name

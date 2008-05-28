@@ -17,5 +17,10 @@ api.search_characters("cake")
 
  * For consistency, the API now throws errors whenever an item or character is not found from a get request.  Search requests still return empty arrays if nothing is found, but will return an exception if the correct search parameters are not provided.
 
+ * Skill information is now in a hash my_char.skill_categories['weaponskills'].skills['maces']
+
+ * Reputation information is also accessible by hash: my_char.rep['alliance'].factions['darnassus']
+
  * More informative exception messages.
+
  * Caching is now on by default.
