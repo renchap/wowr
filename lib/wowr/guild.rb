@@ -7,7 +7,7 @@ $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) ||
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 # TODO: Split up classes depending on subject?　　Character, Item, Guild, ArenaTeam
-require 'item.rb'
+# require 'item.rb'
 
 # Wowr was written by Ben Humphreys!
 # http://wowr.benhumphreys.co.uk/
@@ -21,6 +21,7 @@ module Wowr #:nodoc:
 									:roster_url, :stats_url, :stats_url_escape,
 									:faction, :faction_id,
 									:members, :member_count
+			alias to_s :name
 
 			def initialize(elem)
 				if (elem%'guildKey')
@@ -42,9 +43,9 @@ module Wowr #:nodoc:
 				if (elem%'guildInfo')
 					@member_count = (elem%'guildInfo'%'guild'%'members')[:memberCount].to_i || nil
 				
-					@members = []
+					@members = {}
 					(elem%'guildInfo'%'guild'%'members'/:character).each do |char|
-						members << Character.new(char)
+						members[char[:name]] = Character.new(char)
 					end
 				end
 			end

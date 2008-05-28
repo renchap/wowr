@@ -11,6 +11,7 @@ module Wowr
 		class Item
 			attr_reader :id, :name, :icon
 			alias_method :item_id, :id
+			alias to_s :name
 
 			def initialize(elem)
 				@id 			= elem[:id].to_i

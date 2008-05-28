@@ -6,7 +6,6 @@
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-# TODO: Split up classes depending on subject?　　Character, Item, Guild, ArenaTeam
 require 'item.rb'
 require 'character.rb'
 require 'guild.rb'
@@ -17,11 +16,7 @@ module Wowr #:nodoc:
 	module Classes #:nodoc:
 
 		
-
-		
-
-		
-
+		# (fold)
 		# A group of individuals
 		# Note that search results don't contain the members
 		# <arenaTeams>
@@ -59,6 +54,7 @@ module Wowr #:nodoc:
 	  #     </members>
 	  #   </arenaTeam>
 	  # </teamInfo>
+		# (end)
 		
 		
 		class ArenaTeam
@@ -68,6 +64,7 @@ module Wowr #:nodoc:
 									:relevance, :url, :url_escape,
 									:characters,	# can be blank on search results
 									:emblem
+			alias_method :to_s, :name
 			
 			def initialize(elem)
 				@name					= elem[:name]
@@ -94,9 +91,9 @@ module Wowr #:nodoc:
 				
 				# search results don't have members
 				if (elem%'members')
-					@members = []
+					@members = {}
 					(elem%'members'/:character).each do |character|
-						@members << Character.new(character)
+						@members[character[:name]] = ShortCharacter.new(character)
 					end
 				end
 			end

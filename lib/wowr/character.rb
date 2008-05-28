@@ -25,6 +25,9 @@ module Wowr
 									
 									:season_games_played, :season_games_won, :team_rank, :contribution # From ArenaTeam info
 			
+			alias_method :to_s, :name
+			alias_method :to_i, :level
+		
 			def initialize(elem)
 				@name	 			= elem[:name]
 				@level 			= elem[:level].to_i
@@ -216,10 +219,10 @@ module Wowr
 				@pvp = Pvp.new(elem%'pvp')
 								
 				# Also accessible from
-				# character.skills[:]
+				# character.skills['professions']
 				@professions = []
 				(elem%'professions'/:skill).each do |skill|
-					@professions << Profession.new(skill)
+					@professions << Skill.new(skill)
 				end
 				
 				@items = []
@@ -627,24 +630,12 @@ module Wowr
 		# A buff 
 		class Buff
 			attr_reader :name, :effect, :icon
+			alias_method :to_s, :name
 			
 			def initialize(elem)
 				@name 	= elem[:name]
 				@effect = elem[:effect]
 				@icon 	= elem[:icon]
-			end
-		end
-		
-		
-		# A player's profession, players can only have 2 max
-		class Profession
-			attr_reader :key, :name, :max, :value
-			
-			def initialize(elem)
-				@key		= elem[:key]
-				@name		= elem[:name]
-				@value	= elem[:value].to_i
-				@max		= elem[:max].to_i
 			end
 		end
 		
@@ -687,6 +678,7 @@ module Wowr
 		# eg Weapon Skills, Languages
 		class SkillCategory
 			attr_reader :key, :name, :skills
+			alias_method :to_s, :name
 			
 			def initialize(elem)
 				@key 	= elem[:key]
@@ -696,17 +688,14 @@ module Wowr
 				(elem/:skill).each do |skill|
 					@skills[skill[:key]] = Skill.new(skill)
 				end
-				
-				# @skills = []
-				# (elem/:skill).each do |skill|
-				# 	@skills << Skill.new(skill)
-				# end
 			end
 		end
 		
 		# eg Daggers, Riding, Fishing, language
 		class Skill
 			attr_reader :key, :name, :value, :max
+			alias_method :to_s, :name
+			alias_method :to_i, :value
 			
 			def initialize(elem)
 				@key 		= elem[:key]
@@ -715,16 +704,14 @@ module Wowr
 				@max 		= elem[:max].to_i
 			end
 		end
-
-
-
+		
 		
 		# Larger group of factions
 		# Used for faction information
 		# eg Alliance, Shattrath City, Steamwheedle Cartel
 		class RepFactionCategory
 			attr_reader :key, :name, :factions
-			alias to_s name
+			alias_method :to_s, :name
 			
 			def initialize(elem)
 				@key 	= elem[:key]
@@ -738,20 +725,18 @@ module Wowr
 			
 			def total
 				total = 0
-				factions.each_value do |faction|
-					faction.to_yaml
-					total += faction.reputation
-				end
+				factions.each_value { |faction| total += faction.reputation }
 				return total
 			end
 		end
+		
 		
 		# Smaller NPC faction that is part of a FactionCategory
 		# eg Darnassus, Argent Dawn
 		class RepFaction
 			attr_reader :key, :name, :reputation
-			alias to_s name
-			alias to_i reputation
+			alias_method :to_s, :name
+			alias_method :to_i, :reputation
 						
 			alias_method :rep, :reputation
 						
@@ -762,9 +747,5 @@ module Wowr
 			end
 		end
 		
-		
-
-
-
 	end
 end
