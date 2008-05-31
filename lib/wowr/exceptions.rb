@@ -85,5 +85,10 @@ module Wowr
 		end
 		# (end)
 
+		class InvalidIconSize < StandardError
+			def initialize(array)
+				super "Icon size must be: #{array.keys.inspect}"
+			end
+		end
 	end
 end

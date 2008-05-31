@@ -1,5 +1,6 @@
 require 'test/unit'
 require '../lib/wowr.rb'
+require 'yaml'
 
 $:.unshift(File.dirname(__FILE__) + '/../') unless $:.include?(File.dirname(__FILE__) + '/../') || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
@@ -11,7 +12,7 @@ module Wowr
 	class API
 
 		@@cache_directory_path = 'test_cache/'
-		
+				
 		# def get_xml(url, opts = {})
 		# 	response = File.open(url,'r')
 		# 	begin
@@ -335,6 +336,16 @@ class WowrTest < Test::Unit::TestCase
 		
 		
 		end
+	end
+	
+	
+	def test_item
+		item = @api_empty.get_item_info(4336)
+	end
+	
+	
+	def test_item_api_references
+		
 	end
 	# 
 	# 

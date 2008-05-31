@@ -1,20 +1,26 @@
 # Wowr - Ruby library for the World of Warcraft Armory
 # http://wowr.rubyforge.org/
 
-# written by Ben Humphreys,
+# Written by Ben Humphreys
 # since he gave up WoW :)
 # http://benhumphreys.co.uk/
+
+# Current TODO list:
+#  * Caching of icon requests: item, people requests should be cached?  Or is this too much for just the API
+#    Would it return the data? or the URL? So it would get the data, make the local cache, and return the local one?
+#    Is this kind of Railsy?
+#    Don't do it
+# 
 
 begin
 	require 'hpricot' # version 0.6
 rescue LoadError
 	require 'rubygems'
-	require 'hpricot' # version 0.6
-	# require_gem 'hpricot', '<= 0.6'
+	require 'hpricot'
 end
 require 'net/http'
 require 'cgi'
-require 'fileutils' # for making directories
+require 'fileutils'
 
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
@@ -245,7 +251,6 @@ module Wowr
 			end
 			
 			options = merge_defaults(options)
-			
 			xml = get_xml(@@guild_info_url, options)
 			
 			if (xml%'guildKey') && !(xml%'guildInfo').children.empty?
@@ -276,6 +281,7 @@ module Wowr
 			
 			#return Wowr::Classes::ItemTooltip.new(xml%'itemTooltip')
 		#end
+		# alias_method :get_full_item, :get_item
 		
 		def get_item(id, options = {})
 			if (id.is_a?(Hash))
@@ -284,6 +290,17 @@ module Wowr
 				options.merge!(:item_id => id)
 			end
 			
+			options = merge_defaults(options)
+			options.delete(:realm)
+			
+			info = get_xml(@@item_info_url, options)
+			tooltip = get_xml(@@item_tooltip_url, options)
+			
+			if (info%'itemInfo'%'item') && !tooltip.nil?
+				return Wowr::Classes::FullItem.new(info%'itemInfo'%'item', tooltip%'itemTooltip', self)
+			else
+				raise Wowr::Exceptions::ItemNotFound.new(options[:item_id])
+			end
 		end
 		
 		
@@ -295,13 +312,14 @@ module Wowr
 			end
 			
 			options = merge_defaults(options)
+			options.delete(:realm)
+			
 			xml = get_xml(@@item_info_url, options)
 			
 			if (xml%'itemInfo'%'item')
-				return Wowr::Classes::ItemInfo.new(xml%'itemInfo'%'item')
+				return Wowr::Classes::ItemInfo.new(xml%'itemInfo'%'item', self)
 			else
-				# return nil
-				raise Wowr::Exceptions::ItemNotFound.new("Item not found with id: #{options[:item_id]}")
+				raise Wowr::Exceptions::ItemNotFound.new(options[:item_id])
 			end
 		end
 		
@@ -314,13 +332,15 @@ module Wowr
 			end
 			
 			options = merge_defaults(options)
+			options.delete(:realm)
+			
 			xml = get_xml(@@item_tooltip_url, options)
 			
-			if xml.nil?
-				# return nil
-				raise Wowr::Exceptions::ItemNotFound.new("Item not found with id: #{options[:item_id]}")
+			if !xml.nil?
+				return Wowr::Classes::ItemTooltip.new(xml%'itemTooltip')
+			else
+				raise Wowr::Exceptions::ItemNotFound.new(options[:item_id])
 			end
-			return Wowr::Classes::ItemTooltip.new(xml%'itemTooltip')
 		end
 		
 		
@@ -387,6 +407,14 @@ module Wowr
 		end
 		
 		
+		# Return the base url
+		def base_url(locale = @locale)
+			if locale == :us
+				'http://www.' + @@armory_url_base
+			else
+				'http://' + locale + '.' + @@armory_url_base
+			end
+		end
 		
 		
 		protected
@@ -407,7 +435,6 @@ module Wowr
 		
 		# TODO: pretty damn hacky
 		def get_xml(url, options = {})
-			# puts options.to_yaml
 			
 			# better way of doing this?
 			# Map custom keys to the HTTP request values 
@@ -433,7 +460,7 @@ module Wowr
 				query = '?' + params.join('&')
 			end
 			
-			# locale = options[:locale] || @locale
+			puts options.to_yaml
 			
 			base = self.base_url(options[:locale])
 			full_query = base + url + query
@@ -580,16 +607,8 @@ module Wowr
 		def localised_cache_path(lang = @lang)
 			@@cache_directory_path + lang
 		end
-				
-		# :nodoc:
-		def base_url(locale = @locale)
-			if locale == :us
-				'http://www.' + @@armory_url_base
-			else
-				'http://' + locale + '.' + @@armory_url_base
-			end
-		end
-				
+		
+		
 		# :nodoc:
 		def u(str)
 			if str.instance_of?(String)
