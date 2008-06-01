@@ -103,13 +103,13 @@ module Wowr
 				#end
 				
 				etc = [
-					['disenchantLoot', 		'@disenchant_items', 		'item', 		DisenchantItem],
-					['objectiveOfQuests', '@objective_of_quests', 'quest', 		ItemQuest],
-					['rewardFromQuests', 	'@reward_from_quests', 	'quest', 		ItemQuest],
-					['vendors', 					'@vendors', 						'creature', ItemVendor],
-					['dropCreatures', 		'@drop_creatures', 			'creature', ItemDropCreature],
-					['plansFor', 					'@plans_for', 					'spell', 		ItemPlansFor],
-					['createdBy', 				'@created_by', 					'spell', 		ItemCreatedBy],
+					['disenchantLoot', 		'@disenchant_items', 		'item', 		DisenchantItem, true],
+					['objectiveOfQuests', '@objective_of_quests', 'quest', 		ItemQuest, false],
+					['rewardFromQuests', 	'@reward_from_quests', 	'quest', 		ItemQuest, false],
+					['vendors', 					'@vendors', 						'creature', ItemVendor, false],
+					['dropCreatures', 		'@drop_creatures', 			'creature', ItemDropCreature, false],
+					['plansFor', 					'@plans_for', 					'spell', 		ItemPlansFor, true],
+					['createdBy', 				'@created_by', 					'spell', 		ItemCreatedBy, true],
 				]
 				
 				etc.each do |b|
@@ -117,11 +117,16 @@ module Wowr
 					var = b[1]
 					list = b[2]
 					my_class = b[3]
+					requires_api = b[4]
 					
 					if elem%ele
 						tmp_arr = []
 						(elem%ele/list).each do |x|
-							tmp_arr << my_class.new(x, api)
+							if requires_api
+								tmp_arr << my_class.new(x, api)
+							else	
+								tmp_arr << my_class.new(x)
+							end
 						end
 						self.instance_variable_set(var, tmp_arr)
 					end
@@ -500,13 +505,14 @@ module Wowr
 				@quality 		= elem[:quality].to_i
 			end
 		end
-
+		
+		
 		class ItemVendor
 			attr_reader :id, :name, :title, :type,
 									:area, :classification, :max_level, :min_level
 			alias_method :to_s, :name
 			alias_method :to_i, :id
-	
+			
 			def initialize(elem)
 				@id 						= elem[:id].to_i
 				@name 					= elem[:name]
@@ -521,12 +527,10 @@ module Wowr
 
 
 
-
 		# TODO rename
 		# There is some sort of opposite relationship between PlansFor and CreatedBy
 		class ItemCreation < Item
 			attr_reader :item, :reagents
-			# :name, :id, :icon,
 			
 			def initialize(elem, api = nil)
 				super(elem, api)

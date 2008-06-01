@@ -7,6 +7,9 @@ $:.unshift(File.dirname(__FILE__) + '/../') unless $:.include?(File.dirname(__FI
 XML_BASE = File.join(File.dirname(__FILE__) + '/xml/')
 SAVE_PATH = File.join(File.dirname(__FILE__),'downloads')
 
+require 'wowr_item_test.rb'
+require 'wowr_guild_test.rb'
+require 'wowr_character_test.rb'
 
 module Wowr
 	class API
@@ -125,6 +128,12 @@ class WowrTest < Test::Unit::TestCase
 		assert_not_nil @api_empty.search_guilds("cake")
 		assert_not_nil @api_empty.search_arena_teams("cake")
 		
+		# Some results found
+		assert_not_equal @api_empty.search_characters("cake"), []
+		assert_not_equal @api_empty.search_items("cake"), []
+		assert_not_equal @api_empty.search_guilds("cake"), []
+		assert_not_equal @api_empty.search_arena_teams("cake"), []
+		
 		assert_raises Wowr::Exceptions::NoSearchString do
 			@api_empty.search("")
 		end
@@ -170,7 +179,12 @@ class WowrTest < Test::Unit::TestCase
 
 		assert_not_nil @api_empty.get_guild("Horde", :realm => "Boulderfist")
 		assert_not_nil @api_empty.get_guild(:guild_name => "Horde", :realm => "Boulderfist")
+		
+		assert_instance_of Wowr::Classes::FullGuild, @api_empty.get_guild("Horde", :realm => "Boulderfist")
+		assert_instance_of Wowr::Classes::SearchGuild, @api_empty.search_guilds("Horde").first
 	end
+	
+	
 	
 	# def test_character
 	# 	

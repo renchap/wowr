@@ -37,15 +37,15 @@ module Wowr
 		
 		@@search_url = 'search.xml'
 		
-		@@character_sheet_url = 'character-sheet.xml'
-		@@character_talents_url = 'character-talents.xml'
-		@@character_skills_url = 'character-skills.xml'
-		@@character_reputation_url = 'character-reputation.xml'
+		@@character_sheet_url				= 'character-sheet.xml'
+		@@character_talents_url			= 'character-talents.xml'
+		@@character_skills_url			= 'character-skills.xml'
+		@@character_reputation_url	= 'character-reputation.xml'
 		
 		@@guild_info_url = 'guild-info.xml'
 		
-		@@item_info_url = 'item-info.xml'
-		@@item_tooltip_url = 'item-tooltip.xml'
+		@@item_info_url			= 'item-info.xml'
+		@@item_tooltip_url	= 'item-tooltip.xml'
 		
 		@@arena_team_url = 'team-info.xml'
 		
@@ -60,9 +60,8 @@ module Wowr
 									 :arena_team_url,
 									 :max_connection_tries,
 									 :cache_directory_path
-				
+		
 		@@search_types = {
-			#:all => 'all',	# TODO: All is too complex at the moment, API doesn't return all results in one query
 			:item => 'items',
 			:character => 'characters',
 			:guild => 'guilds',
@@ -82,16 +81,9 @@ module Wowr
 			@caching				= options[:caching] == nil ? true : false
 			@lang						= options[:lang].nil? ? 'default' : options[:lang]
 			@debug					= options[:debug] || false
-			
-			# if (options[:lang].nil?)
-			# 	@lang = 'default'
-			# else
-			# 	@lang					= options[:lang]
-			# end
-			
 		end
 		
-				
+		
 		# General-purpose search
 		# All specific searches are wrappers around this method.
 		# Caching is disabled for searching
@@ -108,21 +100,20 @@ module Wowr
 				raise Wowr::Exceptions::NoSearchString.new
 			end
 			
-			if !@@search_types.has_key?(options[:type])
+			if !@@search_types.has_value?(options[:type])
 				raise Wowr::Exceptions::InvalidSearchType.new(options[:type])
 			end
 			
 			options.merge!(:caching => false)
 			options.delete(:realm) # all searches are across realms
-			
+						
 			xml = get_xml(@@search_url, options)
 			
 			results = []
-			
+						
 			if (xml) && (xml%'armorySearch') && (xml%'armorySearch'%'searchResults')
 				case options[:type]
 					
-					# TODO: Filter stuff
 					when @@search_types[:item]
 						(xml%'armorySearch'%'searchResults'%'items'/:item).each do |item|
 							results << Wowr::Classes::SearchItem.new(item)
@@ -135,7 +126,7 @@ module Wowr
 					
 					when @@search_types[:guild]
 						(xml%'armorySearch'%'searchResults'%'guilds'/:guild).each do |guild|
-							results << Wowr::Classes::Guild.new(guild)
+							results << Wowr::Classes::SearchGuild.new(guild)
 						end
 					
 					when @@search_types[:arena_team]
@@ -148,7 +139,7 @@ module Wowr
 			return results
 		end
 		
-				
+		
 		# Characters
 		# Note searches go across all realms by default
 		# Caching is disabled for searching
@@ -159,9 +150,10 @@ module Wowr
 				options.merge!(:search => name)
 			end
 			
-			options.merge!(:type => :character)
+			options.merge!(:type => @@search_types[:character])
 			return search(options)
 		end
+		
 		
 		# Get the full details of a character
 		def get_character(name = @character_name, options = {})
@@ -199,36 +191,7 @@ module Wowr
 		# DEPRECATED
 		def get_character_sheet(name = @character_name, options = {})
 			return get_character(name, options)
-			# if (name.is_a?(Hash))
-			# 	options = name
-			# else
-			# 	options.merge!(:character_name => name)
-			# 	options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
-			# end
-			# 
-			# # options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
-			# 
-			# options = merge_defaults(options)
-			# 
-			# if options[:character_name].nil?
-			# 	raise Wowr::Exceptions::CharacterNameNotSet.new
-			# 
-			# elsif (options[:realm].nil?)
-			# 	raise Wowr::Exceptions::RealmNotSet.new
-			# 	
-			# end
-			# 
-			# xml = get_xml(@@character_sheet_url, options)
-			# 
-			# # resist_types = ['arcane', 'fire', 'frost', 'holy', 'nature', 'shadow']
-			# # @resistances = {}
-			# # resist_types.each do |res|
-			# # 	@resistances[res] = Wowr::Classes::Resistance.new(xml%'resistances'%res)
-			# # end
-			# # puts @resistances.to_yaml
-			# return Wowr::Classes::CharacterSheet.new(xml)
 		end
-		
 		
 		
 		def search_guilds(name, options = {})
@@ -238,9 +201,10 @@ module Wowr
 				options.merge!(:search => name)
 			end
 			
-			options.merge!(:type => :guild)
+			options.merge!(:type => @@search_types[:guild])
 			return search(options)
 		end
+		
 		
 		# guild name is optional, assuming it's set in the api constructor
 		def get_guild(name = @guild_name, options = {})
@@ -254,17 +218,13 @@ module Wowr
 			xml = get_xml(@@guild_info_url, options)
 			
 			if (xml%'guildKey') && !(xml%'guildInfo').children.empty?
-				return Wowr::Classes::Guild.new(xml)
+				return Wowr::Classes::FullGuild.new(xml)
 			else
 				raise Wowr::Exceptions::GuildNotFound.new(options[:guild_name])
 			end
-			
-
 		end
 		
 		
-
-
 		def search_items(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -272,17 +232,11 @@ module Wowr
 				options.merge!(:search => name)
 			end
 			
-			options.merge!(:type => :item)
+			options.merge!(:type => @@search_types[:item])
 			return search(options)
 		end
 		
-		# TODO: Is not finding the item an exception or just return nil?
-		#def get_item(options = {:item_id => nil, :locale => @locale})
-			
-			#return Wowr::Classes::ItemTooltip.new(xml%'itemTooltip')
-		#end
-		# alias_method :get_full_item, :get_item
-		
+
 		def get_item(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -355,7 +309,7 @@ module Wowr
 				options.merge!(:search => name)
 			end
 			
-			options.merge!(:type => :arena_team)
+			options.merge!(:type => @@search_types[:arena_team])
 			return search(options)
 		end
 		
@@ -409,7 +363,7 @@ module Wowr
 		
 		# Return the base url
 		def base_url(locale = @locale)
-			if locale == :us
+			if locale == 'us'
 				'http://www.' + @@armory_url_base
 			else
 				'http://' + locale + '.' + @@armory_url_base
@@ -437,7 +391,7 @@ module Wowr
 		def get_xml(url, options = {})
 			
 			# better way of doing this?
-			# Map custom keys to the HTTP request values 
+			# Map custom keys to the HTTP request values
 			reqs = {
 				:character_name => 'n',
 				:realm => 'r',
@@ -451,119 +405,70 @@ module Wowr
 			
 			params = []
 			options.each do |key, value|
-				if reqs[key]
-					params << "#{reqs[key]}=#{u(value)}"
-				end
+				params << "#{reqs[key]}=#{u(value)}" if reqs[key]
 			end
 			
-			if params.size > 0
-				query = '?' + params.join('&')
-			end
-			
-			puts options.to_yaml
+			query = '?' + params.join('&') if params.size > 0
 			
 			base = self.base_url(options[:locale])
 			full_query = base + url + query
 			
-			if options[:debug]
-				puts full_query
-			end
+			puts full_query if options[:debug]
 			
 			if options[:caching]
 				response = get_cache(full_query, options)
 			else
 				response = http_request(full_query, options)
 			end
-			
-			if options[:debug]
-				# puts response
-			end
-			
+						
 			doc = Hpricot.XML(response)
-			# begin
-				errors = doc.search("*[@errCode]")
-				#errors.to_yaml
-				if errors.size > 0
-					errors.each do |error|
-						raise Wowr::Exceptions::raise_me(error[:errCode], options)
-					end
-				elsif (doc%'page').nil?
-					raise Wowr::Exceptions::EmptyPage
-				else
-					return (doc%'page')
+			errors = doc.search("*[@errCode]")
+			if errors.size > 0
+				errors.each do |error|
+					raise Wowr::Exceptions::raise_me(error[:errCode], options)
 				end
-			# rescue Exception => e
-			# 	$stderr.puts "Fatal error ((#{e.to_s})): Couldn't search the XML document."
-			# 	$stderr.puts doc
-			# 	exit 1
-			# end
-			
+			elsif (doc%'page').nil?
+				raise Wowr::Exceptions::EmptyPage
+			else
+				return (doc%'page')
+			end
 		end
 		
-		# TODO Rename
+		
 		def http_request(url, options = {})
-			
-			req = Net::HTTP::Get.new(url)#, headers)
-			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2"
+			req = Net::HTTP::Get.new(url)
+			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
 			req["cookie"] = "cookieMenu=all; cookieLangId=" + options[:lang] + "; cookies=true;"
 			
 			uri = URI.parse(url)
 			
 		  http = Net::HTTP.new(uri.host, uri.port)
-		
+			
 			begin
-		
 			  http.start do
 			    res = http.request req
-					response = res.body
+					# response = res.body
+					
+					tries = 0
+					response = case res
+						when Net::HTTPSuccess, Net::HTTPRedirection
+							res.body
+						else
+							tries += 1
+							if tries > @@max_connection_tries
+								raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
+							else
+								retry
+							end
+						end
 			  end
 			rescue 
 				raise Wowr::Exceptions::ServerDoesNotExist.new('Specified server at ' + url + ' does not exist.');
 			end
-			
-			# tries = 0
-			# 			response = case res
-			# 			when Net::HTTPSuccess, Net::HTTPRedirection
-			# 				res.body
-			# 			else
-			# 				tries += 1
-			# 				if tries > @@max_connection_tries
-			# 					raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
-			# 				else
-			# 					retry
-			# 				end
-			# 			end
-			
-			
-			#response = res.body
-			
-			# while
-			# 				tries += 1
-			# 				if tries > @@max_connection_tries
-			# 					raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
-			# 				else
-			# 					retry
-			# 				end
-			# 			end
-			# 			
-			# 			begin
-			# 				res = Net::HTTP.new(uri.host, uri.port).start {|http| http.request(req) }
-			# 			rescue Timeout::Error => e
-			# 				retry  
-			# 				#raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
-			# 			end
-			# 			
-			# 			tries = 0
-			# response = case res
-			# when Net::HTTPSuccess, Net::HTTPRedirection
-			# 	res.body
-			# else
-			# 	
-			# end
 		end
-				
+		
+		
 		def get_cache(url, options = {})
-			
 			path = @@cache_directory_path + options[:lang] + '/' + url_to_filename(url)
 			
 			# file doesn't exist, make it
@@ -584,9 +489,7 @@ module Wowr
 			
 			# file exists, return the contents
 			else
-				if options[:debug]
-					puts 'Cache already exists, read: ' + path
-				end
+				puts 'Cache already exists, read: ' + path if options[:debug]
 				
 				file = File.open(path, 'r')
 				xml_content = file.read
@@ -595,17 +498,18 @@ module Wowr
 			return xml_content
 		end
 		
+		
 		# :nodoc:
 		# remove http://eu.wowarmory.com/ leaving just xml file and request
 		# Kind of assuming incoming URL is the same as the current locale
 		def url_to_filename(url)
-			path = url.gsub(base_url, '')
-			return path
+			return url.gsub(base_url, '')
 		end
+		
 		
 		# :nodoc:
 		def localised_cache_path(lang = @lang)
-			@@cache_directory_path + lang
+			return @@cache_directory_path + lang
 		end
 		
 		
