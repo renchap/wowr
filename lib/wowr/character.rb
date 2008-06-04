@@ -1,6 +1,8 @@
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
+require 'wowr/item.rb'
+
 module Wowr
 	module Classes
 
@@ -27,8 +29,15 @@ module Wowr
 			
 			alias_method :to_s, :name
 			alias_method :to_i, :level
-		
-			def initialize(elem)
+			
+			@@race_icon_url_base = 'images/icons/race/'
+			@@class_icon_url_base = 'images/icons/class/'
+			@@portrait_url_base = 'images/portraits/'
+			@@icon_types = {:default => 'wow-default', 70 => 'wow-70', :other => 'wow'}
+			
+			def initialize(elem, api = nil)
+				@api = api
+				
 				@name	 			= elem[:name]
 				@level 			= elem[:level].to_i
 				@url 				= elem[:url] || elem[:charUrl]
@@ -70,9 +79,49 @@ module Wowr
 				@contribution					= elem[:contribution] == "" ? nil : elem[:contribution].to_i
 				#@char_url 						= elem[:charUrl]	# TODO: Merge with URL?
 			end
+			
+			
+			def icon(type = nil)
+				if !type.nil? && !@@icon_types.include?(type)
+					raise Wowr::Exceptions::InvalidIconType.new(@@icon_types)
+				end
+				
+				if (type.nil?) && (@level == 70)
+					dir = @@icon_types[70]
+				elsif (type.nil?)
+					dir = @@icon_types[:other]
+				else
+					dir = @@icon_types[type]
+				end
+				
+				# http://armory.worldofwarcraft.com/images/portraits/wow-70/1-7-8.gif
+				return base + @@portrait_url_base + dir + "/#{@gender_id}-#{@race_id}-#{@klass_id}.gif"
+			end
+			
+			
+			def race_icon
+				# http://armory.worldofwarcraft.com/images/icons/race/11-1.gif
+				return base + @@race_icon_url_base + "#{@race_id}-#{@gender_id.to_s}.gif"
+			end
+			
+			
+			def class_icon
+				# http://armory.worldofwarcraft.com/images/icons/class/8.gif
+				return base + @@class_icon_url_base + "#{@klass_id.to_s}.gif"
+			end
+			
+			
+			protected
+			def base
+				if @api
+					return @api.base_url
+				else
+					return 'http://www.wowarmory.com/'
+				end
+			end
 		end
 		
-		class	ShortCharacter < Character
+		class	SearchCharacter < Character
 		end
 		
 		
@@ -112,7 +161,9 @@ module Wowr
 			# It's made up of two parts
 			# Don't care about battlegroups yet
 			# I don't think I can call stuff from the constructor?
-			def initialize(sheet, skills, reputation)
+			def initialize(sheet, skills, reputation, api = nil)
+				@api = api
+				
 				character_info(sheet%'character')
 				character_tab(sheet%'characterTab')
 				character_skills(skills)
@@ -227,17 +278,17 @@ module Wowr
 				
 				@items = []
 				(elem%'items'/:item).each do |item|
-					@items << EquippedItem.new(item)
+					@items << EquippedItem.new(item, @api)
 				end
 				
 				@buffs = []
 				(elem%'buffs'/:spell).each do |buff|
-					@buffs << Buff.new(buff)
+					@buffs << Buff.new(buff, @api)
 				end
 				
 				@debuffs = []
 				(elem%'debuffs'/:spell).each do |debuff|
-					@debuffs << Buff.new(debuff)
+					@debuffs << Buff.new(debuff, @api)
 				end
 			end
 
@@ -592,7 +643,6 @@ module Wowr
 		end
 		
 		
-		
 		class Resistance
 			attr_reader :value, :pet_bonus
 			
@@ -615,7 +665,7 @@ module Wowr
 			end
 		end
 		
-				
+		
 		# Player-versus-player data
 		class Pvp
 			attr_reader :lifetime_honorable_kills, :arena_currency
@@ -626,16 +676,38 @@ module Wowr
 			end
 		end
 		
-		
+				
 		# A buff 
+		# TODO: Code duplication, see basic Item class. Make extend Icon class?
 		class Buff
-			attr_reader :name, :effect, :icon
+			attr_reader :name, :effect, :icon_base
 			alias_method :to_s, :name
 			
-			def initialize(elem)
-				@name 	= elem[:name]
-				@effect = elem[:effect]
-				@icon 	= elem[:icon]
+			@@icon_url_base = 'images/icons/'
+			@@icon_sizes = {:large => ['64x64', 'jpg'], :medium => ['43x43', 'png'], :small => ['21x21', 'png']}
+			
+			def initialize(elem, api = nil)
+				@api = api
+				
+				@name 			= elem[:name]
+				@effect			= elem[:effect]
+				@icon_base	= elem[:icon]
+			end
+			
+			# http://armory.worldofwarcraft.com/images/icons/21x21/spell_holy_arcaneintellect.png
+			def icon(size = :medium)
+				if !@@icon_sizes.include?(size)
+					raise Wowr::Exceptions::InvalidIconSize.new(@@icon_sizes)
+				end
+				
+				if @api
+					base = @api.base_url
+				else
+					base = 'http://www.wowarmory.com/'
+				end
+				
+				# http://www.wowarmory.com/images/icons/64x64/blahblah.jpg
+				return base + @@icon_url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
 			end
 		end
 		
@@ -646,10 +718,8 @@ module Wowr
 									:gems, :permanent_enchant,
 									:random_properties_id, :seed, :slot
 			
-			def initialize(elem)
-				super(elem)
-				#@id										= elem[:id].to_i
-				#@icon									= elem[:icon]
+			def initialize(elem, api = nil)
+				super(elem, api)
 				@durability						= elem[:durability].to_i
 				@max_durability				= elem[:maxDurability].to_i
 				@gems = []

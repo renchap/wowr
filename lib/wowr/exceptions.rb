@@ -1,10 +1,11 @@
 module Wowr
 	module Exceptions
 		def self.raise_me(code, options = {})
-			#msg = "(#{code.to_s}) #{msg}"
 			case code
 				when "noCharacter"
 					raise CharacterNotFound.new("Character '#{options[:character_name]}' not found.")
+				else
+					raise StandardError.new("The XML returned an error: #{code.to_s}")
 			end
 		end
 		
@@ -28,7 +29,7 @@ module Wowr
 		
 		class ArenaTeamNameNotSet < StandardError
 			def initialize
-				super "Arena team name is not set."
+				super "Arena team name not set."
 			end
 		end
 		
@@ -47,7 +48,7 @@ module Wowr
 		
 		class InvalidSearchType < SearchError
 			def initialize(string)
-				super "'' is not a valid search type."
+				super "'#{string}' is not a valid search type."
 			end
 		end
 		
@@ -88,6 +89,12 @@ module Wowr
 		class InvalidIconSize < StandardError
 			def initialize(array)
 				super "Icon size must be: #{array.keys.inspect}"
+			end
+		end
+		
+		class InvalidIconType < StandardError
+			def initialize(array)
+				super "Icon type must be: #{array.keys.inspect}"
 			end
 		end
 	end

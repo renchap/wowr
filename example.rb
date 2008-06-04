@@ -1,21 +1,16 @@
-# begin
-# 	require 'wowr'
-# rescue LoadError
-# 	require 'rubygems'
-# 	require 'wowr'
-# end
-
-require 'yaml'
-
-require 'lib/wowr.rb'
-
+begin
+	require 'wowr'
+rescue LoadError
+	require 'rubygems'
+	require 'wowr'
+end
 
 api = Wowr::API.new(:character_name => 'Cake',
                     :guild_name => 'chats puants',
                     :realm => 'Rashgarroth',
-                    :locale => 'eu', # defaults to US www
+                    :locale => 'eu', # defaults to US
                     :lang => 'fr_fr', # remove for locale default language
-                    :caching => true) # defaults to false
+                    :caching => false) # defaults to true
 
 # Note for all requests it's possible to specify the parameters similar to the
 # api constructor. By default it'll use whatever is specified in the API.
@@ -42,11 +37,16 @@ rescue Wowr::Exceptions::GuildNotFound => e
 	puts "Guild not found!"
 end
 
+my_char.items.each do |item|
+	puts item.icon
+end
 
 # Items
 items = api.search_items("Cake")
-item_info = api.get_item_info(33924)
-item_tooltip = api.get_item_tooltip(33924)
+item = api.get_item(33924)
+item.reagents.each do |reagent|
+	puts reagent
+end
 
 # Arena Teams
 arena_teams = api.search_arena_teams("Lemon")

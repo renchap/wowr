@@ -2,15 +2,15 @@
 # http://wowr.rubyforge.org/
 
 # Written by Ben Humphreys
-# since he gave up WoW :)
 # http://benhumphreys.co.uk/
+
+# May not be used for commercial applications
 
 # Current TODO list:
 #  * Caching of icon requests: item, people requests should be cached?  Or is this too much for just the API
 #    Would it return the data? or the URL? So it would get the data, make the local cache, and return the local one?
 #    Is this kind of Railsy?
 #    Don't do it
-# 
 
 begin
 	require 'hpricot' # version 0.6
@@ -27,11 +27,15 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'wowr/exceptions.rb'
 require 'wowr/extensions.rb'
-require 'wowr/classes.rb'
+# require 'wowr/classes.rb'
+require 'wowr/character.rb'
+require 'wowr/guild.rb'
+require 'wowr/item.rb'
+require 'wowr/arena_team.rb'
 
 module Wowr
 	class API
-		VERSION = '0.2.3'
+		VERSION = '0.3.0'
 		
 		@@armory_url_base = 'wowarmory.com/'
 		
@@ -87,6 +91,7 @@ module Wowr
 		# General-purpose search
 		# All specific searches are wrappers around this method.
 		# Caching is disabled for searching
+		# All searches are across realms
 		def search(string, options = {})
 			if (string.is_a?(Hash))
 				options = string
@@ -121,7 +126,7 @@ module Wowr
 					
 					when @@search_types[:character]
 						(xml%'armorySearch'%'searchResults'%'characters'/:character).each do |char|
-							results << Wowr::Classes::Character.new(char)
+							results << Wowr::Classes::Character.new(char, self)
 						end
 					
 					when @@search_types[:guild]
@@ -181,7 +186,8 @@ module Wowr
 			if true
 				return Wowr::Classes::FullCharacter.new(character_sheet,
 																								character_skills,
-																								character_reputation)
+																								character_reputation,
+																								self)
 			else
 				raise Wowr::Excceptions::CharacterNotFound.new(options[:character_name])
 			end

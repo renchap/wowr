@@ -2,14 +2,11 @@ require 'test/unit'
 require '../lib/wowr.rb'
 require 'yaml'
 
+
 $:.unshift(File.dirname(__FILE__) + '/../') unless $:.include?(File.dirname(__FILE__) + '/../') || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 XML_BASE = File.join(File.dirname(__FILE__) + '/xml/')
 SAVE_PATH = File.join(File.dirname(__FILE__),'downloads')
-
-require 'wowr_item_test.rb'
-require 'wowr_guild_test.rb'
-require 'wowr_character_test.rb'
 
 module Wowr
 	class API
@@ -69,7 +66,7 @@ class WowrTest < Test::Unit::TestCase
 		
 		assert_equal @api_empty.locale, 'us'
 		assert_equal @api_empty.lang, 'default'
-		assert_equal @api_empty.caching, true		
+		assert_equal @api_empty.caching, true
 		assert_equal @api_empty.debug, false
 	end
 
@@ -87,7 +84,7 @@ class WowrTest < Test::Unit::TestCase
 		assert_equal api.realm, 'baz'
 		assert_equal api.locale, 'hoge'
 		assert_equal api.lang, 'hogehoge'
-		assert_equal api.caching, false	
+		assert_equal api.caching, false
 		assert_equal api.debug, true
 	end
 
@@ -504,8 +501,13 @@ class WowrTest < Test::Unit::TestCase
 
 	def test_assignment
 		assert_nothing_raised do
+			temp = Wowr::API.search_url
 			Wowr::API.search_url = "test"
+			Wowr::API.search_url = temp
+			
+			temp = Wowr::API.cache_directory_path
 			Wowr::API.cache_directory_path = "hello/"
+			Wowr::API.cache_directory_path = temp
 		end
 	end
 

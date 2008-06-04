@@ -1,21 +1,13 @@
-# TODO: Item sources - Vendors
-# sourceType.vendor
-# sourceType.questReward
-# sourceType.createdBySpell
-
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-# TODO: Split up classes depending on subject?　　Character, Item, Guild, ArenaTeam
-# require 'item.rb'
+require 'character.rb'
 
-# Wowr was written by Ben Humphreys!
-# http://wowr.benhumphreys.co.uk/
 module Wowr #:nodoc:
 	module Classes #:nodoc:
 		
 		# A player guild containing members
-		# Kind of abstract
+		# Abstract
 		class Guild
 			attr_reader :name, :url, :realm
 									# :roster_url, :stats_url, :stats_url_escape,

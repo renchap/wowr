@@ -14,6 +14,7 @@ module Wowr
 		# Needs to be consolidated with ItemInfo and other stuff
 		# to be a parent class that they extend?
 		# TODO: At the moment needs a reference to the API in order to get the base URL for icons
+		# TODO: Make extend Icon class
 		class Item
 			attr_reader :id, :name, :icon_base
 			alias_method :item_id, :id
@@ -42,6 +43,7 @@ module Wowr
 					base = 'http://www.wowarmory.com/'
 				end
 				
+				# http://www.wowarmory.com/images/icons/64x64/blahblah.jpg
 				return base + @@icon_url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
 			end
 		end
@@ -84,9 +86,7 @@ module Wowr
 	
 			def initialize(elem, api = nil)
 				super(elem, api)
-				# @id 			= elem[:id].to_i
-				# @name 		= elem[:name]
-				# @icon 		= elem[:icon]
+				
 				@level 		= elem[:level].to_i
 				@quality 	= elem[:quality].to_i
 				@type 		= elem[:type]
