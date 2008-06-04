@@ -166,11 +166,11 @@ class WowrTest < Test::Unit::TestCase
 		assert_not_nil @api_set.get_guild("Horde", :realm => "Boulderfist")
 		assert_not_nil @api_set.get_guild(:guild_name => "Horde", :realm => "Boulderfist")
 		
-		assert_raises Wowr::Exceptions::GuildNotFound do
+		assert_raises Wowr::Exceptions::GuildNameNotSet do
 			@api_empty.get_guild
 		end
 		
-		assert_raises Wowr::Exceptions::GuildNotFound do
+		assert_raises Wowr::Exceptions::RealmNotSet do
 			@api_empty.get_guild("cake")
 		end
 

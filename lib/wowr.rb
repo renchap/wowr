@@ -1,16 +1,11 @@
+# 
 # Wowr - Ruby library for the World of Warcraft Armory
 # http://wowr.rubyforge.org/
-
 # Written by Ben Humphreys
 # http://benhumphreys.co.uk/
-
+# 
 # May not be used for commercial applications
-
-# Current TODO list:
-#  * Caching of icon requests: item, people requests should be cached?  Or is this too much for just the API
-#    Would it return the data? or the URL? So it would get the data, make the local cache, and return the local one?
-#    Is this kind of Railsy?
-#    Don't do it
+# 
 
 begin
 	require 'hpricot' # version 0.6
@@ -27,7 +22,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'wowr/exceptions.rb'
 require 'wowr/extensions.rb'
-# require 'wowr/classes.rb'
+
 require 'wowr/character.rb'
 require 'wowr/guild.rb'
 require 'wowr/item.rb'
@@ -46,7 +41,7 @@ module Wowr
 		@@character_skills_url			= 'character-skills.xml'
 		@@character_reputation_url	= 'character-reputation.xml'
 		
-		@@guild_info_url = 'guild-info.xml'
+		@@guild_info_url		= 'guild-info.xml'
 		
 		@@item_info_url			= 'item-info.xml'
 		@@item_tooltip_url	= 'item-tooltip.xml'
@@ -77,6 +72,10 @@ module Wowr
 		# TODO: Rename locale to server?
 		attr_accessor :character_name, :guild_name, :realm, :locale, :lang, :caching, :debug
 		
+		
+		# Constructor
+		# Accepts an optional hash of parameters to create defaults for all API requests
+		#  * options (Hash) Hash used to set default values for all API requests
 		def initialize(options = {})
 			@character_name = options[:character_name]
 			@guild_name			= options[:guild_name]
@@ -89,9 +88,12 @@ module Wowr
 		
 		
 		# General-purpose search
-		# All specific searches are wrappers around this method.
-		# Caching is disabled for searching
-		# All searches are across realms
+		# All specific searches are wrappers around this method. Best to use those instead.
+		# Returns an array of results of the type requested (SearchCharacter etc.) or an empty array.
+		# Searches across all realms.
+		# Caching is disabled for searching.
+		#  * string (String) Search string
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search(string, options = {})
 			if (string.is_a?(Hash))
 				options = string
@@ -126,7 +128,7 @@ module Wowr
 					
 					when @@search_types[:character]
 						(xml%'armorySearch'%'searchResults'%'characters'/:character).each do |char|
-							results << Wowr::Classes::Character.new(char, self)
+							results << Wowr::Classes::SearchCharacter.new(char, self)
 						end
 					
 					when @@search_types[:guild]
@@ -136,7 +138,7 @@ module Wowr
 					
 					when @@search_types[:arena_team]
 						(xml%'armorySearch'%'searchResults'%'arenaTeams'/:arenaTeam).each do |team|
-							results << Wowr::Classes::ArenaTeam.new(team)
+							results << Wowr::Classes::SearchArenaTeam.new(team)
 						end
 				end
 			end
@@ -146,8 +148,11 @@ module Wowr
 		
 		
 		# Characters
-		# Note searches go across all realms by default
-		# Caching is disabled for searching
+		# Returns an array of results of SearchCharacter or an empty array.
+		# Searches across all realms.
+		# Caching is disabled for searching.
+		#  * name (String) Name of the character to search for
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_characters(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -160,7 +165,10 @@ module Wowr
 		end
 		
 		
-		# Get the full details of a character
+		# Get the full details of a character.
+		# Requires realm.
+		#  * name (String) Name of the character to get, defaults to that specified in constructor
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_character(name = @character_name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -170,12 +178,12 @@ module Wowr
 				# TODO check
 				options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
 			end
+			
 			options = merge_defaults(options)
 			
-			if options[:character_name].nil?
+			if options[:character_name].nil? || options[:chracter_name] == ""
 				raise Wowr::Exceptions::CharacterNameNotSet.new
-			
-			elsif (options[:realm].nil?)
+			elsif options[:realm].nil? || options[:realm] == ""
 				raise Wowr::Exceptions::RealmNotSet.new
 			end
 			
@@ -195,24 +203,35 @@ module Wowr
 		
 		
 		# DEPRECATED
+		# See get_character
 		def get_character_sheet(name = @character_name, options = {})
 			return get_character(name, options)
 		end
 		
 		
+		# Find all guilds with the given string, return array of SearchGuild.
+		# Searches across all realms.
+		# Caching is disabled for searching.
+		#  * name (String) Name of the guild to search for
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_guilds(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
 			else
 				options.merge!(:search => name)
 			end
+			options.delete(:realm)
 			
 			options.merge!(:type => @@search_types[:guild])
 			return search(options)
 		end
 		
 		
-		# guild name is optional, assuming it's set in the api constructor
+		# Get the guild details
+		# Guild name is optional, assuming it's set in the api constructor
+		# Requires realm.
+		#  * name (String) Name of the guild to retrieve, defaults to that specified in constructor
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_guild(name = @guild_name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -221,6 +240,13 @@ module Wowr
 			end
 			
 			options = merge_defaults(options)
+			
+			if options[:guild_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::GuildNameNotSet.new
+			elsif options[:realm].nil? || options[:realm].empty?
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
 			xml = get_xml(@@guild_info_url, options)
 			
 			if (xml%'guildKey') && !(xml%'guildInfo').children.empty?
@@ -231,6 +257,11 @@ module Wowr
 		end
 		
 		
+		# Search for items with the specified name
+		# Searches across all realms.
+		# Caching is disabled for searching.
+		#  * name (String) Name of the item
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_items(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -242,7 +273,11 @@ module Wowr
 			return search(options)
 		end
 		
-
+		
+		# Get the full item details with the given id
+		# Item requests are identical across realms.
+		#  * id (Fixnum) ID of the item
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -264,6 +299,10 @@ module Wowr
 		end
 		
 		
+		# Get the basic item information.
+		# Item requests are identical across realms.
+		#  * id (Fixnum) ID of the item
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item_info(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -284,6 +323,10 @@ module Wowr
 		end
 		
 		
+		# Get full item details including stats.
+		# Item requests are identical across realms.
+		#  * id (Fixnum) ID of the item
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item_tooltip(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -304,10 +347,11 @@ module Wowr
 		end
 		
 		
-		# 
-		# Search for arena teams with the given name of any size across all realms on the specified locale
-		# Caching is disabled for searching
-		#  * name (String)
+		# Search for arena teams with the given name of any size.
+		# Searches across all realms.
+		# Caching is disabled for searching.
+		#  * name (String) Name of the arena team to seach for
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_arena_teams(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -319,10 +363,11 @@ module Wowr
 			return search(options)
 		end
 		
-		# Get the arena team of the given name and size, on the specified realm
-		# Note realm is required
-		#  * name (String)
+		# Get the arena team of the given name and size, on the specified realm.
+		# Requires realm.
+		#  * name (String) Team arena name
 		#  * size (Fixnum) Must be 2, 3 or 5
+		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_arena_team(name, size = nil, options = {})
 			if name.is_a?(Hash)
 				options = name
@@ -358,6 +403,7 @@ module Wowr
 		
 		
 		# Clear the cache, optional filename
+		#  * cache_path (String) Relative path of the cache directory to be deleted
 		def clear_cache(cache_path = @@cache_directory_path)
 			begin
 				FileUtils.remove_dir(cache_path)
@@ -368,6 +414,7 @@ module Wowr
 		
 		
 		# Return the base url
+		#  * locale (String) The locale, defaults to that specified in the API constructor
 		def base_url(locale = @locale)
 			if locale == 'us'
 				'http://www.' + @@armory_url_base
@@ -379,6 +426,8 @@ module Wowr
 		
 		protected
 		
+		# Merge the defaults specified in the constructor with those supplied,
+		# overriding any defaults with those supplied
 		def merge_defaults(options = {})
 			defaults = {}
 			# defaults[:character_name] = @charater_name if @charater_name
@@ -393,7 +442,8 @@ module Wowr
 			defaults.merge!(options)
 		end
 		
-		# TODO: pretty damn hacky
+		# Return an Hpricot document for the given URL
+		# TODO: Tidy up?
 		def get_xml(url, options = {})
 			
 			# better way of doing this?
@@ -440,7 +490,7 @@ module Wowr
 			end
 		end
 		
-		
+		# Perform an HTTP request and return the contents of the document
 		def http_request(url, options = {})
 			req = Net::HTTP::Get.new(url)
 			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
@@ -474,6 +524,8 @@ module Wowr
 		end
 		
 		
+		# Translate the specified URL to the cache location, and return the file
+		# If the cache does not exist, get the contents using http_request and create it
 		def get_cache(url, options = {})
 			path = @@cache_directory_path + options[:lang] + '/' + url_to_filename(url)
 			
@@ -506,7 +558,7 @@ module Wowr
 		
 		
 		# :nodoc:
-		# remove http://eu.wowarmory.com/ leaving just xml file and request
+		# remove http://*.wowarmory.com/ leaving just xml file part and request parameters
 		# Kind of assuming incoming URL is the same as the current locale
 		def url_to_filename(url)
 			return url.gsub(base_url, '')

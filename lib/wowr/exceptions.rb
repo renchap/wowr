@@ -27,6 +27,12 @@ module Wowr
 			end
 		end
 		
+		class GuildNameNotSet < StandardError
+			def initialize
+				super "Guild name not set in options or API constructor."
+			end
+		end
+		
 		class ArenaTeamNameNotSet < StandardError
 			def initialize
 				super "Arena team name not set."
