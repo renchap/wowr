@@ -15,36 +15,3 @@
   Thanks to Hesperus and SheepCow of Rawr for help with this.
 
 * Buy and sell prices, as well as transactions in the guild bank now use Wowr::Classes::Money
-
-
-0.3.0
-* It is now possible to use shorter method calls
-  api.get_item_tooltip(29242)
-  api.get_item_tooltip(29242, :caching => false, :lang => 'fr_fr')
-  
-  Old method calls using hashes are still supported
-  api.get_item_tooltip(:item_id => 29242)
-  
-  api.get_character_sheet("Smith")
-  
-  The same applies for searches, instead of
-  api.search_characters(:search => "cake")
-  it is now possible to write
-  api.search_characters("cake")
-
-* A new request get_character has been created which gets the full character details provided by the character_sheet.xml, character_skills.xml and character_reputation.xml.  It is still possible to use get_character_sheet, but this is deprecated
-
-* A new method Wowr::API.get_item has been created, which provides the details from get_item_info and get_item_tooltip returned in one object.
-
-* The API is now more strict and will throw exceptions if the correct parameters are not provided.
-
-* For consistency, the get requests now throws exceptions whenever the item or character is not found.  Search requests still return empty arrays if nothing is found, but will return an exception if empty search parameters are provided.
-
-* Skill information is now in a hash my_char.skill_categories['weaponskills'].skills['maces']
-
-* Reputation information is accessible by hash: my_char.rep['alliance'].factions['darnassus']
-
-* More informative exception messages.
-
-* Caching is now on by default.
-
