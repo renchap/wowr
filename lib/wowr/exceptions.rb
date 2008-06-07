@@ -39,6 +39,20 @@ module Wowr
 			end
 		end
 		
+		class CookieNotSet < StandardError
+			def initialize
+				super "Cookie required for secure requests not set. Use login(username, password) to retrieve cookie."
+			end
+		end
+		
+		class GuildBankNotFound < StandardError
+			def initialize(guild)
+				super "Guild bank for '#{guild}' not found, this could be due to lack of access privileges or failed login attempt."
+			end
+			
+			
+		end
+		
 		class InvalidArenaTeamSize < StandardError
 		end
 		

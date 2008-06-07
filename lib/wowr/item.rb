@@ -6,6 +6,8 @@
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
+require 'general.rb'
+
 module Wowr
 	module Classes
 
@@ -463,8 +465,8 @@ module Wowr
 			attr_reader :buy_price, :sell_price, :tokens
 	
 			def initialize(elem)
-				@buy_price 	= elem[:buyPrice].to_i	if elem[:buyPrice]
-				@sell_price	= elem[:sellPrice].to_i	if elem[:sellPrice]
+				@buy_price 	= Money.new(elem[:buyPrice].to_i)	if elem[:buyPrice]
+				@sell_price	= Money.new(elem[:sellPrice].to_i)	if elem[:sellPrice]
 		
 				if (elem%'token')
 					@tokens = []

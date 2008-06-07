@@ -1,26 +1,39 @@
-0.2.3
- * There are now shorter method calls
-api.get_item_tooltip(29242)
-api.get_item_tooltip(29242, :caching => false, :lang => 'fr_fr')
+0.4.0
+* Guild bank functionality
 
-The old style still works too
-api.get_item_tooltip(:item_id => 29242)
 
-api.get_character_sheet("Smith")
+  Thanks to SheepCow and Hesperus of Rawr.
 
-The same applies for searches, instead of
-api.search_characters(:search => "cake")
-it is now possible to write
-api.search_characters("cake")
 
- * The API is now more strict and will throw exceptions if the correct parameters are not provided.
 
- * For consistency, the API now throws errors whenever an item or character is not found from a get request.  Search requests still return empty arrays if nothing is found, but will return an exception if the correct search parameters are not provided.
+0.3.0
+* It is now possible to use shorter method calls
+  api.get_item_tooltip(29242)
+  api.get_item_tooltip(29242, :caching => false, :lang => 'fr_fr')
+  
+  Old method calls using hashes are still supported
+  api.get_item_tooltip(:item_id => 29242)
+  
+  api.get_character_sheet("Smith")
+  
+  The same applies for searches, instead of
+  api.search_characters(:search => "cake")
+  it is now possible to write
+  api.search_characters("cake")
 
- * Skill information is now in a hash my_char.skill_categories['weaponskills'].skills['maces']
+* A new request get_character has been created which gets the full character details provided by the character_sheet.xml, character_skills.xml and character_reputation.xml.  It is still possible to use get_character_sheet, but this is deprecated
 
- * Reputation information is also accessible by hash: my_char.rep['alliance'].factions['darnassus']
+* A new method Wowr::API.get_item has been created, which provides the details from get_item_info and get_item_tooltip returned in one object.
 
- * More informative exception messages.
+* The API is now more strict and will throw exceptions if the correct parameters are not provided.
 
- * Caching is now on by default.
+* For consistency, the get requests now throws exceptions whenever the item or character is not found.  Search requests still return empty arrays if nothing is found, but will return an exception if empty search parameters are provided.
+
+* Skill information is now in a hash my_char.skill_categories['weaponskills'].skills['maces']
+
+* Reputation information is accessible by hash: my_char.rep['alliance'].factions['darnassus']
+
+* More informative exception messages.
+
+* Caching is now on by default.
+

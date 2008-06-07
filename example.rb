@@ -44,8 +44,10 @@ end
 # Items
 items = api.search_items("Cake")
 item = api.get_item(33924)
-item.reagents.each do |reagent|
-	puts reagent
+if item.reagents
+	item.reagents.each do |reagent|
+		puts reagent
+	end
 end
 
 # Arena Teams

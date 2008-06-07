@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Wowr::API</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Wowr::API</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/wowr_rb.html">
+                lib/wowr.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000108">base_url</a>&nbsp;&nbsp;
+      <a href="#M000107">clear_cache</a>&nbsp;&nbsp;
+      <a href="#M000106">get_arena_team</a>&nbsp;&nbsp;
+      <a href="#M000112">get_cache</a>&nbsp;&nbsp;
+      <a href="#M000097">get_character</a>&nbsp;&nbsp;
+      <a href="#M000098">get_character_sheet</a>&nbsp;&nbsp;
+      <a href="#M000100">get_guild</a>&nbsp;&nbsp;
+      <a href="#M000102">get_item</a>&nbsp;&nbsp;
+      <a href="#M000103">get_item_info</a>&nbsp;&nbsp;
+      <a href="#M000104">get_item_tooltip</a>&nbsp;&nbsp;
+      <a href="#M000110">get_xml</a>&nbsp;&nbsp;
+      <a href="#M000111">http_request</a>&nbsp;&nbsp;
+      <a href="#M000109">merge_defaults</a>&nbsp;&nbsp;
+      <a href="#M000094">new</a>&nbsp;&nbsp;
+      <a href="#M000095">search</a>&nbsp;&nbsp;
+      <a href="#M000105">search_arena_teams</a>&nbsp;&nbsp;
+      <a href="#M000096">search_characters</a>&nbsp;&nbsp;
+      <a href="#M000099">search_guilds</a>&nbsp;&nbsp;
+      <a href="#M000101">search_items</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">'0.3.0'</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">caching</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">character_name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">debug</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">guild_name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">lang</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">locale</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">realm</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000094" class="method-detail">
+        <a name="M000094"></a>
+
+        <div class="method-heading">
+          <a href="#M000094" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Constructor Accepts an optional hash of parameters to create defaults for
+all <a href="API.html">API</a> requests
+</p>
+<ul>
+<li>options (Hash) - Hash used to set default values for all <a
+href="API.html">API</a> requests
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000094-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000094-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/wowr.rb, line 79</span>
+79:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+80:                         <span class="ruby-ivar">@character_name</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:character_name</span>]
+81:                         <span class="ruby-ivar">@guild_name</span>                  = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:guild_name</span>]
+82:                         <span class="ruby-ivar">@realm</span>                                       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>]
+83:                         <span class="ruby-ivar">@locale</span>                                      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:locale</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'us'</span>
+84:                         <span class="ruby-ivar">@caching</span>                             = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:caching</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+85:                         <span class="ruby-ivar">@lang</span>                                                = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">'default'</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>]
+86:                         <span class="ruby-ivar">@debug</span>                                       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+87:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
+
+        <div class="method-heading">
+          <a href="#M000108" class="method-signature">
+          <span class="method-name">base_url</span><span class="method-args">(locale = @locale)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the base url for the armory, e.g. <a
+href="http://eu.wowarmory.com">eu.wowarmory.com</a>/
+</p>
+<ul>
+<li>locale (String) The locale, defaults to that specified in the <a
+href="API.html">API</a> constructor
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000108-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000108-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 433</span>
+433:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">base_url</span>(<span class="ruby-identifier">locale</span> = <span class="ruby-ivar">@locale</span>)
+434:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">locale</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'us'</span>
+435:                                 <span class="ruby-value str">'http://www.'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@armory_url_base</span>
+436:                         <span class="ruby-keyword kw">else</span>
+437:                                 <span class="ruby-value str">'http://'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">locale</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@armory_url_base</span>
+438:                         <span class="ruby-keyword kw">end</span>
+439:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
+
+        <div class="method-heading">
+          <a href="#M000107" class="method-signature">
+          <span class="method-name">clear_cache</span><span class="method-args">(cache_path = @@cache_directory_path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clear the cache, optional directory name.
+</p>
+<ul>
+<li>cache_path (String) Relative path of the cache directory to be deleted
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000107-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000107-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 422</span>
+422:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_cache</span>(<span class="ruby-identifier">cache_path</span> = <span class="ruby-ivar">@@cache_directory_path</span>)
+423:                         <span class="ruby-keyword kw">begin</span>
+424:                                 <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">remove_dir</span>(<span class="ruby-identifier">cache_path</span>)
+425:                         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> 
+426:                                 
+427:                         <span class="ruby-keyword kw">end</span>
+428:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="#M000106" class="method-signature">
+          <span class="method-name">get_arena_team</span><span class="method-args">(name, size = nil, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the arena team of the given name and size, on the specified realm.
+Returns <a
+href="Classes/FullArenaTeam.html">Wowr::Classes::FullArenaTeam</a> Requires
+realm.
+</p>
+<ul>
+<li>name (String) Team arena name
+
+</li>
+<li>size (Fixnum) Must be 2, 3 or 5
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000106-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000106-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 386</span>
+386:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_arena_team</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">size</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = {})
+387:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+388:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+389:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+390:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">size</span>
+391:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:team_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+392:                         <span class="ruby-keyword kw">else</span>
+393:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:team_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">:team_size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">size</span>)
+394:                         <span class="ruby-keyword kw">end</span>
+395:                         
+396:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+397:                                                 
+398:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:team_name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:team_name</span>].<span class="ruby-identifier">empty?</span>
+399:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ArenaTeamNameNotSet</span>.<span class="ruby-identifier">new</span>
+400:                         <span class="ruby-keyword kw">end</span>
+401:                         
+402:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>].<span class="ruby-identifier">empty?</span>
+403:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">RealmNotSet</span>.<span class="ruby-identifier">new</span>
+404:                         <span class="ruby-keyword kw">end</span>
+405:                         
+406:                         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@@arena_team_sizes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:team_size</span>])
+407:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidArenaTeamSize</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Arena teams size must be: #{@@arena_team_sizes.inspect}&quot;</span>)
+408:                         <span class="ruby-keyword kw">end</span>
+409:                         
+410:                         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@arena_team_url</span>, <span class="ruby-identifier">options</span>)
+411:                         
+412:                         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'arenaTeam'</span>).<span class="ruby-identifier">children</span>.<span class="ruby-identifier">empty?</span>
+413:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ArenaTeam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'arenaTeam'</span>)
+414:                         <span class="ruby-keyword kw">else</span>
+415:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ArenaTeamNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:team_name</span>])
+416:                         <span class="ruby-keyword kw">end</span>
+417:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
+
+        <div class="method-heading">
+          <a href="#M000097" class="method-signature">
+          <span class="method-name">get_character</span><span class="method-args">(name = @character_name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the full details of a character. Requires realm.
+</p>
+<ul>
+<li>name (String) Name of the character to get, defaults to that specified in
+constructor
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000097-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 173</span>
+173:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_character</span>(<span class="ruby-identifier">name</span> = <span class="ruby-ivar">@character_name</span>, <span class="ruby-identifier">options</span> = {})
+174:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+175:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+176:                         <span class="ruby-keyword kw">else</span>
+177:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:character_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+178:                                 
+179:                                 <span class="ruby-comment cmt"># TODO check</span>
+180:                                 <span class="ruby-identifier">options</span> = {<span class="ruby-identifier">:character_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@character_name</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-ivar">@character_name</span>.<span class="ruby-identifier">nil?</span>)
+181:                         <span class="ruby-keyword kw">end</span>
+182:                         
+183:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+184:                         
+185:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:character_name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:chracter_name</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+186:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">CharacterNameNotSet</span>.<span class="ruby-identifier">new</span>
+187:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+188:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">RealmNotSet</span>.<span class="ruby-identifier">new</span>
+189:                         <span class="ruby-keyword kw">end</span>
+190:                         
+191:                         <span class="ruby-identifier">character_sheet</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@character_sheet_url</span>, <span class="ruby-identifier">options</span>)
+192:                         <span class="ruby-identifier">character_skills</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@character_skills_url</span>, <span class="ruby-identifier">options</span>)
+193:                         <span class="ruby-identifier">character_reputation</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@character_reputation_url</span>, <span class="ruby-identifier">options</span>)
+194:                         
+195:                         <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">true</span>
+196:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">FullCharacter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">character_sheet</span>,
+197:                                                                                                                                                                                                 <span class="ruby-identifier">character_skills</span>,
+198:                                                                                                                                                                                                 <span class="ruby-identifier">character_reputation</span>,
+199:                                                                                                                                                                                                 <span class="ruby-keyword kw">self</span>)
+200:                         <span class="ruby-keyword kw">else</span>
+201:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Excceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">CharacterNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:character_name</span>])
+202:                         <span class="ruby-keyword kw">end</span>
+203:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="#M000098" class="method-signature">
+          <span class="method-name">get_character_sheet</span><span class="method-args">(name = @character_name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+DEPRECATED See <a href="API.html#M000097">get_character</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000098-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 208</span>
+208:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_character_sheet</span>(<span class="ruby-identifier">name</span> = <span class="ruby-ivar">@character_name</span>, <span class="ruby-identifier">options</span> = {})
+209:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">get_character</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+210:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="#M000100" class="method-signature">
+          <span class="method-name">get_guild</span><span class="method-args">(name = @guild_name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the guild details. Guild name is optional, assuming it&#8216;s set in
+the api constructor. Requires realm.
+</p>
+<ul>
+<li>name (String) Name of the guild to retrieve, defaults to that specified in
+constructor
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000100-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000100-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 245</span>
+245:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_guild</span>(<span class="ruby-identifier">name</span> = <span class="ruby-ivar">@guild_name</span>, <span class="ruby-identifier">options</span> = {})
+246:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+247:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+248:                         <span class="ruby-keyword kw">else</span>
+249:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:guild_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+250:                         <span class="ruby-keyword kw">end</span>
+251:                         
+252:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+253:                         
+254:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:guild_name</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:guild_name</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+255:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">GuildNameNotSet</span>.<span class="ruby-identifier">new</span>
+256:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:realm</span>].<span class="ruby-identifier">empty?</span>
+257:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">RealmNotSet</span>.<span class="ruby-identifier">new</span>
+258:                         <span class="ruby-keyword kw">end</span>
+259:                         
+260:                         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@guild_info_url</span>, <span class="ruby-identifier">options</span>)
+261:                         
+262:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'guildKey'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'guildInfo'</span>).<span class="ruby-identifier">children</span>.<span class="ruby-identifier">empty?</span>
+263:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">FullGuild</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span>)
+264:                         <span class="ruby-keyword kw">else</span>
+265:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">GuildNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:guild_name</span>])
+266:                         <span class="ruby-keyword kw">end</span>
+267:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000102" class="method-detail">
+        <a name="M000102"></a>
+
+        <div class="method-heading">
+          <a href="#M000102" class="method-signature">
+          <span class="method-name">get_item</span><span class="method-args">(id, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the full item details (<a
+href="Classes/FullItem.html">Wowr::Classes::FullItem</a>) with the given
+id. Composite of <a
+href="Classes/ItemInfo.html">Wowr::Classes::ItemInfo</a> and <a
+href="Classes/ItemTooltip.html">Wowr::Classes::ItemTooltip</a> data. Item
+requests are identical across realms.
+</p>
+<ul>
+<li>id (Fixnum) ID of the item
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000102-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000102-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 293</span>
+293:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_item</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+294:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+295:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">id</span>
+296:                         <span class="ruby-keyword kw">else</span>
+297:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:item_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>)
+298:                         <span class="ruby-keyword kw">end</span>
+299:                         
+300:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+301:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:realm</span>)
+302:                         
+303:                         <span class="ruby-identifier">info</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@item_info_url</span>, <span class="ruby-identifier">options</span>)
+304:                         <span class="ruby-identifier">tooltip</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@item_tooltip_url</span>, <span class="ruby-identifier">options</span>)
+305:                         
+306:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">info</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tooltip</span>.<span class="ruby-identifier">nil?</span>
+307:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">FullItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">info</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>, <span class="ruby-identifier">tooltip</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemTooltip'</span>, <span class="ruby-keyword kw">self</span>)
+308:                         <span class="ruby-keyword kw">else</span>
+309:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:item_id</span>])
+310:                         <span class="ruby-keyword kw">end</span>
+311:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000103" class="method-detail">
+        <a name="M000103"></a>
+
+        <div class="method-heading">
+          <a href="#M000103" class="method-signature">
+          <span class="method-name">get_item_info</span><span class="method-args">(id, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the basic item information <a
+href="Classes/ItemInfo.html">Wowr::Classes::ItemInfo</a>. Item requests are
+identical across realms.
+</p>
+<ul>
+<li>id (Fixnum) ID of the item
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000103-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000103-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 318</span>
+318:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_item_info</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+319:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+320:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">id</span>
+321:                         <span class="ruby-keyword kw">else</span>
+322:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:item_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>)
+323:                         <span class="ruby-keyword kw">end</span>
+324:                         
+325:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+326:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:realm</span>)
+327:                         
+328:                         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@item_info_url</span>, <span class="ruby-identifier">options</span>)
+329:                         
+330:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>)
+331:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>, <span class="ruby-keyword kw">self</span>)
+332:                         <span class="ruby-keyword kw">else</span>
+333:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:item_id</span>])
+334:                         <span class="ruby-keyword kw">end</span>
+335:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="#M000104" class="method-signature">
+          <span class="method-name">get_item_tooltip</span><span class="method-args">(id, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get full item details including stats <a
+href="Classes/ItemTooltip.html">Wowr::Classes::ItemTooltip</a>. Item
+requests are identical across realms.
+</p>
+<ul>
+<li>id (Fixnum) ID of the item
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000104-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000104-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 342</span>
+342:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_item_tooltip</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+343:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+344:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">id</span>
+345:                         <span class="ruby-keyword kw">else</span>
+346:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:item_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>)
+347:                         <span class="ruby-keyword kw">end</span>
+348:                         
+349:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+350:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:realm</span>)
+351:                         
+352:                         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@item_tooltip_url</span>, <span class="ruby-identifier">options</span>)
+353:                         
+354:                         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">xml</span>.<span class="ruby-identifier">nil?</span>
+355:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemTooltip</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'itemTooltip'</span>)
+356:                         <span class="ruby-keyword kw">else</span>
+357:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ItemNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:item_id</span>])
+358:                         <span class="ruby-keyword kw">end</span>
+359:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
+
+        <div class="method-heading">
+          <a href="#M000095" class="method-signature">
+          <span class="method-name">search</span><span class="method-args">(string, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+General-purpose <a href="API.html#M000095">search</a> All specific searches
+are wrappers around this method. Best to use those instead. Returns an
+array of results of the type requested (<a
+href="Classes/SearchCharacter.html">Wowr::Classes::SearchCharacter</a>
+etc.) or an empty array. Searches across all realms. Caching is disabled
+for searching.
+</p>
+<ul>
+<li>string (String) Search string
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000095-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000095-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 97</span>
+ 97:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span> = {})
+ 98:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">string</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+ 99:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">string</span>
+100:                         <span class="ruby-keyword kw">else</span>
+101:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">string</span>)
+102:                         <span class="ruby-keyword kw">end</span>
+103:                         
+104:                         <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span>)
+105:                         
+106:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:search</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:search</span>].<span class="ruby-identifier">empty?</span>
+107:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NoSearchString</span>.<span class="ruby-identifier">new</span>
+108:                         <span class="ruby-keyword kw">end</span>
+109:                         
+110:                         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@@search_types</span>.<span class="ruby-identifier">has_value?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:type</span>])
+111:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidSearchType</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:type</span>])
+112:                         <span class="ruby-keyword kw">end</span>
+113:                         
+114:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:caching</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>)
+115:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:realm</span>) <span class="ruby-comment cmt"># all searches are across realms</span>
+116:                                                 
+117:                         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml</span>(<span class="ruby-ivar">@@search_url</span>, <span class="ruby-identifier">options</span>)
+118:                         
+119:                         <span class="ruby-identifier">results</span> = []
+120:                                                 
+121:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">xml</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span>)
+122:                                 <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:type</span>]
+123:                                         
+124:                                         <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:item</span>]
+125:                                                 (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'items'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:item</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+126:                                                         <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">SearchItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">item</span>)
+127:                                                 <span class="ruby-keyword kw">end</span>
+128:                                         
+129:                                         <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:character</span>]
+130:                                                 (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'characters'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:character</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
+131:                                                         <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">SearchCharacter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">char</span>, <span class="ruby-keyword kw">self</span>)
+132:                                                 <span class="ruby-keyword kw">end</span>
+133:                                         
+134:                                         <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:guild</span>]
+135:                                                 (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'guilds'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:guild</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">guild</span><span class="ruby-operator">|</span>
+136:                                                         <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">SearchGuild</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">guild</span>)
+137:                                                 <span class="ruby-keyword kw">end</span>
+138:                                         
+139:                                         <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:arena_team</span>]
+140:                                                 (<span class="ruby-identifier">xml</span><span class="ruby-operator">%</span><span class="ruby-value str">'armorySearch'</span><span class="ruby-operator">%</span><span class="ruby-value str">'searchResults'</span><span class="ruby-operator">%</span><span class="ruby-value str">'arenaTeams'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:arenaTeam</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">team</span><span class="ruby-operator">|</span>
+141:                                                         <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Classes</span><span class="ruby-operator">::</span><span class="ruby-constant">SearchArenaTeam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">team</span>)
+142:                                                 <span class="ruby-keyword kw">end</span>
+143:                                 <span class="ruby-keyword kw">end</span>
+144:                         <span class="ruby-keyword kw">end</span>
+145:                         
+146:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">results</span>
+147:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="#M000105" class="method-signature">
+          <span class="method-name">search_arena_teams</span><span class="method-args">(name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search for arena teams with the given name of any size. Returns an array of
+<a href="Classes/SearchArenaTeam.html">Wowr::Classes::SearchArenaTeam</a>
+Searches across all realms. Caching is disabled for searching.
+</p>
+<ul>
+<li>name (String) Name of the arena team to seach for
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000105-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000105-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 368</span>
+368:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_arena_teams</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+369:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+370:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+371:                         <span class="ruby-keyword kw">else</span>
+372:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+373:                         <span class="ruby-keyword kw">end</span>
+374:                         
+375:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:arena_team</span>])
+376:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">options</span>)
+377:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="#M000096" class="method-signature">
+          <span class="method-name">search_characters</span><span class="method-args">(name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Characters Returns an array of results of <a
+href="Classes/SearchCharacter.html">Wowr::Classes::SearchCharacter</a> or
+an empty array. Searches across all realms. Caching is disabled for
+searching. Parameters
+</p>
+<ul>
+<li>name (String) Name of the character to <a
+href="API.html#M000095">search</a> for
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000096-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000096-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 157</span>
+157:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_characters</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+158:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+159:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+160:                         <span class="ruby-keyword kw">else</span>
+161:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+162:                         <span class="ruby-keyword kw">end</span>
+163:                         
+164:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:character</span>])
+165:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">options</span>)
+166:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
+
+        <div class="method-heading">
+          <a href="#M000099" class="method-signature">
+          <span class="method-name">search_guilds</span><span class="method-args">(name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Find all guilds with the given string, return array of <a
+href="Classes/SearchGuild.html">Wowr::Classes::SearchGuild</a>. Searches
+across all realms. Caching is disabled for searching.
+</p>
+<ul>
+<li>name (String) Name of the guild to <a href="API.html#M000095">search</a>
+for
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000099-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 227</span>
+227:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_guilds</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+228:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+229:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+230:                         <span class="ruby-keyword kw">else</span>
+231:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+232:                         <span class="ruby-keyword kw">end</span>
+233:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:realm</span>)
+234:                         
+235:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:guild</span>])
+236:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">options</span>)
+237:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="#M000101" class="method-signature">
+          <span class="method-name">search_items</span><span class="method-args">(name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search for items with the specified name. Returns an array of <a
+href="Classes/SearchItem.html">Wowr::Classes::SearchItem</a>. Searches
+across all realms. Caching is disabled for searching.
+</p>
+<ul>
+<li>name (String) Name of the item
+
+</li>
+<li>options (Hash) Optional hash of arguments identical to those used in the <a
+href="API.html">API</a> constructor (realm, debug, cache etc.)
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000101-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000101-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 276</span>
+276:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_items</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+277:                         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>))
+278:                                 <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name</span>
+279:                         <span class="ruby-keyword kw">else</span>
+280:                                 <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+281:                         <span class="ruby-keyword kw">end</span>
+282:                         
+283:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@@search_types</span>[<span class="ruby-identifier">:item</span>])
+284:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">options</span>)
+285:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
+
+        <div class="method-heading">
+          <a href="#M000112" class="method-signature">
+          <span class="method-name">get_cache</span><span class="method-args">(url, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Translate the specified URL to the cache location, and return the file If
+the cache does not exist, get the contents using <a
+href="API.html#M000111">http_request</a> and create it
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000112-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000112-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 544</span>
+544:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_cache</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+545:                         <span class="ruby-identifier">path</span> = <span class="ruby-ivar">@@cache_directory_path</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">url_to_filename</span>(<span class="ruby-identifier">url</span>)
+546:                         
+547:                         <span class="ruby-comment cmt"># file doesn't exist, make it</span>
+548:                         <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
+549:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>]
+550:                                         <span class="ruby-identifier">puts</span> <span class="ruby-value str">'Cache doesn\'t exist, making: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">path</span>
+551:                                 <span class="ruby-keyword kw">end</span>
+552:                                 
+553:                                 <span class="ruby-comment cmt"># make sure dir exists</span>
+554:                                 <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">localised_cache_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>])) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">localised_cache_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>]))
+555:                                 
+556:                                 <span class="ruby-identifier">xml_content</span> = <span class="ruby-identifier">http_request</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
+557:                                 
+558:                                 <span class="ruby-comment cmt"># write the cache</span>
+559:                                 <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">WRONLY</span><span class="ruby-operator">|</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">TRUNC</span><span class="ruby-operator">|</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">CREAT</span>)
+560:                                 <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">xml_content</span>)
+561:                                 <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+562:                         
+563:                         <span class="ruby-comment cmt"># file exists, return the contents</span>
+564:                         <span class="ruby-keyword kw">else</span>
+565:                                 <span class="ruby-identifier">puts</span> <span class="ruby-value str">'Cache already exists, read: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>]
+566:                                 
+567:                                 <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value str">'r'</span>)
+568:                                 <span class="ruby-identifier">xml_content</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>
+569:                                 <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+570:                         <span class="ruby-keyword kw">end</span>
+571:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">xml_content</span>
+572:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
+
+        <div class="method-heading">
+          <a href="#M000110" class="method-signature">
+          <span class="method-name">get_xml</span><span class="method-args">(url, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return an Hpricot document for the given URL TODO: Tidy up?
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000110-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000110-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 462</span>
+462:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_xml</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+463:                         
+464:                         <span class="ruby-comment cmt"># better way of doing this?</span>
+465:                         <span class="ruby-comment cmt"># Map custom keys to the HTTP request values</span>
+466:                         <span class="ruby-identifier">reqs</span> = {
+467:                                 <span class="ruby-identifier">:character_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'n'</span>,
+468:                                 <span class="ruby-identifier">:realm</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'r'</span>,
+469:                                 <span class="ruby-identifier">:search</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'searchQuery'</span>,
+470:                                 <span class="ruby-identifier">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'searchType'</span>,
+471:                                 <span class="ruby-identifier">:guild_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'n'</span>,
+472:                                 <span class="ruby-identifier">:item_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'i'</span>,
+473:                                 <span class="ruby-identifier">:team_size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ts'</span>,
+474:                                 <span class="ruby-identifier">:team_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'t'</span>
+475:                         }
+476:                         
+477:                         <span class="ruby-identifier">params</span> = []
+478:                         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+479:                                 <span class="ruby-identifier">params</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{reqs[key]}=#{u(value)}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reqs</span>[<span class="ruby-identifier">key</span>]
+480:                         <span class="ruby-keyword kw">end</span>
+481:                         
+482:                         <span class="ruby-identifier">query</span> = <span class="ruby-value str">'?'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+483:                         
+484:                         <span class="ruby-identifier">base</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">base_url</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:locale</span>])
+485:                         <span class="ruby-identifier">full_query</span> = <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">query</span>
+486:                         
+487:                         <span class="ruby-identifier">puts</span> <span class="ruby-identifier">full_query</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>]
+488:                         
+489:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:caching</span>]
+490:                                 <span class="ruby-identifier">response</span> = <span class="ruby-identifier">get_cache</span>(<span class="ruby-identifier">full_query</span>, <span class="ruby-identifier">options</span>)
+491:                         <span class="ruby-keyword kw">else</span>
+492:                                 <span class="ruby-identifier">response</span> = <span class="ruby-identifier">http_request</span>(<span class="ruby-identifier">full_query</span>, <span class="ruby-identifier">options</span>)
+493:                         <span class="ruby-keyword kw">end</span>
+494:                                                 
+495:                         <span class="ruby-identifier">doc</span> = <span class="ruby-constant">Hpricot</span>.<span class="ruby-constant">XML</span>(<span class="ruby-identifier">response</span>)
+496:                         <span class="ruby-identifier">errors</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;*[@errCode]&quot;</span>)
+497:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+498:                                 <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+499:                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-identifier">raise_me</span>(<span class="ruby-identifier">error</span>[<span class="ruby-identifier">:errCode</span>], <span class="ruby-identifier">options</span>)
+500:                                 <span class="ruby-keyword kw">end</span>
+501:                         <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">doc</span><span class="ruby-operator">%</span><span class="ruby-value str">'page'</span>).<span class="ruby-identifier">nil?</span>
+502:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">EmptyPage</span>
+503:                         <span class="ruby-keyword kw">else</span>
+504:                                 <span class="ruby-keyword kw">return</span> (<span class="ruby-identifier">doc</span><span class="ruby-operator">%</span><span class="ruby-value str">'page'</span>)
+505:                         <span class="ruby-keyword kw">end</span>
+506:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
+
+        <div class="method-heading">
+          <a href="#M000111" class="method-signature">
+          <span class="method-name">http_request</span><span class="method-args">(url, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform an HTTP request and return the contents of the document
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000111-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000111-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 509</span>
+509:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">http_request</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+510:                         <span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>)
+511:                         <span class="ruby-identifier">req</span>[<span class="ruby-value str">&quot;user-agent&quot;</span>] = <span class="ruby-value str">&quot;Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2&quot;</span> <span class="ruby-comment cmt"># ensure returns XML</span>
+512:                         <span class="ruby-identifier">req</span>[<span class="ruby-value str">&quot;cookie&quot;</span>] = <span class="ruby-value str">&quot;cookieMenu=all; cookieLangId=&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;; cookies=true;&quot;</span>
+513:                         
+514:                         <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">url</span>)
+515:                         
+516:                   <span class="ruby-identifier">http</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>)
+517:                         
+518:                         <span class="ruby-keyword kw">begin</span>
+519:                           <span class="ruby-identifier">http</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword kw">do</span>
+520:                             <span class="ruby-identifier">res</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span> <span class="ruby-identifier">req</span>
+521:                                         <span class="ruby-comment cmt"># response = res.body</span>
+522:                                         
+523:                                         <span class="ruby-identifier">tries</span> = <span class="ruby-value">0</span>
+524:                                         <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">res</span>
+525:                                                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>, <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPRedirection</span>
+526:                                                         <span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>
+527:                                                 <span class="ruby-keyword kw">else</span>
+528:                                                         <span class="ruby-identifier">tries</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+529:                                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tries</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@@max_connection_tries</span>
+530:                                                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">NetworkTimeout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Timed out'</span>)
+531:                                                         <span class="ruby-keyword kw">else</span>
+532:                                                                 <span class="ruby-keyword kw">retry</span>
+533:                                                         <span class="ruby-keyword kw">end</span>
+534:                                                 <span class="ruby-keyword kw">end</span>
+535:                           <span class="ruby-keyword kw">end</span>
+536:                         <span class="ruby-keyword kw">rescue</span> 
+537:                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">ServerDoesNotExist</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'Specified server at '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' does not exist.'</span>);
+538:                         <span class="ruby-keyword kw">end</span>
+539:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
+
+        <div class="method-heading">
+          <a href="#M000109" class="method-signature">
+          <span class="method-name">merge_defaults</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Merge the defaults specified in the constructor with those supplied,
+overriding any defaults with those supplied
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000109-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000109-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr.rb, line 446</span>
+446:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">merge_defaults</span>(<span class="ruby-identifier">options</span> = {})
+447:                         <span class="ruby-identifier">defaults</span> = {}
+448:                         <span class="ruby-comment cmt"># defaults[:character_name] = @charater_name if @charater_name</span>
+449:                         <span class="ruby-comment cmt"># defaults[:guild_name]      = @guild_name if @guild_name</span>
+450:                         <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">:realm</span>]             = <span class="ruby-ivar">@realm</span>          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@realm</span>
+451:                         <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">:locale</span>]    = <span class="ruby-ivar">@locale</span>         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@locale</span>
+452:                         <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">:lang</span>]              = <span class="ruby-ivar">@lang</span>            <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lang</span>
+453:                         <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">:caching</span>]   = <span class="ruby-ivar">@caching</span>       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@caching</span>
+454:                         <span class="ruby-identifier">defaults</span>[<span class="ruby-identifier">:debug</span>]             = <span class="ruby-ivar">@debug</span>          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@debug</span>
+455:                         
+456:                         <span class="ruby-comment cmt"># overwrite defaults with any given options</span>
+457:                         <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>)
+458:                 <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

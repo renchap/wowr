@@ -498,7 +498,23 @@ class WowrTest < Test::Unit::TestCase
 	#		end
 	# end
 	# 
-
+	
+	
+	def test_money
+		no_gold_silver = Wowr::Classes::Money.new(43)
+		assert_equal no_gold_silver.gold, 0
+		assert_equal no_gold_silver.silver, 0
+		assert_equal no_gold_silver.bronze, 43
+		assert_equal no_gold_silver.total, 43
+		
+		money = Wowr::Classes::Money.new(5552243)
+		assert_equal money.gold, 555
+		assert_equal money.silver, 22
+		assert_equal money.bronze, 43
+		assert_equal money.total, 5552243
+	end
+	
+	
 	def test_assignment
 		assert_nothing_raised do
 			temp = Wowr::API.search_url

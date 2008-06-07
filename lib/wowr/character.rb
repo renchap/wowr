@@ -12,8 +12,8 @@ module Wowr
 		# Guild listings and search results contain a smaller amount of information than
 		# single queries
 		# Attributes
-		#  * name (String) - Full character name
-		#  * level (Fixnum) - Level
+		# * name (String) - Full character name
+		# * level (Fixnum) - Level
     # See Also: Guild
 		class Character
 			attr_reader :name, :level, :url, :rank,

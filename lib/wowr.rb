@@ -4,6 +4,7 @@
 # Written by Ben Humphreys
 # http://benhumphreys.co.uk/
 # 
+# Author:: Ben Humphreys
 # May not be used for commercial applications
 # 
 
@@ -14,6 +15,7 @@ rescue LoadError
 	require 'hpricot'
 end
 require 'net/http'
+require 'net/https'
 require 'cgi'
 require 'fileutils'
 
@@ -27,10 +29,11 @@ require 'wowr/character.rb'
 require 'wowr/guild.rb'
 require 'wowr/item.rb'
 require 'wowr/arena_team.rb'
+require 'wowr/guild_bank.rb'
 
 module Wowr
 	class API
-		VERSION = '0.3.0'
+		VERSION = '0.4.0'
 		
 		@@armory_url_base = 'wowarmory.com/'
 		
@@ -47,6 +50,11 @@ module Wowr
 		@@item_tooltip_url	= 'item-tooltip.xml'
 		
 		@@arena_team_url = 'team-info.xml'
+		
+		@@guild_bank_contents_url = 'guild-bank-contents.xml'
+		@@guild_bank_log_url = 'guild-bank-log.xml'
+		
+		@@login_url = 'login.xml'
 		
 		@@max_connection_tries = 10
 		
@@ -69,13 +77,12 @@ module Wowr
 		
 		@@arena_team_sizes = [2, 3, 5]
 		
-		# TODO: Rename locale to server?
 		attr_accessor :character_name, :guild_name, :realm, :locale, :lang, :caching, :debug
 		
 		
 		# Constructor
 		# Accepts an optional hash of parameters to create defaults for all API requests
-		#  * options (Hash) Hash used to set default values for all API requests
+		# * options (Hash) - Hash used to set default values for all API requests
 		def initialize(options = {})
 			@character_name = options[:character_name]
 			@guild_name			= options[:guild_name]
@@ -89,11 +96,11 @@ module Wowr
 		
 		# General-purpose search
 		# All specific searches are wrappers around this method. Best to use those instead.
-		# Returns an array of results of the type requested (SearchCharacter etc.) or an empty array.
+		# Returns an array of results of the type requested (Wowr::Classes::SearchCharacter etc.) or an empty array.
 		# Searches across all realms.
 		# Caching is disabled for searching.
-		#  * string (String) Search string
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * string (String) Search string
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search(string, options = {})
 			if (string.is_a?(Hash))
 				options = string
@@ -148,11 +155,12 @@ module Wowr
 		
 		
 		# Characters
-		# Returns an array of results of SearchCharacter or an empty array.
+		# Returns an array of results of Wowr::Classes::SearchCharacter or an empty array.
 		# Searches across all realms.
 		# Caching is disabled for searching.
-		#  * name (String) Name of the character to search for
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# Parameters
+		# * name (String) Name of the character to search for
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_characters(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -167,8 +175,8 @@ module Wowr
 		
 		# Get the full details of a character.
 		# Requires realm.
-		#  * name (String) Name of the character to get, defaults to that specified in constructor
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Name of the character to get, defaults to that specified in constructor
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_character(name = @character_name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -191,6 +199,7 @@ module Wowr
 			character_skills = get_xml(@@character_skills_url, options)
 			character_reputation = get_xml(@@character_reputation_url, options)
 			
+			# FIXME
 			if true
 				return Wowr::Classes::FullCharacter.new(character_sheet,
 																								character_skills,
@@ -207,13 +216,22 @@ module Wowr
 		def get_character_sheet(name = @character_name, options = {})
 			return get_character(name, options)
 		end
+
+		# TODO
+		# def get_character_skills
+		# 	
+		# end
+		# 
+		# def get_character_reputation
+		# 	
+		# end
 		
 		
-		# Find all guilds with the given string, return array of SearchGuild.
+		# Find all guilds with the given string, return array of Wowr::Classes::SearchGuild.
 		# Searches across all realms.
 		# Caching is disabled for searching.
-		#  * name (String) Name of the guild to search for
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Name of the guild to search for
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_guilds(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -227,11 +245,11 @@ module Wowr
 		end
 		
 		
-		# Get the guild details
-		# Guild name is optional, assuming it's set in the api constructor
+		# Get the guild details.
+		# Guild name is optional, assuming it's set in the api constructor.
 		# Requires realm.
-		#  * name (String) Name of the guild to retrieve, defaults to that specified in constructor
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Name of the guild to retrieve, defaults to that specified in constructor
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_guild(name = @guild_name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -257,11 +275,12 @@ module Wowr
 		end
 		
 		
-		# Search for items with the specified name
+		# Search for items with the specified name.
+		# Returns an array of Wowr::Classes::SearchItem.
 		# Searches across all realms.
 		# Caching is disabled for searching.
-		#  * name (String) Name of the item
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Name of the item
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_items(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -274,10 +293,11 @@ module Wowr
 		end
 		
 		
-		# Get the full item details with the given id
+		# Get the full item details (Wowr::Classes::FullItem) with the given id.
+		# Composite of Wowr::Classes::ItemInfo and Wowr::Classes::ItemTooltip data.
 		# Item requests are identical across realms.
-		#  * id (Fixnum) ID of the item
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * id (Fixnum) ID of the item
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -299,10 +319,10 @@ module Wowr
 		end
 		
 		
-		# Get the basic item information.
+		# Get the basic item information Wowr::Classes::ItemInfo.
 		# Item requests are identical across realms.
-		#  * id (Fixnum) ID of the item
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * id (Fixnum) ID of the item
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item_info(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -323,10 +343,10 @@ module Wowr
 		end
 		
 		
-		# Get full item details including stats.
+		# Get full item details including stats Wowr::Classes::ItemTooltip.
 		# Item requests are identical across realms.
-		#  * id (Fixnum) ID of the item
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * id (Fixnum) ID of the item
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_item_tooltip(id, options = {})
 			if (id.is_a?(Hash))
 				options = id
@@ -348,10 +368,11 @@ module Wowr
 		
 		
 		# Search for arena teams with the given name of any size.
+		# Returns an array of Wowr::Classes::SearchArenaTeam
 		# Searches across all realms.
 		# Caching is disabled for searching.
-		#  * name (String) Name of the arena team to seach for
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Name of the arena team to seach for
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def search_arena_teams(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -363,11 +384,13 @@ module Wowr
 			return search(options)
 		end
 		
+		
 		# Get the arena team of the given name and size, on the specified realm.
+		# Returns Wowr::Classes::FullArenaTeam
 		# Requires realm.
-		#  * name (String) Team arena name
-		#  * size (Fixnum) Must be 2, 3 or 5
-		#  * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * name (String) Team arena name
+		# * size (Fixnum) Must be 2, 3 or 5
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_arena_team(name, size = nil, options = {})
 			if name.is_a?(Hash)
 				options = name
@@ -402,8 +425,127 @@ module Wowr
 		end
 		
 		
-		# Clear the cache, optional filename
-		#  * cache_path (String) Relative path of the cache directory to be deleted
+		# 
+		def get_guild_bank_contents(cookie, name = @guild_name, options = {})
+			if (cookie.is_a?(Hash))
+				options = cookie
+			else
+				options.merge!(:cookie => cookie)
+				options.merge!(:guild_name => name)
+			end
+			
+			options = merge_defaults(options)
+			
+			# puts options.to_yaml
+			
+			if options[:cookie].nil? || options[:cookie] == ""
+				raise Wowr::Exceptions::CookieNotSet.new
+			elsif options[:guild_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::GuildNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
+			options.merge!(:secure => true)
+			
+			xml = get_xml(@@guild_bank_contents_url, options)
+			
+			if !(xml%'guildBank').children.empty?
+				return Wowr::Classes::GuildBankContents.new(xml, self)
+			else
+				raise Wowr::Exceptions::GuildBankNotFound.new(options[:guild_name])
+			end
+		end
+		
+		
+		# Note that the data returned is specific to the logged in user's privileges
+		# TODO: Specify multiple pages/groups
+		def get_guild_bank_log(cookie, name = @guild_name, options = {})
+			if (cookie.is_a?(Hash))
+				options = cookie
+			else
+				options.merge!(:cookie => cookie)
+				options.merge!(:guild_name => name)
+			end
+			
+			options = merge_defaults(options)
+			
+			if options[:cookie].nil? || options[:cookie] == ""
+				raise Wowr::Exceptions::CookieNotSet.new
+			elsif options[:guild_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::GuildNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
+			options.merge!(:secure => true)
+			
+			xml = get_xml(@@guild_bank_log_url, options)
+			
+			if !(xml%'guildBank').children.empty?
+				return Wowr::Classes::GuildBankLog.new(xml, self)
+			else
+				raise Wowr::Exceptions::GuildBankNotFound.new(options[:guild_name])
+			end
+		end
+		
+		
+		# Log in
+		# Returns a cookie string used for secure requests like get_guild_bank_contents and get_guild_bank_log
+		def login(username, password)
+			# url = 'https://eu.wowarmory.com/guild-bank-contents.xml?n=Rawr&r=Trollbane'
+			url = base_url(@locale, {:secure => true}) + @@login_url
+			
+			req = Net::HTTP::Post.new(url)
+			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
+			req["cookie"] = "cookieMenu=all; cookies=true;"
+			
+			uri = URI.parse(url)
+			
+			http = Net::HTTP.new(uri.host, uri.port)
+			
+			# Suppress "warning: peer certificate won't be verified in this SSL session"
+			http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+			http.use_ssl = true
+			
+			req.set_form_data({'accountName' => username, 'password' => password}, '&')
+			
+			
+			# error = 0 nothing provided
+			# error = 1 invalid credentials
+						
+			cookie = nil
+			
+			http.start do
+				res = http.request(req)
+
+				# puts res.to_yaml
+				
+				tries = 0
+				response = case res
+					when Net::HTTPSuccess, Net::HTTPRedirection
+						
+						res.header['set-cookie'].scan(/JSESSIONID=(.*?);/) {
+							cookie = 'JSESSIONID=' + $1 + ';'
+						}
+						
+					else
+						tries += 1
+						if tries > @@max_connection_tries
+							puts "timed out"
+						else
+							retry
+						end
+					end
+			end
+
+			return cookie
+		end
+		
+		
+		
+		# Clear the cache, optional directory name.
+		# * cache_path (String) Relative path of the cache directory to be deleted
 		def clear_cache(cache_path = @@cache_directory_path)
 			begin
 				FileUtils.remove_dir(cache_path)
@@ -413,14 +555,24 @@ module Wowr
 		end
 		
 		
-		# Return the base url
-		#  * locale (String) The locale, defaults to that specified in the API constructor
-		def base_url(locale = @locale)
-			if locale == 'us'
-				'http://www.' + @@armory_url_base
+		# Return the base url for the armory, e.g. http://eu.wowarmory.com/
+		# * locale (String) The locale, defaults to that specified in the API constructor
+		def base_url(locale = @locale, options = {})
+			str = ""
+			
+			if (options[:secure] == true)
+				str += 'https://'
 			else
-				'http://' + locale + '.' + @@armory_url_base
+				str += 'http://'
 			end
+			
+			if locale == 'us'
+				str += 'www.' + @@armory_url_base
+			else
+				str += locale + '.' + @@armory_url_base
+			end
+			
+			return str
 		end
 		
 		
@@ -459,6 +611,7 @@ module Wowr
 				:team_name => 't'
 			}
 			
+			
 			params = []
 			options.each do |key, value|
 				params << "#{reqs[key]}=#{u(value)}" if reqs[key]
@@ -466,7 +619,7 @@ module Wowr
 			
 			query = '?' + params.join('&') if params.size > 0
 			
-			base = self.base_url(options[:locale])
+			base = self.base_url(options[:locale], options)
 			full_query = base + url + query
 			
 			puts full_query if options[:debug]
@@ -490,15 +643,26 @@ module Wowr
 			end
 		end
 		
+		
 		# Perform an HTTP request and return the contents of the document
 		def http_request(url, options = {})
 			req = Net::HTTP::Get.new(url)
 			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
 			req["cookie"] = "cookieMenu=all; cookieLangId=" + options[:lang] + "; cookies=true;"
 			
+			req["cookie"] += options[:cookie] if options[:cookie]
+			
 			uri = URI.parse(url)
 			
-		  http = Net::HTTP.new(uri.host, uri.port)
+			http = Net::HTTP.new(uri.host, uri.port)
+			
+			if (options[:secure])
+				puts "Secure authentication" if options[:debug]
+
+				http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+				http.use_ssl = true
+			end
+		  
 			
 			begin
 			  http.start do
@@ -557,22 +721,22 @@ module Wowr
 		end
 		
 		
-		# :nodoc:
+		
 		# remove http://*.wowarmory.com/ leaving just xml file part and request parameters
 		# Kind of assuming incoming URL is the same as the current locale
-		def url_to_filename(url)
+		def url_to_filename(url) #:nodoc:
 			return url.gsub(base_url, '')
 		end
 		
 		
-		# :nodoc:
-		def localised_cache_path(lang = @lang)
+		
+		def localised_cache_path(lang = @lang) #:nodoc:
 			return @@cache_directory_path + lang
 		end
 		
 		
-		# :nodoc:
-		def u(str)
+		
+		def u(str) #:nodoc:
 			if str.instance_of?(String)
 				return CGI.escape(str)
 			else
