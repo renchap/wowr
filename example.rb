@@ -5,26 +5,23 @@ rescue LoadError
 	require 'wowr'
 end
 
-api = Wowr::API.new(:character_name => 'Cake',
-                    :guild_name => 'chats puants',
-                    :realm => 'Rashgarroth',
+api = Wowr::API.new(:character_name => 'Hesperus',
+                    :guild_name => 'Rawr',
+                    :realm => 'Trollbane',
                     :locale => 'eu', # defaults to US
                     :lang => 'fr_fr', # remove for locale default language
                     :caching => false) # defaults to true
 
-# Note for all requests it's possible to specify the parameters similar to the
+# For all requests it's possible to specify the parameters similar to the
 # api constructor. By default it'll use whatever is specified in the API.
 
 # gets character with API default values
-default_char = api.get_character_sheet
+default_char = api.get_character
 
 # specify other character
-jim = api.get_character_sheet("Jim", :realm => "Balnazzar", :lang => 'de_de', :caching => false)
-
-
+jim = api.get_character("Jim", :realm => "Balnazzar", :lang => 'de_de', :caching => false)
 
 # Character requests
-my_char = api.get_character_sheet # gets character with API default values
 chars = api.search_characters(:search => 'Cake')
 
 # Guild requests

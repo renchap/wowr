@@ -174,7 +174,7 @@ module Wowr
 				@subtype_loc	= elem[:subtypeLoc] == "" ? nil : elem[:subtypeLoc]
 				@type					= elem[:type].to_i
 				
-				bags[@bag].items << self
+				bags[@bag_id].items << self
 			end
 		end
 	end
