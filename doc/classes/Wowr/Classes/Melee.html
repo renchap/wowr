@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Wowr::Classes::Melee</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Wowr::Classes::Melee</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/wowr/character_rb.html">
+                lib/wowr/character.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+&lt;melee&gt;
+</p>
+<pre>
+    &lt;mainHandDamage dps=&quot;65.6&quot; max=&quot;149&quot; min=&quot;60&quot; percent=&quot;0&quot; speed=&quot;1.60&quot;/&gt;
+    &lt;offHandDamage dps=&quot;0.0&quot; max=&quot;0&quot; min=&quot;0&quot; percent=&quot;0&quot; speed=&quot;2.00&quot;/&gt;
+    &lt;mainHandSpeed hastePercent=&quot;0.00&quot; hasteRating=&quot;0&quot; value=&quot;1.60&quot;/&gt;
+    &lt;offHandSpeed hastePercent=&quot;0.00&quot; hasteRating=&quot;0&quot; value=&quot;2.00&quot;/&gt;
+    &lt;power base=&quot;338&quot; effective=&quot;338&quot; increasedDps=&quot;24.0&quot;/&gt;
+    &lt;hitRating increasedHitPercent=&quot;0.00&quot; value=&quot;0&quot;/&gt;
+    &lt;critChance percent=&quot;4.16&quot; plusPercent=&quot;0.00&quot; rating=&quot;0&quot;/&gt;
+    &lt;expertise additional=&quot;0&quot; percent=&quot;0.00&quot; rating=&quot;0&quot; value=&quot;0&quot;/&gt;
+</pre>
+<p>
+&lt;/melee&gt;
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000036">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">crit_chance</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">hit_rating</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">main_hand_damage</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">main_hand_skill</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">main_hand_speed</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">off_hand_damage</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">off_hand_skill</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">off_hand_speed</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">speed</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="#M000036" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(elem)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000036-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 411</span>
+411:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
+412:                                 <span class="ruby-comment cmt"># TODO: Do these not exist anymore?</span>
+413:                                 <span class="ruby-ivar">@main_hand_skill</span>    = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>)
+414:                                 <span class="ruby-ivar">@off_hand_skill</span>     = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>)
+415:                                 
+416:                                 <span class="ruby-ivar">@main_hand_damage</span> = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandDamage'</span>)
+417:                                 <span class="ruby-ivar">@off_hand_damage</span>    = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandDamage'</span>)
+418:                                 
+419:                                 <span class="ruby-ivar">@main_hand_speed</span>    = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandSpeed'</span>)
+420:                                 <span class="ruby-ivar">@off_hand_speed</span>     = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandSpeed'</span>)
+421:                                 
+422:                                 <span class="ruby-ivar">@power</span>                                              = <span class="ruby-constant">WeaponPower</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'power'</span>)
+423:                                 <span class="ruby-ivar">@hit_rating</span>                         = <span class="ruby-constant">WeaponHitRating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'hitRating'</span>)
+424:                                 <span class="ruby-ivar">@crit_chance</span>                        = <span class="ruby-constant">WeaponCritChance</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span>)
+425:                                 
+426:                                 <span class="ruby-ivar">@expertise</span>                          = <span class="ruby-constant">WeaponExpertise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'expertise'</span>)
+427:                         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
