@@ -53,3 +53,10 @@ end
 # Arena Teams
 arena_teams = api.search_arena_teams("Lemon")
 arena_team = api.get_arena_team("Lemon", 2, :realm => "Darksorrow")
+
+
+
+# Guild Bank
+cookie = api.login('myuser', 'mypass')
+api.get_guild_bank_contents(cookie)
+api.get_guild_bank_log(cookie)

@@ -5,7 +5,6 @@ module Wowr
 	module Classes
 		
 		# TODO: Fix default to_s option
-		
 		class Money
 			attr_reader :total
 			alias_method :to_i, :total

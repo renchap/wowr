@@ -1,9 +1,20 @@
 0.4.0
-* Guild bank functionality
+* Added Guild Bank functionality
+  Guild bank contents and transaction logs are now available.
+  Accessing them requires that you login, which returns a cookie string which must be used for all subsequent requests.
 
+  api = Wowr::API.new(:guild_name => 'my_guild', :realm => 'my_realm')
+  cookie = api.login('myuser', 'mypass')
+  api.get_guild_bank_contents(cookie)
+  api.get_guild_bank_log(cookie)
+  
+  It's possible to specify the guild and usual extra parameters
+  api.get_guild_bank_contents(cookie, "my_other_guild", :realm => 'other_realm)
+  
+  At no point are your user details stored and SSH is used for connections to the server.
+  Thanks to Hesperus and SheepCow of Rawr for help with this.
 
-  Thanks to SheepCow and Hesperus of Rawr.
-
+* Buy and sell prices, as well as transactions in the guild bank now use Wowr::Classes::Money
 
 
 0.3.0

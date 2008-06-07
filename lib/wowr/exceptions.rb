@@ -49,8 +49,12 @@ module Wowr
 			def initialize(guild)
 				super "Guild bank for '#{guild}' not found, this could be due to lack of access privileges or failed login attempt."
 			end
-			
-			
+		end
+		
+		class InvalidLoginDetails < StandardError
+			def initialize
+				super "It was not possible to login using the username and password provided."
+			end
 		end
 		
 		class InvalidArenaTeamSize < StandardError

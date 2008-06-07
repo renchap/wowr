@@ -425,18 +425,24 @@ module Wowr
 		end
 		
 		
-		# 
-		def get_guild_bank_contents(cookie, name = @guild_name, options = {})
+		# Get the current items within the guild bank.
+		# Note that the bags and items the user can see is dependent on their privileges.
+		# Requires realm.
+		# * cookie (String) Cookie data returned by the login function.
+		# * guild_name (String) Guild name
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		def get_guild_bank_contents(cookie, guild_name = @guild_name, options = {})
 			if (cookie.is_a?(Hash))
 				options = cookie
+			elsif (guild_name.is_a?(Hash))
+				options = guild_name
+				options.merge!(:cookie => cookie)
+				options.merge!(:guild_name => @guild_name)
 			else
 				options.merge!(:cookie => cookie)
-				options.merge!(:guild_name => name)
-			end
-			
+				options.merge!(:guild_name => guild_name)
+			end			
 			options = merge_defaults(options)
-			
-			# puts options.to_yaml
 			
 			if options[:cookie].nil? || options[:cookie] == ""
 				raise Wowr::Exceptions::CookieNotSet.new
@@ -458,11 +464,20 @@ module Wowr
 		end
 		
 		
-		# Note that the data returned is specific to the logged in user's privileges
-		# TODO: Specify multiple pages/groups
+		# Get a particular page of the guild bank transaction log.
+		# Each page contains up to 1000 transactions, other pages can be specified using :group in the options hash.
+		# Note that data returned is specific to the logged in user's privileges.
+		# Requires realm.
+		# * cookie (String) Cookie data returned by the login function
+		# * guild_name (String) Guild name
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_guild_bank_log(cookie, name = @guild_name, options = {})
 			if (cookie.is_a?(Hash))
 				options = cookie
+			elsif (name.is_a?(Hash))
+				options = name
+				options.merge!(:cookie => cookie)
+				options.merge!(:guild_name => @guild_name)
 			else
 				options.merge!(:cookie => cookie)
 				options.merge!(:guild_name => name)
@@ -490,8 +505,9 @@ module Wowr
 		end
 		
 		
-		# Log in
-		# Returns a cookie string used for secure requests like get_guild_bank_contents and get_guild_bank_log
+		# Logs the user into the armory using their main world of warcraft username and password.
+		# Returns a cookie string used for secure requests like get_guild_bank_contents and get_guild_bank_log.
+		# Uses SSH to send details to the login page.
 		def login(username, password)
 			# url = 'https://eu.wowarmory.com/guild-bank-contents.xml?n=Rawr&r=Trollbane'
 			url = base_url(@locale, {:secure => true}) + @@login_url
@@ -511,35 +527,37 @@ module Wowr
 			req.set_form_data({'accountName' => username, 'password' => password}, '&')
 			
 			
-			# error = 0 nothing provided
-			# error = 1 invalid credentials
-						
-			cookie = nil
-			
 			http.start do
 				res = http.request(req)
-
-				# puts res.to_yaml
 				
 				tries = 0
 				response = case res
 					when Net::HTTPSuccess, Net::HTTPRedirection
-						
-						res.header['set-cookie'].scan(/JSESSIONID=(.*?);/) {
-							cookie = 'JSESSIONID=' + $1 + ';'
-						}
-						
+						res.body
 					else
 						tries += 1
 						if tries > @@max_connection_tries
-							puts "timed out"
+							raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
 						else
 							retry
 						end
 					end
+				
+				doc = Hpricot.XML(response)
+				
+				# error = 0 nothing provided
+				# error = 1 invalid credentials
+				# TODO: Detect different kinds of errors
+				if (doc%'login')
+					raise Wowr::Exceptions::InvalidLoginDetails
+				else
+					cookie = nil
+					res.header['set-cookie'].scan(/JSESSIONID=(.*?);/) {
+						cookie = 'JSESSIONID=' + $1 + ';'
+					}
+					return cookie
+				end
 			end
-
-			return cookie
 		end
 		
 		
@@ -566,7 +584,7 @@ module Wowr
 				str += 'http://'
 			end
 			
-			if locale == 'us'
+			if (locale == 'us')
 				str += 'www.' + @@armory_url_base
 			else
 				str += locale + '.' + @@armory_url_base
@@ -608,7 +626,8 @@ module Wowr
 				:guild_name => 'n',
 				:item_id => 'i',
 				:team_size => 'ts',
-				:team_name => 't'
+				:team_name => 't',
+				:group => 'group'
 			}
 			
 			
