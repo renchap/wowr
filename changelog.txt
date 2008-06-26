@@ -1,3 +1,12 @@
+0.4.1
+* Renamed armory_url_base to armory_base_url for consistency.
+* Added cache timeout
+* Added cache_refresh to options
+
+Bugfixes:
+* Added back in the member_count property to guild as it includes characters under level 10, which the members array does not
+* Added missing :power attr_reader to Melee class.
+
 0.4.0
 * Added Guild Bank functionality
   Guild bank contents and transaction logs are now available.

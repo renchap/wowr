@@ -55,7 +55,9 @@ class WowrTest < Test::Unit::TestCase
 		@api_empty = Wowr::API.new
 		@api_set = Wowr::API.new(:character_name => 'Clublife', :realm => "Barthilas", :guild_name => "Cake")
 	end
+	
   def teardown
+		@api_set.clear_cache
     FileUtils.rm_rf(SAVE_PATH)
   end
 	
@@ -67,7 +69,38 @@ class WowrTest < Test::Unit::TestCase
 		assert_equal @api_empty.locale, 'us'
 		assert_equal @api_empty.lang, 'default'
 		assert_equal @api_empty.caching, true
+		assert_equal @api_empty.cache_timeout, (7*24*60*60)
 		assert_equal @api_empty.debug, false
+	end
+	
+	def test_api_constants
+		assert_equal Wowr::API.armory_base_url, 'wowarmory.com/'
+		
+		assert_equal Wowr::API.search_url, 'search.xml'
+		
+		assert_equal Wowr::API.character_sheet_url, 'character-sheet.xml'
+		assert_equal Wowr::API.character_talents_url, 'character-talents.xml'
+		assert_equal Wowr::API.character_skills_url, 'character-skills.xml'
+		assert_equal Wowr::API.character_reputation_url, 'character-reputation.xml'
+		
+		assert_equal Wowr::API.guild_info_url, 'guild-info.xml'
+		
+		assert_equal Wowr::API.item_info_url, 'item-info.xml'
+		assert_equal Wowr::API.item_tooltip_url, 'item-tooltip.xml'
+		
+		assert_equal Wowr::API.arena_team_url, 'team-info.xml'
+		
+		assert_equal Wowr::API.guild_bank_contents_url, 'guild-bank-contents.xml'
+		assert_equal Wowr::API.guild_bank_log_url, 'guild-bank-log.xml'
+		
+		assert_equal Wowr::API.login_url, 'login.xml'
+		
+		assert_equal Wowr::API.max_connection_tries, 10
+		
+		assert_equal Wowr::API.cache_directory_path, 'test_cache/'
+		
+		assert_equal Wowr::API.default_cache_timeout, (7*24*60*60)
+		assert_equal Wowr::API.failed_cache_timeout, (60*60*24)
 	end
 
 	def test_api_params
@@ -297,7 +330,7 @@ class WowrTest < Test::Unit::TestCase
 	# 	
 	# end
 	# 
-	def test_character_sheet
+	def test_character_contents
 		
 		# Reve::API.cakes = XML_BASE + '.xml'
 		character = nil
@@ -498,7 +531,17 @@ class WowrTest < Test::Unit::TestCase
 	#		end
 	# end
 	# 
-	
+	def test_cache_timeout
+		defaults_api = Wowr::API.new(:character_name => "cake", :realm => "Terenas", :caching => true)
+		
+		# path defaults_api.cache_path(url)
+		# 
+		# if File.exists?(path) ||
+		# 		options[:refresh_cache] ||
+		# 		(File.mtime(path) < Time.now - @cache_timeout)
+		
+		
+	end
 	
 	def test_money
 		no_gold_silver = Wowr::Classes::Money.new(43)

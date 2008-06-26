@@ -33,9 +33,9 @@ require 'wowr/guild_bank.rb'
 
 module Wowr
 	class API
-		VERSION = '0.4.0'
+		VERSION = '0.4.1'
 		
-		@@armory_url_base = 'wowarmory.com/'
+		@@armory_base_url = 'wowarmory.com/'
 		
 		@@search_url = 'search.xml'
 		
@@ -60,13 +60,20 @@ module Wowr
 		
 		@@cache_directory_path = 'cache/'
 		
-		cattr_accessor :armory_url_base, :search_url,
+		@@default_cache_timeout = (7*24*60*60)
+		@@failed_cache_timeout = (60*60*24)
+		@@cache_failed_requests = true # cache requests that resulted in an error from the armory
+		
+		cattr_accessor :armory_base_url, :search_url,
 									 :character_sheet_url, :character_talents_url, :character_skills_url, :character_reputation_url,
 									 :guild_info_url,
 									 :item_info_url, :item_tooltip_url,
 									 :arena_team_url,
+									 :guild_bank_contents_url, :guild_bank_log_url,
+									 :login_url,
 									 :max_connection_tries,
-									 :cache_directory_path
+									 :cache_directory_path,
+									 :default_cache_timeout, :failed_cache_timeout, :cache_failed_requests
 		
 		@@search_types = {
 			:item => 'items',
@@ -77,7 +84,7 @@ module Wowr
 		
 		@@arena_team_sizes = [2, 3, 5]
 		
-		attr_accessor :character_name, :guild_name, :realm, :locale, :lang, :caching, :debug
+		attr_accessor :character_name, :guild_name, :realm, :locale, :lang, :caching, :cache_timeout, :debug
 		
 		
 		# Constructor
@@ -88,8 +95,9 @@ module Wowr
 			@guild_name			= options[:guild_name]
 			@realm					= options[:realm]
 			@locale					= options[:locale] || 'us'
-			@caching				= options[:caching] == nil ? true : false
 			@lang						= options[:lang].nil? ? 'default' : options[:lang]
+			@caching				= options[:caching].nil? ? true : options[:caching]
+			@cache_timeout	= options[:cache_timeout] || @@default_cache_timeout
 			@debug					= options[:debug] || false
 		end
 		
@@ -585,9 +593,9 @@ module Wowr
 			end
 			
 			if (locale == 'us')
-				str += 'www.' + @@armory_url_base
+				str += 'www.' + @@armory_base_url
 			else
-				str += locale + '.' + @@armory_url_base
+				str += locale + '.' + @@armory_base_url
 			end
 			
 			return str
@@ -602,11 +610,12 @@ module Wowr
 			defaults = {}
 			# defaults[:character_name] = @charater_name if @charater_name
 			# defaults[:guild_name]	= @guild_name if @guild_name
-			defaults[:realm] 		= @realm 		if @realm
-			defaults[:locale] 	= @locale 	if @locale
-			defaults[:lang] 		= @lang 		if @lang
-			defaults[:caching] 	= @caching 	if @caching
-			defaults[:debug] 		= @debug 		if @debug
+			defaults[:realm] 					= @realm 					if @realm
+			defaults[:locale] 				= @locale 				if @locale
+			defaults[:lang] 					= @lang 					if @lang
+			defaults[:caching] 				= @caching 				if @caching
+			defaults[:cache_timeout] 	= @cache_timeout 	if @cache_timeout
+			defaults[:debug] 					= @debug 					if @debug
 			
 			# overwrite defaults with any given options
 			defaults.merge!(options)
@@ -640,8 +649,6 @@ module Wowr
 			
 			base = self.base_url(options[:locale], options)
 			full_query = base + url + query
-			
-			puts full_query if options[:debug]
 			
 			if options[:caching]
 				response = get_cache(full_query, options)
@@ -710,13 +717,23 @@ module Wowr
 		# Translate the specified URL to the cache location, and return the file
 		# If the cache does not exist, get the contents using http_request and create it
 		def get_cache(url, options = {})
-			path = @@cache_directory_path + options[:lang] + '/' + url_to_filename(url)
-			
+			path = cache_path(url, options)
+				
 			# file doesn't exist, make it
-			if !File.exists?(path)
+			if !File.exists?(path) ||
+					options[:refresh_cache] ||
+					(File.mtime(path) < Time.now - @cache_timeout)
+					
 				if options[:debug]
-					puts 'Cache doesn\'t exist, making: ' + path
+					if !File.exists?(path)
+						puts 'Cache doesn\'t exist, making: ' + path
+					elsif (File.mtime(path) < Time.now - @cache_timeout)
+						puts 'Cache has expired, making again, making: ' + path
+					elsif options[:refresh_cache]
+						puts 'Forced refresh of cache, making: ' + path
+					end
 				end
+				
 				
 				# make sure dir exists
 				FileUtils.mkdir_p(localised_cache_path(options[:lang])) unless File.directory?(localised_cache_path(options[:lang]))
@@ -739,6 +756,10 @@ module Wowr
 			return xml_content
 		end
 		
+		
+		def cache_path(url, options)
+			@@cache_directory_path + options[:lang] + '/' + url_to_filename(url)
+		end
 		
 		
 		# remove http://*.wowarmory.com/ leaving just xml file part and request parameters
