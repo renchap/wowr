@@ -25,6 +25,14 @@ module Wowr
 			def bronze
 				return @total % 100
 			end
+			
+			def +(add)
+				return Money.new(self.total + add.total)
+			end
+			
+			def -(add)
+				return Money.new(self.total - add.total)
+			end
 		end
 		
 	end

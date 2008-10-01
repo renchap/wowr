@@ -29,6 +29,7 @@ require 'wowr/character.rb'
 require 'wowr/guild.rb'
 require 'wowr/item.rb'
 require 'wowr/arena_team.rb'
+require 'wowr/dungeon.rb'
 require 'wowr/guild_bank.rb'
 
 module Wowr
@@ -52,13 +53,18 @@ module Wowr
 		@@arena_team_url = 'team-info.xml'
 		
 		@@guild_bank_contents_url = 'guild-bank-contents.xml'
-		@@guild_bank_log_url = 'guild-bank-log.xml'
+		@@guild_bank_log_url      = 'guild-bank-log.xml'
 		
 		@@login_url = 'login.xml'
-		
+
+		@@dungeons_url = 'data/dungeons.xml'                	
+		@@dungeons_strings_url = 'data/dungeonStrings.xml'
+
 		@@max_connection_tries = 10
 		
 		@@cache_directory_path = 'cache/'
+		
+		@@user_agent = 'Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2'
 		
 		@@default_cache_timeout = (7*24*60*60)
 		@@failed_cache_timeout = (60*60*24)
@@ -71,6 +77,7 @@ module Wowr
 									 :arena_team_url,
 									 :guild_bank_contents_url, :guild_bank_log_url,
 									 :login_url,
+									 :dungeons_url, :dungeons_strings_url,
 									 :max_connection_tries,
 									 :cache_directory_path,
 									 :default_cache_timeout, :failed_cache_timeout, :cache_failed_requests
@@ -512,6 +519,49 @@ module Wowr
 			end
 		end
 		
+		# Get complete list of dungeons.
+		# WARNING: This gets two 6k xml files so it's not that fast
+		# Takes 0.2s with cache, 2s without
+		# New approach: Instead of passing the XML around and performing multiple
+		# search lookups to find the elements, run through each XML file once
+		# adding data to classes as they appear using hash lookup.
+		# Went from 14s to 2s :)
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		def get_dungeons(options = {})
+			options = merge_defaults(options)
+			
+			# dungeon_strings contains names for ids
+			dungeon_xml = get_xml(@@dungeons_url, options)%'dungeons'
+			
+			dungeon_strings_xml = get_xml(@@dungeons_strings_url, options)
+			
+			results = {}
+			
+			# TODO: Pass the correct part of dungeon_strings_xml to each dungeon?
+			if dungeon_xml && !dungeon_xml.children.empty?
+				(dungeon_xml/:dungeon).each do |elem|
+					dungeon = Wowr::Classes::Dungeon.new(elem)
+					results[dungeon.id] = dungeon		if dungeon.id
+					results[dungeon.key] = dungeon	if dungeon.key
+				end
+				
+				(dungeon_strings_xml/:dungeon).each do |elem|
+					id = elem[:id].to_i
+					key = elem[:key]
+					
+					if (results[id])
+						results[id].add_name_data(elem)
+					elsif (results[key])
+						results[key].add_name_data(elem)
+					end					
+				end
+			else
+				raise Wowr::Exceptions::InvalidXML.new()
+      end
+			
+			return results
+		end
+
 		
 		# Logs the user into the armory using their main world of warcraft username and password.
 		# Returns a cookie string used for secure requests like get_guild_bank_contents and get_guild_bank_log.
@@ -645,7 +695,9 @@ module Wowr
 				params << "#{reqs[key]}=#{u(value)}" if reqs[key]
 			end
 			
-			query = '?' + params.join('&') if params.size > 0
+			query = ''
+			query = query + '?' + params.join('&') if params.size > 0
+			#query = '?' + params.join('&') if params.size > 0
 			
 			base = self.base_url(options[:locale], options)
 			full_query = base + url + query
@@ -662,6 +714,9 @@ module Wowr
 				errors.each do |error|
 					raise Wowr::Exceptions::raise_me(error[:errCode], options)
 				end
+
+			elsif (doc%'dungeons')
+				return doc
 			elsif (doc%'page').nil?
 				raise Wowr::Exceptions::EmptyPage
 			else
@@ -673,7 +728,7 @@ module Wowr
 		# Perform an HTTP request and return the contents of the document
 		def http_request(url, options = {})
 			req = Net::HTTP::Get.new(url)
-			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
+			req["user-agent"] = @@user_agent # ensure returns XML
 			req["cookie"] = "cookieMenu=all; cookieLangId=" + options[:lang] + "; cookies=true;"
 			
 			req["cookie"] += options[:cookie] if options[:cookie]
@@ -691,11 +746,11 @@ module Wowr
 		  
 			
 			begin
+				tries = 0
 			  http.start do
 			    res = http.request req
 					# response = res.body
 					
-					tries = 0
 					response = case res
 						when Net::HTTPSuccess, Net::HTTPRedirection
 							res.body
@@ -734,7 +789,6 @@ module Wowr
 					end
 				end
 				
-				
 				# make sure dir exists
 				FileUtils.mkdir_p(localised_cache_path(options[:lang])) unless File.directory?(localised_cache_path(options[:lang]))
 				
@@ -765,7 +819,9 @@ module Wowr
 		# remove http://*.wowarmory.com/ leaving just xml file part and request parameters
 		# Kind of assuming incoming URL is the same as the current locale
 		def url_to_filename(url) #:nodoc:
-			return url.gsub(base_url, '')
+			temp = url.gsub(base_url(), '')
+			temp.gsub!('/', '.')
+			return temp
 		end
 		
 		

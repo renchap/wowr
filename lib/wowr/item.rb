@@ -97,7 +97,6 @@ module Wowr
 				@cost = ItemCost.new(elem%'cost') if (elem%'cost')
 		
 		
-		
 				# is costs really an array?
 				#@costs 		= []
 				#(elem/:cost).each do |cost|
@@ -105,6 +104,7 @@ module Wowr
 				#end
 				
 				etc = [
+					# xml element name,		member variable					item list	class name,		requires api link
 					['disenchantLoot', 		'@disenchant_items', 		'item', 		DisenchantItem, true],
 					['objectiveOfQuests', '@objective_of_quests', 'quest', 		ItemQuest, false],
 					['rewardFromQuests', 	'@reward_from_quests', 	'quest', 		ItemQuest, false],
@@ -134,56 +134,10 @@ module Wowr
 					end
 				end
 	
+				# Rest of disenchant contents is done in the method above
 				if (elem%'disenchantLoot')
 					@disenchant_skill_rank = (elem%'disenchantLoot')[:requiredSkillRank].to_i 
-					
-					# @disenchant_items = []
-					# (elem%'disenchantLoot'/:item).each do |item|
-					# 	@disenchant_items << DisenchantItem.new(item)
-					# end
 				end
-		
-				# if (elem%'objectiveOfQuests')
-				# 	@objective_of_quests = []
-				# 	(elem%'objectiveOfQuests'/:quest).each do |quest|
-				# 		@objective_of_quests << ItemQuest.new(quest)
-				# 	end
-				# end
-				# 		
-				# if (elem%'rewardFromQuests')
-				# 	@reward_from_quests = []
-				# 	(elem%'rewardFromQuests'/:quest).each do |quest|
-				# 		@reward_from_quests << ItemQuest.new(quest)
-				# 	end
-				# end
-				# 
-				# if (elem%'vendors')
-				# 	@vendors = []
-				# 	(elem%'vendors'/:creature).each do |vendor|
-				# 		@vendors << ItemVendor.new(vendor)
-				# 	end
-				# end
-				# 		
-				# if (elem%'dropCreatures')
-				# 	@drop_creatures = []
-				# 	(elem%'dropCreatures'/:creature).each do |creature|
-				# 		@drop_creatures << ItemDropCreature.new(creature)
-				# 	end
-				# end
-				# 		
-				# if (elem%'plansFor')
-				# 	@plans_for = []
-				# 	(elem%'plansFor'/:spell).each do |plan|
-				# 		@plans_for << ItemPlansFor.new(plan)
-				# 	end
-				# end
-				# 		
-				# if (elem%'createdBy')
-				# 	@created_by = []
-				# 	(elem%'createdBy'/:spell).each do |c|
-				# 		@created_by << ItemCreatedBy.new(c)
-				# 	end
-				# end
 			end
 		end
 		
@@ -223,7 +177,7 @@ module Wowr
 				@gem_properties			= (elem%'gemProperties').html if (elem%'gemProperties')
 				
 				# not all items have damage data
-				@damage							= ItemDamageData.new(elem%'damageData') if !(elem%'damageData').html.empty?
+				@damage							= ItemDamageData.new(elem%'damageData') if !(elem%'damageData')
 				
 				
 				# TODO: Test socket data with a variety of items
@@ -367,8 +321,8 @@ module Wowr
 				@type 	= (elem%'damage'%'type').html.to_i
 				@min 		= (elem%'damage'%'min').html.to_i
 				@max 		= (elem%'damage'%'max').html.to_i
-				@speed 	= (elem%'speed').html.to_i
-				@dps 		= (elem%'dps').html.to_f
+				@speed 	= (elem%'speed').html.to_i	if (elem%'speed')
+				@dps 		= (elem%'dps').html.to_f		if (elem%'dps')
 			end
 		end
 

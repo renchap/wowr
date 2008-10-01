@@ -65,6 +65,22 @@ module Wowr
 				end
 			end
 			
+			
+			def next
+				
+			end
+			
+			def next!
+				
+			end
+			
+			def prev
+				
+			end
+			
+			def prev!
+				
+			end
 		end
 		
 		

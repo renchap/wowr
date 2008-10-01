@@ -1,6 +1,49 @@
-Again, useless
 <?xml version="1.0" encoding="UTF-8"?>
 <dungeons>
+  <dungeon hasHeroic="0" id="4075" key="sunwellplateau" levelMax="70" levelMin="70" nameId="4075" partySize="25" raid="1" release="1">
+    <bosses>
+      <boss id="24850" key="kalecgos" type="npc">
+        <lootTable difficulty="n" id="24892" type="npc"/>
+      </boss>
+      <boss id="24882" key="brutallus" type="npc">
+        <lootTable difficulty="n" id="24882" type="npc"/>
+      </boss>
+      <boss id="25038" key="felmyst" type="npc">
+        <lootTable difficulty="n" id="25038" type="npc"/>
+      </boss>
+      <boss id="25166" key="alythess" type="npc">
+        <lootTable difficulty="n" id="25166" type="npc"/>
+      </boss>
+      <boss id="25741" key="muru" type="npc">
+        <lootTable difficulty="n" id="25840" type="npc"/>
+      </boss>
+      <boss id="25315" key="kiljaeden" type="npc">
+        <lootTable difficulty="n" id="25315" type="npc"/>
+      </boss>
+    </bosses>
+  </dungeon>
+
+  <dungeon hasHeroic="1" id="4131" key="magistersterrace" levelMax="70" levelMin="70" nameId="4131" partySize="5" raid="0" release="1">
+    <bosses>
+      <boss id="24723" key="selinfireheart" type="npc">
+        <lootTable difficulty="n" id="24723" type="npc"/>
+        <lootTable difficulty="h" id="25562" type="npc"/>
+      </boss>
+      <boss id="24744" key="vexallus" type="npc">
+        <lootTable difficulty="n" id="24744" type="npc"/>
+        <lootTable difficulty="h" id="25573" type="npc"/>
+      </boss>
+      <boss id="24560" key="priestessdelrissa" type="npc">
+        <lootTable difficulty="n" id="24560" type="npc"/>
+        <lootTable difficulty="h" id="25560" type="npc"/>
+      </boss>
+      <boss id="24664" key="kaelthas" type="npc">
+        <lootTable difficulty="n" id="24664" type="npc"/>
+        <lootTable difficulty="h" id="24857" type="npc"/>
+      </boss>
+    </bosses>
+  </dungeon>
+
   <dungeon hasHeroic="0" id="3805" key="zulaman" levelMax="70" levelMin="70" nameId="3805" partySize="10" raid="1" release="1">
     <bosses>
       <boss id="23576" key="nalorakk" type="npc">
@@ -9,7 +52,6 @@ Again, useless
       <boss id="23574" key="akilzon" type="npc">
         <lootTable difficulty="n" id="23574" type="npc"/>
       </boss>
-
       <boss id="23578" key="janalai" type="npc">
         <lootTable difficulty="n" id="23578" type="npc"/>
       </boss>
@@ -19,17 +61,27 @@ Again, useless
       <boss id="24363" key="malacrass" type="npc">
         <lootTable difficulty="n" id="24363" type="npc"/>
       </boss>
-
       <boss id="23863" key="zuljin" type="npc">
         <lootTable difficulty="n" id="23863" type="npc"/>
       </boss>
+      <boss id="186672" key="ashlisbag" type="object">
+        <lootTable difficulty="n" id="186672" type="object"/>
+      </boss>	  
+      <boss id="186667" key="krazspackage" type="object">
+        <lootTable difficulty="n" id="186667" type="object"/>
+      </boss>
+      <boss id="187021" key="harkorssatchel" type="object">
+        <lootTable difficulty="n" id="187021" type="object"/>
+      </boss>	  
+      <boss id="186648" key="tanzarstrunk" type="object">
+        <lootTable difficulty="n" id="186648" type="object"/>
+      </boss>	  
     </bosses>
   </dungeon>
 
   <dungeon hasHeroic="1" id="3848" key="arcatraz" levelMax="70" levelMin="70" nameId="3848" partySize="5" raid="0" release="1">
     <bosses>
       <boss id="20885" key="dalliahthedoomsayer" type="npc">
-
         <lootTable difficulty="n" id="20885" type="npc"/>
         <lootTable difficulty="h" id="21590" type="npc"/>        
       </boss>
@@ -40,7 +92,6 @@ Again, useless
       <boss id="20886" key="wrathscryersoccothrates" type="npc">
         <lootTable difficulty="n" id="20886" type="npc"/>
         <lootTable difficulty="h" id="21624" type="npc"/>
-
       </boss>
       <boss id="20870" key="zerekeththeunbound" type="npc">
         <lootTable difficulty="n" id="20870" type="npc"/>
@@ -52,7 +103,6 @@ Again, useless
   
   <dungeon hasHeroic="1" id="3790" key="auchenaicrypts" levelMax="67" levelMin="65" nameId="3790" partySize="5" raid="0" release="1">
     <bosses>
-
       <boss id="18373" key="exarchmaladaar" type="npc">
         <lootTable difficulty="n" id="18373" type="npc"/>
         <lootTable difficulty="h" id="20306" type="npc"/>
@@ -62,17 +112,16 @@ Again, useless
         <lootTable difficulty="h" id="20318" type="npc"/>
       </boss>
     </bosses>
-
   </dungeon>
 
   <dungeon id="badgeofjustice" key="badgeofjustice" levelMax="-1" levelMin="-1" partySize="0" raid="0" release="1" stringKey="armory.dungeons.badgeofjustice">
     <bosses>
       <boss key="badgeofjustice" stringKey="armory.dungeons.badgeofjustice" type="vendor">
         <lootTable id="18525" type="vendor"/>
+        <lootTable id="25046" type="vendor"/>
       </boss>
     </bosses>
   </dungeon>
-
   
   <dungeon hasHeroic="1" id="2366" key="blackmorass" levelMax="70" levelMin="70" nameId="2366" partySize="5" raid="0" release="1">
     <bosses>
@@ -83,7 +132,6 @@ Again, useless
       <boss id="17879" key="chronolorddeja" type="npc">
         <lootTable difficulty="n" id="17879" type="npc"/>
         <lootTable difficulty="h" id="20738" type="npc"/>
-
       </boss>
       <boss id="17880" key="temporus" type="npc">
         <lootTable difficulty="n" id="17880" type="npc"/>
@@ -93,7 +141,6 @@ Again, useless
   </dungeon>
 
   <dungeon hasHeroic="0" id="3959" key="blacktemple" levelMax="70" levelMin="70" nameId="3959" partySize="25" raid="1" release="1">
-
     <bosses>
       <boss id="23420" key="anger" type="npc">
         <lootTable difficulty="n" id="23420" type="npc"/>
@@ -103,7 +150,6 @@ Again, useless
       </boss>
       <boss id="22950" key="zerevor" type="npc">
         <lootTable difficulty="n" id="22950" type="npc"/>
-
       </boss>
       <boss id="22950" key="zerevor" type="npc">
         <lootTable difficulty="n" id="22950" type="npc"/>
@@ -113,7 +159,6 @@ Again, useless
       </boss>
       <boss id="22947" key="shahraz" type="npc">
         <lootTable difficulty="n" id="22947" type="npc"/>
-
       </boss>
       <boss id="22871" key="gorefiend" type="npc">
         <lootTable difficulty="n" id="22871" type="npc"/>
@@ -124,7 +169,6 @@ Again, useless
 	  
       <boss id="22887" key="highwarlordnajentus" type="npc">
         <lootTable difficulty="n" id="22887" type="npc"/>
-
       </boss>
       <boss id="22898" key="supremus" type="npc">
         <lootTable difficulty="n" id="22898" type="npc"/>
@@ -134,7 +178,6 @@ Again, useless
       </boss>
       <boss id="22941" key="shadeofakama" type="npc">
         <lootTable difficulty="n" id="22941" type="npc"/>
-
       </boss>
       <boss id="22917" key="Illidan" type="npc">
         <lootTable difficulty="n" id="22917" type="npc"/>
@@ -146,7 +189,6 @@ Again, useless
   <dungeon hasHeroic="1" id="3713" key="bloodfurnace" levelMax="63" levelMin="61" nameId="3713" partySize="5" raid="0" release="1">
     <bosses>
       <boss id="17380" key="broggok" type="npc">
-
         <lootTable difficulty="n" id="17380" type="npc"/>
         <lootTable difficulty="h" id="18601" type="npc"/>
       </boss>
@@ -156,7 +198,6 @@ Again, useless
       </boss>
       <boss id="17381" key="themaker" type="npc">
         <lootTable difficulty="n" id="17381" type="npc"/>
-
         <lootTable difficulty="h" id="18621" type="npc"/>
       </boss>
     </bosses>
@@ -168,7 +209,6 @@ Again, useless
       <boss id="3847" key="commandersarannis" type="npc">
         <lootTable difficulty="n" id="17976" type="npc"/>
         <lootTable difficulty="h" id="21551" type="npc"/>
-
       </boss>
       <boss id="17975" key="highbotanistfreywinn" type="npc">
         <lootTable difficulty="n" id="17975" type="npc"/>
@@ -178,7 +218,6 @@ Again, useless
         <lootTable difficulty="n" id="17980" type="npc"/>
         <lootTable difficulty="h" id="21559" type="npc"/>
       </boss>
-
       <boss id="17978" key="thorngrinthetender" type="npc">
         <lootTable difficulty="n" id="17978" type="npc"/>
         <lootTable difficulty="h" id="21581" type="npc"/>
@@ -188,7 +227,6 @@ Again, useless
         <lootTable difficulty="h" id="21582" type="npc"/>
       </boss>
     </bosses>
-
   </dungeon>
 
   <dungeon id="3845" key="eye" levelMax="70" levelMin="70" nameId="3845" partySize="25" raid="1" release="1">
@@ -198,7 +236,6 @@ Again, useless
       </boss>
       <boss id="18805" type="npc">
         <lootTable difficulty="n" id="18805" type="npc"/>
-
       </boss>
       <boss id="19622" type="npc">
         <lootTable difficulty="n" id="19622" type="npc"/>
@@ -210,7 +247,6 @@ Again, useless
   </dungeon>  
   
   <dungeon id="3923" key="gruulslair" levelMax="70" levelMin="70" nameId="3923" partySize="25" raid="1" release="1">
-
     <bosses>
       <boss id="19044" key="gruulthedragonkiller" type="npc">
         <lootTable difficulty="n" id="19044" type="npc"/>
@@ -220,7 +256,6 @@ Again, useless
       </boss>
     </bosses>
   </dungeon>
-
   
   
   <dungeon hasHeroic="1" id="3562" key="hellfireramparts" levelMax="62" levelMin="60" nameId="3562" partySize="5" raid="0" release="1">
@@ -232,7 +267,6 @@ Again, useless
       <boss id="17536" key="nazan" type="npc">
         <lootTable difficulty="n" id="17536" type="npc"/>
         <lootTable difficulty="n" id="185168" type="object"/>
-
         <lootTable difficulty="h" id="185169" type="object"/>
       </boss>
       <boss id="17306" key="watchkeepergargolmar" type="npc">
@@ -251,7 +285,6 @@ Again, useless
         <lootTable difficulty="n" id="17842" type="npc"/>
       </boss>
       <boss id="17888" key="kazrogal" type="npc">
-
         <lootTable difficulty="n" id="17888" type="npc"/>
       </boss>
       <boss id="17767" key="ragewinterchill" type="npc">
@@ -261,7 +294,6 @@ Again, useless
         <lootTable difficulty="n" id="17968" type="npc"/>
       </boss>
     </bosses>
-
   </dungeon>  
   
   <dungeon id="3457" key="karazhan" levelMax="70" levelMin="70" nameId="3457" partySize="10" raid="1" release="1">
@@ -272,7 +304,6 @@ Again, useless
       <boss id="17521" key="bigbadwolf" type="npc">
         <lootTable difficulty="n" id="17521" type="npc"/>
       </boss>
-
       <boss id="185119" key="chessevent" type="object">
         <lootTable difficulty="n" id="185119" type="object"/>
       </boss>
@@ -282,7 +313,6 @@ Again, useless
     <boss id="15691" key="curator" type="npc">
         <lootTable difficulty="n" id="15691" type="npc"/>
       </boss>
-
       <boss id="16179" key="hyakissthelurker" type="npc">
         <lootTable difficulty="n" id="16179" type="npc"/>
       </boss>
@@ -292,7 +322,6 @@ Again, useless
       <boss id="16457" key="maidenofvirtue" type="npc">
         <lootTable difficulty="n" id="16457" type="npc"/>
       </boss>
-
       <boss id="15687" key="moroes" type="npc">
         <lootTable difficulty="n" id="15687" type="npc"/>
       </boss>
@@ -302,7 +331,6 @@ Again, useless
       <boss id="17225" key="nightbane" type="npc">
         <lootTable difficulty="n" id="17225" type="npc"/>
       </boss>
-
       <boss id="15690" key="princemalchezaar" type="npc">
         <lootTable difficulty="n" id="15690" type="npc"/>
       </boss>
@@ -312,7 +340,6 @@ Again, useless
       <boss id="17533" key="romulo" type="npc">
         <lootTable difficulty="n" id="17533" type="npc"/>
       </boss>
-
       <boss id="16524" key="shadeofaran" type="npc">
         <lootTable difficulty="n" id="16524" type="npc"/>
       </boss>
@@ -322,7 +349,6 @@ Again, useless
       <boss id="15688" key="terestianillhoof" type="npc">
         <lootTable difficulty="n" id="15688" type="npc"/>
       </boss>
-
     </bosses>
   </dungeon>
   
@@ -334,7 +360,6 @@ Again, useless
       </boss>
     </bosses>
   </dungeon>
-
   
   
   <dungeon hasHeroic="1" id="3792" key="manatombs" levelMax="66" levelMin="64" nameId="3792" partySize="5" raid="0" release="1">
@@ -346,7 +371,6 @@ Again, useless
       <boss id="18341" key="pandemonius" type="npc">
         <lootTable difficulty="n" id="18341" type="npc"/>
         <lootTable difficulty="h" id="20267" type="npc"/>
-
       </boss>
       <boss id="18343" key="tavarok" type="npc">
         <lootTable difficulty="n" id="18343" type="npc"/>
@@ -358,7 +382,6 @@ Again, useless
   
   <dungeon hasHeroic="1" id="3849" key="mechanar" levelMax="70" levelMin="70" nameId="3849" partySize="5" raid="0" release="1">
     <bosses>
-
       <boss id="184465" key="cacheofthelegion" type="object">
         <lootTable difficulty="n" id="184465" type="object"/>
         <lootTable difficulty="h" id="184849" type="object"/>       
@@ -369,7 +392,6 @@ Again, useless
       </boss>
       <boss id="19710" key="gatewatcherironhand" type="npc">
         <lootTable difficulty="n" id="19710" type="npc"/>
-
         <lootTable difficulty="h" id="21526" type="npc"/>
       </boss>
       <boss id="19219" key="mechanolordcapacitus" type="npc">
@@ -379,7 +401,6 @@ Again, useless
       <boss id="19221" key="nethermancersepethrea" type="npc">
         <lootTable difficulty="n" id="19221" type="npc"/>
         <lootTable difficulty="h" id="21536" type="npc"/>
-
       </boss>
       <boss id="19220" key="pathaleonthecalculator" type="npc">
         <lootTable difficulty="n" id="19220" type="npc"/>
@@ -391,7 +412,6 @@ Again, useless
   
   <dungeon hasHeroic="1" id="2367" key="oldhillsbradfoothills" levelMax="68" levelMin="66" nameId="2367" partySize="5" raid="0" release="1">
     <bosses>
-
       <boss id="17862" key="captainskarloc" type="npc">
         <lootTable difficulty="n" id="17862" type="npc"/>
         <lootTable difficulty="h" id="20521" type="npc"/>
@@ -401,7 +421,6 @@ Again, useless
         <lootTable difficulty="h" id="20531" type="npc"/>
       </boss>
       <boss id="17848" key="lieutenantdrake" type="npc">
-
         <lootTable difficulty="n" id="17848" type="npc"/>
         <lootTable difficulty="h" id="20535" type="npc"/>
       </boss>
@@ -413,7 +432,6 @@ Again, useless
     <bosses>
       <boss id="21214" key="fathomlordkarathress" type="npc">
         <lootTable difficulty="n" id="21214" type="npc"/>
-
       </boss>
       <boss id="21216" key="hydrosstheunstable" type="npc">
         <lootTable difficulty="n" id="21216" type="npc"/>
@@ -423,7 +441,6 @@ Again, useless
       </boss>
       <boss id="21213" key="morogrimtidewalker" type="npc">
         <lootTable difficulty="n" id="21213" type="npc"/>
-
       </boss>
       <boss id="21212" key="ladyvashj" type="npc">
         <lootTable difficulty="n" id="21212" type="npc"/>
@@ -436,7 +453,6 @@ Again, useless
   
   
   <dungeon hasHeroic="1" id="3791" key="sethekkhalls" levelMax="69" levelMin="67" nameId="3791" partySize="5" raid="0" release="1">
-
     <bosses>
       <boss id="18472" key="darkweaversyth" type="npc">
         <lootTable difficulty="n" id="18472" type="npc"/>
@@ -446,7 +462,6 @@ Again, useless
         <lootTable difficulty="n" id="18473" type="npc"/>
         <lootTable difficulty="h" id="20706" type="npc"/>
       </boss>
-
     </bosses>
   </dungeon>
   
@@ -458,7 +473,6 @@ Again, useless
         <lootTable difficulty="h" id="20636" type="npc"/>
       </boss>
       <boss id="18667" key="blackhearttheinciter" type="npc">
-
         <lootTable difficulty="n" id="18667" type="npc"/>
         <lootTable difficulty="h" id="20637" type="npc"/>
       </boss>
@@ -468,7 +482,6 @@ Again, useless
       </boss>
       <boss id="18708" key="murmur" type="npc">
         <lootTable difficulty="n" id="18708" type="npc"/>
-
         <lootTable difficulty="h" id="20657" type="npc"/>
       </boss>
     </bosses>
@@ -480,7 +493,6 @@ Again, useless
       <boss id="20923" key="bloodguardporung" type="npc">
         <lootTable difficulty="n" id="20923" type="npc"/>
         <lootTable difficulty="h" id="20993" type="npc"/>
-
       </boss>
       <boss id="16807" key="grandwarlocknethekurse" type="npc">
         <lootTable difficulty="n" id="16807" type="npc"/>
@@ -490,7 +502,6 @@ Again, useless
         <lootTable difficulty="n" id="16809" type="npc"/>
         <lootTable difficulty="h" id="20596" type="npc"/>
       </boss>
-
       <boss id="16808" key="warchiefkargathbladefist" type="npc">
         <lootTable difficulty="n" id="16808" type="npc"/>
         <lootTable difficulty="h" id="20597" type="npc"/>
@@ -502,7 +513,6 @@ Again, useless
   <dungeon hasHeroic="1" id="3717" key="slavepens" levelMax="64" levelMin="62" nameId="3717" partySize="5" raid="0" release="1">
     <bosses>
       <boss id="17941" key="mennuthebetrayer" type="npc">
-
         <lootTable difficulty="n" id="17941" type="npc"/>
         <lootTable difficulty="h" id="19893" type="npc"/>
       </boss>
@@ -512,7 +522,6 @@ Again, useless
       </boss>
       <boss id="17991" key="rokmarthecrackler" type="npc">
         <lootTable difficulty="n" id="17991" type="npc"/>
-
         <lootTable difficulty="h" id="19895" type="npc"/>
       </boss>
     </bosses>
@@ -524,7 +533,6 @@ Again, useless
       <boss id="17797" key="hydromancerthespia" type="npc">
         <lootTable difficulty="n" id="17797" type="npc"/>
         <lootTable difficulty="h" id="20629" type="npc"/>
-
       </boss>
       <boss id="17796" key="mekgineersteamrigger" type="npc">
         <lootTable difficulty="n" id="17796" type="npc"/>
@@ -534,7 +542,6 @@ Again, useless
         <lootTable difficulty="n" id="17798" type="npc"/>
         <lootTable difficulty="h" id="20633" type="npc"/>
       </boss>
-
     </bosses>
   </dungeon>
   
@@ -546,7 +553,6 @@ Again, useless
         <lootTable difficulty="h" id="20184" type="npc"/>
       </boss>
     <boss id="18105" key="ghazan" type="npc">
-
         <lootTable difficulty="n" id="18105" type="npc"/>
         <lootTable difficulty="h" id="20168" type="npc"/>
       </boss>
@@ -556,7 +562,6 @@ Again, useless
       </boss>
       <boss id="17826" key="swamplordmuselek" type="npc">
         <lootTable difficulty="n" id="17826" type="npc"/>
-
         <lootTable difficulty="h" id="20183" type="npc"/>
       </boss>
     </bosses>
@@ -581,7 +586,6 @@ Again, useless
       <boss id="4829" key="akumai" type="npc">
         <lootTable difficulty="n" id="4829" type="npc"/>
       </boss>
-
       <boss id="12876" key="baronaquanis" type="npc">
         <lootTable difficulty="n" id="12876" type="npc"/>
       </boss>
@@ -591,7 +595,6 @@ Again, useless
       <boss id="4887" key="ghamoora" type="npc">
         <lootTable difficulty="n" id="4887" type="npc"/>
       </boss>
-
       <boss id="4831" key="ladysarevess" type="npc">
         <lootTable difficulty="n" id="4831" type="npc"/>
       </boss>
@@ -601,7 +604,6 @@ Again, useless
       <boss id="4830" key="oldserrakis" type="npc">
         <lootTable difficulty="n" id="4830" type="npc"/>
       </boss>
-
       <boss id="4832" key="twilightlordkelris" type="npc">
         <lootTable difficulty="n" id="4832" type="npc"/>
       </boss>
@@ -611,7 +613,6 @@ Again, useless
   <dungeon id="1584" key="blackrockdepths" levelMax="60" levelMin="52" nameId="1584" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="9156" key="ambassadorflamelash" type="npc">
-
         <lootTable difficulty="n" id="9156" type="npc"/>
       </boss>
       <boss id="181074" key="arenaspoils" type="object">
@@ -621,7 +622,6 @@ Again, useless
         <lootTable difficulty="n" id="9031" type="npc"/>
       </boss>
       <boss id="9016" key="baelgar" type="npc">
-
         <lootTable difficulty="n" id="9016" type="npc"/>
       </boss>
       <boss id="169243" key="chestoftheseven" type="object">
@@ -631,7 +631,6 @@ Again, useless
         <lootTable difficulty="n" id="9438" type="npc"/>
       </boss>
       <boss id="9442" key="darkkeeperofgut" type="npc">
-
         <lootTable difficulty="n" id="9442" type="npc"/>
       </boss>
       <boss id="9443" key="darkkeeperpelver" type="npc">
@@ -641,7 +640,6 @@ Again, useless
         <lootTable difficulty="n" id="9439" type="npc"/>
       </boss>
       <boss id="9437" key="darkkeepervorfalk" type="npc">
-
         <lootTable difficulty="n" id="9437" type="npc"/>
       </boss>
       <boss id="9441" key="darkkeeperzimrel" type="npc">
@@ -651,7 +649,6 @@ Again, useless
         <lootTable difficulty="n" id="9019" type="npc"/>
       </boss>
       <boss id="9029" key="eviscerator" type="npc">
-
         <lootTable difficulty="n" id="9029" type="npc"/>
       </boss>
       <boss id="9056" key="fineousdarkvire" type="npc">
@@ -661,7 +658,6 @@ Again, useless
         <lootTable difficulty="n" id="9033" type="npc"/>
       </boss>
       <boss id="8983" key="golemlordargelmach" type="npc">
-
         <lootTable difficulty="n" id="8983" type="npc"/>
       </boss>
       <boss id="9027" key="goroshthedervish" type="npc">
@@ -671,7 +667,6 @@ Again, useless
         <lootTable difficulty="n" id="9028" type="npc"/>
       </boss>
       <boss id="9032" key="hedrumthecreeper" type="npc">
-
         <lootTable difficulty="n" id="9032" type="npc"/>
       </boss>
       <boss id="9018" key="highinterrogatorgerstahn" type="npc">
@@ -681,7 +676,6 @@ Again, useless
         <lootTable difficulty="n" id="10076" type="npc"/>
       </boss>
       <boss id="9319" key="houndmastergrebmar" type="npc">
-
         <lootTable difficulty="n" id="9319" type="npc"/>
       </boss>
       <boss id="9537" key="hurleyblackbreath" type="npc">
@@ -691,7 +685,6 @@ Again, useless
         <lootTable difficulty="n" id="9017" type="npc"/>
       </boss>
       <boss id="9025" key="lordroccor" type="npc">
-
         <lootTable difficulty="n" id="9025" type="npc"/>
       </boss>
       <boss id="9938" key="magmus" type="npc">
@@ -701,7 +694,6 @@ Again, useless
         <lootTable difficulty="n" id="9030" type="npc"/>
       </boss>
       <boss id="8923" key="panzortheinvincible" type="npc">
-
         <lootTable difficulty="n" id="8923" type="npc"/>
       </boss>
       <boss id="9502" key="phalanx" type="npc">
@@ -711,7 +703,6 @@ Again, useless
         <lootTable difficulty="n" id="9499" type="npc"/>
       </boss>
       <boss id="8929" key="princessmoirabronzebeard" type="npc">
-
         <lootTable difficulty="n" id="8929" type="npc"/>
       </boss>
       <boss id="9024" key="pyromancerloregrain" type="npc">
@@ -721,7 +712,6 @@ Again, useless
         <lootTable difficulty="n" id="9543" type="npc"/>
       </boss>
       <boss id="16059" key="theldren" type="npc">
-
         <lootTable difficulty="n" id="16059" type="npc"/>
       </boss>
       <boss id="9042" key="verek" type="npc">
@@ -731,7 +721,6 @@ Again, useless
         <lootTable difficulty="n" id="9041" type="npc"/>
       </boss>
       <boss id="9476" key="watchmandoomgrip" type="npc">
-
         <lootTable difficulty="n" id="9476" type="npc"/>
       </boss>
     </bosses>
@@ -741,7 +730,6 @@ Again, useless
       <boss id="9596" key="bannokgrimaxe" type="npc">
         <lootTable difficulty="n" id="9596" type="npc"/>
       </boss>
-
       <boss id="10263" key="burningfelguard" type="npc">
         <lootTable difficulty="n" id="10263" type="npc"/>
       </boss>
@@ -751,7 +739,6 @@ Again, useless
       <boss id="10363" key="generaldrakkisath" type="npc">
         <lootTable difficulty="n" id="10363" type="npc"/>
       </boss>
-
       <boss id="9718" key="ghokbashguud" type="npc">
         <lootTable difficulty="n" id="9718" type="npc"/>
       </boss>
@@ -761,7 +748,6 @@ Again, useless
       <boss id="10899" key="" type="npc">
         <lootTable difficulty="n" id="10899" type="npc"/>
       </boss>
-
       <boss id="10339" key="" type="npc">
         <lootTable difficulty="n" id="10339" type="npc"/>
       </boss>
@@ -771,7 +757,6 @@ Again, useless
       <boss id="9196" key="" type="npc">
         <lootTable difficulty="n" id="9196" type="npc"/>
       </boss>
-
       <boss id="10509" key="" type="npc">
         <lootTable difficulty="n" id="10509" type="npc"/>
       </boss>
@@ -781,7 +766,6 @@ Again, useless
       <boss id="16080" key="" type="npc">
         <lootTable difficulty="n" id="16080" type="npc"/>
       </boss>
-
       <boss id="10596" key="" type="npc">
         <lootTable difficulty="n" id="10596" type="npc"/>
       </boss>
@@ -791,7 +775,6 @@ Again, useless
       <boss id="9816" key="" type="npc">
         <lootTable difficulty="n" id="9816" type="npc"/>
       </boss>
-
       <boss id="9736" key="" type="npc">
         <lootTable difficulty="n" id="9736" type="npc"/>
       </boss>
@@ -801,7 +784,6 @@ Again, useless
       <boss id="10264" key="" type="npc">
         <lootTable difficulty="n" id="10264" type="npc"/>
       </boss>
-
       <boss id="9218" key="" type="npc">
         <lootTable difficulty="n" id="9218" type="npc"/>
       </boss>
@@ -811,7 +793,6 @@ Again, useless
       <boss id="9217" key="" type="npc">
         <lootTable difficulty="n" id="9217" type="npc"/>
       </boss>
-
       <boss id="10430" key="" type="npc">
         <lootTable difficulty="n" id="10430" type="npc"/>
       </boss>
@@ -821,7 +802,6 @@ Again, useless
       <boss id="9237" key="" type="npc">
         <lootTable difficulty="n" id="9237" type="npc"/>
       </boss>
-
       <boss id="10429" key="" type="npc">
         <lootTable difficulty="n" id="10429" type="npc"/>
       </boss>                               
@@ -831,7 +811,6 @@ Again, useless
     <bosses>
       <boss id="12017" key="" type="npc">
         <lootTable difficulty="n" id="12017" type="npc"/>
-
       </boss>
       <boss id="14020" key="" type="npc">
         <lootTable difficulty="n" id="14020" type="npc"/>
@@ -841,7 +820,6 @@ Again, useless
       </boss>
       <boss id="11983" key="" type="npc">
         <lootTable difficulty="n" id="11983" type="npc"/>
-
       </boss>
       <boss id="11981" key="" type="npc">
         <lootTable difficulty="n" id="11981" type="npc"/>
@@ -851,7 +829,6 @@ Again, useless
       </boss>
       <boss id="12435" key="" type="npc">
         <lootTable difficulty="n" id="12435" type="npc"/>
-
       </boss>
       <boss id="13020" key="" type="npc">
         <lootTable difficulty="n" id="13020" type="npc"/>
@@ -861,7 +838,6 @@ Again, useless
   <dungeon id="1581" key="deadmines" levelMax="20" levelMin="15" nameId="1581" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="596" key="" type="npc">
-
         <lootTable difficulty="n" id="596" type="npc"/>
       </boss>
       <boss id="647" key="" type="npc">
@@ -871,7 +847,6 @@ Again, useless
         <lootTable difficulty="n" id="645" type="npc"/>
       </boss>
       <boss id="639" key="" type="npc">
-
         <lootTable difficulty="n" id="639" type="npc"/>
       </boss>
       <boss id="626" key="" type="npc">
@@ -881,7 +856,6 @@ Again, useless
         <lootTable difficulty="n" id="1763" type="npc"/>
       </boss>
       <boss id="599" key="" type="npc">
-
         <lootTable difficulty="n" id="599" type="npc"/>
       </boss>
       <boss id="3586" key="" type="npc">
@@ -891,7 +865,6 @@ Again, useless
         <lootTable difficulty="n" id="646" type="npc"/>
       </boss>
       <boss id="644" key="" type="npc">
-
         <lootTable difficulty="n" id="644" type="npc"/>
       </boss>
       <boss id="643" key="" type="npc">
@@ -901,7 +874,6 @@ Again, useless
         <lootTable difficulty="n" id="642" type="npc"/>
       </boss>
     </bosses>
-
   </dungeon>
   <dungeon id="2557" key="diremaul" levelMax="60" levelMin="55" nameId="2557" partySize="5" raid="0" release="0">
     <bosses>
@@ -911,7 +883,6 @@ Again, useless
       <boss id="14325" key="" type="npc">
         <lootTable difficulty="n" id="14325" type="npc"/>
       </boss>
-
       <boss id="14324" key="" type="npc">
         <lootTable difficulty="n" id="14324" type="npc"/>
       </boss>
@@ -922,7 +893,6 @@ Again, useless
         <lootTable difficulty="n" id="14321" type="npc"/>
       </boss>   
       <boss id="14326" key="" type="npc">
-
         <lootTable difficulty="n" id="14326" type="npc"/>
       </boss>
       <boss id="14323" key="" type="npc">
@@ -932,7 +902,6 @@ Again, useless
         <lootTable difficulty="n" id="13280" type="npc"/>
       </boss>
       <boss id="11488" key="" type="npc">
-
         <lootTable difficulty="n" id="11488" type="npc"/>
       </boss>
       <boss id="11496" key="" type="npc">
@@ -942,7 +911,6 @@ Again, useless
         <lootTable difficulty="n" id="16097" type="npc"/>
       </boss>
       <boss id="11501" key="" type="npc">
-
         <lootTable difficulty="n" id="11501" type="npc"/>
       </boss>
       <boss id="14327" key="" type="npc">
@@ -952,7 +920,6 @@ Again, useless
         <lootTable difficulty="n" id="14506" type="npc"/>
       </boss>
       <boss id="11487" key="" type="npc">
-
         <lootTable difficulty="n" id="11487" type="npc"/>
       </boss>
       <boss id="14349" key="" type="npc">
@@ -962,7 +929,6 @@ Again, useless
         <lootTable difficulty="n" id="11486" type="npc"/>
       </boss>
       <boss id="14354" key="" type="npc">
-
         <lootTable difficulty="n" id="14354" type="npc"/>
       </boss>
       <boss id="14322" key="" type="npc">
@@ -972,7 +938,6 @@ Again, useless
         <lootTable difficulty="n" id="11489" type="npc"/>
       </boss>
       <boss id="11467" key="" type="npc">
-
         <lootTable difficulty="n" id="11467" type="npc"/>
       </boss>
       <boss id="11490" key="" type="npc">
@@ -982,7 +947,6 @@ Again, useless
         <lootTable difficulty="n" id="179564" type="object"/>
       </boss>   
     </bosses>
-
   </dungeon>
   <dungeon id="721" key="gnomeregan" levelMax="38" levelMin="29" nameId="721" partySize="5" raid="0" release="0">
     <bosses>
@@ -992,7 +956,6 @@ Again, useless
       <boss id="6228" key="" type="npc">
         <lootTable difficulty="n" id="6228" type="npc"/>
       </boss>
-
       <boss id="6235" key="" type="npc">
         <lootTable difficulty="n" id="6235" type="npc"/>
       </boss>
@@ -1002,7 +965,6 @@ Again, useless
       <boss id="7800" key="" type="npc">
         <lootTable difficulty="n" id="7800" type="npc"/>
       </boss>
-
       <boss id="6231" key="" type="npc">
         <lootTable difficulty="n" id="6231" type="npc"/>
       </boss>
@@ -1012,7 +974,6 @@ Again, useless
     </bosses>
   </dungeon>
   <dungeon id="2100" key="maraudon" levelMax="55" levelMin="46" nameId="2100" partySize="5" raid="0" release="0">
-
     <bosses>
       <boss id="12225" key="" type="npc">
         <lootTable difficulty="n" id="12225" type="npc"/>
@@ -1022,7 +983,6 @@ Again, useless
       </boss>
       <boss id="12236" key="" type="npc">
         <lootTable difficulty="n" id="12236" type="npc"/>
-
       </boss>
       <boss id="12237" key="" type="npc">
         <lootTable difficulty="n" id="12237" type="npc"/>
@@ -1032,7 +992,6 @@ Again, useless
       </boss>
       <boss id="12201" key="" type="npc">
         <lootTable difficulty="n" id="12201" type="npc"/>
-
       </boss>
       <boss id="12258" key="" type="npc">
         <lootTable difficulty="n" id="12258" type="npc"/>
@@ -1042,7 +1001,6 @@ Again, useless
       </boss>
       <boss id="13718" key="" type="npc">
         <lootTable difficulty="n" id="13718" type="npc"/>
-
       </boss>
       <boss id="13601" key="" type="npc">
         <lootTable difficulty="n" id="13601" type="npc"/>
@@ -1052,7 +1010,6 @@ Again, useless
   <dungeon id="2717" key="moltencore" levelMax="60" levelMin="60" nameId="2717" partySize="40" raid="1" release="0">
     <bosses>
       <boss id="12056" key="" type="npc">
-
         <lootTable difficulty="n" id="12056" type="npc"/>
       </boss>
       <boss id="12057" key="" type="npc">
@@ -1062,7 +1019,6 @@ Again, useless
         <lootTable difficulty="n" id="12259" type="npc"/>
       </boss>
       <boss id="11988" key="" type="npc">
-
         <lootTable difficulty="n" id="11988" type="npc"/>
       </boss>
       <boss id="12118" key="" type="npc">
@@ -1072,7 +1028,6 @@ Again, useless
         <lootTable difficulty="n" id="11982" type="npc"/>
       </boss>
       <boss id="12018" key="majordomo" type="npc">
-
         <lootTable difficulty="n" id="179703" type="object"/>
       </boss>
       <boss id="11502" key="" type="npc">
@@ -1082,7 +1037,6 @@ Again, useless
         <lootTable difficulty="n" id="12264" type="npc"/>
       </boss>
       <boss id="12098" key="" type="npc">
-
         <lootTable difficulty="n" id="12098" type="npc"/>
       </boss>
     </bosses>
@@ -1093,7 +1047,6 @@ Again, useless
         <lootTable difficulty="n" id="181366" type="object"/>
       </boss>	
       <boss id="15956" key="" type="npc">
-
         <lootTable difficulty="n" id="15956" type="npc"/>
       </boss>
       <boss id="15932" key="" type="npc">
@@ -1103,7 +1056,6 @@ Again, useless
         <lootTable difficulty="n" id="16060" type="npc"/>
       </boss>
       <boss id="15953" key="" type="npc">
-
         <lootTable difficulty="n" id="15953" type="npc"/>
       </boss>
       <boss id="15931" key="" type="npc">
@@ -1113,7 +1065,6 @@ Again, useless
         <lootTable difficulty="n" id="15936" type="npc"/>
       </boss>
       <boss id="16061" key="" type="npc">
-
         <lootTable difficulty="n" id="16061" type="npc"/>
       </boss>
       <boss id="15990" key="" type="npc">
@@ -1123,7 +1074,6 @@ Again, useless
         <lootTable difficulty="n" id="16011" type="npc"/>
       </boss>
       <boss id="15952" key="" type="npc">
-
         <lootTable difficulty="n" id="15952" type="npc"/>
       </boss>
       <boss id="15954" key="" type="npc">
@@ -1133,7 +1083,6 @@ Again, useless
         <lootTable difficulty="n" id="16028" type="npc"/>
       </boss>
       <boss id="15989" key="" type="npc">
-
         <lootTable difficulty="n" id="15989" type="npc"/>
       </boss>
       <boss id="15928" key="" type="npc">
@@ -1143,7 +1092,6 @@ Again, useless
   </dungeon>
   <dungeon id="2159" key="onyxiaslair" levelMax="60" levelMin="60" nameId="2159" partySize="40" raid="1" release="0">
     <bosses>
-
       <boss id="10184" key="" type="npc">
         <lootTable difficulty="n" id="10184" type="npc"/>
       </boss>
@@ -1153,7 +1101,6 @@ Again, useless
     <bosses>
       <boss id="11519" key="" type="npc">
         <lootTable difficulty="n" id="11519" type="npc"/>
-
       </boss>
       <boss id="11518" key="" type="npc">
         <lootTable difficulty="n" id="11518" type="npc"/>
@@ -1163,7 +1110,6 @@ Again, useless
       </boss>
       <boss id="11520" key="" type="npc">
         <lootTable difficulty="n" id="11520" type="npc"/>
-
       </boss>
       <boss id="17830" key="" type="npc">
         <lootTable difficulty="n" id="17830" type="npc"/>
@@ -1173,7 +1119,6 @@ Again, useless
   <dungeon id="722" key="razorfendowns" levelMax="46" levelMin="37" nameId="722" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="7358" key="" type="npc">
-
         <lootTable difficulty="n" id="7358" type="npc"/>
       </boss>
       <boss id="8567" key="" type="npc">
@@ -1183,7 +1128,6 @@ Again, useless
         <lootTable difficulty="n" id="7357" type="npc"/>
       </boss>
       <boss id="7356" key="" type="npc">
-
         <lootTable difficulty="n" id="7356" type="npc"/>
       </boss>
       <boss id="7354" key="" type="npc">
@@ -1193,7 +1137,6 @@ Again, useless
         <lootTable difficulty="n" id="7355" type="npc"/>
       </boss>   
     </bosses>
-
   </dungeon>
   <dungeon id="491" key="razorfenkraul" levelMax="38" levelMin="29" nameId="491" partySize="5" raid="0" release="0">
     <bosses>
@@ -1203,7 +1146,6 @@ Again, useless
       <boss id="4424" key="" type="npc">
         <lootTable difficulty="n" id="4424" type="npc"/>
       </boss>
-
       <boss id="4425" key="" type="npc">
         <lootTable difficulty="n" id="4425" type="npc"/>
       </boss>
@@ -1213,7 +1155,6 @@ Again, useless
       <boss id="4428" key="" type="npc">
         <lootTable difficulty="n" id="4428" type="npc"/>
       </boss>
-
       <boss id="4842" key="" type="npc">
         <lootTable difficulty="n" id="4842" type="npc"/>
       </boss>
@@ -1224,7 +1165,6 @@ Again, useless
         <lootTable difficulty="n" id="6168" type="npc"/>
       </boss>               
     </bosses>
-
   </dungeon>
   <dungeon id="3429" key="ruinsofahnqiraj" levelMax="60" levelMin="60" nameId="3429" partySize="20" raid="1" release="0">
     <bosses>
@@ -1234,7 +1174,6 @@ Again, useless
       <boss id="15370" key="" type="npc">
         <lootTable difficulty="n" id="15370" type="npc"/>
       </boss>
-
       <boss id="15341" key="" type="npc">
         <lootTable difficulty="n" id="15341" type="npc"/>
       </boss>
@@ -1244,7 +1183,6 @@ Again, useless
       <boss id="15340" key="" type="npc">
         <lootTable difficulty="n" id="15340" type="npc"/>
       </boss>
-
       <boss id="15339" key="" type="npc">
         <lootTable difficulty="n" id="15339" type="npc"/>
       </boss>           
@@ -1254,7 +1192,6 @@ Again, useless
     <bosses>
       <boss id="6487" key="" type="npc">
         <lootTable difficulty="n" id="6487" type="npc"/>
-
       </boss>
       <boss id="6490" key="" type="npc">
         <lootTable difficulty="n" id="6490" type="npc"/>
@@ -1264,7 +1201,6 @@ Again, useless
       </boss>
       <boss id="6488" key="" type="npc">
         <lootTable difficulty="n" id="6488" type="npc"/>
-
       </boss>
       <boss id="3975" key="" type="npc">
         <lootTable difficulty="n" id="3975" type="npc"/>
@@ -1274,7 +1210,6 @@ Again, useless
       </boss>
       <boss id="3977" key="" type="npc">
         <lootTable difficulty="n" id="3977" type="npc"/>
-
       </boss>
       <boss id="3974" key="" type="npc">
         <lootTable difficulty="n" id="3974" type="npc"/>
@@ -1284,7 +1219,6 @@ Again, useless
       </boss>
       <boss id="6489" key="" type="npc">
         <lootTable difficulty="n" id="6489" type="npc"/>
-
       </boss>
       <boss id="3976" key="" type="npc">
         <lootTable difficulty="n" id="3976" type="npc"/>
@@ -1294,7 +1228,6 @@ Again, useless
   <dungeon id="2057" key="scholomance" levelMax="60" levelMin="57" nameId="2057" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="1853" key="" type="npc">
-
         <lootTable difficulty="n" id="1853" type="npc"/>
       </boss>
       <boss id="14516" key="" type="npc">
@@ -1304,7 +1237,6 @@ Again, useless
         <lootTable difficulty="n" id="11261" type="npc"/>
       </boss>
       <boss id="10505" key="" type="npc">
-
         <lootTable difficulty="n" id="10505" type="npc"/>
       </boss>
       <boss id="10503" key="" type="npc">
@@ -1314,7 +1246,6 @@ Again, useless
         <lootTable difficulty="n" id="10506" type="npc"/>
       </boss>
       <boss id="16118" key="" type="npc">
-
         <lootTable difficulty="n" id="16118" type="npc"/>
       </boss>
       <boss id="10502" key="" type="npc">
@@ -1324,7 +1255,6 @@ Again, useless
         <lootTable difficulty="n" id="10504" type="npc"/>
       </boss>
       <boss id="10901" key="" type="npc">
-
         <lootTable difficulty="n" id="10901" type="npc"/>
       </boss>
       <boss id="10433" key="" type="npc">
@@ -1334,7 +1264,6 @@ Again, useless
         <lootTable difficulty="n" id="10508" type="npc"/>
       </boss>
       <boss id="11622" key="" type="npc">
-
         <lootTable difficulty="n" id="11622" type="npc"/>
       </boss>
       <boss id="10507" key="" type="npc">
@@ -1344,7 +1273,6 @@ Again, useless
         <lootTable difficulty="n" id="10432" type="npc"/>
       </boss>                       
     </bosses>
-
   </dungeon>
   <dungeon id="209" key="shadowfangkeep" levelMax="30" levelMin="22" nameId="209" partySize="5" raid="0" release="0">
     <bosses>
@@ -1354,7 +1282,6 @@ Again, useless
       <boss id="3887" key="" type="npc">
         <lootTable difficulty="n" id="3887" type="npc"/>
       </boss>
-
       <boss id="4278" key="" type="npc">
         <lootTable difficulty="n" id="4278" type="npc"/>
       </boss>
@@ -1365,7 +1292,6 @@ Again, useless
         <lootTable difficulty="n" id="4274" type="npc"/>
       </boss>               
       <boss id="4279" key="" type="npc">
-
         <lootTable difficulty="n" id="4279" type="npc"/>
       </boss>
       <boss id="3886" key="" type="npc">
@@ -1375,7 +1301,6 @@ Again, useless
         <lootTable difficulty="n" id="3914" type="npc"/>
       </boss>
       <boss id="3927" key="" type="npc">
-
         <lootTable difficulty="n" id="3927" type="npc"/>
       </boss>           
     </bosses>
@@ -1385,7 +1310,6 @@ Again, useless
       <boss id="1716" key="" type="npc">
         <lootTable difficulty="n" id="1716" type="npc"/>
       </boss>
-
       <boss id="1720" key="" type="npc">
         <lootTable difficulty="n" id="1720" type="npc"/>
       </boss>
@@ -1395,7 +1319,6 @@ Again, useless
       <boss id="1717" key="" type="npc">
         <lootTable difficulty="n" id="1717" type="npc"/>
       </boss>
-
       <boss id="1666" key="" type="npc">
         <lootTable difficulty="n" id="1666" type="npc"/>
       </boss>
@@ -1405,7 +1328,6 @@ Again, useless
     </bosses>
   </dungeon>
   <dungeon id="2017" key="stratholme" levelMax="60" levelMin="58" nameId="2017" partySize="5" raid="0" release="0">
-
     <bosses>
       <boss id="10811" key="" type="npc">
         <lootTable difficulty="n" id="10811" type="npc"/>
@@ -1415,7 +1337,6 @@ Again, useless
       </boss>
       <boss id="10440" key="" type="npc">
         <lootTable difficulty="n" id="10440" type="npc"/>
-
       </boss>
       <boss id="10436" key="" type="npc">
         <lootTable difficulty="n" id="10436" type="npc"/>
@@ -1425,7 +1346,6 @@ Again, useless
       </boss>
       <boss id="10997" key="" type="npc">
         <lootTable difficulty="n" id="10997" type="npc"/>
-
       </boss>
       <boss id="11120" key="" type="npc">
         <lootTable difficulty="n" id="11120" type="npc"/>
@@ -1435,7 +1355,6 @@ Again, useless
       </boss>
       <boss id="10558" key="" type="npc">
         <lootTable difficulty="n" id="10558" type="npc"/>
-
       </boss>
       <boss id="16101" key="" type="npc">
         <lootTable difficulty="n" id="16101" type="npc"/>
@@ -1445,7 +1364,6 @@ Again, useless
       </boss>
       <boss id="10438" key="" type="npc">
         <lootTable difficulty="n" id="10438" type="npc"/>
-
       </boss>
       <boss id="11032" key="" type="npc">
         <lootTable difficulty="n" id="11032" type="npc"/>
@@ -1455,7 +1373,6 @@ Again, useless
       </boss>
       <boss id="11143" key="" type="npc">
         <lootTable difficulty="n" id="11143" type="npc"/>
-
       </boss>
       <boss id="10439" key="" type="npc">
         <lootTable difficulty="n" id="10439" type="npc"/>
@@ -1465,7 +1382,6 @@ Again, useless
       </boss>
       <boss id="16102" key="" type="npc">
         <lootTable difficulty="n" id="16102" type="npc"/>
-
       </boss>
       <boss id="10809" key="" type="npc">
         <lootTable difficulty="n" id="10809" type="npc"/>
@@ -1475,7 +1391,6 @@ Again, useless
       </boss>
       <boss id="10516" key="" type="npc">
         <lootTable difficulty="n" id="10516" type="npc"/>
-
       </boss>
       <boss id="10808" key="" type="npc">
         <lootTable difficulty="n" id="10808" type="npc"/>
@@ -1485,7 +1400,6 @@ Again, useless
   <dungeon id="1477" key="sunkentemple" levelMax="55" levelMin="45" nameId="1417" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="8580" key="" type="npc">
-
         <lootTable difficulty="n" id="8580" type="npc"/>
       </boss>
       <boss id="8443" key="" type="npc">
@@ -1495,7 +1409,6 @@ Again, useless
         <lootTable difficulty="n" id="5721" type="npc"/>
       </boss>
       <boss id="5713" key="" type="npc">
-
         <lootTable difficulty="n" id="5713" type="npc"/>
       </boss>
       <boss id="5722" key="" type="npc">
@@ -1505,7 +1418,6 @@ Again, useless
         <lootTable difficulty="n" id="5715" type="npc"/>
       </boss>
       <boss id="1063" key="" type="npc">
-
         <lootTable difficulty="n" id="1063" type="npc"/>
       </boss>
       <boss id="5710" key="" type="npc">
@@ -1515,7 +1427,6 @@ Again, useless
         <lootTable difficulty="n" id="5401" type="npc"/>
       </boss>
       <boss id="5714" key="" type="npc">
-
         <lootTable difficulty="n" id="5714" type="npc"/>
       </boss>
       <boss id="5717" key="" type="npc">
@@ -1525,7 +1436,6 @@ Again, useless
         <lootTable difficulty="n" id="5719" type="npc"/>
       </boss>
       <boss id="5711" key="" type="npc">
-
         <lootTable difficulty="n" id="5711" type="npc"/>
       </boss>
       <boss id="5709" key="" type="npc">
@@ -1535,7 +1445,6 @@ Again, useless
         <lootTable difficulty="n" id="5708" type="npc"/>
       </boss>
       <boss id="5399" key="" type="npc">
-
         <lootTable difficulty="n" id="5399" type="npc"/>
       </boss>
       <boss id="5720" key="" type="npc">
@@ -1545,7 +1454,6 @@ Again, useless
         <lootTable difficulty="n" id="5400" type="npc"/>
       </boss>
       <boss id="5712" key="" type="npc">
-
         <lootTable difficulty="n" id="5712" type="npc"/>
       </boss>
       <boss id="5716" key="" type="npc">
@@ -1555,7 +1463,6 @@ Again, useless
   </dungeon>
   <dungeon id="3428" key="templeofahnqiraj" levelMax="60" levelMin="60" nameId="3428" partySize="40" raid="1" release="0">
     <bosses>
-
       <boss id="15516" key="" type="npc">
         <lootTable difficulty="n" id="15516" type="npc"/>
       </boss>
@@ -1565,7 +1472,6 @@ Again, useless
       <boss id="15276" key="" type="npc">
         <lootTable difficulty="n" id="15276" type="npc"/>
       </boss>
-
       <boss id="15275" key="" type="npc">
         <lootTable difficulty="n" id="15275" type="npc"/>
       </boss>
@@ -1575,7 +1481,6 @@ Again, useless
       <boss id="15511" key="" type="npc">
         <lootTable difficulty="n" id="15511" type="npc"/>
       </boss>
-
       <boss id="15517" key="" type="npc">
         <lootTable difficulty="n" id="15517" type="npc"/>
       </boss>
@@ -1585,7 +1490,6 @@ Again, useless
       <boss id="15543" key="" type="npc">
         <lootTable difficulty="n" id="15543" type="npc"/>
       </boss>
-
       <boss id="15263" key="" type="npc">
         <lootTable difficulty="n" id="15263" type="npc"/>
       </boss>
@@ -1596,7 +1500,6 @@ Again, useless
         <lootTable difficulty="n" id="15299" type="npc"/>
       </boss>                                           
     </bosses>
-
   </dungeon>
   <dungeon id="1337" key="uldaman" levelMax="47" levelMin="35" nameId="1337" partySize="5" raid="0" release="0">
     <bosses>
@@ -1606,7 +1509,6 @@ Again, useless
       <boss id="2748" key="" type="npc">
         <lootTable difficulty="n" id="2748" type="npc"/>
       </boss>
-
       <boss id="6906" key="" type="npc">
         <lootTable difficulty="n" id="6906" type="npc"/>
       </boss>
@@ -1616,7 +1518,6 @@ Again, useless
       <boss id="6907" key="" type="npc">
         <lootTable difficulty="n" id="6907" type="npc"/>
       </boss>
-
       <boss id="7291" key="" type="npc">
         <lootTable difficulty="n" id="7291" type="npc"/>
       </boss>
@@ -1626,7 +1527,6 @@ Again, useless
       <boss id="7228" key="" type="npc">
         <lootTable difficulty="n" id="7228" type="npc"/>
       </boss>
-
       <boss id="2932" key="" type="npc">
         <lootTable difficulty="n" id="2932" type="npc"/>
       </boss>
@@ -1636,7 +1536,6 @@ Again, useless
       <boss id="6908" key="" type="npc">
         <lootTable difficulty="n" id="6908" type="npc"/>
       </boss>
-
       <boss id="6910" key="" type="npc">
         <lootTable difficulty="n" id="6910" type="npc"/>
       </boss>
@@ -1646,7 +1545,6 @@ Again, useless
     </bosses>
   </dungeon>
   <dungeon id="718" key="wailingcaverns" levelMax="21" levelMin="15" nameId="718" partySize="5" raid="0" release="0">
-
     <bosses>
       <boss id="5912" key="" type="npc">
         <lootTable difficulty="n" id="5912" type="npc"/>
@@ -1656,7 +1554,6 @@ Again, useless
       </boss>
       <boss id="3671" key="" type="npc">
         <lootTable difficulty="n" id="3671" type="npc"/>
-
       </boss>
       <boss id="3669" key="" type="npc">
         <lootTable difficulty="n" id="3669" type="npc"/>
@@ -1666,7 +1563,6 @@ Again, useless
       </boss>               
       <boss id="3673" key="" type="npc">
         <lootTable difficulty="n" id="3673" type="npc"/>
-
       </boss>
       <boss id="3655" key="" type="npc">
         <lootTable difficulty="n" id="3655" type="npc"/>
@@ -1676,7 +1572,6 @@ Again, useless
       </boss>
       <boss id="3674" key="" type="npc">
         <lootTable difficulty="n" id="3674" type="npc"/>
-
       </boss>
       <boss id="3652" key="" type="npc">
         <lootTable difficulty="n" id="3652" type="npc"/>
@@ -1686,7 +1581,6 @@ Again, useless
       </boss>                   
     </bosses>
   </dungeon>
-
   <dungeon id="1176" key="zulfarrak" levelMax="54" levelMin="44" nameId="1176" partySize="5" raid="0" release="0">
     <bosses>
       <boss id="8127" key="" type="npc">
@@ -1696,7 +1590,6 @@ Again, useless
         <lootTable difficulty="n" id="7267" type="npc"/>
       </boss>
       <boss id="10081" key="" type="npc">
-
         <lootTable difficulty="n" id="10081" type="npc"/>
       </boss>
       <boss id="7273" key="" type="npc">
@@ -1706,7 +1599,6 @@ Again, useless
         <lootTable difficulty="n" id="7795" type="npc"/>
       </boss>
       <boss id="7796" key="" type="npc">
-
         <lootTable difficulty="n" id="7796" type="npc"/>
       </boss>                     
       <boss id="7797" key="" type="npc">
@@ -1716,7 +1608,6 @@ Again, useless
         <lootTable difficulty="n" id="10080" type="npc"/>
       </boss>
       <boss id="7274" key="" type="npc">
-
         <lootTable difficulty="n" id="7274" type="npc"/>
       </boss>
       <boss id="7275" key="" type="npc">
@@ -1726,7 +1617,6 @@ Again, useless
         <lootTable difficulty="n" id="7272" type="npc"/>
       </boss>
       <boss id="7271" key="" type="npc">
-
         <lootTable difficulty="n" id="7271" type="npc"/>
       </boss>
       <boss id="10082" key="" type="npc">
@@ -1736,7 +1626,6 @@ Again, useless
   </dungeon>
   <dungeon id="1977" key="zulgurub" levelMax="60" levelMin="60" nameId="1977" partySize="20" raid="1" release="0">
     <bosses>
-
       <boss id="11382" key="" type="npc">
         <lootTable difficulty="n" id="11382" type="npc"/>
       </boss>
@@ -1746,7 +1635,6 @@ Again, useless
       <boss id="14834" key="" type="npc">
         <lootTable difficulty="n" id="14834" type="npc"/>
       </boss>
-
       <boss id="14509" key="" type="npc">
         <lootTable difficulty="n" id="14509" type="npc"/>
       </boss>
@@ -1756,7 +1644,6 @@ Again, useless
       <boss id="14515" key="" type="npc">
         <lootTable difficulty="n" id="14515" type="npc"/>
       </boss>
-
       <boss id="14517" key="" type="npc">
         <lootTable difficulty="n" id="14517" type="npc"/>
       </boss>
@@ -1767,6 +1654,5 @@ Again, useless
         <lootTable difficulty="n" id="11380" type="npc"/>
       </boss>                                 
     </bosses>
-
   </dungeon>      
 </dungeons>

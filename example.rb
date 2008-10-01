@@ -1,9 +1,12 @@
-begin
-	require 'wowr'
-rescue LoadError
-	require 'rubygems'
-	require 'wowr'
-end
+#begin
+#	require 'wowr'
+#rescue LoadError
+#	require 'rubygems'
+#	require 'wowr'
+#£end
+
+require 'lib/wowr.rb'
+require 'yaml'
 
 api = Wowr::API.new(:character_name => 'Hesperus',
                     :guild_name => 'Rawr',
@@ -34,17 +37,17 @@ rescue Wowr::Exceptions::GuildNotFound => e
 	puts "Guild not found!"
 end
 
-my_char.items.each do |item|
+jim.items.each do |item|
 	puts item.icon
 end
 
 # Items
 items = api.search_items("Cake")
 item = api.get_item(33924)
-if item.reagents
-	item.reagents.each do |reagent|
-		puts reagent
-	end
+item.created_by.each do |recipe|
+  recipe.reagents.each do |reagent|
+    puts reagent
+  end
 end
 
 # Arena Teams
@@ -54,6 +57,15 @@ arena_team = api.get_arena_team("Lemon", 2, :realm => "Darksorrow")
 
 
 # Guild Bank
-cookie = api.login('myuser', 'mypass')
-api.get_guild_bank_contents(cookie)
-api.get_guild_bank_log(cookie)
+#cookie = api.login('myuser', 'mypass')
+#api.get_guild_bank_contents(cookie)
+#api.get_guild_bank_log(cookie)
+
+
+# Dungeon Data
+dungeons = api.get_dungeons()
+puts dungeons.to_yaml
+dungeons.each do |dungeon|
+	puts dungeon
+end
+

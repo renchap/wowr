@@ -3,8 +3,6 @@ require '../lib/wowr.rb'
 require 'yaml'
 
 
-$:.unshift(File.dirname(__FILE__) + '/../') unless $:.include?(File.dirname(__FILE__) + '/../') || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
 XML_BASE = File.join(File.dirname(__FILE__) + '/xml/')
 SAVE_PATH = File.join(File.dirname(__FILE__),'downloads')
 
@@ -54,6 +52,7 @@ class WowrTest < Test::Unit::TestCase
 	def setup
 		@api_empty = Wowr::API.new
 		@api_set = Wowr::API.new(:character_name => 'Clublife', :realm => "Barthilas", :guild_name => "Cake")
+		@api_no_cache = Wowr::API.new(:caching => false)
 	end
 	
   def teardown
@@ -193,26 +192,6 @@ class WowrTest < Test::Unit::TestCase
 		end
 	end
 	
-	def test_guild
-		assert_not_nil @api_set.get_guild
-		assert_not_nil @api_set.get_guild("cake")
-		assert_not_nil @api_set.get_guild("Horde", :realm => "Boulderfist")
-		assert_not_nil @api_set.get_guild(:guild_name => "Horde", :realm => "Boulderfist")
-		
-		assert_raises Wowr::Exceptions::GuildNameNotSet do
-			@api_empty.get_guild
-		end
-		
-		assert_raises Wowr::Exceptions::RealmNotSet do
-			@api_empty.get_guild("cake")
-		end
-
-		assert_not_nil @api_empty.get_guild("Horde", :realm => "Boulderfist")
-		assert_not_nil @api_empty.get_guild(:guild_name => "Horde", :realm => "Boulderfist")
-		
-		assert_instance_of Wowr::Classes::FullGuild, @api_empty.get_guild("Horde", :realm => "Boulderfist")
-		assert_instance_of Wowr::Classes::SearchGuild, @api_empty.search_guilds("Horde").first
-	end
 	
 	
 	
@@ -239,69 +218,7 @@ class WowrTest < Test::Unit::TestCase
 	# end
 	# 
 	# 
-	def test_character_exceptions
-		no_data_api = Wowr::API.new
-		only_realm_api = Wowr::API.new(:realm => "Stormrage")
-		defaults_api = Wowr::API.new(:character_name => "cake", :realm => "Barthilas")
-		
-		assert_raises Wowr::Exceptions::CharacterNameNotSet do
-			no_data_api.get_character
-		end
-		
-		assert_raises Wowr::Exceptions::CharacterNameNotSet do
-			only_realm_api.get_character
-		end
-		
-		assert_raises Wowr::Exceptions::RealmNotSet do
-			no_data_api.get_character("Phog")
-		end
-				
-		assert_nothing_raised do
-			defaults_api.get_character
-			only_realm_api.get_character("Phog")
-		end
-		
-		assert_nothing_raised do
-			defaults_api.get_character_sheet
-			only_realm_api.get_character_sheet("Phog")
-		end
-		
-	end
 
-	def test_get_arena_team
-		arena_team_name = 'cake'
-		
-		assert_raises Wowr::Exceptions::RealmNotSet do
-			@api_empty.get_arena_team(:team_name => arena_team_name)
-		end
-		
-		assert_raises Wowr::Exceptions::ArenaTeamNameNotSet do
-			@api_empty.get_arena_team(:realm => "Cake")
-		end
-		
-		assert_raises Wowr::Exceptions::ArenaTeamNameNotSet do
-			@api_empty.get_arena_team("", 5)
-		end
-		
-		assert_raises Wowr::Exceptions::InvalidArenaTeamSize do
-			@api_empty.get_arena_team(arena_team_name, :realm => "cake")
-		end
-		
-		assert_raises Wowr::Exceptions::InvalidArenaTeamSize do
-			@api_empty.get_arena_team(arena_team_name, 9, :realm => "cake")
-		end
-		
-		no_team = Wowr::API.new(:realm => "Barthilas")
-		assert_raises Wowr::Exceptions::ArenaTeamNotFound do
-			no_team.get_arena_team(arena_team_name, 5)
-		end
-		
-		defaults_api = Wowr::API.new(:character_name => "cake", :realm => "Terenas")
-		assert_not_nil defaults_api.get_arena_team(arena_team_name, 5, :realm => "Terenas")
-		assert_not_nil defaults_api.get_arena_team(arena_team_name, 5)
-		assert_not_nil defaults_api.get_arena_team(arena_team_name, :team_size => 5)
-		assert_not_nil defaults_api.get_arena_team(:team_name => arena_team_name, :team_size => 5)
-	end
 
 
 	# ensure that the requested language is being returned
@@ -330,57 +247,6 @@ class WowrTest < Test::Unit::TestCase
 	# 	
 	# end
 	# 
-	def test_character_contents
-		
-		# Reve::API.cakes = XML_BASE + '.xml'
-		character = nil
-		assert_nothing_raised do
-			character = @api_set.get_character
-		end
-		
-		assert_instance_of Wowr::Classes::FullCharacter, character
-				
-		assert_not_nil character.name
-		assert_not_nil character.level
-		assert_not_nil character.char_url
-		
-		assert_not_nil character.klass
-		assert_not_nil character.klass_id
-		
-		assert_not_nil character.gender
-		assert_not_nil character.gender_id
-		
-		assert_not_nil character.race
-		assert_not_nil character.race_id
-		
-		assert_not_nil character.faction
-		assert_not_nil character.faction_id
-		
-		# If these are empty, they're returned as nil
-		# assert_not_nil character.guild
-		# assert_not_nil character.guild_url
-		# assert_not_nil character.prefix
-		# assert_not_nil character.suffix
-		
-		assert_not_nil character.realm
-		
-		# This could be nil too
-		assert_not_nil character.battle_group
-		
-		# assert_not_nil character.last_modified
-		
-		assert_instance_of Wowr::Classes::Agility, character.agi
-		assert_instance_of Wowr::Classes::Agility, character.agility
-		
-		# assert_equals character.agi.base, character.agility.base
-		# assert_equals character.agi.armor, character.agility.armor
-		
-		character.arena_teams do |arena_team|
-			
-		
-		
-		end
-	end
 	
 	
 	def test_item
@@ -532,7 +398,15 @@ class WowrTest < Test::Unit::TestCase
 	# end
 	# 
 	def test_cache_timeout
-		defaults_api = Wowr::API.new(:character_name => "cake", :realm => "Terenas", :caching => true)
+		api = Wowr::API.new(:character_name => 'Cake', :realm => "Barthilas", :guild_name => "Cake", :debug => true, :caching => true) 
+		# api = Wowr::API.new(:character_name => 'Sonny', :realm => "Arena Tournament 1", :locale => 'eu', :debug => true, :caching => false) 
+		# api = Wowr::API.new(:realm => "Trollbane", :guild_name => "Rawr", :locale => 'eu', :debug => true, :caching => true) 
+		# api.default_cache_timeout = 10
+
+		# char = api.get_character
+		
+		
+		
 		
 		# path defaults_api.cache_path(url)
 		# 
@@ -555,6 +429,9 @@ class WowrTest < Test::Unit::TestCase
 		assert_equal money.silver, 22
 		assert_equal money.bronze, 43
 		assert_equal money.total, 5552243
+		
+		assert_equal (money + no_gold_silver).total, 5552286
+		assert_equal (money - no_gold_silver).total, 5552200
 	end
 	
 	
@@ -571,3 +448,10 @@ class WowrTest < Test::Unit::TestCase
 	end
 
 end
+
+
+# require 'wowr_character_test.rb'
+# require 'wowr_guild_test.rb'
+# require 'wowr_item_test.rb'
+# require 'wowr_arena_team_test.rb'
+# require 'wowr_dungeon_test.rb'

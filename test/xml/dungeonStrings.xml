@@ -1,6 +1,5 @@
-Pretty useless
-
-<?xml version="1.0" encoding="UTF-8"?><page lang="en_gb" requestUrl="/data/dungeonStrings.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<page lang="en_gb" requestUrl="/data/dungeonStrings.xml">
   <dungeons>
     <dungeon id="3848" name="Arcatraz" release="1">
       <boss id="20885" name="Dalliah the Doomsayer"/>
@@ -9,7 +8,6 @@ Pretty useless
       <boss id="20870" name="Zereketh the Unbound"/>
     </dungeon>
     <dungeon id="3790" name="Auchenai Crypts" release="1">
-
       <boss id="18373" name="Exarch Maladaar"/>
       <boss id="18371" name="Shirrak the Dead Watcher"/>
     </dungeon>
@@ -19,7 +17,6 @@ Pretty useless
       <boss id="17880" name="Temporus"/>
     </dungeon>
     <dungeon id="3959" name="Black Temple" release="1">
-
       <boss id="23420" name="Essence of Anger"/>
       <boss id="22949" name="Gathios the Shatterer"/>
       <boss id="22950" name="High Nethermancer Zerevor"/>
@@ -29,7 +26,6 @@ Pretty useless
       <boss id="22871" name="Teron Gorefiend"/>
       <boss id="22952" name="Veras Darkshadow"/>
       <boss id="22887" name="High Warlord Naj'entus"/>
-
       <boss id="22898" name="Supremus"/>
       <boss id="22948" name="Gurtogg Bloodboil"/>
       <boss id="22941" name="Mog'dorg the Wizened"/>
@@ -39,7 +35,6 @@ Pretty useless
       <boss id="17380" name="Broggok"/>
       <boss id="17377" name="Keli'dan the Breaker"/>
       <boss id="17381" name="The Maker"/>
-
     </dungeon>
     <dungeon id="3847" name="Botanica" release="1">
       <boss id="3847" name="Orendil Broadleaf"/>
@@ -49,7 +44,6 @@ Pretty useless
       <boss id="17977" name="Warp Splinter"/>
     </dungeon>
     <dungeon id="3923" name="Gruul's Lair" release="1">
-
       <boss id="19044" name="Gruul the Dragonkiller"/>
       <boss id="18831" name="High King Maulgar"/>
     </dungeon>
@@ -59,7 +53,6 @@ Pretty useless
       <boss id="17306" name="Watchkeeper Gargolmar"/>
     </dungeon>
     <dungeon id="3606" name="Hyjal Summit" release="1">
-
       <boss id="17808" name="Anetheron"/>
       <boss id="17842" name="Azgalor"/>
       <boss id="17888" name="Kaz'rogal"/>
@@ -69,7 +62,6 @@ Pretty useless
     <dungeon id="3457" name="Karazhan" release="1">
       <boss id="16152" name="Attumen the Huntsman"/>
       <boss id="17521" name="The Big Bad Wolf"/>
-
       <boss id="185119" name="Dust Covered Chest"/>
       <boss id="18168" name="The Crone"/>
       <boss id="15691" name="The Curator"/>
@@ -79,7 +71,6 @@ Pretty useless
       <boss id="15687" name="Moroes"/>
       <boss id="15689" name="Netherspite"/>
       <boss id="17225" name="Nightbane"/>
-
       <boss id="15690" name="Prince Malchezaar"/>
       <boss id="16181" name="Rokad the Ravager"/>
       <boss id="17533" name="Romulo"/>
@@ -87,9 +78,14 @@ Pretty useless
       <boss id="16180" name="Shadikith the Glider"/>
       <boss id="15688" name="Terestian Illhoof"/>
     </dungeon>
+    <dungeon id="4131" name="Magisters' Terrace" release="1">
+      <boss id="24723" name="Selin Fireheart"/>
+      <boss id="24744" name="Vexallus"/>
+      <boss id="24560" name="Priestess Delrissa"/>
+      <boss id="24664" name="Kael'thas Sunstrider"/>
+    </dungeon>
     <dungeon id="3836" name="Magtheridon's Lair" release="1">
       <boss id="17257" name="Magtheridon"/>
-
     </dungeon>
     <dungeon id="3792" name="Mana-Tombs" release="1">
       <boss id="18344" name="Nexus-Prince Shaffar"/>
@@ -99,7 +95,6 @@ Pretty useless
     <dungeon id="3849" name="Mechanar" release="1">
       <boss id="184465" name="Cache of the Legion"/>
       <boss id="19218" name="Gatewatcher Gyro-Kill"/>
-
       <boss id="19710" name="Gatewatcher Iron-Hand"/>
       <boss id="19219" name="Mechano-Lord Capacitus"/>
       <boss id="19221" name="Nethermancer Sepethrea"/>
@@ -109,7 +104,6 @@ Pretty useless
       <boss id="17862" name="Captain Skarloc"/>
       <boss id="18096" name="Epoch Hunter"/>
       <boss id="17848" name="Lieutenant Drake"/>
-
     </dungeon>
     <dungeon id="3607" name="Serpentshrine Cavern" release="1">
       <boss id="21214" name="Fathom-Lord Karathress"/>
@@ -119,7 +113,6 @@ Pretty useless
       <boss id="21212" name="Lady Vashj"/>
       <boss id="21217" name="The Lurker Below"/>
     </dungeon>
-
     <dungeon id="3791" name="Sethekk Halls" release="1">
       <boss id="18472" name="Darkweaver Syth"/>
       <boss id="18473" name="Talon King Ikiss"/>
@@ -129,7 +122,6 @@ Pretty useless
       <boss id="18667" name="Blackheart the Inciter"/>
       <boss id="18732" name="Grandmaster Vorpil"/>
       <boss id="18708" name="Murmur"/>
-
     </dungeon>
     <dungeon id="3714" name="Shattered Halls" release="1">
       <boss id="20923" name="Blood Guard Porung"/>
@@ -139,7 +131,6 @@ Pretty useless
     </dungeon>
     <dungeon id="3717" name="Slave Pens" release="1">
       <boss id="17941" name="Mennu the Betrayer"/>
-
       <boss id="17942" name="Quagmirran"/>
       <boss id="17991" name="Rokmar the Crackler"/>
     </dungeon>
@@ -148,8 +139,15 @@ Pretty useless
       <boss id="17796" name="Mekgineer Steamrigger"/>
       <boss id="17798" name="Warlord Kalithresh"/>
     </dungeon>
+    <dungeon id="4075" name="Sunwell Plateau" release="1">
+      <boss id="24850" name="Kalecgos"/>
+      <boss id="24882" name="Brutallus"/>
+      <boss id="25038" name="Felmyst"/>
+      <boss id="25166" name="Grand Warlock Alythess"/>
+      <boss id="25741" name="M'uru"/>
+      <boss id="25315" name="Kil'jaeden"/>
+    </dungeon>
     <dungeon id="3845" name="Tempest Keep" release="1">
-
       <boss id="19514" name="Al'ar"/>
       <boss id="18805" name="High Astromancer Solarian"/>
       <boss id="19622" name="Kael'thas Sunstrider"/>
@@ -159,7 +157,6 @@ Pretty useless
       <boss id="17882" name="The Black Stalker"/>
       <boss id="18105" name="Ghaz'an"/>
       <boss id="17770" name="Hungarfen"/>
-
       <boss id="17826" name="Swamplord Musel'ek"/>
     </dungeon>
     <dungeon id="3805" name="Zul'Aman" release="1">
@@ -169,7 +166,10 @@ Pretty useless
       <boss id="23577" name="Halazzi"/>
       <boss id="24363" name="Hex Lord Malacrass"/>
       <boss id="23863" name="Zul'jin"/>
-
+      <boss id="186672" name="Ashli's Bag"/>
+      <boss id="186667" name="Kraz's Package"/>
+      <boss id="187021" name="Harkor's Satchel"/>
+      <boss id="186648" name="Tanzar's Trunk"/>
     </dungeon>
     <dungeon id="3428" name="Ahn'Qiraj" release="0">
       <boss id="15516" name="Battleguard Sartura"/>
@@ -179,7 +179,6 @@ Pretty useless
       <boss id="15510" name="Fankriss the Unyielding"/>
       <boss id="15511" name="Lord Kri"/>
       <boss id="15517" name="Ouro"/>
-
       <boss id="15509" name="Princess Huhuran"/>
       <boss id="15543" name="Princess Yauj"/>
       <boss id="15263" name="The Prophet Skeram"/>
@@ -189,7 +188,6 @@ Pretty useless
     <dungeon id="719" name="Blackfathom Deeps" release="0">
       <boss id="4829" name="Aku'mai"/>
       <boss id="12876" name="Baron Aquanis"/>
-
       <boss id="6243" name="Gelihast"/>
       <boss id="4887" name="Ghamoo-ra"/>
       <boss id="4831" name="Lady Sarevess"/>
@@ -199,7 +197,6 @@ Pretty useless
     </dungeon>
     <dungeon id="1584" name="Blackrock Depths" release="0">
       <boss id="9156" name="Ambassador Flamelash"/>
-
       <boss id="181074" name="Arena Spoils"/>
       <boss id="9031" name="Anub'shiah"/>
       <boss id="9016" name="Bael'Gar"/>
@@ -209,7 +206,6 @@ Pretty useless
       <boss id="9443" name="Dark Keeper Pelver"/>
       <boss id="9439" name="Dark Keeper Uggel"/>
       <boss id="9437" name="Dark Keeper Vorfalk"/>
-
       <boss id="9441" name="Dark Keeper Zimrel"/>
       <boss id="9019" name="Emperor Dagran Thaurissan"/>
       <boss id="9029" name="Eviscerator"/>
@@ -219,7 +215,6 @@ Pretty useless
       <boss id="9027" name="Gorosh the Dervish"/>
       <boss id="9028" name="Grizzle"/>
       <boss id="9032" name="Hedrum the Creeper"/>
-
       <boss id="9018" name="High Interrogator Gerstahn"/>
       <boss id="10076" name="High Priestess of Thaurissan"/>
       <boss id="9319" name="Houndmaster Grebmar"/>
@@ -229,7 +224,6 @@ Pretty useless
       <boss id="9938" name="Magmus"/>
       <boss id="9030" name="Ok'thor the Breaker"/>
       <boss id="8923" name="Panzor the Invincible"/>
-
       <boss id="9502" name="Phalanx"/>
       <boss id="9499" name="Plugger Spazzring"/>
       <boss id="8929" name="Princess Moira Bronzebeard"/>
@@ -239,7 +233,6 @@ Pretty useless
       <boss id="9042" name="Verek"/>
       <boss id="9041" name="Warder Stilgiss"/>
       <boss id="9476" name="Watchman Doomgrip"/>
-
     </dungeon>
     <dungeon id="1583" name="Blackrock Spire" release="0">
       <boss id="9596" name="Bannok Grimaxe"/>
@@ -249,7 +242,6 @@ Pretty useless
       <boss id="9718" name="Ghok Bashguud"/>
       <boss id="10268" name="Gizrul the Slavener"/>
       <boss id="10899" name="Goraluk Anvilcrack"/>
-
       <boss id="10339" name="Gyth"/>
       <boss id="10220" name="Halycon"/>
       <boss id="9196" name="Highlord Omokk"/>
@@ -259,7 +251,6 @@ Pretty useless
       <boss id="10596" name="Mother Smolderweb"/>
       <boss id="9568" name="Overlord Wyrmthalak"/>
       <boss id="9816" name="Pyroguard Emberseer"/>
-
       <boss id="9736" name="Quartermaster Zigris"/>
       <boss id="9236" name="Shadow Hunter Vosh'gajin"/>
       <boss id="10264" name="Solakar Flamewreath"/>
@@ -269,7 +260,6 @@ Pretty useless
       <boss id="10430" name="The Beast"/>
       <boss id="10584" name="Urok Doomhowl"/>
       <boss id="9237" name="War Master Voone"/>
-
       <boss id="10429" name="Warchief Rend Blackhand"/>
     </dungeon>
     <dungeon id="2677" name="Blackwing Lair" release="0">
@@ -279,7 +269,6 @@ Pretty useless
       <boss id="11983" name="Firemaw"/>
       <boss id="11981" name="Flamegor"/>
       <boss id="11583" name="Nefarian"/>
-
       <boss id="12435" name="Razorgore the Untamed"/>
       <boss id="13020" name="Vaelastrasz the Corrupt"/>
     </dungeon>
@@ -289,7 +278,6 @@ Pretty useless
       <boss id="645" name="Cookie"/>
       <boss id="639" name="Edwin VanCleef"/>
       <boss id="626" name="Foreman Thistlenettle"/>
-
       <boss id="1763" name="Gilnid"/>
       <boss id="599" name="Marisa du'Paige"/>
       <boss id="3586" name="Miner Johnson"/>
@@ -299,7 +287,6 @@ Pretty useless
       <boss id="642" name="Sneed's Shredder"/>
     </dungeon>
     <dungeon id="2557" name="Dire Maul" release="0">
-
       <boss id="11492" name="Alzzin the Wildshaper"/>
       <boss id="14325" name="Captain Kromcrush"/>
       <boss id="14324" name="Cho'Rush the Observer"/>
@@ -309,7 +296,6 @@ Pretty useless
       <boss id="14323" name="Guard Slip'kik"/>
       <boss id="13280" name="Hydrospawn"/>
       <boss id="11488" name="Illyanna Ravenoak"/>
-
       <boss id="11496" name="Immol'thar"/>
       <boss id="16097" name="Isalien"/>
       <boss id="11501" name="King Gordok"/>
@@ -319,7 +305,6 @@ Pretty useless
       <boss id="14349" name="Pimgib"/>
       <boss id="11486" name="Prince Tortheldrin"/>
       <boss id="14354" name="Pusillin"/>
-
       <boss id="14322" name="Stomper Kreeg"/>
       <boss id="11489" name="Tendris Warpwood"/>
       <boss id="11467" name="Tsu'zee"/>
@@ -329,7 +314,6 @@ Pretty useless
     <dungeon id="721" name="Gnomeregan" release="0">
       <boss id="6229" name="Crowd Pummeler 9-60"/>
       <boss id="6228" name="Dark Iron Ambassador"/>
-
       <boss id="6235" name="Electrocutioner 6000"/>
       <boss id="7361" name="Grubbis"/>
       <boss id="7800" name="Mekgineer Thermaplugg"/>
@@ -339,7 +323,6 @@ Pretty useless
     <dungeon id="2100" name="Maraudon" release="0">
       <boss id="12225" name="Celebras the Cursed"/>
       <boss id="12203" name="Landslide"/>
-
       <boss id="12236" name="Lord Vyletongue"/>
       <boss id="12237" name="Meshlok the Harvester"/>
       <boss id="13282" name="Noxxion"/>
@@ -349,7 +332,6 @@ Pretty useless
       <boss id="13718" name="The Nameless Prophet"/>
       <boss id="13601" name="Tinkerer Gizlock"/>
     </dungeon>
-
     <dungeon id="2717" name="Molten Core" release="0">
       <boss id="12056" name="Baron Geddon"/>
       <boss id="12057" name="Garr"/>
@@ -359,7 +341,6 @@ Pretty useless
       <boss id="11982" name="Magmadar"/>
       <boss id="12018" name="Majordomo Executus"/>
       <boss id="11502" name="Ragnaros"/>
-
       <boss id="12264" name="Shazzrah"/>
       <boss id="12098" name="Sulfuron Harbinger"/>
     </dungeon>
@@ -369,7 +350,6 @@ Pretty useless
       <boss id="15932" name="Gluth"/>
       <boss id="16060" name="Gothik the Harvester"/>
       <boss id="15953" name="Grand Widow Faerlina"/>
-
       <boss id="15931" name="Grobbulus"/>
       <boss id="15936" name="Heigan the Unclean"/>
       <boss id="16061" name="Instructor Razuvious"/>
@@ -379,7 +359,6 @@ Pretty useless
       <boss id="15954" name="Noth the Plaguebringer"/>
       <boss id="16028" name="Patchwerk"/>
       <boss id="15989" name="Sapphiron"/>
-
       <boss id="15928" name="Thaddius"/>
     </dungeon>
     <dungeon id="2159" name="Onyxia's Lair" release="0">
@@ -389,7 +368,6 @@ Pretty useless
       <boss id="11519" name="Bazzalan"/>
       <boss id="11518" name="Jergosh the Invoker"/>
       <boss id="11517" name="Oggleflint"/>
-
       <boss id="11520" name="Taragaman the Hungerer"/>
       <boss id="17830" name="Zelemar the Wrathful"/>
     </dungeon>
@@ -399,7 +377,6 @@ Pretty useless
       <boss id="7357" name="Mordresh Fire Eye"/>
       <boss id="7356" name="Plaguemaw the Rotting"/>
       <boss id="7354" name="Ragglesnout"/>
-
       <boss id="7355" name="Tuten'kash"/>
     </dungeon>
     <dungeon id="491" name="Razorfen Kraul" release="0">
@@ -409,7 +386,6 @@ Pretty useless
       <boss id="4421" name="Charlga Razorflank"/>
       <boss id="4428" name="Death Speaker Jargba"/>
       <boss id="4842" name="Earthcaller Halmgar"/>
-
       <boss id="4420" name="Overlord Ramtusk"/>
       <boss id="6168" name="Roogug"/>
     </dungeon>
@@ -419,7 +395,6 @@ Pretty useless
       <boss id="15341" name="General Rajaxx"/>
       <boss id="15348" name="Kurinnaxx"/>
       <boss id="15340" name="Moam"/>
-
       <boss id="15339" name="Ossirian the Unscarred"/>
     </dungeon>
     <dungeon id="796" name="Scarlet Monastery" release="0">
@@ -429,7 +404,6 @@ Pretty useless
       <boss id="6488" name="Fallen Champion"/>
       <boss id="3975" name="Herod"/>
       <boss id="4542" name="High Inquisitor Fairbanks"/>
-
       <boss id="3977" name="High Inquisitor Whitemane"/>
       <boss id="3974" name="Houndmaster Loksey"/>
       <boss id="3983" name="Interrogator Vishas"/>
@@ -439,7 +413,6 @@ Pretty useless
     <dungeon id="2057" name="Scholomance" release="0">
       <boss id="1853" name="Darkmaster Gandling"/>
       <boss id="14516" name="Death Knight Darkreaver"/>
-
       <boss id="11261" name="Doctor Theolen Krastinov"/>
       <boss id="10505" name="Instructor Malicia"/>
       <boss id="10503" name="Jandice Barov"/>
@@ -449,7 +422,6 @@ Pretty useless
       <boss id="10504" name="Lord Alexei Barov"/>
       <boss id="10901" name="Lorekeeper Polkelt"/>
       <boss id="10433" name="Marduk Blackpool"/>
-
       <boss id="10508" name="Ras Frostwhisper"/>
       <boss id="11622" name="Rattlegore"/>
       <boss id="10507" name="The Ravenian"/>
@@ -459,7 +431,6 @@ Pretty useless
       <boss id="4275" name="Archmage Arugal"/>
       <boss id="3887" name="Baron Silverlaine"/>
       <boss id="4278" name="Commander Springvale"/>
-
       <boss id="3872" name="Deathsworn Captain"/>
       <boss id="4274" name="Fenrus the Devourer"/>
       <boss id="4279" name="Odo the Blindwatcher"/>
@@ -469,7 +440,6 @@ Pretty useless
     </dungeon>
     <dungeon id="717" name="Stockade" release="0">
       <boss id="1716" name="Bazil Thredd"/>
-
       <boss id="1720" name="Bruegal Ironknuckle"/>
       <boss id="1663" name="Dextren Ward"/>
       <boss id="1717" name="Hamhock"/>
@@ -479,7 +449,6 @@ Pretty useless
     <dungeon id="2017" name="Stratholme" release="0">
       <boss id="10811" name="Archivist Galford"/>
       <boss id="10813" name="Balnazzar"/>
-
       <boss id="10440" name="Baron Rivendare"/>
       <boss id="10436" name="Baroness Anastari"/>
       <boss id="11121" name="Black Guard Swordsmith"/>
@@ -489,7 +458,6 @@ Pretty useless
       <boss id="10558" name="Hearthsinger Forresten"/>
       <boss id="16101" name="Jarien"/>
       <boss id="10435" name="Magistrate Barthilas"/>
-
       <boss id="10438" name="Maleki the Pallid"/>
       <boss id="11032" name="Malor the Zealous"/>
       <boss id="10437" name="Nerub'enkan"/>
@@ -499,7 +467,6 @@ Pretty useless
       <boss id="16102" name="Sothos"/>
       <boss id="10809" name="Stonespine"/>
       <boss id="11082" name="Stratholme Courier"/>
-
       <boss id="10516" name="The Unforgiven"/>
       <boss id="10808" name="Timmy the Cruel"/>
     </dungeon>
@@ -509,7 +476,6 @@ Pretty useless
       <boss id="5721" name="Dreamscythe"/>
       <boss id="5713" name="Gasher"/>
       <boss id="5722" name="Hazzas"/>
-
       <boss id="5715" name="Hukku"/>
       <boss id="1063" name="Jade"/>
       <boss id="5710" name="Jammal'an the Prophet"/>
@@ -519,7 +485,6 @@ Pretty useless
       <boss id="5719" name="Morphaz"/>
       <boss id="5711" name="Ogom the Wretched"/>
       <boss id="5709" name="Shade of Eranikus"/>
-
       <boss id="5708" name="Spawn of Hakkar"/>
       <boss id="5399" name="Veyzhak the Cannibal"/>
       <boss id="5720" name="Weaver"/>
@@ -529,7 +494,6 @@ Pretty useless
     </dungeon>
     <dungeon id="1337" name="Uldaman" release="0">
       <boss id="7206" name="Ancient Stone Keeper"/>
-
       <boss id="2748" name="Archaedas"/>
       <boss id="6906" name="Baelog"/>
       <boss id="7057" name="Digmaster Shovelphlange"/>
@@ -539,7 +503,6 @@ Pretty useless
       <boss id="7228" name="Ironaya"/>
       <boss id="2932" name="Magregan Deepshadow"/>
       <boss id="7023" name="Obsidian Sentinel"/>
-
       <boss id="6908" name="Olaf"/>
       <boss id="6910" name="Revelosh"/>
       <boss id="4857" name="Stone Keeper"/>
@@ -549,7 +512,6 @@ Pretty useless
       <boss id="3653" name="Kresh"/>
       <boss id="3671" name="Lady Anacondra"/>
       <boss id="3669" name="Lord Cobrahn"/>
-
       <boss id="3670" name="Lord Pythas"/>
       <boss id="3673" name="Lord Serpentis"/>
       <boss id="3655" name="Mad Magglish"/>
@@ -559,7 +521,6 @@ Pretty useless
       <boss id="5775" name="Verdan the Everliving"/>
     </dungeon>
     <dungeon id="1176" name="Zul'Farrak" release="0">
-
       <boss id="8127" name="Antu'sul"/>
       <boss id="7267" name="Chief Ukorz Sandscalp"/>
       <boss id="10081" name="Dustwraith"/>
@@ -569,7 +530,6 @@ Pretty useless
       <boss id="7797" name="Ruuzlu"/>
       <boss id="10080" name="Sandarr Dunereaver"/>
       <boss id="7274" name="Sandfury Executioner"/>
-
       <boss id="7275" name="Shadowpriest Sezz'ziz"/>
       <boss id="7272" name="Theka the Martyr"/>
       <boss id="7271" name="Witch Doctor Zum'rah"/>
@@ -579,7 +539,6 @@ Pretty useless
       <boss id="11382" name="Bloodlord Mandokir"/>
       <boss id="15114" name="Gahz'ranka"/>
       <boss id="14834" name="Hakkar"/>
-
       <boss id="14509" name="High Priest Thekal"/>
       <boss id="14507" name="High Priest Venoxis"/>
       <boss id="14515" name="High Priestess Arlokk"/>
@@ -589,4 +548,3 @@ Pretty useless
     </dungeon>
   </dungeons>
 </page>
-
