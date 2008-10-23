@@ -405,7 +405,7 @@ module Wowr
 			attr_reader :main_hand_skill, :off_hand_skill,
 									:main_hand_damage, :off_hand_damage,
 									:main_hand_speed, :off_hand_speed,
-									:power, :hit_rating, :crit_chance
+									:power, :hit_rating, :crit_chance,
 									:expertise
 
 			def initialize(elem)
