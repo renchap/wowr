@@ -52,8 +52,8 @@ module Wowr
 		
 		@@arena_team_url = 'team-info.xml'
 		
-		@@guild_bank_contents_url = 'guild-bank-contents.xml'
-		@@guild_bank_log_url      = 'guild-bank-log.xml'
+		@@guild_bank_contents_url = 'vault/guild-bank-contents.xml'
+		@@guild_bank_log_url      = 'vault/guild-bank-log.xml'
 		
 		@@login_url = 'login.xml'
 
