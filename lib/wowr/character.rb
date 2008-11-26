@@ -131,7 +131,7 @@ module Wowr
 		class FullCharacter < Character
 			
 			# character_info
-			attr_reader :char_url, :title,
+			attr_reader :char_url, :title, :known_titles
 									:faction, :faction_id,
 			 						:arena_teams,
 									:last_modified
@@ -237,8 +237,14 @@ module Wowr
 				
 				# <title value=""/>
 				@title				= (elem%'title')[:value] == "" ? nil : (elem%'title')[:value]
-				#@known_titles = <knownTitles/>
-				
+			
+				@known_titles = []
+
+				@known_titles << @title if (@title)
+				(elem%'knownTitles'/:title).each do |entry|
+				  @known_titles << entry[:value] if (!@known_titles.include?(entry[:value]))
+				end
+
 				@health 		= (elem%'characterBars'%'health')[:effective].to_i
 				@second_bar = SecondBar.new(elem%'characterBars'%'secondBar')
 				
