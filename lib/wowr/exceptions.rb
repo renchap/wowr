@@ -121,5 +121,11 @@ module Wowr
 				super "Icon type must be: #{array.keys.inspect}"
 			end
 		end
+
+		class NetworkTimeout < StandardError
+			def initialize(string)
+				super "Network timeout '#{string}'."
+			end
+		end
 	end
 end
