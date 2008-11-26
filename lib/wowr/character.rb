@@ -131,7 +131,7 @@ module Wowr
 		class FullCharacter < Character
 			
 			# character_info
-			attr_reader :char_url, :title, :known_titles
+			attr_reader :char_url, :title, :known_titles,
 									:faction, :faction_id,
 			 						:arena_teams,
 									:last_modified
