@@ -42,7 +42,6 @@ module Wowr
 		
 		@@character_sheet_url				= 'character-sheet.xml'
 		@@character_talents_url			= 'character-talents.xml'
-		@@character_skills_url			= 'character-skills.xml'
 		@@character_reputation_url	= 'character-reputation.xml'
 		
 		@@guild_info_url		= 'guild-info.xml'
@@ -71,7 +70,7 @@ module Wowr
 		@@cache_failed_requests = true # cache requests that resulted in an error from the armory
 		
 		cattr_accessor :armory_base_url, :search_url,
-									 :character_sheet_url, :character_talents_url, :character_skills_url, :character_reputation_url,
+									 :character_sheet_url, :character_talents_url, :character_reputation_url,
 									 :guild_info_url,
 									 :item_info_url, :item_tooltip_url,
 									 :arena_team_url,
@@ -211,13 +210,11 @@ module Wowr
 			end
 			
 			character_sheet = get_xml(@@character_sheet_url, options)
-			character_skills = get_xml(@@character_skills_url, options)
 			character_reputation = get_xml(@@character_reputation_url, options)
 			
 			# FIXME
 			if true
 				return Wowr::Classes::FullCharacter.new(character_sheet,
-																								character_skills,
 																								character_reputation,
 																								self)
 			else
@@ -232,16 +229,6 @@ module Wowr
 			return get_character(name, options)
 		end
 
-		# TODO
-		# def get_character_skills
-		# 	
-		# end
-		# 
-		# def get_character_reputation
-		# 	
-		# end
-		
-		
 		# Find all guilds with the given string, return array of Wowr::Classes::SearchGuild.
 		# Searches across all realms.
 		# Caching is disabled for searching.

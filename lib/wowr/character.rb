@@ -151,22 +151,19 @@ module Wowr
 									:professions,
 									:items,
 									:buffs, :debuffs,
-									:skill_categories,
 									:reputation_categories
 			
-			alias_method :skills, :skill_categories
 			alias_method :rep, :reputation_categories
 			alias_method :reputation, :reputation_categories
 			
 			# It's made up of two parts
 			# Don't care about battlegroups yet
 			# I don't think I can call stuff from the constructor?
-			def initialize(sheet, skills, reputation, api = nil)
+			def initialize(sheet, reputation, api = nil)
 				@api = api
 				
 				character_info(sheet%'character')
 				character_tab(sheet%'characterTab')
-				character_skills(skills)
 				character_reputation(reputation)
 			end
 			
@@ -269,8 +266,6 @@ module Wowr
 				
 				@pvp = Pvp.new(elem%'pvp')
 								
-				# Also accessible from
-				# character.skills['professions']
 				@professions = []
 				(elem%'professions'/:skill).each do |skill|
 					@professions << Skill.new(skill)
@@ -289,14 +284,6 @@ module Wowr
 				@debuffs = []
 				(elem%'debuffs'/:spell).each do |debuff|
 					@debuffs << Buff.new(debuff, @api)
-				end
-			end
-
-			# character-skills.xml
-			def character_skills(elem)
-				@skill_categories = {}
-				(elem/:skillCategory).each do |category|
-					@skill_categories[category[:key]] = SkillCategory.new(category)
 				end
 			end
 
@@ -734,33 +721,6 @@ module Wowr
 		end
 
 
-
-
-    # <skillCategory key="weaponskills" name="Weapon Skills">
-    #   <skill key="defense" max="350" name="Defense" value="348"/>
-    #   <skill key="maces" max="350" name="Maces" value="291"/>
-    #   <skill key="staves" max="350" name="Staves" value="234"/>
-    #   <skill key="two-handedmaces" max="350" name="Two-Handed Maces" value="189"/>
-    #   <skill key="unarmed" max="350" name="Unarmed" value="13"/>
-    # </skillCategory>
-
-		# General skill category
-		# eg Weapon Skills, Languages
-		class SkillCategory
-			attr_reader :key, :name, :skills
-			alias_method :to_s, :name
-			
-			def initialize(elem)
-				@key 	= elem[:key]
-				@name = elem[:name]
-
-				@skills = {}
-				(elem/:skill).each do |skill|
-					@skills[skill[:key]] = Skill.new(skill)
-				end
-			end
-		end
-		
 		# eg Daggers, Riding, Fishing, language
 		class Skill
 			attr_reader :key, :name, :value, :max
