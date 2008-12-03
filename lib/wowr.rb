@@ -37,6 +37,7 @@ module Wowr
 		VERSION = '0.4.1'
 		
 		@@armory_base_url = 'wowarmory.com/'
+		@@login_base_url = 'blizzard.com/'
 		
 		@@search_url = 'search.xml'
 		
@@ -54,7 +55,7 @@ module Wowr
 		@@guild_bank_contents_url = 'vault/guild-bank-contents.xml'
 		@@guild_bank_log_url      = 'vault/guild-bank-log.xml'
 		
-		@@login_url = 'login.xml'
+		@@login_url = 'login/login.xml'
 
 		@@dungeons_url = 'data/dungeons.xml'                	
 		@@dungeons_strings_url = 'data/dungeonStrings.xml'
@@ -555,7 +556,13 @@ module Wowr
 		# Uses SSH to send details to the login page.
 		def login(username, password)
 			# url = 'https://eu.wowarmory.com/guild-bank-contents.xml?n=Rawr&r=Trollbane'
-			url = base_url(@locale, {:secure => true}) + @@login_url
+			url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?loginType=com"
+
+			if (@locale == "www")
+			  url += "&referer=http://www.wowarmory.com/index.xml"
+			else
+			  url += "&referer=http://#{@locale}.wowarmory.com/index.xml"
+			end
 			
 			req = Net::HTTP::Post.new(url)
 			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
@@ -571,6 +578,7 @@ module Wowr
 			
 			req.set_form_data({'accountName' => username, 'password' => password}, '&')
 			
+			location = nil
 			
 			http.start do
 				res = http.request(req)
@@ -588,20 +596,47 @@ module Wowr
 						end
 					end
 				
-				doc = Hpricot.XML(response)
+#				if (!response.is_a?(Net::HTTPFound))
+#					raise Wowr::Exceptions::InvalidLoginDetails
+#				else
+				        location = res.header['location']  
+#				end
+			end
+
+			if (location == "")
+			   raise Wowr::Exceptions::InvalidLoginDetails
+			end
+
+			uri = URI.parse(location)
+			req = Net::HTTP::Get.new(location)
+			req["user-agent"] = "Mozilla/5.0 Gecko/20070219 Firefox/2.0.0.2" # ensure returns XML
+			req["cookie"] = "cookieMenu=all; cookies=true;"
+	
+ 		        http = Net::HTTP.new(uri.host, uri.port)
+	
+			http.start do
+				res = http.request(req)
 				
-				# error = 0 nothing provided
-				# error = 1 invalid credentials
-				# TODO: Detect different kinds of errors
-				if (doc%'login')
-					raise Wowr::Exceptions::InvalidLoginDetails
-				else
-					cookie = nil
-					res.header['set-cookie'].scan(/JSESSIONID=(.*?);/) {
-						cookie = 'JSESSIONID=' + $1 + ';'
-					}
-					return cookie
-				end
+				tries = 0
+				response = case res
+					when Net::HTTPSuccess, Net::HTTPRedirection
+						res.body
+					else
+						tries += 1
+						if tries > @@max_connection_tries
+							raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
+						else
+							retry
+						end
+					end
+
+				cookie = nil
+
+				res.header['set-cookie'].scan(/JSESSIONID=(.*?);/) {
+				    cookie = 'JSESSIONID=' + $1 + ';'
+				}
+
+				return cookie
 			end
 		end
 		
@@ -630,9 +665,15 @@ module Wowr
 			end
 			
 			if (locale == 'us')
-				str += 'www.' + @@armory_base_url
+				str += 'www.'
 			else
-				str += locale + '.' + @@armory_base_url
+				str += locale + "."
+			end
+			
+			if (options[:login] == true)
+			        str += @@login_base_url
+			else
+				str += @@armory_base_url
 			end
 			
 			return str
@@ -694,7 +735,7 @@ module Wowr
 			else
 				response = http_request(full_query, options)
 			end
-						
+			
 			doc = Hpricot.XML(response)
 			errors = doc.search("*[@errCode]")
 			if errors.size > 0
@@ -719,7 +760,7 @@ module Wowr
 			req["cookie"] = "cookieMenu=all; cookieLangId=" + options[:lang] + "; cookies=true;"
 			
 			req["cookie"] += options[:cookie] if options[:cookie]
-			
+
 			uri = URI.parse(url)
 			
 			http = Net::HTTP.new(uri.host, uri.port)
