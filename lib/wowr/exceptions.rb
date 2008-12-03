@@ -65,6 +65,12 @@ module Wowr
 				super "Realm not set in options or API constructor."
 			end
 		end
+
+		class EventNotSet < StandardError
+			def initialize
+				super "Event not set in options or API constructor."
+			end
+		end
 		
 		# Search (fold)
 		class SearchError < StandardError

@@ -18,6 +18,8 @@ require 'net/http'
 require 'net/https'
 require 'cgi'
 require 'fileutils'
+require 'json'
+
 
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
@@ -25,6 +27,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'wowr/exceptions.rb'
 require 'wowr/extensions.rb'
 
+require 'wowr/calendar.rb'
 require 'wowr/character.rb'
 require 'wowr/guild.rb'
 require 'wowr/item.rb'
@@ -44,7 +47,11 @@ module Wowr
 		@@character_sheet_url				= 'character-sheet.xml'
 		@@character_talents_url			= 'character-talents.xml'
 		@@character_reputation_url	= 'character-reputation.xml'
-		
+
+                @@calendar_user_url = 'vault/calendar/month-user.json'
+                @@calendar_world_url = 'vault/calendar/month-world.json'
+                @@calendar_detail_url = 'vault/calendar/detail.json'
+
 		@@guild_info_url		= 'guild-info.xml'
 		
 		@@item_info_url			= 'item-info.xml'
@@ -80,7 +87,8 @@ module Wowr
 									 :dungeons_url, :dungeons_strings_url,
 									 :max_connection_tries,
 									 :cache_directory_path,
-									 :default_cache_timeout, :failed_cache_timeout, :cache_failed_requests
+		      							 :default_cache_timeout, :failed_cache_timeout, :cache_failed_requests,
+									 :calendar_user_url, :calendar_world_url, :calendar_detail_url
 		
 		@@search_types = {
 			:item => 'items',
@@ -91,6 +99,9 @@ module Wowr
 		
 		@@arena_team_sizes = [2, 3, 5]
 		
+		@@calendar_world_types = ['player', 'holiday', 'bg', 'darkmoon', 'raidLockout', 'raidReset', 'holidayWeekly']
+		@@calendar_user_types = ['raid', 'dungeon', 'pvp', 'meeting', 'other']
+
 		attr_accessor :character_name, :guild_name, :realm, :locale, :lang, :caching, :cache_timeout, :debug
 		
 		
@@ -506,7 +517,223 @@ module Wowr
 				raise Wowr::Exceptions::GuildBankNotFound.new(options[:guild_name])
 			end
 		end
-		
+
+
+		def get_complete_world_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			if (cookie.is_a?(Hash))
+			  options = cookie
+			elsif (name.is_a?(Hash))
+			  options = name
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (realm.is_a?(Hash))
+			  options = realm
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => @realm)
+			else
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => realm)
+			end
+
+			options = merge_defaults(options)
+
+			events = []
+  
+			@@calendar_world_types.each do |type|
+			  options.merge!(:calendar_type => type)
+			  events = events.concat(get_world_calendar(options))
+			end
+
+			events.sort! { |a,b| a.start <=> b.start }
+
+			return events
+		end
+	
+
+		def get_world_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			if (cookie.is_a?(Hash))
+			  options = cookie
+			elsif (name.is_a?(Hash))
+			  options = name
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (realm.is_a?(Hash))
+			  options = realm
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => @realm)
+			else
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => realm)
+			end
+
+			options = merge_defaults(options)
+
+			if options[:cookie].nil? || options[:cookie] == ""
+				raise Wowr::Exceptions::CookieNotSet.new
+			elsif options[:character_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::CharacterNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
+			options.merge!(:secure => true)
+
+			json = get_json(@@calendar_world_url, options)
+
+			if (!json["events"])
+				raise Wowr::Exceptions::EmptyPage
+			end
+
+			events = []
+
+			json["events"].each do |event|
+			    events << Wowr::Classes::WorldCalendar.new(event, nil)
+			end
+
+			return events
+		end
+
+
+                def get_full_user_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			if (cookie.is_a?(Hash))
+			  options = cookie
+			elsif (name.is_a?(Hash))
+			  options = name
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (realm.is_a?(Hash))
+			  options = realm
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => @realm)
+			else
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => realm)
+			end
+
+			options = merge_defaults(options)
+
+			skel_events = get_user_calendar(options)
+			full_events = []
+
+			skel_events.each do |se|
+			  options.merge!(:event => se.id)
+			  full_events << get_calendar_event(options)
+			end
+
+			full_events.sort! { |a,b| a.start <=> b.start }
+
+			return full_events
+		end
+
+
+		def get_user_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			if (cookie.is_a?(Hash))
+			  options = cookie
+			elsif (name.is_a?(Hash))
+			  options = name
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (realm.is_a?(Hash))
+			  options = realm
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => @realm)
+			else
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => realm)
+			end
+
+			options = merge_defaults(options)
+
+			if options[:cookie].nil? || options[:cookie] == ""
+				raise Wowr::Exceptions::CookieNotSet.new
+			elsif options[:character_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::CharacterNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
+			options.merge!(:secure => true)
+
+			json = get_json(@@calendar_user_url, options)
+
+			if (!json["events"])
+				raise Wowr::Exceptions::EmptyPage
+			end
+
+			events = []
+
+			json["events"].each do |event|
+			    events << Wowr::Classes::UserCalendar.new(event, nil)
+			end
+
+			return events
+		end
+
+
+		def get_calendar_event (cookie, event = nil, name = @character_name, realm = @realm, options = {})
+			if (cookie.is_a?(Hash))
+			  options = cookie
+			elsif (event.is_a?(Hash))
+			  options = event
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:event => nil)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (name.is_a?(Hash))
+			  options = name
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:event => event)
+			  options.merge!(:character_name => @character_name)
+			  options.merge!(:realm => @realm)
+			elsif (realm.is_a?(Hash))
+			  options = realm
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:event => event)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => @realm)
+			else
+			  options.merge!(:cookie => cookie)
+			  options.merge!(:event => event)
+			  options.merge!(:character_name => name)
+			  options.merge!(:realm => realm)
+			end
+
+			options = merge_defaults(options)
+
+			if options[:cookie].nil? || options[:cookie] == ""
+				raise Wowr::Exceptions::CookieNotSet.new
+			elsif options[:character_name].nil? || options[:guild_name] == ""
+				raise Wowr::Exceptions::CharacterNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			elsif options[:event].nil? || options[:event] == ""
+				raise Wowr::Exceptions::EventNotSet.new
+			end
+			
+			options.merge!(:secure => true)
+
+			json = get_json(@@calendar_detail_url, options)
+
+			if (!json.is_a?(Hash))
+				raise Wowr::Exceptions::EmptyPage
+			end
+
+			return Wowr::Classes::UserDetailCalendar.new(json, nil)
+		end
+
+
 		# Get complete list of dungeons.
 		# WARNING: This gets two 6k xml files so it's not that fast
 		# Takes 0.2s with cache, 2s without
@@ -698,44 +925,11 @@ module Wowr
 			# overwrite defaults with any given options
 			defaults.merge!(options)
 		end
+
 		
 		# Return an Hpricot document for the given URL
-		# TODO: Tidy up?
 		def get_xml(url, options = {})
-			
-			# better way of doing this?
-			# Map custom keys to the HTTP request values
-			reqs = {
-				:character_name => 'n',
-				:realm => 'r',
-				:search => 'searchQuery',
-				:type => 'searchType',
-				:guild_name => 'n',
-				:item_id => 'i',
-				:team_size => 'ts',
-				:team_name => 't',
-				:group => 'group'
-			}
-			
-			
-			params = []
-			options.each do |key, value|
-				params << "#{reqs[key]}=#{u(value)}" if reqs[key]
-			end
-			
-			query = ''
-			query = query + '?' + params.join('&') if params.size > 0
-			#query = '?' + params.join('&') if params.size > 0
-			
-			base = self.base_url(options[:locale], options)
-			full_query = base + url + query
-			
-			if options[:caching]
-				response = get_cache(full_query, options)
-			else
-				response = http_request(full_query, options)
-			end
-			
+			response = get_file(url, options)
 			doc = Hpricot.XML(response)
 			errors = doc.search("*[@errCode]")
 			if errors.size > 0
@@ -749,6 +943,55 @@ module Wowr
 				raise Wowr::Exceptions::EmptyPage
 			else
 				return (doc%'page')
+			end
+		end
+
+		# Return an array of hashes for the given URL
+		def get_json(url, options = {})
+			response = get_file(url, options)
+			raw_json = response.scan(/\w+\((.+)\);\z/)[0][0]
+			return JSON.parse(raw_json)
+		end
+	
+
+		# Return an raw document for the given URL
+		# TODO: Tidy up?
+		def get_file(url, options = {})
+			
+			# better way of doing this?
+			# Map custom keys to the HTTP request values
+			reqs = {
+				:character_name => 'n',
+				:realm => 'r',
+				:search => 'searchQuery',
+				:type => 'searchType',
+				:guild_name => 'n',
+				:item_id => 'i',
+				:team_size => 'ts',
+				:team_name => 't',
+				:group => 'group',
+				:callback => 'callback',
+				:calendar_type => 'type',
+				:month => 'month',
+				:year => 'year',
+				:event => 'e'
+                        }    
+			
+			params = []
+			options.each do |key, value|
+				params << "#{reqs[key]}=#{u(value)}" if reqs[key]
+			end
+			
+			query = ''
+			query = query + '?' + params.join('&') if params.size > 0
+			#query = '?' + params.join('&') if params.size > 0
+			
+			base = self.base_url(options[:locale], options)
+			full_query = base + url + query
+			if options[:caching]
+				response = get_cache(full_query, options)
+			else
+				response = http_request(full_query, options)
 			end
 		end
 		
