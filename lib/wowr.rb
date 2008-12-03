@@ -748,7 +748,7 @@ module Wowr
 			else
 				response = http_request(full_query, options)
 			end
-			puts response			
+			
 			doc = Hpricot.XML(response)
 			errors = doc.search("*[@errCode]")
 			if errors.size > 0
