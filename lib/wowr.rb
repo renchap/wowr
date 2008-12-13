@@ -974,7 +974,8 @@ module Wowr
 				:calendar_type => 'type',
 				:month => 'month',
 				:year => 'year',
-				:event => 'e'
+				:event => 'e',
+        :now => 'now'
                         }    
 			
 			params = []
@@ -988,6 +989,7 @@ module Wowr
 			
 			base = self.base_url(options[:locale], options)
 			full_query = base + url + query
+
 			if options[:caching]
 				response = get_cache(full_query, options)
 			else
