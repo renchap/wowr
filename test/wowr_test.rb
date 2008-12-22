@@ -79,7 +79,6 @@ class WowrTest < Test::Unit::TestCase
 		
 		assert_equal Wowr::API.character_sheet_url, 'character-sheet.xml'
 		assert_equal Wowr::API.character_talents_url, 'character-talents.xml'
-		assert_equal Wowr::API.character_skills_url, 'character-skills.xml'
 		assert_equal Wowr::API.character_reputation_url, 'character-reputation.xml'
 		
 		assert_equal Wowr::API.guild_info_url, 'guild-info.xml'
@@ -89,10 +88,10 @@ class WowrTest < Test::Unit::TestCase
 		
 		assert_equal Wowr::API.arena_team_url, 'team-info.xml'
 		
-		assert_equal Wowr::API.guild_bank_contents_url, 'guild-bank-contents.xml'
-		assert_equal Wowr::API.guild_bank_log_url, 'guild-bank-log.xml'
+		assert_equal Wowr::API.guild_bank_contents_url, 'vault/guild-bank-contents.xml'
+		assert_equal Wowr::API.guild_bank_log_url, 'vault/guild-bank-log.xml'
 		
-		assert_equal Wowr::API.login_url, 'login.xml'
+		assert_equal Wowr::API.login_url, 'login/login.xml'
 		
 		assert_equal Wowr::API.max_connection_tries, 10
 		
