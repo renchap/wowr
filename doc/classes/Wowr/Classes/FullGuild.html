@@ -107,7 +107,7 @@ url=&quot;r=Stormrage&amp;amp;n=HAND&quot;/&gt; &lt;guildInfo&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000032">new</a>&nbsp;&nbsp;
+      <a href="#M000056">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -157,39 +157,17 @@ url=&quot;r=Stormrage&amp;amp;n=HAND&quot;/&gt; &lt;guildInfo&gt;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000032" class="method-detail">
-        <a name="M000032"></a>
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
 
         <div class="method-heading">
-          <a href="#M000032" class="method-signature">
+          <a href="FullGuild.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('FullGuild.src/M000056.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000032-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/guild.rb, line 66</span>
-66:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-67:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>)
-68:                                 
-69:                                 <span class="ruby-ivar">@name_url</span>                   = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:nameUrl</span>]
-70:                                 <span class="ruby-ivar">@realm_url</span>          = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:realmUrl</span>]
-71:                                 
-72:                                 <span class="ruby-comment cmt"># Guild/guild_id/guild_url not set for characters</span>
-73:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'guildInfo'</span>)
-74:                                         <span class="ruby-ivar">@member_count</span> = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'guildInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'guild'</span><span class="ruby-operator">%</span><span class="ruby-value str">'members'</span>)[<span class="ruby-identifier">:memberCount</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">||</span> <span class="ruby-keyword kw">nil</span>
-75:                                         <span class="ruby-ivar">@members</span> = {}
-76:                                         (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'guildInfo'</span><span class="ruby-operator">%</span><span class="ruby-value str">'guild'</span><span class="ruby-operator">%</span><span class="ruby-value str">'members'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:character</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
-77:                                                 <span class="ruby-comment cmt"># TODO: Change to search character?</span>
-78:                                                 <span class="ruby-identifier">members</span>[<span class="ruby-identifier">char</span>[<span class="ruby-identifier">:name</span>]] = <span class="ruby-constant">Character</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">char</span>)
-79:                                         <span class="ruby-keyword kw">end</span>
-80:                                 <span class="ruby-keyword kw">end</span>
-81:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

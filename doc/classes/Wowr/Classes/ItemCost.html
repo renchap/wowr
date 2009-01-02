@@ -101,7 +101,7 @@ sellPrice=&quot;280&quot; buyPrice=&quot;5600&quot;&gt;&lt;/cost&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000047">new</a>&nbsp;&nbsp;
+      <a href="#M000065">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -146,34 +146,17 @@ sellPrice=&quot;280&quot; buyPrice=&quot;5600&quot;&gt;&lt;/cost&gt;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000047" class="method-detail">
-        <a name="M000047"></a>
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
 
         <div class="method-heading">
-          <a href="#M000047" class="method-signature">
+          <a href="ItemCost.src/M000065.html" target="Code" class="method-signature"
+            onclick="popupCode('ItemCost.src/M000065.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000047-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 467</span>
-467:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-468:                                 <span class="ruby-ivar">@buy_price</span>  = <span class="ruby-constant">Money</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:buyPrice</span>].<span class="ruby-identifier">to_i</span>)       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:buyPrice</span>]
-469:                                 <span class="ruby-ivar">@sell_price</span> = <span class="ruby-constant">Money</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:sellPrice</span>].<span class="ruby-identifier">to_i</span>)      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:sellPrice</span>]
-470:                 
-471:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'token'</span>)
-472:                                         <span class="ruby-ivar">@tokens</span> = []
-473:                                         (<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">:token</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span>
-474:                                                 <span class="ruby-ivar">@tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ItemCostToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">token</span>)
-475:                                         <span class="ruby-keyword kw">end</span>
-476:                                 <span class="ruby-keyword kw">end</span>
-477:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

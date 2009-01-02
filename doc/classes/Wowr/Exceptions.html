@@ -80,7 +80,7 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000001">raise_me</a>&nbsp;&nbsp;
+      <a href="#M000024">raise_me</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -101,6 +101,7 @@ Class <a href="Exceptions/CharacterNotFound.html" class="link">Wowr::Exceptions:
 Class <a href="Exceptions/CookieNotSet.html" class="link">Wowr::Exceptions::CookieNotSet</a><br />
 Class <a href="Exceptions/ElementNotFoundError.html" class="link">Wowr::Exceptions::ElementNotFoundError</a><br />
 Class <a href="Exceptions/EmptyPage.html" class="link">Wowr::Exceptions::EmptyPage</a><br />
+Class <a href="Exceptions/EventNotSet.html" class="link">Wowr::Exceptions::EventNotSet</a><br />
 Class <a href="Exceptions/GuildBankNotFound.html" class="link">Wowr::Exceptions::GuildBankNotFound</a><br />
 Class <a href="Exceptions/GuildNameNotSet.html" class="link">Wowr::Exceptions::GuildNameNotSet</a><br />
 Class <a href="Exceptions/GuildNotFound.html" class="link">Wowr::Exceptions::GuildNotFound</a><br />
@@ -111,6 +112,7 @@ Class <a href="Exceptions/InvalidLoginDetails.html" class="link">Wowr::Exception
 Class <a href="Exceptions/InvalidSearchType.html" class="link">Wowr::Exceptions::InvalidSearchType</a><br />
 Class <a href="Exceptions/InvalidXML.html" class="link">Wowr::Exceptions::InvalidXML</a><br />
 Class <a href="Exceptions/ItemNotFound.html" class="link">Wowr::Exceptions::ItemNotFound</a><br />
+Class <a href="Exceptions/NetworkTimeout.html" class="link">Wowr::Exceptions::NetworkTimeout</a><br />
 Class <a href="Exceptions/NoSearchString.html" class="link">Wowr::Exceptions::NoSearchString</a><br />
 Class <a href="Exceptions/RealmNotSet.html" class="link">Wowr::Exceptions::RealmNotSet</a><br />
 Class <a href="Exceptions/SearchError.html" class="link">Wowr::Exceptions::SearchError</a><br />
@@ -128,31 +130,17 @@ Class <a href="Exceptions/ServerDoesNotExist.html" class="link">Wowr::Exceptions
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000001" class="method-detail">
-        <a name="M000001"></a>
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
 
         <div class="method-heading">
-          <a href="#M000001" class="method-signature">
+          <a href="Exceptions.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('Exceptions.src/M000024.html');return false;">
           <span class="method-name">raise_me</span><span class="method-args">(code, options = {})</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000001-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/exceptions.rb, line 3</span>
- 3:                 <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">raise_me</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">options</span> = {})
- 4:                         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">code</span>
- 5:                                 <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;noCharacter&quot;</span>
- 6:                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">CharacterNotFound</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Character '#{options[:character_name]}' not found.&quot;</span>)
- 7:                                 <span class="ruby-keyword kw">else</span>
- 8:                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">StandardError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;The XML returned an error: #{code.to_s}&quot;</span>)
- 9:                         <span class="ruby-keyword kw">end</span>
-10:                 <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

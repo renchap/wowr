@@ -95,7 +95,7 @@ and CreatedBy
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000072">new</a>&nbsp;&nbsp;
+      <a href="#M000098">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -135,33 +135,17 @@ and CreatedBy
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000072" class="method-detail">
-        <a name="M000072"></a>
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
 
         <div class="method-heading">
-          <a href="#M000072" class="method-signature">
+          <a href="ItemCreation.src/M000098.html" target="Code" class="method-signature"
+            onclick="popupCode('ItemCreation.src/M000098.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000072-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000072-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 537</span>
-537:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-538:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span>)
-539:                                 
-540:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'reagent'</span>)
-541:                                         <span class="ruby-ivar">@reagents</span> = []
-542:                                         (<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">:reagent</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">reagent</span><span class="ruby-operator">|</span>
-543:                                                 <span class="ruby-ivar">@reagents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Reagent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reagent</span>, <span class="ruby-identifier">api</span>)
-544:                                         <span class="ruby-keyword kw">end</span>
-545:                                 <span class="ruby-keyword kw">end</span>
-546:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

@@ -94,7 +94,7 @@ uses item-info.xml
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000055">new</a>&nbsp;&nbsp;
+      <a href="#M000081">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -197,122 +197,17 @@ uses item-info.xml
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000055" class="method-detail">
-        <a name="M000055"></a>
+      <div id="method-M000081" class="method-detail">
+        <a name="M000081"></a>
 
         <div class="method-heading">
-          <a href="#M000055" class="method-signature">
+          <a href="ItemInfo.src/M000081.html" target="Code" class="method-signature"
+            onclick="popupCode('ItemInfo.src/M000081.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000055-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 89</span>
- 89:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
- 90:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span>)
- 91:                                 
- 92:                                 <span class="ruby-ivar">@level</span>              = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:level</span>].<span class="ruby-identifier">to_i</span>
- 93:                                 <span class="ruby-ivar">@quality</span>    = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:quality</span>].<span class="ruby-identifier">to_i</span>
- 94:                                 <span class="ruby-ivar">@type</span>               = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:type</span>]
- 95:         
- 96:                                 <span class="ruby-comment cmt"># Cost can be in gold, or tokens</span>
- 97:                                 <span class="ruby-ivar">@cost</span> = <span class="ruby-constant">ItemCost</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'cost'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'cost'</span>)
- 98:                 
- 99:                 
-100:                 
-101:                                 <span class="ruby-comment cmt"># is costs really an array?</span>
-102:                                 <span class="ruby-comment cmt">#@costs             = []</span>
-103:                                 <span class="ruby-comment cmt">#(elem/:cost).each do |cost|</span>
-104:                                 <span class="ruby-comment cmt">#   @costs &lt;&lt; ItemCost.new(cost)</span>
-105:                                 <span class="ruby-comment cmt">#end</span>
-106:                                 
-107:                                 <span class="ruby-identifier">etc</span> = [
-108:                                         [<span class="ruby-value str">'disenchantLoot'</span>,                 <span class="ruby-value str">'@disenchant_items'</span>,          <span class="ruby-value str">'item'</span>,                <span class="ruby-constant">DisenchantItem</span>, <span class="ruby-keyword kw">true</span>],
-109:                                         [<span class="ruby-value str">'objectiveOfQuests'</span>, <span class="ruby-value str">'@objective_of_quests'</span>, <span class="ruby-value str">'quest'</span>,             <span class="ruby-constant">ItemQuest</span>, <span class="ruby-keyword kw">false</span>],
-110:                                         [<span class="ruby-value str">'rewardFromQuests'</span>,       <span class="ruby-value str">'@reward_from_quests'</span>,       <span class="ruby-value str">'quest'</span>,             <span class="ruby-constant">ItemQuest</span>, <span class="ruby-keyword kw">false</span>],
-111:                                         [<span class="ruby-value str">'vendors'</span>,                                        <span class="ruby-value str">'@vendors'</span>,                                               <span class="ruby-value str">'creature'</span>, <span class="ruby-constant">ItemVendor</span>, <span class="ruby-keyword kw">false</span>],
-112:                                         [<span class="ruby-value str">'dropCreatures'</span>,          <span class="ruby-value str">'@drop_creatures'</span>,                     <span class="ruby-value str">'creature'</span>, <span class="ruby-constant">ItemDropCreature</span>, <span class="ruby-keyword kw">false</span>],
-113:                                         [<span class="ruby-value str">'plansFor'</span>,                                       <span class="ruby-value str">'@plans_for'</span>,                                    <span class="ruby-value str">'spell'</span>,              <span class="ruby-constant">ItemPlansFor</span>, <span class="ruby-keyword kw">true</span>],
-114:                                         [<span class="ruby-value str">'createdBy'</span>,                              <span class="ruby-value str">'@created_by'</span>,                                   <span class="ruby-value str">'spell'</span>,             <span class="ruby-constant">ItemCreatedBy</span>, <span class="ruby-keyword kw">true</span>],
-115:                                 ]
-116:                                 
-117:                                 <span class="ruby-identifier">etc</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
-118:                                         <span class="ruby-identifier">ele</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">0</span>]
-119:                                         <span class="ruby-identifier">var</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">1</span>]
-120:                                         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">2</span>]
-121:                                         <span class="ruby-identifier">my_class</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">3</span>]
-122:                                         <span class="ruby-identifier">requires_api</span> = <span class="ruby-identifier">b</span>[<span class="ruby-value">4</span>]
-123:                                         
-124:                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-identifier">ele</span>
-125:                                                 <span class="ruby-identifier">tmp_arr</span> = []
-126:                                                 (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-identifier">ele</span><span class="ruby-operator">/</span><span class="ruby-identifier">list</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
-127:                                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">requires_api</span>
-128:                                                                 <span class="ruby-identifier">tmp_arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">my_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">api</span>)
-129:                                                         <span class="ruby-keyword kw">else</span>     
-130:                                                                 <span class="ruby-identifier">tmp_arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">my_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>)
-131:                                                         <span class="ruby-keyword kw">end</span>
-132:                                                 <span class="ruby-keyword kw">end</span>
-133:                                                 <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-identifier">var</span>, <span class="ruby-identifier">tmp_arr</span>)
-134:                                         <span class="ruby-keyword kw">end</span>
-135:                                 <span class="ruby-keyword kw">end</span>
-136:         
-137:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'disenchantLoot'</span>)
-138:                                         <span class="ruby-ivar">@disenchant_skill_rank</span> = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'disenchantLoot'</span>)[<span class="ruby-identifier">:requiredSkillRank</span>].<span class="ruby-identifier">to_i</span> 
-139:                                         
-140:                                         <span class="ruby-comment cmt"># @disenchant_items = []</span>
-141:                                         <span class="ruby-comment cmt"># (elem%'disenchantLoot'/:item).each do |item|</span>
-142:                                         <span class="ruby-comment cmt">#  @disenchant_items &lt;&lt; DisenchantItem.new(item)</span>
-143:                                         <span class="ruby-comment cmt"># end</span>
-144:                                 <span class="ruby-keyword kw">end</span>
-145:                 
-146:                                 <span class="ruby-comment cmt"># if (elem%'objectiveOfQuests')</span>
-147:                                 <span class="ruby-comment cmt">#   @objective_of_quests = []</span>
-148:                                 <span class="ruby-comment cmt">#   (elem%'objectiveOfQuests'/:quest).each do |quest|</span>
-149:                                 <span class="ruby-comment cmt">#           @objective_of_quests &lt;&lt; ItemQuest.new(quest)</span>
-150:                                 <span class="ruby-comment cmt">#   end</span>
-151:                                 <span class="ruby-comment cmt"># end</span>
-152:                                 <span class="ruby-comment cmt">#           </span>
-153:                                 <span class="ruby-comment cmt"># if (elem%'rewardFromQuests')</span>
-154:                                 <span class="ruby-comment cmt">#   @reward_from_quests = []</span>
-155:                                 <span class="ruby-comment cmt">#   (elem%'rewardFromQuests'/:quest).each do |quest|</span>
-156:                                 <span class="ruby-comment cmt">#           @reward_from_quests &lt;&lt; ItemQuest.new(quest)</span>
-157:                                 <span class="ruby-comment cmt">#   end</span>
-158:                                 <span class="ruby-comment cmt"># end</span>
-159:                                 <span class="ruby-comment cmt"># </span>
-160:                                 <span class="ruby-comment cmt"># if (elem%'vendors')</span>
-161:                                 <span class="ruby-comment cmt">#   @vendors = []</span>
-162:                                 <span class="ruby-comment cmt">#   (elem%'vendors'/:creature).each do |vendor|</span>
-163:                                 <span class="ruby-comment cmt">#           @vendors &lt;&lt; ItemVendor.new(vendor)</span>
-164:                                 <span class="ruby-comment cmt">#   end</span>
-165:                                 <span class="ruby-comment cmt"># end</span>
-166:                                 <span class="ruby-comment cmt">#           </span>
-167:                                 <span class="ruby-comment cmt"># if (elem%'dropCreatures')</span>
-168:                                 <span class="ruby-comment cmt">#   @drop_creatures = []</span>
-169:                                 <span class="ruby-comment cmt">#   (elem%'dropCreatures'/:creature).each do |creature|</span>
-170:                                 <span class="ruby-comment cmt">#           @drop_creatures &lt;&lt; ItemDropCreature.new(creature)</span>
-171:                                 <span class="ruby-comment cmt">#   end</span>
-172:                                 <span class="ruby-comment cmt"># end</span>
-173:                                 <span class="ruby-comment cmt">#           </span>
-174:                                 <span class="ruby-comment cmt"># if (elem%'plansFor')</span>
-175:                                 <span class="ruby-comment cmt">#   @plans_for = []</span>
-176:                                 <span class="ruby-comment cmt">#   (elem%'plansFor'/:spell).each do |plan|</span>
-177:                                 <span class="ruby-comment cmt">#           @plans_for &lt;&lt; ItemPlansFor.new(plan)</span>
-178:                                 <span class="ruby-comment cmt">#   end</span>
-179:                                 <span class="ruby-comment cmt"># end</span>
-180:                                 <span class="ruby-comment cmt">#           </span>
-181:                                 <span class="ruby-comment cmt"># if (elem%'createdBy')</span>
-182:                                 <span class="ruby-comment cmt">#   @created_by = []</span>
-183:                                 <span class="ruby-comment cmt">#   (elem%'createdBy'/:spell).each do |c|</span>
-184:                                 <span class="ruby-comment cmt">#           @created_by &lt;&lt; ItemCreatedBy.new(c)</span>
-185:                                 <span class="ruby-comment cmt">#   end</span>
-186:                                 <span class="ruby-comment cmt"># end</span>
-187:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

@@ -1,3 +1,13 @@
+0.5.0
+* Removed character skills due to removal from Blizzard Armory, primary professions are still available.
+* Reimplemented Armory login support to use central Blizzard authentication servers.
+* Implemented basic read-only support for user/world calendars, now requires JSON gem.
+* Seperated http_request to get enable getting XML and JSON files.
+* Exposed now, next and prev guild bank paging values, next should be passed to the get_guild_bank_contents call to get the next page.
+* Implemented ability to retrieve dungeon information from Armory.
+* Changed guild bank file locations in line with Armory.
+* All titles are now retrieved for the character in known_titles.
+
 0.4.1
 * Renamed armory_url_base to armory_base_url for consistency.
 * Added cache timeout

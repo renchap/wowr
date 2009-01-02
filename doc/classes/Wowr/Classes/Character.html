@@ -107,11 +107,11 @@ See Also: <a href="Guild.html">Guild</a>
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000044">base</a>&nbsp;&nbsp;
-      <a href="#M000043">class_icon</a>&nbsp;&nbsp;
-      <a href="#M000041">icon</a>&nbsp;&nbsp;
-      <a href="#M000040">new</a>&nbsp;&nbsp;
-      <a href="#M000042">race_icon</a>&nbsp;&nbsp;
+      <a href="#M000071">base</a>&nbsp;&nbsp;
+      <a href="#M000070">class_icon</a>&nbsp;&nbsp;
+      <a href="#M000068">icon</a>&nbsp;&nbsp;
+      <a href="#M000067">new</a>&nbsp;&nbsp;
+      <a href="#M000069">race_icon</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -269,182 +269,77 @@ See Also: <a href="Guild.html">Guild</a>
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000040" class="method-detail">
-        <a name="M000040"></a>
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
 
         <div class="method-heading">
-          <a href="#M000040" class="method-signature">
+          <a href="Character.src/M000067.html" target="Code" class="method-signature"
+            onclick="popupCode('Character.src/M000067.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000040-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 38</span>
-38:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-39:                                 <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
-40:                                 
-41:                                 <span class="ruby-ivar">@name</span>                             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:name</span>]
-42:                                 <span class="ruby-ivar">@level</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:level</span>].<span class="ruby-identifier">to_i</span>
-43:                                 <span class="ruby-ivar">@url</span>                                = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:url</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:charUrl</span>]
-44:                                 <span class="ruby-ivar">@rank</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:rank</span>].<span class="ruby-identifier">to_i</span>
-45:                                 
-46:                                 <span class="ruby-ivar">@klass</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:class</span>]
-47:                                 <span class="ruby-ivar">@klass_id</span>           = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:classId</span>].<span class="ruby-identifier">to_i</span>
-48:                                 
-49:                                 <span class="ruby-ivar">@gender</span>             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:gender</span>]
-50:                                 <span class="ruby-ivar">@gender_id</span>  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:genderId</span>].<span class="ruby-identifier">to_i</span>
-51:                                 
-52:                                 <span class="ruby-ivar">@race</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:race</span>]
-53:                                 <span class="ruby-ivar">@race_id</span>            = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:raceId</span>].<span class="ruby-identifier">to_i</span>
-54:                                 
-55:                                 <span class="ruby-ivar">@guild</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guild</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guild</span>]
-56:                                 <span class="ruby-ivar">@guild_id</span>           = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guildId</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guildId</span>].<span class="ruby-identifier">to_i</span>
-57:                                 <span class="ruby-ivar">@guild_url</span>  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guildUrl</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:guildUrl</span>]
-58:                                 
-59:                                 <span class="ruby-ivar">@realm</span>                      = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:realm</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:realm</span>]
-60:                                 
-61:                                 <span class="ruby-ivar">@battle_group</span>               = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:battleGroup</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:battleGroup</span>]
-62:                                 <span class="ruby-ivar">@battle_group_id</span>    = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:battleGroupId</span>].<span class="ruby-identifier">to_i</span>
-63:                                 
-64:                                 <span class="ruby-ivar">@relevance</span>          = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:relevance</span>].<span class="ruby-identifier">to_i</span>
-65:                                 <span class="ruby-ivar">@search_rank</span>        = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:searchRank</span>].<span class="ruby-identifier">to_i</span>
-66:                                 
-67:                                 <span class="ruby-comment cmt"># Incoming string is 2007-02-24 20:33:04.0, parse to datetime</span>
-68:                                 <span class="ruby-comment cmt">#@last_login        = elem[:lastLoginDate] == &quot;&quot; ? nil : DateTime.parse(elem[:lastLoginDate])</span>
-69:                                 <span class="ruby-ivar">@last_login</span>         = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:lastLoginDate</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:lastLoginDate</span>]
-70:                                 
-71:                                 <span class="ruby-comment cmt"># From ArenaTeam info, can be blank on normal requests</span>
-72:                                 <span class="ruby-comment cmt">#&lt;character battleGroup=&quot;&quot; charUrl=&quot;r=Draenor&amp;amp;n=Lothaar&quot; class=&quot;Paladin&quot; classId=&quot;2&quot;</span>
-73:                                 <span class="ruby-comment cmt"># contribution=&quot;1602&quot; gamesPlayed=&quot;10&quot; gamesWon=&quot;7&quot; gender=&quot;Male&quot; genderId=&quot;0&quot;</span>
-74:                                 <span class="ruby-comment cmt"># guild=&quot;Passion&quot; guildId=&quot;36659&quot; guildUrl=&quot;r=Draenor&amp;amp;n=Passion&amp;amp;p=1&quot; name=&quot;Lothaar&quot;</span>
-75:                                 <span class="ruby-comment cmt"># race=&quot;Human&quot; raceId=&quot;1&quot; seasonGamesPlayed=&quot;20&quot; seasonGamesWon=&quot;13&quot; teamRank=&quot;1&quot;/&gt;</span>
-76:                                 <span class="ruby-ivar">@season_games_played</span>        = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:seasonGamesPlayed</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:seasonGamesPlayed</span>].<span class="ruby-identifier">to_i</span>
-77:                                 <span class="ruby-ivar">@season_games_won</span>           = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:seasonGamesWon</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:seasonGamesWon</span>].<span class="ruby-identifier">to_i</span>
-78:                                 <span class="ruby-ivar">@team_rank</span>                                          = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:teamRank</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:teamRank</span>].<span class="ruby-identifier">to_i</span>
-79:                                 <span class="ruby-ivar">@contribution</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:contribution</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:contribution</span>].<span class="ruby-identifier">to_i</span>
-80:                                 <span class="ruby-comment cmt">#@char_url                                          = elem[:charUrl]   # TODO: Merge with URL?</span>
-81:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000043" class="method-detail">
-        <a name="M000043"></a>
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
 
         <div class="method-heading">
-          <a href="#M000043" class="method-signature">
+          <a href="Character.src/M000070.html" target="Code" class="method-signature"
+            onclick="popupCode('Character.src/M000070.html');return false;">
           <span class="method-name">class_icon</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000043-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 108</span>
-108:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">class_icon</span>
-109:                                 <span class="ruby-comment cmt"># http://armory.worldofwarcraft.com/images/icons/class/8.gif</span>
-110:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@class_icon_url_base</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{@klass_id.to_s}.gif&quot;</span>
-111:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000041" class="method-detail">
-        <a name="M000041"></a>
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
 
         <div class="method-heading">
-          <a href="#M000041" class="method-signature">
+          <a href="Character.src/M000068.html" target="Code" class="method-signature"
+            onclick="popupCode('Character.src/M000068.html');return false;">
           <span class="method-name">icon</span><span class="method-args">(type = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000041-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 84</span>
-84:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">icon</span>(<span class="ruby-identifier">type</span> = <span class="ruby-keyword kw">nil</span>)
-85:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">type</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@@icon_types</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>)
-86:                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidIconType</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@@icon_types</span>)
-87:                                 <span class="ruby-keyword kw">end</span>
-88:                                 
-89:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">type</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@level</span> <span class="ruby-operator">==</span> <span class="ruby-value">70</span>)
-90:                                         <span class="ruby-identifier">dir</span> = <span class="ruby-ivar">@@icon_types</span>[<span class="ruby-value">70</span>]
-91:                                 <span class="ruby-keyword kw">elsif</span> (<span class="ruby-identifier">type</span>.<span class="ruby-identifier">nil?</span>)
-92:                                         <span class="ruby-identifier">dir</span> = <span class="ruby-ivar">@@icon_types</span>[<span class="ruby-identifier">:other</span>]
-93:                                 <span class="ruby-keyword kw">else</span>
-94:                                         <span class="ruby-identifier">dir</span> = <span class="ruby-ivar">@@icon_types</span>[<span class="ruby-identifier">type</span>]
-95:                                 <span class="ruby-keyword kw">end</span>
-96:                                 
-97:                                 <span class="ruby-comment cmt"># http://armory.worldofwarcraft.com/images/portraits/wow-70/1-7-8.gif</span>
-98:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@portrait_url_base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">dir</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;/#{@gender_id}-#{@race_id}-#{@klass_id}.gif&quot;</span>
-99:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000042" class="method-detail">
-        <a name="M000042"></a>
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
 
         <div class="method-heading">
-          <a href="#M000042" class="method-signature">
+          <a href="Character.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('Character.src/M000069.html');return false;">
           <span class="method-name">race_icon</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000042-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 102</span>
-102:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">race_icon</span>
-103:                                 <span class="ruby-comment cmt"># http://armory.worldofwarcraft.com/images/icons/race/11-1.gif</span>
-104:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@race_icon_url_base</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{@race_id}-#{@gender_id.to_s}.gif&quot;</span>
-105:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Protected Instance methods</h3>
 
-      <div id="method-M000044" class="method-detail">
-        <a name="M000044"></a>
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
 
         <div class="method-heading">
-          <a href="#M000044" class="method-signature">
+          <a href="Character.src/M000071.html" target="Code" class="method-signature"
+            onclick="popupCode('Character.src/M000071.html');return false;">
           <span class="method-name">base</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000044-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 115</span>
-115:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">base</span>
-116:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@api</span>
-117:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@api</span>.<span class="ruby-identifier">base_url</span>
-118:                                 <span class="ruby-keyword kw">else</span>
-119:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-value str">'http://www.wowarmory.com/'</span>
-120:                                 <span class="ruby-keyword kw">end</span>
-121:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

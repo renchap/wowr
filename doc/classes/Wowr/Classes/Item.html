@@ -96,8 +96,8 @@ for icons TODO: Make extend Icon class
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000061">icon</a>&nbsp;&nbsp;
-      <a href="#M000060">new</a>&nbsp;&nbsp;
+      <a href="#M000087">icon</a>&nbsp;&nbsp;
+      <a href="#M000086">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -165,66 +165,33 @@ for icons TODO: Make extend Icon class
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000060" class="method-detail">
-        <a name="M000060"></a>
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
 
         <div class="method-heading">
-          <a href="#M000060" class="method-signature">
+          <a href="Item.src/M000086.html" target="Code" class="method-signature"
+            onclick="popupCode('Item.src/M000086.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000060-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000060-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 29</span>
-29:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-30:                                 <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
-31:                                 
-32:                                 <span class="ruby-ivar">@id</span>                                 = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:id</span>].<span class="ruby-identifier">to_i</span>
-33:                                 <span class="ruby-ivar">@name</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:name</span>]
-34:                                 <span class="ruby-ivar">@icon_base</span>  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:icon</span>]
-35:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000061" class="method-detail">
-        <a name="M000061"></a>
+      <div id="method-M000087" class="method-detail">
+        <a name="M000087"></a>
 
         <div class="method-heading">
-          <a href="#M000061" class="method-signature">
+          <a href="Item.src/M000087.html" target="Code" class="method-signature"
+            onclick="popupCode('Item.src/M000087.html');return false;">
           <span class="method-name">icon</span><span class="method-args">(size = :medium)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000061-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000061-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 37</span>
-37:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">icon</span>(<span class="ruby-identifier">size</span> = <span class="ruby-identifier">:medium</span>)
-38:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@@icon_sizes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">size</span>)
-39:                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Wowr</span><span class="ruby-operator">::</span><span class="ruby-constant">Exceptions</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidIconSize</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@@icon_sizes</span>)
-40:                                 <span class="ruby-keyword kw">end</span>
-41:                                 
-42:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@api</span>
-43:                                         <span class="ruby-identifier">base</span> = <span class="ruby-ivar">@api</span>.<span class="ruby-identifier">base_url</span>
-44:                                 <span class="ruby-keyword kw">else</span>
-45:                                         <span class="ruby-identifier">base</span> = <span class="ruby-value str">'http://www.wowarmory.com/'</span>
-46:                                 <span class="ruby-keyword kw">end</span>
-47:                                 
-48:                                 <span class="ruby-comment cmt"># http://www.wowarmory.com/images/icons/64x64/blahblah.jpg</span>
-49:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@icon_url_base</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@icon_sizes</span>[<span class="ruby-identifier">size</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@icon_base</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@@icon_sizes</span>[<span class="ruby-identifier">size</span>][<span class="ruby-value">1</span>]
-50:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

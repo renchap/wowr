@@ -102,7 +102,7 @@ area=&quot;Zul&#8216;Aman&quot;&gt;&lt;/creature&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000070">new</a>&nbsp;&nbsp;
+      <a href="#M000096">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -172,38 +172,17 @@ area=&quot;Zul&#8216;Aman&quot;&gt;&lt;/creature&gt;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000070" class="method-detail">
-        <a name="M000070"></a>
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
 
         <div class="method-heading">
-          <a href="#M000070" class="method-signature">
+          <a href="ItemDropCreature.src/M000096.html" target="Code" class="method-signature"
+            onclick="popupCode('ItemDropCreature.src/M000096.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000070-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000070-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 441</span>
-441:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-442:                                 <span class="ruby-ivar">@name</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:name</span>]
-443:                                 <span class="ruby-ivar">@id</span>                                                 = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:id</span>].<span class="ruby-identifier">to_i</span>
-444:                                 <span class="ruby-ivar">@min_level</span>                  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:minLevel</span>].<span class="ruby-identifier">to_i</span>
-445:                                 <span class="ruby-ivar">@max_level</span>                  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:maxLevel</span>].<span class="ruby-identifier">to_i</span>
-446:                                 <span class="ruby-ivar">@drop_rate</span>                  = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:dropRate</span>].<span class="ruby-identifier">to_i</span>
-447:                                 <span class="ruby-ivar">@classification</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:classification</span>].<span class="ruby-identifier">to_i</span>
-448:                                 <span class="ruby-ivar">@area</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:area</span>]
-449:                 
-450:                                 <span class="ruby-comment cmt"># optional boss stuff</span>
-451:                                 <span class="ruby-ivar">@title</span>              = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:title</span>]             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:title</span>] <span class="ruby-comment cmt"># TODO: not nil when no property?</span>
-452:                                 <span class="ruby-ivar">@url</span>                        = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:url</span>]                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:url</span>]
-453:                                 <span class="ruby-ivar">@type</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:type</span>]                       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:type</span>] <span class="ruby-comment cmt"># Humanoid etc.</span>
-454:                                 <span class="ruby-ivar">@area_url</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:areaUrl</span>]  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:areaUrl</span>]
-455:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

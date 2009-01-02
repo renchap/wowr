@@ -92,10 +92,12 @@ TODO: Fix default to_s option
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000110">bronze</a>&nbsp;&nbsp;
-      <a href="#M000108">gold</a>&nbsp;&nbsp;
-      <a href="#M000107">new</a>&nbsp;&nbsp;
-      <a href="#M000109">silver</a>&nbsp;&nbsp;
+      <a href="#M000143">+</a>&nbsp;&nbsp;
+      <a href="#M000144">-</a>&nbsp;&nbsp;
+      <a href="#M000142">bronze</a>&nbsp;&nbsp;
+      <a href="#M000140">gold</a>&nbsp;&nbsp;
+      <a href="#M000139">new</a>&nbsp;&nbsp;
+      <a href="#M000141">silver</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -148,97 +150,89 @@ TODO: Fix default to_s option
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000107" class="method-detail">
-        <a name="M000107"></a>
+      <div id="method-M000139" class="method-detail">
+        <a name="M000139"></a>
 
         <div class="method-heading">
-          <a href="#M000107" class="method-signature">
+          <a href="Money.src/M000139.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000139.html');return false;">
           <span class="method-name">new</span><span class="method-args">(total)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000107-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000107-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/general.rb, line 13</span>
-13:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">total</span>)
-14:                                 <span class="ruby-ivar">@total</span> = <span class="ruby-identifier">total</span>
-15:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000110" class="method-detail">
-        <a name="M000110"></a>
+      <div id="method-M000143" class="method-detail">
+        <a name="M000143"></a>
 
         <div class="method-heading">
-          <a href="#M000110" class="method-signature">
+          <a href="Money.src/M000143.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000143.html');return false;">
+          <span class="method-name">+</span><span class="method-args">(add)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
+
+        <div class="method-heading">
+          <a href="Money.src/M000144.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000144.html');return false;">
+          <span class="method-name">-</span><span class="method-args">(add)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000142" class="method-detail">
+        <a name="M000142"></a>
+
+        <div class="method-heading">
+          <a href="Money.src/M000142.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000142.html');return false;">
           <span class="method-name">bronze</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000110-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000110-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/general.rb, line 25</span>
-25:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bronze</span>
-26:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@total</span> <span class="ruby-operator">%</span> <span class="ruby-value">100</span>
-27:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000108" class="method-detail">
-        <a name="M000108"></a>
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
 
         <div class="method-heading">
-          <a href="#M000108" class="method-signature">
+          <a href="Money.src/M000140.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000140.html');return false;">
           <span class="method-name">gold</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000108-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000108-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/general.rb, line 17</span>
-17:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">gold</span>
-18:                                 <span class="ruby-keyword kw">return</span> (<span class="ruby-ivar">@total</span> <span class="ruby-operator">/</span> <span class="ruby-value">10000</span>)
-19:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000109" class="method-detail">
-        <a name="M000109"></a>
+      <div id="method-M000141" class="method-detail">
+        <a name="M000141"></a>
 
         <div class="method-heading">
-          <a href="#M000109" class="method-signature">
+          <a href="Money.src/M000141.html" target="Code" class="method-signature"
+            onclick="popupCode('Money.src/M000141.html');return false;">
           <span class="method-name">silver</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000109-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000109-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/general.rb, line 21</span>
-21:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">silver</span>
-22:                                 <span class="ruby-keyword kw">return</span> (<span class="ruby-ivar">@total</span> <span class="ruby-operator">%</span> <span class="ruby-value">10000</span>) <span class="ruby-operator">/</span> <span class="ruby-value">100</span>
-23:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
