@@ -24,6 +24,7 @@ module Wowr
 			alias_method :to_i, :id
 
 			@@icon_url_base = 'images/icons/'
+			@@icon_url_base_tw = 'wow-icons/_images/'
 			@@icon_sizes = {:large => ['64x64', 'jpg'], :medium => ['43x43', 'png'], :small => ['21x21', 'png']}
 			
 			def initialize(elem, api = nil)
@@ -44,9 +45,15 @@ module Wowr
 				else
 					base = 'http://www.wowarmory.com/'
 				end
+
+				if @api && @api.locale == "tw"
+				  url_base = @@icon_url_base_tw
+				else
+				  url_base = @@icon_url_base
+				end
 				
 				# http://www.wowarmory.com/images/icons/64x64/blahblah.jpg
-				return base + @@icon_url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
+				return base + url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
 			end
 		end
 
@@ -149,12 +156,10 @@ module Wowr
 		class ItemTooltip < Item
 			attr_reader :desc, :overall_quality_id, :bonding, :max_count, #:id, :name, :icon, 
 									:class_id, :bonuses, :item_source,
-									:bonuses, :resistances,
-									:required_level,
-									:allowable_classes,
-									:armor, :durability,
+									:resistances, :required_level,
+									:allowable_classes, :armor, :durability,
 									:sockets, :socket_match_enchant,
-									:gem_properties
+									:gem_properties, :equip_data
 			alias_method :description, :desc
 
 			def initialize(elem, api = nil)
@@ -170,14 +175,14 @@ module Wowr
 				@class_id						= (elem%'classId').html.to_i
 				@required_level			= (elem%'requiredLevel').html.to_i if (elem%'requiredLevel')
 				
-				@equipData					= ItemEquipData.new(elem%'equipData')
+				@equip_data					= ItemEquipData.new(elem%'equipData')
 				
 				# TODO: This appears to be a plain string at the moment
 				#<gemProperties>+26 Healing +9 Spell Damage and 2% Reduced Threat</gemProperties>
 				@gem_properties			= (elem%'gemProperties').html if (elem%'gemProperties')
 				
 				# not all items have damage data
-				@damage							= ItemDamageData.new(elem%'damageData') if !(elem%'damageData')
+				@damage							= ItemDamageData.new(elem%'damageData') if (elem%'damageData')
 				
 				
 				# TODO: Test socket data with a variety of items
