@@ -105,7 +105,7 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000036">new</a>&nbsp;&nbsp;
+      <a href="#M000060">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -127,6 +127,11 @@
         <table>
         <tr class="top-aligned-row context-row">
           <td class="context-item-name">crit_chance</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">expertise</td>
           <td class="context-item-value">&nbsp;[R]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
@@ -166,7 +171,7 @@
           <td class="context-item-desc"></td>
         </tr>
         <tr class="top-aligned-row context-row">
-          <td class="context-item-name">speed</td>
+          <td class="context-item-name">power</td>
           <td class="context-item-value">&nbsp;[R]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
@@ -180,40 +185,17 @@
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000036" class="method-detail">
-        <a name="M000036"></a>
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
 
         <div class="method-heading">
-          <a href="#M000036" class="method-signature">
+          <a href="Melee.src/M000060.html" target="Code" class="method-signature"
+            onclick="popupCode('Melee.src/M000060.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000036-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 411</span>
-411:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-412:                                 <span class="ruby-comment cmt"># TODO: Do these not exist anymore?</span>
-413:                                 <span class="ruby-ivar">@main_hand_skill</span>    = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandWeaponSkill'</span>)
-414:                                 <span class="ruby-ivar">@off_hand_skill</span>     = <span class="ruby-constant">WeaponSkill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>) <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandWeaponSkill'</span>)
-415:                                 
-416:                                 <span class="ruby-ivar">@main_hand_damage</span> = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandDamage'</span>)
-417:                                 <span class="ruby-ivar">@off_hand_damage</span>    = <span class="ruby-constant">WeaponDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandDamage'</span>)
-418:                                 
-419:                                 <span class="ruby-ivar">@main_hand_speed</span>    = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'mainHandSpeed'</span>)
-420:                                 <span class="ruby-ivar">@off_hand_speed</span>     = <span class="ruby-constant">WeaponSpeed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'offHandSpeed'</span>)
-421:                                 
-422:                                 <span class="ruby-ivar">@power</span>                                              = <span class="ruby-constant">WeaponPower</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'power'</span>)
-423:                                 <span class="ruby-ivar">@hit_rating</span>                         = <span class="ruby-constant">WeaponHitRating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'hitRating'</span>)
-424:                                 <span class="ruby-ivar">@crit_chance</span>                        = <span class="ruby-constant">WeaponCritChance</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span>)
-425:                                 
-426:                                 <span class="ruby-ivar">@expertise</span>                          = <span class="ruby-constant">WeaponExpertise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'expertise'</span>)
-427:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

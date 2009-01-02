@@ -94,7 +94,7 @@ set of objects for each thing
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000037">new</a>&nbsp;&nbsp;
+      <a href="#M000063">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -174,45 +174,17 @@ set of objects for each thing
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000037" class="method-detail">
-        <a name="M000037"></a>
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
 
         <div class="method-heading">
-          <a href="#M000037" class="method-signature">
+          <a href="Spell.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('Spell.src/M000063.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000037-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/character.rb, line 534</span>
-534:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-535:                                 <span class="ruby-ivar">@arcane</span> = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'arcane'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'arcane'</span>)
-536:                                 <span class="ruby-ivar">@fire</span>   = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'fire'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'fire'</span>)
-537:                                 <span class="ruby-ivar">@frost</span>  = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'frost'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'frost'</span>)
-538:                                 <span class="ruby-ivar">@holy</span>   = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'holy'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'holy'</span>)
-539:                                 <span class="ruby-ivar">@nature</span> = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'nature'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'nature'</span>)
-540:                                 <span class="ruby-ivar">@shadow</span> = <span class="ruby-constant">SpellDamage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusDamage'</span><span class="ruby-operator">%</span><span class="ruby-value str">'shadow'</span>, <span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'critChance'</span><span class="ruby-operator">%</span><span class="ruby-value str">'shadow'</span>)
-541: 
-542:                                 <span class="ruby-ivar">@bonus_healing</span>      = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'bonusHealing'</span>)[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-comment cmt"># is this right??</span>
-543:                                 <span class="ruby-ivar">@penetration</span>                = (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'penetration'</span>)[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_i</span>
-544:                                 <span class="ruby-ivar">@hit_rating</span>                 = <span class="ruby-constant">WeaponHitRating</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'hitRating'</span>)
-545:                                 <span class="ruby-ivar">@mana_regen</span>                 = <span class="ruby-constant">ManaRegen</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'manaRegen'</span>)
-546:                                 
-547:                                 <span class="ruby-comment cmt"># elements = %w[arcane fire frost holy nature shadow]</span>
-548:                                 <span class="ruby-comment cmt"># elements.each do |element|</span>
-549:                                 <span class="ruby-comment cmt">#   # TODO: is this a good idea?</span>
-550:                                 <span class="ruby-comment cmt">#   #instance_variable_set(&quot;@#{element}&quot;, foo) #??</span>
-551:                                 <span class="ruby-comment cmt">#   #eval(&quot;@#{element} = SpellDamage.new(elem[:bonusDamage][element][:value], elem[:critChance][element][:percent]).to_f)&quot;)</span>
-552:                                 <span class="ruby-comment cmt">#   # eval(&quot;@#{element} = SpellDamage.new((elem%'bonusDamage'%element)[:value].to_i,</span>
-553:                                 <span class="ruby-comment cmt">#   #                                                                                                                                                                                (elem%'critChance'%element)[:percent].to_f)&quot;)</span>
-554:                                 <span class="ruby-comment cmt"># end</span>
-555:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

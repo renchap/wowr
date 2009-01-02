@@ -94,7 +94,7 @@ A really basic item type returned by searches
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000063">new</a>&nbsp;&nbsp;
+      <a href="#M000089">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -162,32 +162,17 @@ A really basic item type returned by searches
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000063" class="method-detail">
-        <a name="M000063"></a>
+      <div id="method-M000089" class="method-detail">
+        <a name="M000089"></a>
 
         <div class="method-heading">
-          <a href="#M000063" class="method-signature">
+          <a href="SearchItem.src/M000089.html" target="Code" class="method-signature"
+            onclick="popupCode('SearchItem.src/M000089.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000063-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000063-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 401</span>
-401:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-402:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span>)
-403:                                 <span class="ruby-ivar">@rarity</span>                     = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:rarity</span>].<span class="ruby-identifier">to_i</span>
-404:                                 <span class="ruby-ivar">@url</span>                                = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:url</span>]
-405: 
-406:                                 <span class="ruby-ivar">@item_level</span> = <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;filter[@name='itemLevel']&quot;</span>)[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_i</span>
-407:                                 <span class="ruby-ivar">@source</span>                     = <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;filter[@name='source']&quot;</span>)[<span class="ruby-identifier">:value</span>]
-408:                                 <span class="ruby-ivar">@relevance</span>  = <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;filter[@name='relevance']&quot;</span>)[<span class="ruby-identifier">:value</span>].<span class="ruby-identifier">to_i</span>
-409:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

@@ -102,7 +102,7 @@ subtypeLoc=&quot;Quest&quot; type=&quot;consumables&quot;/&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000046">new</a>&nbsp;&nbsp;
+      <a href="#M000073">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -187,41 +187,17 @@ subtypeLoc=&quot;Quest&quot; type=&quot;consumables&quot;/&gt;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000046" class="method-detail">
-        <a name="M000046"></a>
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
 
         <div class="method-heading">
-          <a href="#M000046" class="method-signature">
+          <a href="GuildBankItem.src/M000073.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankItem.src/M000073.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, bags = nil, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000046-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 161</span>
-161:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">bags</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-162:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span>)
-163:                                 
-164:                                 <span class="ruby-ivar">@bag_id</span>             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:bag</span>].<span class="ruby-identifier">to_i</span>
-165:                                 <span class="ruby-ivar">@qi</span>                         = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:qi</span>].<span class="ruby-identifier">to_i</span>
-166:                                 <span class="ruby-ivar">@quantity</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:quantity</span>].<span class="ruby-identifier">to_i</span>
-167:                                 
-168:                                 <span class="ruby-ivar">@durability</span>                                         = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:durability</span>].<span class="ruby-identifier">to_i</span>
-169:                                 <span class="ruby-ivar">@max_durability</span>                             = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:maxDurability</span>].<span class="ruby-identifier">to_i</span>
-170:                                 <span class="ruby-ivar">@random_properties_id</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:randomPropertiesId</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:randomPropertiesId</span>].<span class="ruby-identifier">to_i</span>
-171:                                 <span class="ruby-ivar">@seed</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:seed</span>].<span class="ruby-identifier">to_i</span>
-172:                                 <span class="ruby-ivar">@slot</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:slot</span>].<span class="ruby-identifier">to_i</span>
-173:                                 <span class="ruby-ivar">@subtype</span>                    = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:subtype</span>]         <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:subtype</span>]
-174:                                 <span class="ruby-ivar">@subtype_loc</span>        = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:subtypeLoc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:subtypeLoc</span>]
-175:                                 <span class="ruby-ivar">@type</span>                                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:type</span>].<span class="ruby-identifier">to_i</span>
-176:                                 
-177:                                 <span class="ruby-identifier">bags</span>[<span class="ruby-ivar">@bag_id</span>].<span class="ruby-identifier">items</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>
-178:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

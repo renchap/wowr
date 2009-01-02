@@ -103,12 +103,12 @@ ts=&quot;1212527470000&quot; type=&quot;2&quot;&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000101">destination</a>&nbsp;&nbsp;
-      <a href="#M000097">new</a>&nbsp;&nbsp;
-      <a href="#M000100">origin</a>&nbsp;&nbsp;
-      <a href="#M000099">rank</a>&nbsp;&nbsp;
-      <a href="#M000102">time</a>&nbsp;&nbsp;
-      <a href="#M000098">type</a>&nbsp;&nbsp;
+      <a href="#M000131">destination</a>&nbsp;&nbsp;
+      <a href="#M000127">new</a>&nbsp;&nbsp;
+      <a href="#M000130">origin</a>&nbsp;&nbsp;
+      <a href="#M000129">rank</a>&nbsp;&nbsp;
+      <a href="#M000132">time</a>&nbsp;&nbsp;
+      <a href="#M000128">type</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -168,6 +168,11 @@ ts=&quot;1212527470000&quot; type=&quot;2&quot;&gt;
           <td class="context-item-value">&nbsp;[R]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">unknown</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
         </table>
       </div>
     </div>
@@ -178,155 +183,89 @@ ts=&quot;1212527470000&quot; type=&quot;2&quot;&gt;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000097" class="method-detail">
-        <a name="M000097"></a>
+      <div id="method-M000127" class="method-detail">
+        <a name="M000127"></a>
 
         <div class="method-heading">
-          <a href="#M000097" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000127.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000127.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, bank = nil, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000097-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 101</span>
-101:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">bank</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-102:                                 <span class="ruby-ivar">@bank</span> = <span class="ruby-identifier">bank</span>
-103:                                 
-104:                                 <span class="ruby-ivar">@dtab</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:dtab</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:dtab</span>].<span class="ruby-identifier">to_i</span>
-105:                                 <span class="ruby-ivar">@otab</span>                       = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:otab</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:otab</span>].<span class="ruby-identifier">to_i</span> 
-106:                                 <span class="ruby-ivar">@money</span>              = <span class="ruby-constant">Money</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:money</span>].<span class="ruby-identifier">to_i</span>)
-107:                                 <span class="ruby-ivar">@player</span>     = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:player</span>]
-108:                                 <span class="ruby-ivar">@rank_id</span>    = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:rank</span>].<span class="ruby-identifier">to_i</span>
-109:                                 <span class="ruby-ivar">@ts</span>                         = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:ts</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-comment cmt"># TODO: Check TS isn't overloading</span>
-110:                                 <span class="ruby-ivar">@type_id</span>    = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:type</span>].<span class="ruby-identifier">to_i</span>
-111:                                 
-112:                                 <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>)
-113:                                         <span class="ruby-ivar">@item</span> = <span class="ruby-constant">GuildBankLogItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'item'</span>, <span class="ruby-identifier">api</span>)
-114:                                 <span class="ruby-keyword kw">end</span>
-115:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000101" class="method-detail">
-        <a name="M000101"></a>
+      <div id="method-M000131" class="method-detail">
+        <a name="M000131"></a>
 
         <div class="method-heading">
-          <a href="#M000101" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000131.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000131.html');return false;">
           <span class="method-name">destination</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000101-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000101-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 129</span>
-129:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destination</span>
-130:                                 <span class="ruby-ivar">@dtab</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@bank</span>.<span class="ruby-identifier">bags</span>[<span class="ruby-ivar">@dtab</span>]
-131:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000100" class="method-detail">
-        <a name="M000100"></a>
+      <div id="method-M000130" class="method-detail">
+        <a name="M000130"></a>
 
         <div class="method-heading">
-          <a href="#M000100" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000130.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000130.html');return false;">
           <span class="method-name">origin</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000100-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000100-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 125</span>
-125:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">origin</span>
-126:                                 <span class="ruby-ivar">@otab</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@bank</span>.<span class="ruby-identifier">bags</span>[<span class="ruby-ivar">@otab</span>]
-127:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000099" class="method-detail">
-        <a name="M000099"></a>
+      <div id="method-M000129" class="method-detail">
+        <a name="M000129"></a>
 
         <div class="method-heading">
-          <a href="#M000099" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000129.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000129.html');return false;">
           <span class="method-name">rank</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000099-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 121</span>
-121:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rank</span>
-122:                                 <span class="ruby-ivar">@rank_id</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@bank</span>.<span class="ruby-identifier">ranks</span>[<span class="ruby-ivar">@rank_id</span>]
-123:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000102" class="method-detail">
-        <a name="M000102"></a>
+      <div id="method-M000132" class="method-detail">
+        <a name="M000132"></a>
 
         <div class="method-heading">
-          <a href="#M000102" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000132.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000132.html');return false;">
           <span class="method-name">time</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000102-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000102-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 133</span>
-133:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">time</span>
-134:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-ivar">@ts</span> <span class="ruby-operator">/</span> <span class="ruby-value">1000</span>)
-135:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
-      <div id="method-M000098" class="method-detail">
-        <a name="M000098"></a>
+      <div id="method-M000128" class="method-detail">
+        <a name="M000128"></a>
 
         <div class="method-heading">
-          <a href="#M000098" class="method-signature">
+          <a href="GuildBankLogEntry.src/M000128.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLogEntry.src/M000128.html');return false;">
           <span class="method-name">type</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000098-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 117</span>
-117:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type</span>
-118:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@types</span>[<span class="ruby-ivar">@type_id</span>]
-119:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

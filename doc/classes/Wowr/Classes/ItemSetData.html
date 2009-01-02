@@ -86,7 +86,7 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000106">new</a>&nbsp;&nbsp;
+      <a href="#M000138">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -144,36 +144,17 @@
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000106" class="method-detail">
-        <a name="M000106"></a>
+      <div id="method-M000138" class="method-detail">
+        <a name="M000138"></a>
 
         <div class="method-heading">
-          <a href="#M000106" class="method-signature">
+          <a href="ItemSetData.src/M000138.html" target="Code" class="method-signature"
+            onclick="popupCode('ItemSetData.src/M000138.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000106-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000106-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 326</span>
-326:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>)
-327:                                 <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">elem</span>[<span class="ruby-identifier">:name</span>]
-328:                 
-329:                                 <span class="ruby-ivar">@items</span> = []
-330:                                 (<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">:item</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
-331:                                         <span class="ruby-ivar">@items</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-identifier">:name</span>]
-332:                                 <span class="ruby-keyword kw">end</span>
-333:                 
-334:                                 <span class="ruby-ivar">@set_bonuses</span> = []
-335:                                 (<span class="ruby-identifier">elem</span><span class="ruby-operator">/</span><span class="ruby-identifier">:setBonus</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bonus</span><span class="ruby-operator">|</span>
-336:                                         <span class="ruby-ivar">@set_bonuses</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ItemSetBonus</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">bonus</span>)
-337:                                 <span class="ruby-keyword kw">end</span>
-338:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

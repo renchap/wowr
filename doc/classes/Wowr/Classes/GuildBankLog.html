@@ -94,7 +94,7 @@ Consists of multiple groups, each with 1000 entries
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000089">new</a>&nbsp;&nbsp;
+      <a href="#M000117">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -119,6 +119,21 @@ Consists of multiple groups, each with 1000 entries
           <td class="context-item-value">&nbsp;[R]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">group_next</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">group_now</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">group_prev</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
         </table>
       </div>
     </div>
@@ -129,31 +144,17 @@ Consists of multiple groups, each with 1000 entries
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000089" class="method-detail">
-        <a name="M000089"></a>
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
 
         <div class="method-heading">
-          <a href="#M000089" class="method-signature">
+          <a href="GuildBankLog.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('GuildBankLog.src/M000117.html');return false;">
           <span class="method-name">new</span><span class="method-args">(elem, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000089-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000089-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/guild_bank.rb, line 59</span>
-59:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">elem</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-60:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">elem</span>)
-61:                                 
-62:                                 <span class="ruby-ivar">@entries</span> = []
-63:                                 (<span class="ruby-identifier">elem</span><span class="ruby-operator">%</span><span class="ruby-value str">'banklogs'</span><span class="ruby-operator">/</span><span class="ruby-identifier">:banklog</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
-64:                                         <span class="ruby-ivar">@entries</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">GuildBankLogEntry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">api</span>)
-65:                                 <span class="ruby-keyword kw">end</span>
-66:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 

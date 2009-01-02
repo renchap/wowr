@@ -3,10 +3,11 @@
 # http://wowr.rubyforge.org/
 # Written by Ben Humphreys
 # http://benhumphreys.co.uk/
+# Matained By Peter Wood
+# http://narwar.net/
 # 
 # Author:: Ben Humphreys
-# May not be used for commercial applications
-# 
+# Author:: Peter Wood
 
 begin
 	require 'hpricot' # version 0.6

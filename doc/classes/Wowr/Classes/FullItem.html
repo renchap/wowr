@@ -94,8 +94,8 @@ Full data from item-info and item-tooltip
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000092">method_missing</a>&nbsp;&nbsp;
-      <a href="#M000091">new</a>&nbsp;&nbsp;
+      <a href="#M000120">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000119">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -117,61 +117,33 @@ Full data from item-info and item-tooltip
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000091" class="method-detail">
-        <a name="M000091"></a>
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
 
         <div class="method-heading">
-          <a href="#M000091" class="method-signature">
+          <a href="FullItem.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('FullItem.src/M000119.html');return false;">
           <span class="method-name">new</span><span class="method-args">(info, tooltip, api = nil)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000091-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000091-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 56</span>
-56:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">info</span>, <span class="ruby-identifier">tooltip</span>, <span class="ruby-identifier">api</span> = <span class="ruby-keyword kw">nil</span>)
-57:                                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">info</span>, <span class="ruby-identifier">api</span>)
-58:                                 <span class="ruby-ivar">@info</span> = <span class="ruby-constant">ItemInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">info</span>, <span class="ruby-identifier">api</span>)
-59:                                 <span class="ruby-ivar">@tooltip</span> = <span class="ruby-constant">ItemTooltip</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tooltip</span>, <span class="ruby-identifier">api</span>)
-60:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000092" class="method-detail">
-        <a name="M000092"></a>
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
 
         <div class="method-heading">
-          <a href="#M000092" class="method-signature">
+          <a href="FullItem.src/M000120.html" target="Code" class="method-signature"
+            onclick="popupCode('FullItem.src/M000120.html');return false;">
           <span class="method-name">method_missing</span><span class="method-args">(m, *args)</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000092-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000092-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/wowr/item.rb, line 62</span>
-62:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">m</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-63:                                 <span class="ruby-keyword kw">begin</span>
-64:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">m</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-65:                                 <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoMethodError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-66:                                         <span class="ruby-keyword kw">begin</span>
-67:                                                 <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@tooltip</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">m</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
-68:                                         <span class="ruby-keyword kw">rescue</span>
-69:                                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;undefined method '#{m}' for #{self.class}&quot;</span>)
-70:                                         <span class="ruby-keyword kw">end</span>
-71:                                 <span class="ruby-keyword kw">end</span>
-72:                         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
         </div>
       </div>
 
