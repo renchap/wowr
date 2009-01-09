@@ -4,6 +4,8 @@ module Wowr
 			case code
 				when "noCharacter"
 					raise CharacterNotFound.new("Character '#{options[:character_name]}' not found.")
+				when "belowMinLevel"
+				  raise CharacterBelowMinLevel.new("Character '#{options[:character_name]}' is below min level (10).")
 				else
 					raise StandardError.new("The XML returned an error: #{code.to_s}")
 			end
@@ -94,6 +96,12 @@ module Wowr
 		class CharacterNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Character not found with name '#{string}'."
+			end
+		end
+		
+		class CharacterBelowMinLevel < ElementNotFoundError
+			def initialize(string)
+				super "Character with name '#{string}' is below min level (10)."
 			end
 		end
 		
