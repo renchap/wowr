@@ -124,11 +124,10 @@ module Wowr
 		class	SearchCharacter < Character
 		end
 		
-		
-		# Full character details
-		# uses characterInfo element
+    # Character details without reputations
+    # uses characterInfo element
 		# Made up of two parts, character and charactertab
-		class FullCharacter < Character
+		class InfosCharacter < Character
 			
 			# character_info
 			attr_reader :char_url, :title, :known_titles,
@@ -150,21 +149,16 @@ module Wowr
 									:talent_spec, :pvp,
 									:professions,
 									:items,
-									:buffs, :debuffs,
-									:reputation_categories
-			
-			alias_method :rep, :reputation_categories
-			alias_method :reputation, :reputation_categories
+									:buffs, :debuffs
 			
 			# It's made up of two parts
 			# Don't care about battlegroups yet
 			# I don't think I can call stuff from the constructor?
-			def initialize(sheet, reputation, api = nil)
+			def initialize(sheet, api = nil)
 				@api = api
 				
 				character_info(sheet%'character')
 				character_tab(sheet%'characterTab')
-				character_reputation(reputation)
 			end
 			
 			# <character
@@ -292,15 +286,33 @@ module Wowr
 					@debuffs << Buff.new(debuff, @api)
 				end
 			end
-
+		end
+		
+		# Full character details with reputations
+		class FullCharacter < InfosCharacter
+		  attr_reader :reputation_categories
+			
+			alias_method :rep, :reputation_categories
+			alias_method :reputation, :reputation_categories
+			
+			def initialize(sheet, reputation, api = nil)
+				@api = api
+			
+			  # Build the InfosCharacter
+			  super(sheet, api)
+			  
+			  # Add reputations
+				character_reputation(reputation)
+			end
+			
 			# character-reputation.xml
 			def character_reputation(elem)
-				@reputation_categories = {}
-				(elem/:factionCategory).each do |category|
-					@reputation_categories[category[:key]] = RepFactionCategory.new(category)
-				end
+  			@reputation_categories = {}
+  			(elem/:factionCategory).each do |category|
+  				@reputation_categories[category[:key]] = RepFactionCategory.new(category)
+  			end
 			end
-		end
+	  end
 		
 		
 		# Second stat bar, depends on character class
