@@ -182,7 +182,7 @@ module Wowr
 				@gem_properties			= (elem%'gemProperties').html if (elem%'gemProperties')
 				
 				# not all items have damage data
-				@damage							= ItemDamageData.new(elem%'damageData') if (elem%'damageData')
+				@damage							= ItemDamageData.new(elem%'damageData') unless !(elem%'damageData') || (elem%'damageData').empty?
 				
 				
 				# TODO: Test socket data with a variety of items
