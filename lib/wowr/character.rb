@@ -158,6 +158,10 @@ module Wowr
 				@api = api
 				
 				character_info(sheet%'character')
+				
+				# Check if characterTab is defined. If not, the character have no infos on the armory (not logged since last armory wipe)
+				throw CharacterNoInfos if (sheet%'characterTab').nil?
+				
 				character_tab(sheet%'characterTab')
 			end
 			
@@ -228,7 +232,6 @@ module Wowr
 			end
 			
 			def character_tab(elem)
-				
 				# <title value=""/>
 				@title				= (elem%'title')[:value] == "" ? nil : (elem%'title')[:value]
 			

@@ -105,6 +105,12 @@ module Wowr
 			end
 		end
 		
+		class CharacterNoInfos < StandardError
+		  def initialize(string)
+		    super "Character with name '#{string}' have no informations in the armory (not logged on WoW since last armory reset)"
+	    end
+    end
+		
 		class ItemNotFound < ElementNotFoundError
 			def initialize(string)
 				super "Item not found with name '#{string}'."
