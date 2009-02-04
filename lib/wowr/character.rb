@@ -160,7 +160,7 @@ module Wowr
 				character_info(sheet%'character')
 				
 				# Check if characterTab is defined. If not, the character have no infos on the armory (not logged since last armory wipe)
-				throw CharacterNoInfos if (sheet%'characterTab').nil?
+				raise Wowr::Exceptions::CharacterNoInfos.new(@name) if (sheet%'characterTab').nil?
 				
 				character_tab(sheet%'characterTab')
 			end
