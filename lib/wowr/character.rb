@@ -744,7 +744,7 @@ module Wowr
 				@gems[0]							= elem[:gem0Id].to_i == 0 ? nil : elem[:gem0Id].to_i
 				@gems[1]							= elem[:gem1Id].to_i == 0 ? nil : elem[:gem1Id].to_i
 				@gems[2]							= elem[:gem2Id].to_i == 0 ? nil : elem[:gem2Id].to_i
-				@permanent_enchant		= elem[:permanentEnchant].to_i
+				@permanent_enchant		= elem[:permanentenchant].to_i
 				@random_properties_id = elem[:randomPropertiesId] == 0 ? nil : elem[:randomPropertiesId].to_i
 				@seed									= elem[:seed].to_i # not sure if seed is so big it's overloading
 				@slot									= elem[:slot].to_i
