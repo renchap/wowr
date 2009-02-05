@@ -489,7 +489,7 @@ module Wowr
 		end
 		
 		class WeaponPower
-			attr_reader :base, :effective, :increased_dps, :pet_attack, :pet_spell
+			attr_reader :base, :effective, :increased_dps, :pet_attack, :pet_spell, :haste_rating
 			
 			def initialize(elem)
 				@base 					= elem[:base].to_i
@@ -537,7 +537,7 @@ module Wowr
 		# merged it into one set of objects for each thing
 		class Spell
 			attr_reader :arcane, :fire, :frost, :holy, :nature, :shadow,
-									:hit_rating, :bonus_healing, :penetration, :mana_regen
+									:hit_rating, :bonus_healing, :penetration, :mana_regen, :speed
 			
 			def initialize(elem)
 				@arcane = SpellDamage.new(elem%'bonusDamage'%'arcane', elem%'critChance'%'arcane')
@@ -551,6 +551,7 @@ module Wowr
 				@penetration 		= (elem%'penetration')[:value].to_i
 				@hit_rating 		= WeaponHitRating.new(elem%'hitRating')
 				@mana_regen 		= ManaRegen.new(elem%'manaRegen')
+				@speed 			= SpellSpeed.new(elem%'hasteRating')
 				
 				# elements = %w[arcane fire frost holy nature shadow]
 				# elements.each do |element|
@@ -560,6 +561,15 @@ module Wowr
 				# 	# eval("@#{element} = SpellDamage.new((elem%'bonusDamage'%element)[:value].to_i,
 				# 	# 																						(elem%'critChance'%element)[:percent].to_f)")
 				# end
+			end
+		end
+
+		class SpellSpeed
+			attr_reader :percent_increase, :haste_rating
+	
+			def initialize(elem)
+				@percent_increase	= elem[:hastePercent].to_f
+				@haste_rating 	= elem[:hasteRating].to_i
 			end
 		end
 		
