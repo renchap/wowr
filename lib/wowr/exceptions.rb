@@ -59,6 +59,18 @@ module Wowr
 			end
 		end
 		
+		class LoginRequiresAuthenticator < StandardError
+			def initialize
+				super "It was not possible to login using the username and password provided, because an authenticator code is required."
+			end
+		end		
+		
+		class LoginBroken < StandardError
+			def initialize
+				super "It was not possible to login due to a failure of login logic."
+			end
+		end		
+		
 		class InvalidArenaTeamSize < StandardError
 		end
 		
