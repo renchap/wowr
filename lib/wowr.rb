@@ -41,7 +41,7 @@ module Wowr
 		VERSION = '0.4.1'
 		
 		@@armory_base_url = 'wowarmory.com/'
-		@@login_base_url = 'blizzard.com/'
+		@@login_base_url = 'battle.net/'
 		
 		@@persistant_cookie = 'COM-warcraft'
 		@@temporary_cookie = 'JSESSIONID'
@@ -790,13 +790,13 @@ module Wowr
 		#
 		def login(username, password, authenticator = nil, both = false)
 			# Create the base URL we will be POSTing to.
-			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?loginType=com"
+			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?app=armory"
 			
 			# Ensure we add the correct bounce point.
 			if (@locale == "www")
-			  authentication_url += "&referer=http://www.wowarmory.com/index.xml"
+			  authentication_url += "&ref=http://www.wowarmory.com/index.xml"
 			else
-			  authentication_url += "&referer=http://#{@locale}.wowarmory.com/index.xml"
+			  authentication_url += "&ref=http://#{@locale}.wowarmory.com/index.xml"
 			end
 		
 			# Ensure we have no final stage.
@@ -881,13 +881,13 @@ module Wowr
 		# Reobtains a short term cookie by using the given long life cookie.
 		def refresh_login(long_life_cookie)
 			# Create the base URL we will be POSTing to.
-			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?loginType=com"
+			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?app=armory"
 			
 			# Ensure we add the correct bounce point.
 			if (@locale == "www")
-			  authentication_url += "&referer=http://www.wowarmory.com/index.xml"
+			  authentication_url += "&ref=http://www.wowarmory.com/index.xml"
 			else
-			  authentication_url += "&referer=http://#{@locale}.wowarmory.com/index.xml"
+			  authentication_url += "&ref=http://#{@locale}.wowarmory.com/index.xml"
 			end
 			
 			# All we need to do is goto the armory login page passing our long life cookie, we should get 302 instantly.
