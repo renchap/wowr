@@ -30,6 +30,7 @@ require 'wowr/extensions.rb'
 
 require 'wowr/calendar.rb'
 require 'wowr/character.rb'
+require 'wowr/achievements.rb'
 require 'wowr/guild.rb'
 require 'wowr/item.rb'
 require 'wowr/arena_team.rb'
@@ -52,7 +53,7 @@ module Wowr
 		@@character_talents_url			= 'character-talents.xml'
 		@@character_reputation_url	= 'character-reputation.xml'
 		
-		@@character_achievements_url = 'character_achievements.xml'
+		@@character_achievements_url = 'character-achievements.xml'
 
     @@calendar_user_url = 'vault/calendar/month-user.json'
     @@calendar_world_url = 'vault/calendar/month-world.json'
@@ -230,6 +231,18 @@ module Wowr
 		def get_character_sheet(name = @character_name, options = {})
 			return get_character(name, options)
 		end
+		
+		# Get achievement infos for a character.
+		# Requires realm.
+		# * name (String) Name of the character to get, defaults to that specified in constructor
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		def get_character_achievements(name = @character_name, options = {})
+		  options = character_options(name, options)
+		  
+		  character_achievements = get_xml(@@character_achievements_url, options)
+		  
+		  return Wowr::Classes::CharacterAchievementsInfos.new(character_achievements, self)
+	  end
 
 		# Find all guilds with the given string, return array of Wowr::Classes::SearchGuild.
 		# Searches across all realms.
