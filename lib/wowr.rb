@@ -51,10 +51,12 @@ module Wowr
 		@@character_sheet_url				= 'character-sheet.xml'
 		@@character_talents_url			= 'character-talents.xml'
 		@@character_reputation_url	= 'character-reputation.xml'
+		
+		@@character_achievements_url = 'character_achievements.xml'
 
-                @@calendar_user_url = 'vault/calendar/month-user.json'
-                @@calendar_world_url = 'vault/calendar/month-world.json'
-                @@calendar_detail_url = 'vault/calendar/detail.json'
+    @@calendar_user_url = 'vault/calendar/month-user.json'
+    @@calendar_world_url = 'vault/calendar/month-world.json'
+    @@calendar_detail_url = 'vault/calendar/detail.json'
 
 		@@guild_info_url		= 'guild-info.xml'
 		
@@ -208,23 +210,7 @@ module Wowr
 		# * name (String) Name of the character to get, defaults to that specified in constructor
 		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_character(name = @character_name, options = {})
-			if (name.is_a?(Hash))
-				options = name
-			else
-				options.merge!(:character_name => name)
-				
-				# TODO check
-				options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
-			end
-			
-			options = merge_defaults(options)
-			
-			if options[:character_name].nil? || options[:chracter_name] == ""
-				raise Wowr::Exceptions::CharacterNameNotSet.new
-			elsif options[:realm].nil? || options[:realm] == ""
-				raise Wowr::Exceptions::RealmNotSet.new
-			end
-			
+			options = character_options(name, options)
 			character_sheet = get_xml(@@character_sheet_url, options)
 			character_reputation = get_xml(@@character_reputation_url, options)
 			
@@ -962,6 +948,28 @@ module Wowr
 			# overwrite defaults with any given options
 			defaults.merge!(options)
 		end
+		
+		# Returns an option array from character_name and defaults
+		def character_options(name, options = {})
+		  if (name.is_a?(Hash))
+				options = name
+			else
+				options.merge!(:character_name => name)
+				
+				# TODO check
+				options = {:character_name => @character_name}.merge(options) if (!@character_name.nil?)
+			end
+			
+			options = merge_defaults(options)
+			
+			if options[:character_name].nil? || options[:chracter_name] == ""
+				raise Wowr::Exceptions::CharacterNameNotSet.new
+			elsif options[:realm].nil? || options[:realm] == ""
+				raise Wowr::Exceptions::RealmNotSet.new
+			end
+			
+			return options
+	  end
 
 		
 		# Return an Hpricot document for the given URL
