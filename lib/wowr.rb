@@ -1094,10 +1094,10 @@ module Wowr
 							end
 						end
 			  end
-			rescue 
-				raise Wowr::Exceptions::ServerDoesNotExist.new('Specified server at ' + url + ' does not exist.');
-                        rescue Timeout::Error => e
-                                raise Wowr::Exceptions::NetworkTimeout.new('Timed out - Timeout::Error Exception')
+			rescue Timeout::Error => e
+        raise Wowr::Exceptions::NetworkTimeout.new('Timed out - Timeout::Error Exception')
+			rescue Net::HTTPExceptions => e
+				raise Wowr::Exceptions::ServerDoesNotExist.new('Specified server at ' + url + ' does not exist.')
 			end
 		end
 		
