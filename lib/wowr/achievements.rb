@@ -20,10 +20,10 @@ module Wowr
       attr_reader :desc, :title, :category_id, :icon, :id, :points, :title
       def initialize achievement
         @desc = achievement['desc']
-        @category_id = achievement['categoryId']
+        @category_id = achievement['categoryId'].to_i
         @icon = achievement['icon']
-        @id = achievement['id']
-        @points = achievement['points']
+        @id = achievement['id'].to_i
+        @points = achievement['points'].to_i
         @title = achievement['title']
       end
     end
@@ -33,6 +33,11 @@ module Wowr
       def initialize achievement
         super(achievement)
         @date_completed = achievement['dateCompleted']
+        begin
+					@date_completed 	= achievement[:dateCompleted] == "" ? nil : DateTime.parse(achievement[:dateCompleted])
+				rescue
+					@date_completed 	= achievement[:dateCompleted] == "" ? nil : achievement[:dateCompleted]
+				end
       end
     end
   end
