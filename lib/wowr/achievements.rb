@@ -108,5 +108,11 @@ module Wowr
         @total_points = category['totalPoints'].to_i
       end
     end
+
+    class AchievementsList
+      def initialize elem, api
+        @api = api
+      end
+    end
   end
 end

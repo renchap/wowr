@@ -244,6 +244,21 @@ module Wowr
 		  return Wowr::Classes::CharacterAchievementsInfo.new(character_achievements, self)
 	  end
 
+		# Get details for all achievements in a category for a character.
+		# Requires realm.
+		# * achievement_category (Integer) ID of the achievement category
+		# * name (String) Name of the character to get, defaults to that specified in constructor
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		def get_character_achievements_category(achievement_category, name = @character_name, options = {})
+		  options = character_options(name, options)
+			options[:achievement_category] = achievement_category.to_i
+		  
+		  character_achievements_category = get_xml(@@character_achievements_url, options)
+		  
+		  return Wowr::Classes::AchievementsList.new(character_achievements_category, self)
+	  end
+
+
 		# Find all guilds with the given string, return array of Wowr::Classes::SearchGuild.
 		# Searches across all realms.
 		# Caching is disabled for searching.
@@ -995,6 +1010,8 @@ module Wowr
 					raise Wowr::Exceptions::raise_me(error[:errCode], options)
 				end
 
+      elsif (doc%'achievements')
+			  return doc
 			elsif (doc%'dungeons')
 				return doc
 			elsif (doc%'page').nil?
@@ -1033,7 +1050,8 @@ module Wowr
 				:month => 'month',
 				:year => 'year',
 				:event => 'e',
-        :now => 'now'
+        :now => 'now',
+				:achievement_category => 'c'
                         }    
 			
 			params = []
@@ -1079,6 +1097,7 @@ module Wowr
 			begin
 				tries = 0
 			  http.start do
+				  puts "Get URL "+url if options[:debug]
 			    res = http.request req
 					# response = res.body
 					
