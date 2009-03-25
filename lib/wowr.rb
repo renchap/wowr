@@ -241,7 +241,7 @@ module Wowr
 		  
 		  character_achievements = get_xml(@@character_achievements_url, options)
 		  
-		  return Wowr::Classes::CharacterAchievementsInfos.new(character_achievements, self)
+		  return Wowr::Classes::CharacterAchievementsInfo.new(character_achievements, self)
 	  end
 
 		# Find all guilds with the given string, return array of Wowr::Classes::SearchGuild.

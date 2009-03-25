@@ -1,6 +1,6 @@
 module Wowr
 	module Classes
-	  class CharacterAchievementsInfos
+	  class CharacterAchievementsInfo
 	    attr_reader :latest_achievements, :categories
 	    
 	    def initialize elem, api
