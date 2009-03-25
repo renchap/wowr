@@ -1,19 +1,19 @@
 module Wowr
-	module Classes
-	  class CharacterAchievementsInfo
-	    attr_reader :latest_achievements, :categories
-	    
-	    def initialize elem, api
-	      @api = api
-	      @latest_achievements = Array.new
-	      @categories = Array.new
-	      
-	      achievements = elem%'achievements'
-	      summary = achievements%'summary'
-	      
-	      # Get list of latest achievements
-	      summary.search('achievement').each do |achievement|
-	        @latest_achievements << CompletedAchievement.new(achievement)
+  module Classes
+    class CharacterAchievementsInfo
+      attr_reader :latest_achievements, :categories
+      
+      def initialize elem, api
+        @api = api
+        @latest_achievements = Array.new
+        @categories = Array.new
+        
+        achievements = elem%'achievements'
+        summary = achievements%'summary'
+        
+        # Get list of latest achievements
+        summary.search('achievement').each do |achievement|
+          @latest_achievements << CompletedAchievement.new(achievement)
         end
         
         # Get the infos about categories completion
@@ -52,13 +52,25 @@ module Wowr
     end 
     
     class Achievement
-      attr_reader :desc, :title, :category_id, :icon, :id, :points, :title
+      attr_reader :desc, :title, :category_id, :icon, :id, :points, :title, :reward
       def initialize achievement
         @desc = achievement['desc']
         @category_id = achievement['categoryId'].to_i
         @icon = achievement['icon']
         @id = achievement['id'].to_i
-        @points = achievement['points'].to_i
+        
+        if achievement['points']
+          @points = achievement['points'].to_i
+        else
+          @points = nil
+        end
+
+        if achievement['reward']
+          @reward = achievement['reward']
+        else
+          @reward = nil
+        end
+
         @title = achievement['title']
       end
     end
@@ -69,10 +81,10 @@ module Wowr
         super(achievement)
         @date_completed = achievement['dateCompleted']
         begin
-					@date_completed 	= achievement[:dateCompleted] == "" ? nil : DateTime.parse(achievement[:dateCompleted])
-				rescue
-					@date_completed 	= achievement[:dateCompleted] == "" ? nil : achievement[:dateCompleted]
-				end
+          @date_completed   = achievement[:dateCompleted] == "" ? nil : DateTime.parse(achievement[:dateCompleted])
+        rescue
+          @date_completed   = achievement[:dateCompleted] == "" ? nil : achievement[:dateCompleted]
+        end
       end
     end
     
@@ -110,8 +122,19 @@ module Wowr
     end
 
     class AchievementsList
+      attr_reader :achievements
       def initialize elem, api
         @api = api
+        @achievements = Array.new
+        elem.search('achievement').each do |achievement|
+          if achievement['dateCompleted']
+            new_achievement = CompletedAchievement.new(achievement)
+          else
+            new_achievement = Achievement.new(achievement)
+          end
+          @achievements << new_achievement
+
+        end
       end
     end
   end
