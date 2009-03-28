@@ -52,7 +52,7 @@ module Wowr
     end 
     
     class Achievement
-      attr_reader :desc, :title, :category_id, :icon, :id, :points, :title, :reward
+      attr_reader :desc, :title, :category_id, :icon, :id, :points, :reward
       def initialize achievement
         @desc = achievement['desc']
         @category_id = achievement['categoryId'].to_i
@@ -91,9 +91,11 @@ module Wowr
     class AchievementsCategory
       attr_reader :name
       attr_reader :subcategories
+      attr_reader :id
       attr_writer :parent
       def initialize category
         @name = category['name']
+        @id = category['id'].to_i if category['id']
         @subcategories = Array.new
       end
       
