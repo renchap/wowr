@@ -98,7 +98,10 @@ module Wowr
 				3 => 'Move Item',
 				4 => 'Deposit Money',
 				5 => 'Withdraw Money',
-				6 => 'Repair'
+				6 => 'Repair',
+				7 => 'Move Item',
+				8 => 'Withdraw Money',
+				9 => 'Guild Bank Tab Purchase'
 			}
 			
 			def initialize(elem, bank = nil, api = nil)
