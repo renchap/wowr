@@ -906,7 +906,7 @@ module Wowr
 			
 			# All we need to do is goto the armory login page passing our long life cookie, we should get 302 instantly.
 			stage1 = login_http(authentication_url, true, { @@persistant_cookie => long_life_cookie })
-			
+
 			# Let's see
 			if (stage1.code == "200")
 				# It's no good, our cookie doesn't work anymore.
@@ -1082,7 +1082,7 @@ module Wowr
 			
 			req["cookie"] += options[:cookie] if options[:cookie]
 
-			uri = URI.parse(url)
+			uri = URI.parse(URI.escape(url))
 			
 			http = Net::HTTP.new(uri.host, uri.port)
 			
@@ -1193,9 +1193,10 @@ module Wowr
 		end
 		
 		def login_final_bounce(url)
+puts url
 			# Let's bounce to our page that will give us our short term cookie, URL has Kerbrose style ticket.
 			finalstage = login_http(url)
-			
+
 			# Did we get a 200?
 			if (finalstage.code == "200")
 				# Get the short term cookie at last
@@ -1231,7 +1232,7 @@ module Wowr
 			end
 			
 			req.set_form_data(data, '&') if data
-			
+
 			http.start do
 				res = http.request(req)
 				
