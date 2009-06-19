@@ -1226,7 +1226,6 @@ module Wowr
 		end
 		
 		def login_http(url, ssl = false, cookie = nil, data = nil, post = false)
-		puts url
 			if (post)
 				req = Net::HTTP::Post.new(url)
 			else
