@@ -14,8 +14,8 @@ module Wowr #:nodoc:
 			alias_method :to_s, :name
 
 			def initialize(elem)
-				if (elem%'guildKey')
-					guild = (elem%'guildKey')
+				if (elem%'guildHeader')
+					guild = (elem%'guildHeader')
 				else
 					guild = elem
 				end

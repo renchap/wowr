@@ -463,16 +463,18 @@ module Wowr
 		# * cookie (String) Cookie data returned by the login function.
 		# * guild_name (String) Guild name
 		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
-		def get_guild_bank_contents(cookie, guild_name = @guild_name, options = {})
+		def get_guild_bank_contents(cookie, name = @guild_name, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+		
 			if (cookie.is_a?(Hash))
-				options = cookie
+				options = full_cookie
 			elsif (guild_name.is_a?(Hash))
 				options = guild_name
-				options.merge!(:cookie => cookie)
-				options.merge!(:guild_name => @guild_name)
+				options.merge!(:cookie => full_cookie)
+				options.merge!(:guild_name => name)
 			else
-				options.merge!(:cookie => cookie)
-				options.merge!(:guild_name => guild_name)
+				options.merge!(:cookie => full_cookie)
+				options.merge!(:guild_name => name)
 			end			
 			options = merge_defaults(options)
 			
@@ -504,14 +506,16 @@ module Wowr
 		# * guild_name (String) Guild name
 		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
 		def get_guild_bank_log(cookie, name = @guild_name, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-				options = cookie
+				options = full_cookie
 			elsif (name.is_a?(Hash))
 				options = name
-				options.merge!(:cookie => cookie)
-				options.merge!(:guild_name => @guild_name)
+				options.merge!(:cookie => full_cookie)
+				options.merge!(:guild_name => name)
 			else
-				options.merge!(:cookie => cookie)
+				options.merge!(:cookie => full_cookie)
 				options.merge!(:guild_name => name)
 			end
 			
@@ -538,20 +542,22 @@ module Wowr
 
 
 		def get_complete_world_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-			  options = cookie
+			  options = full_cookie
 			elsif (name.is_a?(Hash))
 			  options = name
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (realm.is_a?(Hash))
 			  options = realm
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => @realm)
 			else
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => realm)
 			end
@@ -572,20 +578,22 @@ module Wowr
 	
 
 		def get_world_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-			  options = cookie
+			  options = full_cookie
 			elsif (name.is_a?(Hash))
 			  options = name
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (realm.is_a?(Hash))
 			  options = realm
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => @realm)
 			else
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => realm)
 			end
@@ -618,21 +626,23 @@ module Wowr
 		end
 
 
-                def get_full_user_calendar(cookie, name = @character_name, realm = @realm, options = {})
+        def get_full_user_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-			  options = cookie
+			  options = full_cookie
 			elsif (name.is_a?(Hash))
 			  options = name
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (realm.is_a?(Hash))
 			  options = realm
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => @realm)
 			else
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => realm)
 			end
@@ -654,20 +664,22 @@ module Wowr
 
 
 		def get_user_calendar(cookie, name = @character_name, realm = @realm, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-			  options = cookie
+			  options = full_cookie
 			elsif (name.is_a?(Hash))
 			  options = name
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (realm.is_a?(Hash))
 			  options = realm
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => @realm)
 			else
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => realm)
 			end
@@ -701,28 +713,30 @@ module Wowr
 
 
 		def get_calendar_event (cookie, event = nil, name = @character_name, realm = @realm, options = {})
+			full_cookie = ' JSESSIONID='+cookie
+			
 			if (cookie.is_a?(Hash))
-			  options = cookie
+			  options = full_cookie
 			elsif (event.is_a?(Hash))
 			  options = event
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:event => nil)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (name.is_a?(Hash))
 			  options = name
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:event => event)
 			  options.merge!(:character_name => @character_name)
 			  options.merge!(:realm => @realm)
 			elsif (realm.is_a?(Hash))
 			  options = realm
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:event => event)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => @realm)
 			else
-			  options.merge!(:cookie => cookie)
+			  options.merge!(:cookie => full_cookie)
 			  options.merge!(:event => event)
 			  options.merge!(:character_name => name)
 			  options.merge!(:realm => realm)
@@ -1193,7 +1207,6 @@ module Wowr
 		end
 		
 		def login_final_bounce(url)
-puts url
 			# Let's bounce to our page that will give us our short term cookie, URL has Kerbrose style ticket.
 			finalstage = login_http(url)
 
@@ -1213,6 +1226,7 @@ puts url
 		end
 		
 		def login_http(url, ssl = false, cookie = nil, data = nil, post = false)
+		puts url
 			if (post)
 				req = Net::HTTP::Post.new(url)
 			else

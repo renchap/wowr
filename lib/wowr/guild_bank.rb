@@ -16,7 +16,7 @@ module Wowr
 			attr_reader :motd, :info, :money, :ranks, :bags
 			
 			def initialize(elem)
-				super(elem%'guildKey')
+				super(elem%'guildHeader')
 				
 				@motd = (elem%'guildMessages')[:motd]
 				@info = (elem%'guildMessages')[:info]
