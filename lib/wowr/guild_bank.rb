@@ -58,15 +58,18 @@ module Wowr
 			
 			def initialize(elem, api = nil)
 				super(elem)
-				
+			
 				@entries = []
-				(elem%'banklogs'/:banklog).each do |entry|
-					@entries << GuildBankLogEntry.new(entry, self, api)
-				end
 
-        @group_now = (elem%'banklogs')[:now].to_i
-        @group_next = (elem%'banklogs')[:next].to_i
-        @group_prev = (elem%'banklogs')[:prev].to_i
+				if (elem%'banklogs')
+				    (elem%'banklogs'/:banklog).each do |entry|
+					@entries << GuildBankLogEntry.new(entry, self, api)
+				    end
+
+			            @group_now = (elem%'banklogs')[:now].to_i
+			            @group_next = (elem%'banklogs')[:next].to_i
+			            @group_prev = (elem%'banklogs')[:prev].to_i
+				end
 			end
 		end
 		
