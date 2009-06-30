@@ -1056,12 +1056,12 @@ module Wowr
 			# TODO add handles for searching based upon stats
 			reqs = {
 				:character_name => 'n',
-				:source => "fl[source]",
+				:source => "fl[source]", # dungeon, badges, arena, etc
 				:dungeon => "fl[dungeon]", # seems it needs the dungeons id rather than name
-				:difficulty => "fl[difficulty]",
+				:difficulty => "fl[difficulty]", # normal, heroic, etc
 				:item_type => "fl[type]", # weapon, armor, trinket, etc
-				:item_slot => "fl[slot]" # head, shoulders, etc
-				:item_sub_type => "fl[subTp]" # leather, mail, etc
+				:item_slot => "fl[slot]", # head, shoulders, etc
+				:item_sub_type => "fl[subTp]", # leather, mail, etc
 				:realm => 'r',
 				:search => 'searchQuery',
 				:type => 'searchType',
@@ -1075,9 +1075,9 @@ module Wowr
 				:month => 'month',
 				:year => 'year',
 				:event => 'e',
-        :now => 'now',
+                :now => 'now',
 				:achievement_category => 'c'
-                        }    
+			}    
 			
 			params = []
 			options.each do |key, value|
