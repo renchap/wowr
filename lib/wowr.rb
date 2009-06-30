@@ -310,9 +310,11 @@ module Wowr
 		# Search for items with the specified name.
 		# Returns an array of Wowr::Classes::SearchItem.
 		# Searches across all realms.
+		# Can search for items based upon the following options => :source, :dungeon, :item_type ("armor, weapon, etc"), :item_slot (head, shoulders, etc), and :item_sub_type (leather, mail, etc)
+		# The dungeon param is the dungeon ID
 		# Caching is disabled for searching.
 		# * name (String) Name of the item
-		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.)
+		# * options (Hash) Optional hash of arguments identical to those used in the API constructor (realm, debug, cache etc.).
 		def search_items(name, options = {})
 			if (name.is_a?(Hash))
 				options = name
@@ -321,6 +323,8 @@ module Wowr
 			end
 			
 			options.merge!(:type => @@search_types[:item])
+			
+			puts options.inspect if options[:debug]
 			return search(options)
 		end
 		
@@ -1049,8 +1053,15 @@ module Wowr
 			
 			# better way of doing this?
 			# Map custom keys to the HTTP request values
+			# TODO add handles for searching based upon stats
 			reqs = {
 				:character_name => 'n',
+				:source => "fl[source]",
+				:dungeon => "fl[dungeon]", # seems it needs the dungeons id rather than name
+				:difficulty => "fl[difficulty]",
+				:item_type => "fl[type]", # weapon, armor, trinket, etc
+				:item_slot => "fl[slot]" # head, shoulders, etc
+				:item_sub_type => "fl[subTp]" # leather, mail, etc
 				:realm => 'r',
 				:search => 'searchQuery',
 				:type => 'searchType',
@@ -1111,7 +1122,7 @@ module Wowr
 			begin
 				tries = 0
 			  http.start do
-				  puts "Get URL "+url if options[:debug]
+				  puts "Get URL "+ url if options[:debug]
 			    res = http.request req
 					# response = res.body
 					

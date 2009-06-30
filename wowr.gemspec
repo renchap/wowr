@@ -2,10 +2,10 @@
 
 Gem::Specification.new do |s|
   s.name = %q{wowr}
-  s.version = "0.5.1"
+  s.version = "0.5.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Ben Humphreys", "Peter Wood", "Renaud Chaput"]
+  s.authors = ["Ben Humphreys", "Peter Wood", "Renaud Chaput", "Ken Preudhomme"]
   s.date = %q{2009-04-04}
   s.description = %q{Wowr is a Ruby library for accessing data in the World of Warcraft Armory. It provides an object-oriented interface to the XML data provided by the armory, giving access to items, characters, guilds and arena teams. It is designed for both single users and larger guild or portal sites for many users.}
   s.email = %q{peter+wowr@alastria.net}
