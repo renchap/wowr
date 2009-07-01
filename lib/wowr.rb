@@ -1075,7 +1075,7 @@ module Wowr
 				:month => 'month',
 				:year => 'year',
 				:event => 'e',
-                :now => 'now',
+        :now => 'now',
 				:achievement_category => 'c'
 			}    
 			
@@ -1134,7 +1134,7 @@ module Wowr
 							if tries > @@max_connection_tries
 								raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
 							else
-								retry
+								redo
 							end
 						end
 			  end
@@ -1269,7 +1269,7 @@ module Wowr
 						if tries > @@max_connection_tries
 							raise Wowr::Exceptions::NetworkTimeout.new('Timed out')
 						else
-							retry
+							redo
 						end
 					end
 			end				
