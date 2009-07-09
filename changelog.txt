@@ -1,3 +1,10 @@
+0.5.3
+* Removed titles due to removal from Blizzard Armory.
+
+0.5.2
+* Added advanced item searching (source, dungeonId, type, subtype, etc)
+* Fixed bug with http connection retries with ruby 1.9
+
 0.5.0
 * Removed character skills due to removal from Blizzard Armory, primary professions are still available.
 * Reimplemented Armory login support to use central Blizzard authentication servers.
