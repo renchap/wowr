@@ -135,7 +135,7 @@ module Wowr
 			
 			# character_info
 			attr_reader :char_url, 
-			            # :title, :known_titles,
+			             :title, :known_titles,
 									:faction, :faction_id,
 			 						:arena_teams,
 									:last_modified,
@@ -245,8 +245,14 @@ module Wowr
 			def character_tab(elem)
 				# <title value=""/>
 				#@title				= (elem%'title')[:value] == "" ? nil : (elem%'title')[:value]
-			
-				#@known_titles = []
+				if (@prefix || @suffix)
+				  @title = (@prefix ? @prefix : "") + "%s" + (@suffix ? @suffix : "") 
+				end
+
+
+				@known_titles = []
+
+				@known_titles << @title if (@title)
 
 				#@known_titles << @title if (@title)
 				#(elem%'knownTitles'/:title).each do |entry|
