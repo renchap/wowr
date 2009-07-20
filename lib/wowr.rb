@@ -3,7 +3,7 @@
 # http://wowr.rubyforge.org/
 # Written by Ben Humphreys
 # http://benhumphreys.co.uk/
-# Matained By Peter Wood
+# Maintained By Peter Wood
 # http://narwar.net/
 # 
 # Author:: Ben Humphreys
@@ -1115,7 +1115,7 @@ module Wowr
 			  end
 			rescue Timeout::Error => e
         raise Wowr::Exceptions::NetworkTimeout.new('Timed out - Timeout::Error Exception')
-			rescue Net::HTTPExceptions => e
+			rescue SocketError, Net::HTTPExceptions => e
 				raise Wowr::Exceptions::ServerDoesNotExist.new('Specified server at ' + url + ' does not exist.')
 			end
 		end
